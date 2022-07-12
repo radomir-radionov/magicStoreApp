@@ -1,16 +1,24 @@
+import Modal from "modules/ModalWindow/Modal";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import configureAppStore from "store";
 import { GlobalStyles } from "styles";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+
+const store = configureAppStore();
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <GlobalStyles />
-    <App />
+    <Provider store={store}>
+      <GlobalStyles />
+      <Modal />
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 

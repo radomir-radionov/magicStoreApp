@@ -1,17 +1,19 @@
-import { ReactNode } from "react";
+import { ReactNode, MouseEvent, FC } from "react";
 import { ButtonStyled } from "./styles";
 
 interface IProps {
   children: ReactNode;
+  onClick?: (event: MouseEvent<HTMLElement>) => void;
+  type?: "button" | "submit";
   //   className?: string;
   //   disabled?: boolean;
   //   onClick?: (event: MouseEvent<HTMLElement>) => void;
-  //   type?: "button" | "submit";
+
   //   variant?: BUTTON_VARIANTS;
 }
 
-const Button = ({ children }: IProps) => {
-  return <ButtonStyled>{children}</ButtonStyled>;
+const Button: FC<IProps> = ({ children, onClick }) => {
+  return <ButtonStyled onClick={onClick}>{children}</ButtonStyled>;
 };
 
 export default Button;

@@ -9,6 +9,8 @@ enum colors {
   BACKGROUND_WHITE = "#fff",
   BACKGROUND_VIVID_CYAN = "#08fdd8",
   BACKGROUND_DARK_GRAY = "#181818",
+  MODAL_BACKGROUND_OPACITY = "rgba(64, 63, 77, 0.7)",
+  // background: rgba(0, 0, 0, 0.6);
 }
 
 export default colors;
