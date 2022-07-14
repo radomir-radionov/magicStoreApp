@@ -1,3 +1,4 @@
+import axios from "axios";
 import { AnimatedTitle, Button } from "components";
 import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
 import { useDispatch } from "react-redux";
@@ -15,9 +16,21 @@ import {
 const Greetings = () => {
   const dispatch = useDispatch();
 
+  // const exampleRequest = async () => {
+  //   await axios
+  //     .get(`http://localhost:5000/api/getTopProducts`)
+  //     .then((res) => console.log(res));
+  // };
+
   const onClickOpenSignInModal = () => {
     dispatch(
       modalActionTypes.openModal({ modalType: MODAL_TYPES.SIGN_IN_MODAL })
+    );
+  };
+
+  const onClickOpenSignUpModal = () => {
+    dispatch(
+      modalActionTypes.openModal({ modalType: MODAL_TYPES.SIGN_UP_MODAL })
     );
   };
 
@@ -28,7 +41,7 @@ const Greetings = () => {
       </GreetingsZone>
       <RegistrationZone>
         <Button onClick={onClickOpenSignInModal}>Sign in</Button>
-        <Button onClick={onClickOpenSignInModal}>Sign up</Button>
+        <Button onClick={onClickOpenSignUpModal}>Sign up</Button>
       </RegistrationZone>
       <ScrollDownRight>
         <TextScrollDown>scroll down</TextScrollDown>

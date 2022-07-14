@@ -1,4 +1,11 @@
-import { LayoutPage, HomePage, UserPage, ProductPage } from "pages";
+import {
+  LayoutPage,
+  HomePage,
+  UserPage,
+  ProductPage,
+  NotFoundPage,
+  AboutPage,
+} from "pages";
 import { Routes, Route } from "react-router-dom";
 
 const AppRouter = () => {
@@ -8,7 +15,9 @@ const AppRouter = () => {
         <Route index element={<HomePage />} />
         <Route path="user" element={<UserPage />} />
         <Route path="product" element={<ProductPage />} />
+        <Route path="about" element={<AboutPage />} />
       </Route>
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };

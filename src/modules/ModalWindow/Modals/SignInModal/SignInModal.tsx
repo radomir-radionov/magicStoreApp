@@ -3,6 +3,8 @@ import { FC } from "react";
 import { useDispatch } from "react-redux";
 import { modalActionTypes } from "redux/modal";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { exampleSchema, IFormInputs } from "./data";
 import { Form, SignInModalStyled, Title } from "./styles";
 
 interface IProps {
@@ -19,22 +21,26 @@ const SignInModal: FC<IProps> = ({ onClose }) => {
     resolver: yupResolver(exampleSchema),
   });
 
-  const onSubmit = () => {
-    dispatch(modalActionTypes.exampleRequest());
+  const onSubmit = (data: any) => {
+    console.log({ data });
+    // dispatch(modalActionTypes.exampleRequest());
   };
 
   return (
     <SignInModalStyled>
-      <Title>Example modal</Title>
+      <Title>Sign in</Title>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <InputText
           placeholder="Введите ваше имя"
-          label="Имя"
+          label="Name"
           htmlFor="name"
-          {...register("login")}
+          error={errors.name?.message}
+          {...register("name")}
         />
         <Button type="submit">Отправить запрос</Button>
-        <Button onClick={onClose}>Закрыть</Button>
+        <Button type="submit" onClick={onClose}>
+          Закрыть
+        </Button>
       </Form>
     </SignInModalStyled>
   );
