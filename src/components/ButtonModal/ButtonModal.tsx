@@ -8,8 +8,12 @@ interface IProps {
   disabled?: boolean;
 }
 
-const ButtonModal: FC<IProps> = ({ children, onClick, disabled }) => {
-  return <ButtonStyled onClick={onClick}>{children}</ButtonStyled>;
+const ButtonModal: FC<IProps> = ({ children, onClick, disabled = false }) => {
+  return (
+    <ButtonStyled onClick={onClick} disabled={disabled}>
+      {children}
+    </ButtonStyled>
+  );
 };
 
 export default ButtonModal;

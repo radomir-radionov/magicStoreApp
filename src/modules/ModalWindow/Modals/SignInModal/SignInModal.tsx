@@ -1,46 +1,63 @@
-import { Button, InputText } from "components";
+import { ButtonModal, InputText } from "components";
 import { FC } from "react";
 import { useDispatch } from "react-redux";
-import { modalActionTypes } from "redux/modal";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { exampleSchema, IFormInputs } from "./data";
-import { Form, SignInModalStyled, Title } from "./styles";
+
+import { ButtonsBox, Form, SignInModalStyled, Title } from "./styles";
+import schema, { IFormProps } from "./schema";
 
 interface IProps {
   onClose: () => void;
 }
 
 const SignInModal: FC<IProps> = ({ onClose }) => {
-  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<IFormInputs>({
-    resolver: yupResolver(exampleSchema),
+    getFieldState,
+    formState: { errors, isDirty, isValid, dirtyFields },
+  } = useForm<IFormProps>({
+    resolver: yupResolver(schema),
+    mode: "onChange",
   });
 
-  const onSubmit = (data: any) => {
+  const fieldEmail = getFieldState("email");
+  const fieldPassword = getFieldState("password");
+
+  const onSubmitHandler = (data: IFormProps) => {
     console.log({ data });
-    // dispatch(modalActionTypes.exampleRequest());
   };
 
   return (
     <SignInModalStyled>
-      <Title>Sign in</Title>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Title>Sign up</Title>
+      <Form onSubmit={handleSubmit(onSubmitHandler)}>
         <InputText
-          placeholder="Введите ваше имя"
-          label="Name"
-          htmlFor="name"
-          error={errors.name?.message}
-          {...register("name")}
+          label="Email"
+          htmlFor="email"
+          placeholder="Enter your email"
+          fieldData={fieldEmail}
+          errors={errors.email}
+          {...register("email")}
         />
-        <Button type="submit">Отправить запрос</Button>
-        <Button type="submit" onClick={onClose}>
-          Закрыть
-        </Button>
+        <InputText
+          label="Password"
+          htmlFor="password"
+          placeholder="Enter your password"
+          fieldData={fieldPassword}
+          errors={errors.password}
+          {...register("password")}
+        />
+
+        <ButtonsBox>
+          <ButtonModal type="submit" disabled={!isDirty || !isValid}>
+            Submit
+          </ButtonModal>
+          <ButtonModal onClick={onClose} type="submit">
+            Close
+          </ButtonModal>
+        </ButtonsBox>
       </Form>
     </SignInModalStyled>
   );

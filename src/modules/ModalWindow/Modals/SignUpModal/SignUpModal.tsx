@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import schema, { IFormInputs } from "./data";
+import schema, { IFormProps } from "./schema";
 import { ButtonsBox, Form, SignUpModalStyled, Title } from "./styles";
 import { ButtonModal, InputText } from "components";
 
@@ -13,14 +13,19 @@ const SignUpModal: FC<IProps> = ({ onClose }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
-  } = useForm<IFormInputs>({
+    getFieldState,
+    formState: { errors, isDirty, isValid, dirtyFields },
+  } = useForm<IFormProps>({
     resolver: yupResolver(schema),
-    mode: "onSubmit",
-    reValidateMode: "onSubmit",
+    mode: "onChange",
   });
 
-  const onSubmitHandler = (data: any) => {
+  const fieldName = getFieldState("name");
+  const fieldEmail = getFieldState("email");
+  const fieldPassword = getFieldState("password");
+  const fieldConfirmPassword = getFieldState("confirmPassword");
+
+  const onSubmitHandler = (data: IFormProps) => {
     console.log({ data });
   };
 
@@ -29,36 +34,39 @@ const SignUpModal: FC<IProps> = ({ onClose }) => {
       <Title>Sign up</Title>
       <Form onSubmit={handleSubmit(onSubmitHandler)}>
         <InputText
-          id="name"
           label="Name"
           htmlFor="name"
-          error={errors.name?.message}
           placeholder="Enter your name"
+          fieldData={fieldName}
+          errors={errors.name}
           {...register("name")}
         />
         <InputText
           label="Email"
           htmlFor="email"
-          error={errors.email?.message}
           placeholder="Enter your email"
+          fieldData={fieldEmail}
+          errors={errors.email}
           {...register("email")}
         />
         <InputText
           label="Password"
           htmlFor="password"
-          error={errors.password?.message}
           placeholder="Enter your password"
+          fieldData={fieldPassword}
+          errors={errors.password}
           {...register("password")}
         />
         <InputText
-          label="Repeat password"
+          label="Confirm Password"
           htmlFor="confirmPassword"
-          error={errors.confirmPassword?.message}
           placeholder="Confirm your password"
+          fieldData={fieldConfirmPassword}
+          errors={errors.confirmPassword}
           {...register("confirmPassword")}
         />
         <ButtonsBox>
-          <ButtonModal type="submit" disabled={!isValid}>
+          <ButtonModal type="submit" disabled={!isDirty || !isValid}>
             Submit
           </ButtonModal>
           <ButtonModal onClick={onClose} type="submit">

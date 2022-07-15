@@ -21,11 +21,12 @@ export const Title = styled.h3`
   color: ${colors.TEXT_BLACK};
 `;
 
-export const Form = styled.form``;
+export const Form = styled.form`
+  width: 300px;
+`;
 
 export const ButtonsBox = styled.div`
   display: flex;
-  flex-direction: column;
   gap: 20px;
   margin-top: 2rem;
 `;
