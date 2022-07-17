@@ -3,21 +3,25 @@ import { FC } from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-
 import { ButtonsBox, Form, SignInModalStyled, Title } from "./styles";
-import schema, { IFormProps } from "./schema";
+import schema from "./schema";
+import { userActions } from "redux/user";
+import { modalActionTypes } from "redux/modal";
+import { ISignInDataRequest } from "types/user";
 
 interface IProps {
   onClose: () => void;
 }
 
 const SignInModal: FC<IProps> = ({ onClose }) => {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
     getFieldState,
     formState: { errors, isDirty, isValid, dirtyFields },
-  } = useForm<IFormProps>({
+  } = useForm<ISignInDataRequest>({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
@@ -25,13 +29,14 @@ const SignInModal: FC<IProps> = ({ onClose }) => {
   const fieldEmail = getFieldState("email");
   const fieldPassword = getFieldState("password");
 
-  const onSubmitHandler = (data: IFormProps) => {
-    console.log({ data });
+  const onSubmitHandler = (data: ISignInDataRequest) => {
+    dispatch(userActions.login(data));
+    dispatch(modalActionTypes.closeModal());
   };
 
   return (
     <SignInModalStyled>
-      <Title>Sign up</Title>
+      <Title>Sign in</Title>
       <Form onSubmit={handleSubmit(onSubmitHandler)}>
         <InputText
           label="Email"
@@ -49,7 +54,6 @@ const SignInModal: FC<IProps> = ({ onClose }) => {
           errors={errors.password}
           {...register("password")}
         />
-
         <ButtonsBox>
           <ButtonModal type="submit" disabled={!isDirty || !isValid}>
             Submit

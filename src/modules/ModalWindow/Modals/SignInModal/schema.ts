@@ -1,10 +1,5 @@
 import * as yup from "yup";
 
-export interface IFormProps {
-  email: string;
-  password: string;
-}
-
 export const schema = yup.object().shape({
   email: yup
     .string()

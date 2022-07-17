@@ -1,21 +1,28 @@
 import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import schema, { IFormProps } from "./schema";
+import schema from "./schema";
 import { ButtonsBox, Form, SignUpModalStyled, Title } from "./styles";
 import { ButtonModal, InputText } from "components";
+import { useDispatch } from "react-redux";
+import { userActions } from "redux/user";
+
+import { modalActionTypes } from "redux/modal";
+import { ISignUpDataRequest } from "types/user";
 
 interface IProps {
   onClose: () => void;
 }
 
 const SignUpModal: FC<IProps> = ({ onClose }) => {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
     getFieldState,
     formState: { errors, isDirty, isValid, dirtyFields },
-  } = useForm<IFormProps>({
+  } = useForm<ISignUpDataRequest>({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
@@ -25,8 +32,9 @@ const SignUpModal: FC<IProps> = ({ onClose }) => {
   const fieldPassword = getFieldState("password");
   const fieldConfirmPassword = getFieldState("confirmPassword");
 
-  const onSubmitHandler = (data: IFormProps) => {
-    console.log({ data });
+  const onSubmitHandler = (data: ISignUpDataRequest) => {
+    dispatch(userActions.registration(data));
+    dispatch(modalActionTypes.closeModal());
   };
 
   return (

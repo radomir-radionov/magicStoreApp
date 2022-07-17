@@ -1,15 +1,11 @@
+import { IAuthResponse } from "types/response";
+
 export interface IUserState {
+  test: any;
   isAuth: boolean;
-  userData: any;
+  userData: IAuthResponse | null;
   error: {
     isError: boolean;
     status: string | null;
   };
-}
-
-export interface ISignUpDataPayload {
-  email: string;
-  name: string;
-  password: string;
-  id: string;
 }

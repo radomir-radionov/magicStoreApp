@@ -1,9 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ISignUpDataPayload, IUserState } from "./types";
+import { IAuthResponse } from "types/response";
+import { ISignInDataRequest, ISignUpDataRequest } from "types/user";
+import { IUserState } from "./types";
 
 const initialState: IUserState = {
+  test: null,
   isAuth: false,
-  userData: null,
+  userData: {} as IAuthResponse,
   error: {
     isError: false,
     status: null,
@@ -14,19 +17,26 @@ export const userSlice = createSlice({
   name: "USER",
   initialState,
   reducers: {
-    example: (
-      state: IUserState,
-      { payload }: PayloadAction<ISignUpDataPayload>
-    ) => {
-      state.isAuth = true;
+    setUser: (state: IUserState, { payload }: PayloadAction<IAuthResponse>) => {
       state.userData = payload;
     },
-    setUser: (
+    registration: (
       state: IUserState,
-      { payload }: PayloadAction<ISignUpDataPayload>
+      { payload }: PayloadAction<ISignUpDataRequest>
+    ) => {},
+    login: (
+      state: IUserState,
+      { payload }: PayloadAction<ISignInDataRequest>
+    ) => {},
+    logout: (state: IUserState) => {},
+    test: (
+      state: IUserState,
+      { payload }: PayloadAction<ISignUpDataRequest>
     ) => {
-      state.isAuth = true;
-      state.userData = payload;
+      state.test = payload;
+    },
+    setAuth: (state: IUserState, { payload }: PayloadAction<boolean>) => {
+      state.isAuth = payload;
     },
     setError: (state: IUserState, { payload }: PayloadAction<string>) => {
       state.userData = null;

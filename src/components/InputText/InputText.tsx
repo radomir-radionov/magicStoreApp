@@ -30,8 +30,6 @@ const InputText: FC<IProps> = forwardRef(
   ) => {
     const { invalid, isDirty } = fieldData;
 
-    console.log("fieldData:", invalid, isDirty);
-
     return (
       <InputWrapper>
         {errors && <ErrorMessage>{errors.message}</ErrorMessage>}

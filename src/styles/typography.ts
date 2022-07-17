@@ -2,8 +2,8 @@ import { css } from "styled-components";
 
 const H1 = css`
   font-weight: 600;
-  font-size: 9rem;
-  line-height: 8rem;
+  font-size: 8rem;
+  line-height: 7rem;
 `;
 
 const H2 = css`

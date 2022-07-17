@@ -1,8 +1,10 @@
 import axios from "axios";
 import { AnimatedTitle, Button } from "components";
 import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { modalActionTypes } from "redux/modal";
+import { userActions } from "redux/user";
+import { getIsAuthSelector } from "redux/user/selectors";
 import {
   GreetingsStyled,
   GreetingsZone,
@@ -15,6 +17,7 @@ import {
 
 const Greetings = () => {
   const dispatch = useDispatch();
+  const isAuth = useSelector(getIsAuthSelector);
 
   // const exampleRequest = async () => {
   //   await axios
@@ -34,14 +37,24 @@ const Greetings = () => {
     );
   };
 
+  const onClickLogoutHandler = () => {
+    dispatch(userActions.logout());
+  };
+
   return (
     <GreetingsStyled>
       <GreetingsZone>
         <AnimatedTitle />
       </GreetingsZone>
       <RegistrationZone>
-        <Button onClick={onClickOpenSignInModal}>Sign in</Button>
-        <Button onClick={onClickOpenSignUpModal}>Sign up</Button>
+        {!isAuth ? (
+          <>
+            <Button onClick={onClickOpenSignInModal}>Sign in</Button>
+            <Button onClick={onClickOpenSignUpModal}>Sign up</Button>
+          </>
+        ) : (
+          <Button onClick={onClickLogoutHandler}>Logout</Button>
+        )}
       </RegistrationZone>
       <ScrollDownRight>
         <TextScrollDown>scroll down</TextScrollDown>

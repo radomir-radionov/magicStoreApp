@@ -3,8 +3,8 @@ import { colors } from "styles";
 
 export const ButtonStyled = styled.button`
   position: relative;
-  padding: 1.4rem 3.4rem;
-
+  width: 18rem;
+  height: 5rem;
   letter-spacing: 4px;
   color: ${colors.TEXT_VIVID_CYAN};
   border: 1px solid ${colors.TEXT_VIVID_CYAN};

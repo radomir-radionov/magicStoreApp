@@ -5,13 +5,6 @@ import {
 } from "utils/validatesInput";
 import * as yup from "yup";
 
-export interface IFormProps {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
-
 export const schema = yup.object().shape({
   name: yup
     .string()

@@ -1,16 +1,26 @@
+import { useSelector } from "react-redux";
+import { getUserNameSelector } from "redux/user/selectors";
 import { AnimatedTitleStyled, Br, SpanStyled } from "./styles";
 
 const AnimatedTitle = () => {
+  const userName = useSelector(getUserNameSelector);
+
   return (
     <AnimatedTitleStyled>
       <SpanStyled>H</SpanStyled>
       <SpanStyled>i</SpanStyled>
       <SpanStyled>,</SpanStyled>
       <Br />
-      <SpanStyled>u</SpanStyled>
-      <SpanStyled>s</SpanStyled>
-      <SpanStyled>e</SpanStyled>
-      <SpanStyled>r</SpanStyled>
+      {userName?.length ? (
+        <SpanStyled>{userName}</SpanStyled>
+      ) : (
+        <>
+          <SpanStyled>u</SpanStyled>
+          <SpanStyled>s</SpanStyled>
+          <SpanStyled>e</SpanStyled>
+          <SpanStyled>r</SpanStyled>
+        </>
+      )}
       <SpanStyled>,</SpanStyled>
       <Br />
       <SpanStyled>w</SpanStyled>
