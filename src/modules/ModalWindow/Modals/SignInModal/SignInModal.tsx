@@ -1,9 +1,13 @@
-import { Button, InputText } from "components";
+import { ButtonModal, InputText } from "components";
 import { FC } from "react";
 import { useDispatch } from "react-redux";
-import { modalActionTypes } from "redux/modal";
 import { useForm } from "react-hook-form";
-import { Form, SignInModalStyled, Title } from "./styles";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { ButtonsBox, Form, SignInModalStyled, Title } from "./styles";
+import schema from "./schema";
+import { userActions } from "redux/user";
+import { modalActionTypes } from "redux/modal";
+import { ISignInDataRequest } from "types/user";
 
 interface IProps {
   onClose: () => void;
@@ -11,30 +15,53 @@ interface IProps {
 
 const SignInModal: FC<IProps> = ({ onClose }) => {
   const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<IFormInputs>({
-    resolver: yupResolver(exampleSchema),
+    getFieldState,
+    formState: { errors, isDirty, isValid, dirtyFields },
+  } = useForm<ISignInDataRequest>({
+    resolver: yupResolver(schema),
+    mode: "onChange",
   });
 
-  const onSubmit = () => {
-    dispatch(modalActionTypes.exampleRequest());
+  const fieldEmail = getFieldState("email");
+  const fieldPassword = getFieldState("password");
+
+  const onSubmitHandler = (data: ISignInDataRequest) => {
+    dispatch(userActions.login(data));
+    dispatch(modalActionTypes.closeModal());
   };
 
   return (
     <SignInModalStyled>
-      <Title>Example modal</Title>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Title>Sign in</Title>
+      <Form onSubmit={handleSubmit(onSubmitHandler)}>
         <InputText
-          placeholder="Введите ваше имя"
-          label="Имя"
-          htmlFor="name"
-          {...register("login")}
+          label="Email"
+          htmlFor="email"
+          placeholder="Enter your email"
+          fieldData={fieldEmail}
+          errors={errors.email}
+          {...register("email")}
         />
-        <Button type="submit">Отправить запрос</Button>
-        <Button onClick={onClose}>Закрыть</Button>
+        <InputText
+          label="Password"
+          htmlFor="password"
+          placeholder="Enter your password"
+          fieldData={fieldPassword}
+          errors={errors.password}
+          {...register("password")}
+        />
+        <ButtonsBox>
+          <ButtonModal type="submit" disabled={!isDirty || !isValid}>
+            Submit
+          </ButtonModal>
+          <ButtonModal onClick={onClose} type="submit">
+            Close
+          </ButtonModal>
+        </ButtonsBox>
       </Form>
     </SignInModalStyled>
   );

@@ -3,17 +3,15 @@ import createSagaMiddleware from "redux-saga";
 import rootReducer from "./rootReducer";
 import rootSaga from "./rootSaga";
 
-const configureAppStore = () => {
-  const sagaMiddleware = createSagaMiddleware();
+const sagaMiddleware = createSagaMiddleware();
 
-  const store = configureStore({
-    reducer: rootReducer,
-    middleware: [sagaMiddleware],
-  });
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: [sagaMiddleware],
+});
 
-  sagaMiddleware.run(rootSaga);
+sagaMiddleware.run(rootSaga);
 
-  return store;
-};
+export default store;
 
-export default configureAppStore;
+export type RootState = ReturnType<typeof store.getState>;

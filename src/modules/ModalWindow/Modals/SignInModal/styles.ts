@@ -5,25 +5,28 @@ export const SignInModalStyled = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  min-width: 600px;
+  min-width: 300px;
   min-height: 300px;
   margin-right: -50%;
-  padding: 64px 111px;
+  padding: 4rem 6rem;
   border-radius: 16px;
-  background-color: ${colors.BACKGROUND_DARK_GRAY};
+  background-color: ${colors.BACKGROUND_WHITE};
   transform: translate(-50%, -50%);
 `;
 
 export const Title = styled.h3`
-  margin-bottom: 48px;
+  margin-bottom: 3rem;
+  ${typography.H3}
   text-align: center;
-  ${typography.H3};
-  color: ${colors.TEXT_1};
+  color: ${colors.TEXT_BLACK};
 `;
 
 export const Form = styled.form`
-  button {
-    width: 100%;
-    margin-top: 32px;
-  }
+  width: 300px;
+`;
+
+export const ButtonsBox = styled.div`
+  display: flex;
+  gap: 20px;
+  margin-top: 2rem;
 `;

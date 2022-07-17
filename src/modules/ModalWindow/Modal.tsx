@@ -6,7 +6,6 @@ import { ModalWrapper } from "./styles";
 const Modal = () => {
   const dispatch = useDispatch();
   const modalType: string = useSelector(modalTypeSelector);
-  console.log(modalType);
   const ModalComponent = MODALS_MAPPING[modalType];
 
   const closeModal = () => {

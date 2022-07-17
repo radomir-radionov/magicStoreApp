@@ -30,7 +30,7 @@ const Menu = () => {
             <Link href={pageRoutes.PRODUCT}>Product</Link>
           </NavItem>
           <NavItem>
-            <Link href={pageRoutes.HOME}>About</Link>
+            <Link href={pageRoutes.ABOUT}>About</Link>
           </NavItem>
         </NavList>
       </NavStyled>
