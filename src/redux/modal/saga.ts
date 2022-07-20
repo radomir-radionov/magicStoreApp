@@ -6,8 +6,6 @@ import { modalActionTypes } from "./slice";
 // any type - just for example
 function* exampleRequestSaga(): any {
   const result = yield call(getExample);
-
-  console.log(result);
 }
 
 function* modalSaga() {

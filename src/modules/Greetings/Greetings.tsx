@@ -19,12 +19,6 @@ const Greetings = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector(getIsAuthSelector);
 
-  // const exampleRequest = async () => {
-  //   await axios
-  //     .get(`http://localhost:5000/api/getTopProducts`)
-  //     .then((res) => console.log(res));
-  // };
-
   const onClickOpenSignInModal = () => {
     dispatch(
       modalActionTypes.openModal({ modalType: MODAL_TYPES.SIGN_IN_MODAL })
