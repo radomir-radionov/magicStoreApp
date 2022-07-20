@@ -29,6 +29,12 @@ const BODY1 = css`
   line-height: 5rem;
 `;
 
+const BODY2 = css`
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 3rem;
+`;
+
 const BUTTON = css`
   font-weight: 500;
   font-size: 2rem;
@@ -42,6 +48,7 @@ const typography = {
   H3,
   H4,
   BODY1,
+  BODY2,
   BUTTON,
 };
 

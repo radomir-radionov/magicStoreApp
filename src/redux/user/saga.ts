@@ -1,13 +1,17 @@
-import { all, call, put, takeLatest } from "redux-saga/effects";
+import { all, call, put, SagaReturnType, takeLatest } from "redux-saga/effects";
 import {
+  checkAuthRequest,
   postLogoutRequest,
   postSignInRequest,
   postSignUpRequest,
 } from "requests";
 import { userActions } from "./slice";
-import { IAuthResponse } from "types/response";
+import { IUser } from "types/user";
+import { putNewUserDataRequest } from "requests/putNewUserDataRequest";
 
-export function* signUpSaga({
+// type SignUpSagaResponse = SagaReturnType<typeof IAuthResponse>;
+
+export function* registrationSaga({
   payload,
 }: ReturnType<typeof userActions.registration>): Generator<any> {
   const { email, password, name } = payload;
@@ -15,16 +19,15 @@ export function* signUpSaga({
     const response: any = yield call(() =>
       postSignUpRequest(email, password, name)
     );
-    console.log(response);
     localStorage.setItem("token", response.data.accessToken);
     yield put(userActions.setAuth(true));
-    yield put(userActions.setUser(response.data));
+    yield put(userActions.setUser(response.data.user));
   } catch (e) {
     yield put(userActions.setError("User is not authorized!!!"));
   }
 }
 
-export function* signInSaga({
+export function* loginSaga({
   payload,
 }: ReturnType<typeof userActions.login>): Generator<any> {
   const { email, password } = payload;
@@ -33,7 +36,7 @@ export function* signInSaga({
     console.log(response);
     localStorage.setItem("token", response.data.accessToken);
     yield put(userActions.setAuth(true));
-    yield put(userActions.setUser(response.data));
+    yield put(userActions.setUser(response.data.user));
   } catch (e) {
     yield put(userActions.setError("User is not authorized!!!"));
   }
@@ -44,7 +47,28 @@ export function* logoutSaga(): Generator<any> {
     yield call(() => postLogoutRequest());
     localStorage.removeItem("token");
     yield put(userActions.setAuth(false));
-    yield put(userActions.setUser({} as IAuthResponse));
+    yield put(userActions.setUser({} as IUser));
+  } catch (e) {
+    // console.log(e.response?.data?.message);
+  }
+}
+
+export function* checkAuthSaga(): Generator<any> {
+  try {
+    const response: any = yield call(() => checkAuthRequest());
+    localStorage.setItem("token", response.data.accessToken);
+    yield put(userActions.setAuth(true));
+    yield put(userActions.setUser(response.data.user));
+  } catch (e) {
+    // console.log(e.response?.data?.message);
+  }
+}
+
+export function* changeUserDataSaga({
+  payload,
+}: ReturnType<typeof userActions.changeUserData>): Generator<any> {
+  try {
+    yield call(() => putNewUserDataRequest(payload));
   } catch (e) {
     // console.log(e.response?.data?.message);
   }
@@ -52,8 +76,10 @@ export function* logoutSaga(): Generator<any> {
 
 export default function* userSaga() {
   yield all([
-    takeLatest(userActions.registration, signUpSaga),
-    takeLatest(userActions.login, signInSaga),
+    takeLatest(userActions.registration, registrationSaga),
+    takeLatest(userActions.login, loginSaga),
     takeLatest(userActions.logout, logoutSaga),
+    takeLatest(userActions.checkAuth, checkAuthSaga),
+    takeLatest(userActions.changeUserData, changeUserDataSaga),
   ]);
 }

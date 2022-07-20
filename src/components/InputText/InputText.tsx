@@ -8,23 +8,22 @@ interface IProps {
   label?: string;
   htmlFor?: string;
   type?: string;
-  fieldData: { invalid: boolean; isDirty: boolean };
-
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  fieldData?: { invalid: boolean; isDirty: boolean };
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
 }
 
-const InputText: FC<IProps> = forwardRef(
+const InputText = forwardRef(
   (
     {
       type = "text",
       htmlFor = "",
       label = "",
       disabled = false,
-      onChange,
-      errors,
-      fieldData,
       placeholder = "",
+      onChange,
+      fieldData = { invalid: false, isDirty: false },
+      errors,
     }: IProps,
     ref
   ) => {
@@ -43,7 +42,6 @@ const InputText: FC<IProps> = forwardRef(
           invalid={invalid}
           isDirty={isDirty}
           errors={errors}
-          required
         />
         {label && htmlFor && (
           <LabelStyled

@@ -7,7 +7,12 @@ const postSignUpRequest = async (
   password: string,
   name?: string
 ): Promise<AxiosResponse<IAuthResponse>> => {
-  return $api.post<IAuthResponse>("/registration", { email, password, name });
+  const response = $api.post<IAuthResponse>("/registration", {
+    email,
+    password,
+    name,
+  });
+  return response;
 };
 
 export default postSignUpRequest;
