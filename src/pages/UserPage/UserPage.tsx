@@ -8,6 +8,7 @@ import {
   UserPageStyled,
 } from "./styles";
 import { ChangeUserDataModal } from "modules/ModalWindow/Modals";
+import { UserAvatar } from "modules";
 
 const UserPage = () => {
   const userName = useSelector(getUserNameSelector);
@@ -19,6 +20,7 @@ const UserPage = () => {
           <Title>Name: {userName}</Title>
         </Header>
         <UserData>
+          <UserAvatar />
           <ChangeUserDataModal />
         </UserData>
       </PersonalInfo>
