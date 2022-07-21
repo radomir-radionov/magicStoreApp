@@ -19,13 +19,13 @@ const Greetings = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector(getIsAuthSelector);
 
-  const onClickOpenSignInModal = () => {
+  const onClickSignInModal = () => {
     dispatch(
       modalActionTypes.openModal({ modalType: MODAL_TYPES.SIGN_IN_MODAL })
     );
   };
 
-  const onClickOpenSignUpModal = () => {
+  const onClickSignUpModal = () => {
     dispatch(
       modalActionTypes.openModal({ modalType: MODAL_TYPES.SIGN_UP_MODAL })
     );
@@ -43,8 +43,8 @@ const Greetings = () => {
       <RegistrationZone>
         {!isAuth ? (
           <>
-            <Button onClick={onClickOpenSignInModal}>Sign in</Button>
-            <Button onClick={onClickOpenSignUpModal}>Sign up</Button>
+            <Button onClick={onClickSignInModal}>Sign in</Button>
+            <Button onClick={onClickSignUpModal}>Sign up</Button>
           </>
         ) : (
           <Button onClick={onClickLogoutHandler}>Logout</Button>

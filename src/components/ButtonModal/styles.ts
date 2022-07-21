@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { colors, typography } from "styles";
 
 export const ButtonStyled = styled.button`
-  width: 150px;
   padding: 1.2rem 3.2rem;
   letter-spacing: 4px;
   ${typography.BUTTON}
