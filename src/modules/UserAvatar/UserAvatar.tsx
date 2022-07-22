@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { ButtonModal } from "components";
-import { generateURL } from "utils/onDropUserAvatar";
+import generateURL from "utils/onDropUserAvatar";
 import { ICustomFile } from "./types";
 import { Avatar, UserAvatarStyled, InputStyled } from "./styles";
 

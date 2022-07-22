@@ -1,4 +1,3 @@
-import axios from "axios";
 import { AnimatedTitle, Button } from "components";
 import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
 import { useDispatch, useSelector } from "react-redux";
