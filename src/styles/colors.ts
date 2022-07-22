@@ -15,7 +15,7 @@ enum colors {
   BACKGROUND_DARK_GRAY = "#181818",
   BACKGROUND_WHITESMOKE = "whitesmoke",
   MODAL_BACKGROUND_OPACITY = "rgba(64, 63, 77, 0.7)",
-  // background: rgba(0, 0, 0, 0.6);
+  BOX_SHADOW = "rgba(0, 0, 0, 0.6)",
 }
 
 export default colors;

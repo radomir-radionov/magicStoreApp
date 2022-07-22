@@ -1,3 +1,6 @@
 import styled from "styled-components";
 
-export const LayoutPageStyled = styled.div``;
+export const ProductPageStyled = styled.section`
+  width: 100%;
+  padding: 5rem 6rem;
+`;

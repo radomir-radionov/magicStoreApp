@@ -1,10 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IGameState } from "types/game/game";
 
-interface IInitalState {
-  games: any;
-}
-
-const initialState: IInitalState = {
+const initialState: IGameState = {
+  topGames: [],
   games: [],
 };
 
@@ -13,9 +11,13 @@ const gameSlice = createSlice({
   initialState,
   reducers: {
     closeAllModals: () => initialState,
+    getTopGames: () => {},
+    setTopGames: (state: IGameState, { payload }: PayloadAction<any>) => {
+      state.topGames = payload;
+    },
   },
 });
 
-export const gameActionTypes = gameSlice.actions;
+export const gameActions = gameSlice.actions;
 
 export default gameSlice.reducer;

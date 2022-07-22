@@ -1,15 +1,18 @@
-import { all, call, takeLatest } from "redux-saga/effects";
-import { getExample } from "requests";
+import { all, call, put, takeLatest } from "redux-saga/effects";
+import getTopGamesRequest from "requests/getTopGamesRequest";
+import { gameActions } from "./slice";
 
-// any type - just for example
-function* exampleRequestSaga(): any {
-  const result = yield call(getExample);
-
-  console.log(result);
+export function* getTopGamesSaga(): Generator<any> {
+  try {
+    const response = yield call(() => getTopGamesRequest());
+    yield put(gameActions.setTopGames(response));
+  } catch (e) {
+    // console.log(e.response?.data?.message);
+  }
 }
 
 function* gameSaga() {
-  // yield all([takeLatest(modalActionTypes.exampleRequest, exampleRequestSaga)]);
+  yield all([takeLatest(gameActions.getTopGames, getTopGamesSaga)]);
 }
 
 export default gameSaga;
