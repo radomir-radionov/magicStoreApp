@@ -1,4 +1,4 @@
-import { all, call, put, SagaReturnType, takeLatest } from "redux-saga/effects";
+import { all, call, put, takeLatest } from "redux-saga/effects";
 import {
   checkAuthRequest,
   postLogoutRequest,
@@ -8,8 +8,6 @@ import {
 import { userActions } from "./slice";
 import { IUser } from "types/user";
 import { putNewUserDataRequest } from "requests/putNewUserDataRequest";
-
-// type SignUpSagaResponse = SagaReturnType<typeof IAuthResponse>;
 
 export function* registrationSaga({
   payload,
