@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, forwardRef } from "react";
+import { ChangeEvent, forwardRef } from "react";
 import { FieldError } from "react-hook-form";
 import { ErrorMessage, InputStyled, InputWrapper, LabelStyled } from "./styles";
 
