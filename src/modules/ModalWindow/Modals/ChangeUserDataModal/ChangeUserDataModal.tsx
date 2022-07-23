@@ -4,7 +4,7 @@ import schema from "./scema";
 import { InputText, ButtonModal, Textarea } from "components";
 import { Form } from "../SignInModal/styles";
 import { useSelector } from "react-redux";
-import { getCurrentUserDataSelector } from "redux/user/selectors";
+import { currentUserDataSelector } from "redux/user/selectors";
 import { useDispatch } from "react-redux";
 import { userActions } from "redux/user";
 
@@ -17,7 +17,7 @@ interface IFormProps {
 
 const ChangeUserDataModal = () => {
   const dispatch = useDispatch();
-  const { id } = useSelector(getCurrentUserDataSelector);
+  const { id } = useSelector(currentUserDataSelector);
 
   const {
     register,

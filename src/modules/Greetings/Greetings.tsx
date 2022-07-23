@@ -3,7 +3,7 @@ import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
 import { useDispatch, useSelector } from "react-redux";
 import { modalActionTypes } from "redux/modal";
 import { userActions } from "redux/user";
-import { getIsAuthSelector } from "redux/user/selectors";
+import { isAuthSelector } from "redux/user/selectors";
 import {
   GreetingsStyled,
   GreetingsZone,
@@ -16,7 +16,7 @@ import {
 
 const Greetings = () => {
   const dispatch = useDispatch();
-  const isAuth = useSelector(getIsAuthSelector);
+  const isAuth = useSelector(isAuthSelector);
 
   const onClickSignInModal = () => {
     dispatch(

@@ -9,3 +9,8 @@ export const topGamesSelector = createSelector(
   games,
   (state) => state.topGames
 );
+
+export const searchedGamesSelector = createSelector(
+  games,
+  (state) => state.searchedGames
+);
