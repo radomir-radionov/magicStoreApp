@@ -1,9 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ISignInDataRequest, ISignUpDataRequest, IUser } from "types/user";
-import { IUserState } from "./types";
+import { IChangedUserData, IUserState } from "./types";
 
 const initialState: IUserState = {
-  test: null,
   isAuth: false,
   userData: {} as IUser,
   isLoading: false,
@@ -33,17 +32,14 @@ export const userSlice = createSlice({
     setAuth: (state: IUserState, { payload }: PayloadAction<boolean>) => {
       state.isAuth = payload;
     },
-    changeUserData: (state: IUserState, { payload }: PayloadAction<any>) => {},
+    changeUserData: (
+      state: IUserState,
+      { payload }: PayloadAction<IChangedUserData>
+    ) => {},
     setError: (state: IUserState, { payload }: PayloadAction<string>) => {
       // state.userData = null;
       state.error.isError = true;
       state.error.status = payload;
-    },
-    test: (
-      state: IUserState,
-      { payload }: PayloadAction<ISignUpDataRequest>
-    ) => {
-      state.test = payload;
     },
   },
 });

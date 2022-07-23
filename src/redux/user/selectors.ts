@@ -3,14 +3,14 @@ import { RootState } from "store/configureStore";
 
 const user = (state: RootState) => state.user;
 
-export const getCurrentUserDataSelector = createSelector(
+export const currentUserDataSelector = createSelector(
   user,
   (state) => state.userData
 );
 
-export const getIsAuthSelector = createSelector(user, (state) => state.isAuth);
+export const isAuthSelector = createSelector(user, (state) => state.isAuth);
 
-export const getUserNameSelector = createSelector(
+export const userNameSelector = createSelector(
   user,
   (state) => state.userData.name
 );

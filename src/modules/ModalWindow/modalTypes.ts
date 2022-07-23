@@ -18,7 +18,7 @@ export const MODALS_MAPPING = {
 export type TModalType = string;
 
 export interface IModalInfo {
-  [key: string]: any;
+  [key: string]: string;
 }
 
 export interface IModalSelectorData {

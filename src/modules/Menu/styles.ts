@@ -18,6 +18,8 @@ export const LogoBox = styled.div`
 export const Logo = styled.img``;
 
 export const Title = styled.h2`
+  margin-bottom: 60px;
+  text-align: center;
   ${typography.H2};
 `;
 

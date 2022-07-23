@@ -1,6 +1,6 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
 import {
-  checkAuthRequest,
+  getIsAuthRequest,
   postLogoutRequest,
   postSignInRequest,
   postSignUpRequest,
@@ -53,7 +53,7 @@ export function* logoutSaga(): Generator<any> {
 
 export function* checkAuthSaga(): Generator<any> {
   try {
-    const response: any = yield call(() => checkAuthRequest());
+    const response: any = yield call(() => getIsAuthRequest());
     localStorage.setItem("token", response.data.accessToken);
     yield put(userActions.setAuth(true));
     yield put(userActions.setUser(response.data.user));

@@ -5,4 +5,6 @@ export { default as ModalWindow } from "./ModalWindow/Modal";
 export { default as DropZone } from "./DropZone/DropZone";
 export { default as UserAvatar } from "./UserAvatar/UserAvatar";
 export { default as TopGames } from "./TopGames/TopGames";
+export { default as GameList } from "./GameList/GameList";
 export { default as GameItem } from "./GameItem/GameItem";
+export { default as GameRating } from "./GameRating/GameRating";

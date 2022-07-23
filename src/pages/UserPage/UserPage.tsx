@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { getUserNameSelector } from "redux/user/selectors";
+import { userNameSelector } from "redux/user/selectors";
 import {
   Header,
   Title,
@@ -11,7 +11,7 @@ import { ChangeUserDataModal } from "modules/ModalWindow/Modals";
 import { UserAvatar } from "modules";
 
 const UserPage = () => {
-  const userName = useSelector(getUserNameSelector);
+  const userName = useSelector(userNameSelector);
 
   return (
     <UserPageStyled>

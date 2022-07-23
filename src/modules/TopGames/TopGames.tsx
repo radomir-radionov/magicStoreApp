@@ -1,15 +1,13 @@
-import GameItem from "modules/GameItem/GameItem";
 import { useEffect } from "react";
+import { GameList } from "modules";
 import { useDispatch, useSelector } from "react-redux";
 import { gameActions } from "redux/game";
 import { topGamesSelector } from "redux/game/selectors";
-import { IGame } from "types/game/game";
-import { TopGamesStyled } from "./styles";
+import { Title, TopGamesStyled } from "./styles";
 
 const TopGames = () => {
   const dispatch = useDispatch();
   const topGames = useSelector(topGamesSelector);
-  console.log("topGames", topGames);
 
   useEffect(() => {
     if (!topGames.length) {
@@ -19,9 +17,8 @@ const TopGames = () => {
 
   return (
     <TopGamesStyled>
-      {topGames.map((game: IGame) => (
-        <GameItem game={game} />
-      ))}
+      <Title>Top Games</Title>
+      <GameList games={topGames} />
     </TopGamesStyled>
   );
 };

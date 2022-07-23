@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { modalActionTypes } from "redux/modal";
-import { getIsAuthSelector } from "redux/user/selectors";
+import { isAuthSelector } from "redux/user/selectors";
 import {
   Logo,
   LogoBox,
@@ -18,7 +18,7 @@ import {
 
 const Menu = () => {
   const dispatch = useDispatch();
-  const isAuth = useSelector(getIsAuthSelector);
+  const isAuth = useSelector(isAuthSelector);
 
   const onClickSignInModal = () => {
     dispatch(
