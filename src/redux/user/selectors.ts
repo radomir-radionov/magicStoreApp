@@ -1,8 +1,16 @@
 import { createSelector } from "@reduxjs/toolkit";
+import { RootState } from "store/configureStore";
 
-const User = (state: any) => state.user;
+const user = (state: RootState) => state.user;
 
 export const getCurrentUserDataSelector = createSelector(
-  User,
+  user,
   (state) => state.userData
+);
+
+export const getIsAuthSelector = createSelector(user, (state) => state.isAuth);
+
+export const getUserNameSelector = createSelector(
+  user,
+  (state) => state.userData.name
 );

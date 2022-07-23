@@ -4,13 +4,11 @@ import { IModalInfo, TModalType } from "modules/ModalWindow/modalTypes";
 interface IModalInitialState {
   modalType: string;
   modalInfo: object;
-  // isModalOpen: boolean;
 }
 
 const initialState: IModalInitialState = {
   modalType: "",
   modalInfo: {},
-  // isModalOpen: false,
 };
 
 const modalSlice = createSlice({

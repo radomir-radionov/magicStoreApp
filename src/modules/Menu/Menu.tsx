@@ -1,6 +1,11 @@
-import { pageRoutes } from "constants/pageRoutes";
+import pageRoutes from "constants/pageRoutes";
+import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { modalActionTypes } from "redux/modal";
+import { getIsAuthSelector } from "redux/user/selectors";
 import {
-  Link,
   Logo,
   LogoBox,
   MenuStyled,
@@ -12,6 +17,15 @@ import {
 } from "./styles";
 
 const Menu = () => {
+  const dispatch = useDispatch();
+  const isAuth = useSelector(getIsAuthSelector);
+
+  const onClickSignInModal = () => {
+    dispatch(
+      modalActionTypes.openModal({ modalType: MODAL_TYPES.SIGN_IN_MODAL })
+    );
+  };
+
   return (
     <MenuStyled>
       <LogoBox>
@@ -21,16 +35,31 @@ const Menu = () => {
       <NavStyled>
         <NavList>
           <NavItem>
-            <Link href={pageRoutes.HOME}>Home</Link>
+            <Link to={pageRoutes.HOME}>Home</Link>
           </NavItem>
           <NavItem>
-            <Link href={pageRoutes.USER}>User</Link>
+            <Link
+              onClick={isAuth ? undefined : onClickSignInModal}
+              to={pageRoutes.USER}
+            >
+              User
+            </Link>
           </NavItem>
           <NavItem>
-            <Link href={pageRoutes.PRODUCT}>Product</Link>
+            <Link
+              onClick={isAuth ? undefined : onClickSignInModal}
+              to={pageRoutes.PRODUCT}
+            >
+              Product
+            </Link>
           </NavItem>
           <NavItem>
-            <Link href={pageRoutes.HOME}>About</Link>
+            <Link
+              onClick={isAuth ? undefined : onClickSignInModal}
+              to={pageRoutes.ABOUT}
+            >
+              About
+            </Link>
           </NavItem>
         </NavList>
       </NavStyled>

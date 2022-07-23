@@ -52,6 +52,7 @@ const GlobalStyles = createGlobalStyle`
 	cursor: pointer;
 	outline: inherit;
 }
+textarea, input { outline: none; }
 
   @media screen and (max-width: 1024px) {
   html {
