@@ -1,11 +1,12 @@
+import { IGame } from "./../../types/game/game";
 import { all, call, put, takeLatest } from "redux-saga/effects";
 import { getSearchedGamesRequest, getTopGamesRequest } from "requests";
 
 import { gameActions } from "./slice";
 
-export function* getTopGamesSaga(): Generator<any> {
+export function* getTopGamesSaga() {
   try {
-    const response = yield call(() => getTopGamesRequest());
+    const response: IGame[] = yield call(() => getTopGamesRequest());
     yield put(gameActions.setTopGames(response));
   } catch (e) {
     // console.log(e.response?.data?.message);
@@ -14,10 +15,11 @@ export function* getTopGamesSaga(): Generator<any> {
 
 export function* getSearchedGamesSaga({
   payload,
-}: ReturnType<typeof gameActions.getSearchedGames>): Generator<any> {
+}: ReturnType<typeof gameActions.getSearchedGames>) {
   try {
-    const response = yield call(() => getSearchedGamesRequest(payload));
-    // console.log("getSearchedGamesSaga:", response);
+    const response: IGame[] = yield call(() =>
+      getSearchedGamesRequest(payload)
+    );
     yield put(gameActions.setSearchedGames(response));
   } catch (e) {
     // console.log(e.response?.data?.message);

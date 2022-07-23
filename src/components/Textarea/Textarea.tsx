@@ -1,11 +1,14 @@
-import { ChangeEvent, forwardRef } from "react";
+import { ChangeEvent, ChangeEventHandler, forwardRef } from "react";
 import { TextareaWrapper, TextareaStyled, Label } from "./styles";
 
 interface IProps {
   name: string;
   label: string;
   placeholder: string;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange?:
+    | (ChangeEventHandler<HTMLTextAreaElement> &
+        ((event: ChangeEvent<HTMLInputElement>) => void))
+    | undefined;
 }
 
 const Textarea = forwardRef(

@@ -1,3 +1,4 @@
+import { IGame } from "./../../types/game/game";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IGameState } from "types/game/game";
 
@@ -13,14 +14,17 @@ const gameSlice = createSlice({
   reducers: {
     closeAllModals: () => initialState,
     getTopGames: () => {},
-    setTopGames: (state: IGameState, { payload }: PayloadAction<any>) => {
+    setTopGames: (state: IGameState, { payload }: PayloadAction<IGame[]>) => {
       state.topGames = payload;
     },
     getSearchedGames: (
       state: IGameState,
       { payload }: PayloadAction<string>
     ) => {},
-    setSearchedGames: (state: IGameState, { payload }: PayloadAction<any>) => {
+    setSearchedGames: (
+      state: IGameState,
+      { payload }: PayloadAction<IGame[]>
+    ) => {
       state.searchedGames = payload;
     },
   },

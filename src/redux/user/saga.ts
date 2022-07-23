@@ -8,39 +8,39 @@ import {
 import { userActions } from "./slice";
 import { IUser } from "types/user";
 import { putNewUserDataRequest } from "requests/putNewUserDataRequest";
+import { IAuthResponse } from "types/response";
 
 export function* registrationSaga({
   payload,
-}: ReturnType<typeof userActions.registration>): Generator<any> {
+}: ReturnType<typeof userActions.registration>) {
   const { email, password, name } = payload;
   try {
-    const response: any = yield call(() =>
+    const { data }: IAuthResponse = yield call(() =>
       postSignUpRequest(email, password, name)
     );
-    localStorage.setItem("token", response.data.accessToken);
+    localStorage.setItem("token", data.accessToken);
     yield put(userActions.setAuth(true));
-    yield put(userActions.setUser(response.data.user));
+    yield put(userActions.setUser(data.user));
   } catch (e) {
     yield put(userActions.setError("User is not authorized!!!"));
   }
 }
 
-export function* loginSaga({
-  payload,
-}: ReturnType<typeof userActions.login>): Generator<any> {
+export function* loginSaga({ payload }: ReturnType<typeof userActions.login>) {
   const { email, password } = payload;
   try {
-    const response: any = yield call(() => postSignInRequest(email, password));
-    console.log(response);
-    localStorage.setItem("token", response.data.accessToken);
+    const { data }: IAuthResponse = yield call(() =>
+      postSignInRequest(email, password)
+    );
+    localStorage.setItem("token", data.accessToken);
     yield put(userActions.setAuth(true));
-    yield put(userActions.setUser(response.data.user));
+    yield put(userActions.setUser(data.user));
   } catch (e) {
     yield put(userActions.setError("User is not authorized!!!"));
   }
 }
 
-export function* logoutSaga(): Generator<any> {
+export function* logoutSaga() {
   try {
     yield call(() => postLogoutRequest());
     localStorage.removeItem("token");
@@ -51,12 +51,12 @@ export function* logoutSaga(): Generator<any> {
   }
 }
 
-export function* checkAuthSaga(): Generator<any> {
+export function* checkAuthSaga() {
   try {
-    const response: any = yield call(() => getIsAuthRequest());
-    localStorage.setItem("token", response.data.accessToken);
+    const { data }: IAuthResponse = yield call(() => getIsAuthRequest());
+    localStorage.setItem("token", data.accessToken);
     yield put(userActions.setAuth(true));
-    yield put(userActions.setUser(response.data.user));
+    yield put(userActions.setUser(data.user));
   } catch (e) {
     // console.log(e.response?.data?.message);
   }
@@ -64,7 +64,7 @@ export function* checkAuthSaga(): Generator<any> {
 
 export function* changeUserDataSaga({
   payload,
-}: ReturnType<typeof userActions.changeUserData>): Generator<any> {
+}: ReturnType<typeof userActions.changeUserData>) {
   try {
     yield call(() => putNewUserDataRequest(payload));
   } catch (e) {
