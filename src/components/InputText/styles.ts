@@ -1,8 +1,6 @@
-import { configureStore } from "@reduxjs/toolkit";
 import styled from "styled-components";
 import { FieldError } from "react-hook-form";
 import { colors, typography } from "styles";
-import { VscCheck } from "react-icons/vsc";
 
 interface ILabelStyled {
   errors: FieldError | undefined;

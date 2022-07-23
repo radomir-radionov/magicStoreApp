@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
-import { getUserNameSelector } from "redux/user/selectors";
+import { userNameSelector } from "redux/user/selectors";
 import { AnimatedTitleStyled, Br, SpanStyled } from "./styles";
 
 const AnimatedTitle = () => {
-  const userName = useSelector(getUserNameSelector);
+  const userName = useSelector(userNameSelector);
 
   return (
     <AnimatedTitleStyled>

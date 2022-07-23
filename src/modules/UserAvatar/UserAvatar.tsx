@@ -9,7 +9,6 @@ const UserAvatar = () => {
   const [files, setFiles] = useState<ICustomFile[]>([]);
   const defaultAvatarUrl =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png";
-  console.log("FILES:", files);
 
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
@@ -27,12 +26,6 @@ const UserAvatar = () => {
     console.log(files);
   };
 
-  //   useEffect(() => {
-  //     // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
-  //     return () =>
-  //       files.forEach((file: any) => URL.revokeObjectURL(file.preview));
-  //   }, []);
-
   return (
     <UserAvatarStyled {...getRootProps()}>
       {files.length ? (
@@ -41,7 +34,6 @@ const UserAvatar = () => {
             key={file?.name}
             src={file?.preview}
             alt="Avatar"
-            // Revoke data uri after image is loaded
             onLoad={() => {
               URL.revokeObjectURL(file.preview);
             }}

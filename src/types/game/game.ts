@@ -1,5 +1,6 @@
 export interface IGameState {
   topGames: IGame[];
+  searchedGames: IGame[];
   games: IGame[];
 }
 
