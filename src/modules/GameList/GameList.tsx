@@ -7,7 +7,6 @@ interface IGameProps {
 }
 
 const GameList = ({ games }: IGameProps) => {
-  console.log(games);
   return (
     <GameListStyled display={games.length}>
       {games &&

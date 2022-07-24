@@ -14,3 +14,13 @@ export const searchedGamesSelector = createSelector(
   games,
   (state) => state.searchedGames
 );
+
+export const filteredGamesSelector = createSelector(
+  games,
+  (state) => state.filteredGames
+);
+
+export const isLoadingSelector = createSelector(
+  games,
+  (state) => state.loading
+);

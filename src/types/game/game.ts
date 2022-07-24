@@ -2,6 +2,8 @@ export interface IGameState {
   topGames: IGame[];
   searchedGames: IGame[];
   games: IGame[];
+  filteredGames: IGame[];
+  loading: boolean;
 }
 
 export interface IGame {

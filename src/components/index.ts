@@ -3,3 +3,4 @@ export { default as ButtonModal } from "./ButtonModal/ButtonModal";
 export { default as InputText } from "./InputText/InputText";
 export { default as AnimatedTitle } from "./AnimatedTitle/AnimatedTitle";
 export { default as Textarea } from "./Textarea/Textarea";
+export { default as Spinner } from "./Spinner/Spinner";

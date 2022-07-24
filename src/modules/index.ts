@@ -8,3 +8,8 @@ export { default as TopGames } from "./TopGames/TopGames";
 export { default as GameList } from "./GameList/GameList";
 export { default as GameItem } from "./GameItem/GameItem";
 export { default as GameRating } from "./GameRating/GameRating";
+export { default as FiltersBar } from "./FiltersBar/FiltersBar";
+export { default as FilterAge } from "./Filters/FilterAge/FilterAge";
+export { default as FilterCriteria } from "./Filters/FilterCriteria/FilterCriteria";
+export { default as FilterGenre } from "./Filters/FilterGenre/FilterGenre";
+export { default as GameFilter } from "./GameFilter/GameFilter";
