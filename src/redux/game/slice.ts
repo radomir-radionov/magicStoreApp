@@ -4,8 +4,10 @@ import { IGameState } from "types/game/game";
 
 const initialState: IGameState = {
   topGames: [],
-  searchedGames: [],
   games: [],
+  searchedGames: [],
+  filteredGames: [],
+  loading: false,
 };
 
 const gameSlice = createSlice({
@@ -26,6 +28,16 @@ const gameSlice = createSlice({
       { payload }: PayloadAction<IGame[]>
     ) => {
       state.searchedGames = payload;
+    },
+    getFilteredGames: (state: IGameState, { payload }: any) => {},
+    setFilteredGames: (
+      state: IGameState,
+      { payload }: PayloadAction<IGame[]>
+    ) => {
+      state.filteredGames = payload;
+    },
+    setLoading: (state: IGameState, { payload }: PayloadAction<boolean>) => {
+      state.loading = payload;
     },
   },
 });

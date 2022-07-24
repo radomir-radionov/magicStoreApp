@@ -7,6 +7,7 @@ export const Form = styled.form`
 
 export const BoxImg = styled.span`
   position: absolute;
+  text-align: center;
   top: 16px;
   left: 20px;
   display: flex;

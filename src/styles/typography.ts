@@ -9,13 +9,13 @@ const H1 = css`
 const H2 = css`
   font-weight: 600;
   font-size: 3rem;
-  line-height: 50px;
+  line-height: 5rem;
 `;
 
 const H3 = css`
   font-weight: 500;
-  font-size: 4rem;
-  line-height: 3rem;
+  font-size: 2rem;
+  line-height: 2rem;
 `;
 
 const H4 = css`
