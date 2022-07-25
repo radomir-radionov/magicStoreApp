@@ -5,7 +5,7 @@ import { IChangedUserData, IUserState } from "./types";
 const initialState: IUserState = {
   isAuth: false,
   userData: {} as IUser,
-  isLoading: false,
+  isLoading: true,
   error: {
     isError: false,
     status: null,

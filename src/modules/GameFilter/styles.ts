@@ -12,6 +12,7 @@ export const GameFilterStyled = styled.div`
 `;
 
 export const FilteredGames = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;

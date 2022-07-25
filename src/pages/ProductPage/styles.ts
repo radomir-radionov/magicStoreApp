@@ -9,6 +9,8 @@ export const ProductPageStyled = styled.div`
 
 export const SectionStyled = styled.section`
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 12rem;
   width: 100%;
   min-height: 100vh;
