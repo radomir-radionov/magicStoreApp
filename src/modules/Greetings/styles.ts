@@ -1,4 +1,4 @@
-import { colors, typography } from "styles";
+import { colors } from "styles";
 import styled, { keyframes } from "styled-components";
 import { AiOutlineArrowDown } from "react-icons/ai";
 
@@ -8,10 +8,13 @@ const BounceAnimation = keyframes`
   100% { padding-bottom: 0 }
 `;
 
-export const GreetingsStyled = styled.section`
+export const GreetingsStyled = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  justify-content: center;
+  gap: 6rem;
+  height: 100vh;
+  padding: 6rem;
 `;
 
 export const GreetingsZone = styled.div``;
@@ -26,6 +29,7 @@ export const ScrollDownRight = styled.div`
   bottom: 1rem;
   right: 10px;
   writing-mode: vertical-lr;
+  z-index: 0;
 `;
 
 export const ScrollDownLeft = styled.div`

@@ -21,11 +21,14 @@ export function* getSearchedGamesSaga({
   payload,
 }: ReturnType<typeof gameActions.getSearchedGames>) {
   try {
+    yield put(gameActions.setLoading(true));
     const response: IGame[] = yield call(() =>
       getSearchedGamesRequest(payload)
     );
     yield put(gameActions.setSearchedGames(response));
+    yield put(gameActions.setLoading(false));
   } catch (e) {
+    yield put(gameActions.setLoading(false));
     // console.log(e.response?.data?.message);
   }
 }

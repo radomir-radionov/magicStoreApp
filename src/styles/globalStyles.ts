@@ -19,6 +19,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
+    padding-left: 13rem;
     font-size: 2rem;
     overflow-x: hidden;
   }
@@ -26,7 +27,6 @@ const GlobalStyles = createGlobalStyle`
   #root {
     display: flex;
     min-height: 100%;
-    width: 100vw;
   }
 
   ul, ol, li, h1, h2, h3, h4, h5, h6, p {

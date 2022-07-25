@@ -2,7 +2,7 @@ import { FiltersBar, GameList } from "modules";
 import { Spinner } from "components";
 import { useSelector } from "react-redux";
 import { filteredGamesSelector, isLoadingSelector } from "redux/game/selectors";
-import { Content, FilteredGames, GameFilterStyled, Hr, Title } from "./styles";
+import { FilteredGames, GameFilterStyled, Hr, Title } from "./styles";
 
 const GameFilter = () => {
   const filteredGames = useSelector(filteredGamesSelector);
