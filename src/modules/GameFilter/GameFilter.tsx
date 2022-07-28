@@ -1,27 +1,56 @@
-import { FiltersBar, GameList } from "modules";
+import { FiltersBar, GameList, SearchBar } from "modules";
 import { Spinner } from "components";
-import { useSelector } from "react-redux";
-import { filteredGamesSelector, isLoadingSelector } from "redux/game/selectors";
-import { FilteredGames, GameFilterStyled, Hr, Title } from "./styles";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  filteredGamesSelector,
+  isLoadingSelector,
+  searchedGamesSelector,
+} from "redux/game/selectors";
+import {
+  FilteredGames,
+  GameFilterStyled,
+  WrapperFilteredGames,
+  Hr,
+  Title,
+} from "./styles";
+import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+import { gameActions } from "redux/game";
 
 const GameFilter = () => {
+  const dispatch = useDispatch();
   const filteredGames = useSelector(filteredGamesSelector);
   const isLoading = useSelector(isLoadingSelector);
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchText = searchParams.get("searchText") || "";
+
+  const onSelectedValue = (key: string, searchParam: string) => {
+    searchParams.set(key, searchParam);
+    setSearchParams(searchParams);
+  };
+
+  useEffect(() => {
+    dispatch(gameActions.getSearchedGames(searchText));
+  }, [dispatch, searchText]);
+
   return (
     <GameFilterStyled>
-      <FiltersBar />
-      <FilteredGames>
-        <Title textAlign="left">Products</Title>
-        <Hr />
-        {isLoading ? (
-          <Spinner />
-        ) : filteredGames.length ? (
-          <GameList games={filteredGames} />
-        ) : (
-          <p>Just click an option in the filter bar...</p>
-        )}
-      </FilteredGames>
+      <SearchBar searchParam={searchText} onSelectedParams={onSelectedValue} />
+      <WrapperFilteredGames>
+        <FiltersBar />
+        <FilteredGames>
+          <Title>Searched Games</Title>
+          <Hr />
+          {isLoading ? (
+            <Spinner />
+          ) : filteredGames.length ? (
+            <GameList games={filteredGames} />
+          ) : (
+            <p>Just click an option in the filter bar...</p>
+          )}
+        </FilteredGames>
+      </WrapperFilteredGames>
     </GameFilterStyled>
   );
 };
