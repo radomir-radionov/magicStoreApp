@@ -1,13 +1,21 @@
 import styled from "styled-components";
 import { colors, typography } from "styles";
 
-interface ITitleProps {
-  textAlign: string;
-}
-
-export const GameFilterStyled = styled.div`
+export const GameFilterStyled = styled.section`
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 10rem;
+  width: 100%;
+  padding: 0 5rem 5rem 5rem;
+`;
+
+export const SectionSearchBar = styled.section`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12rem;
   width: 100%;
 `;
 
@@ -16,7 +24,7 @@ export const FilteredGames = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 2.6rem;
+  padding: 0 2.6rem 2.6rem 2.6rem;
 
   @media (max-width: 600px) {
     flex-direction: column;
@@ -25,10 +33,8 @@ export const FilteredGames = styled.div`
   }
 `;
 
-export const Title = styled.h2<ITitleProps>`
-  padding-left: ${(props) => (props.textAlign === "center" ? "0" : "24px")};
-  margin-bottom: 1rem;
-  text-align: ${(props) => (props.textAlign === "center" ? "center" : "left")};
+export const Title = styled.h2`
+  padding-left: 2.4rem;
   ${typography.H2}
   color: ${colors.TEXT_1};
 `;
@@ -44,4 +50,9 @@ export const Content = styled.div`
   flex-wrap: wrap;
   gap: 5rem 8rem;
   margin-top: 5rem;
+`;
+
+export const WrapperFilteredGames = styled.div`
+  display: flex;
+  width: 100%;
 `;

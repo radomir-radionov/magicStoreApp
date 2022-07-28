@@ -22,7 +22,7 @@ export const Input = styled.input`
   padding: 16px 44px;
   outline: none;
   border: none;
-  border-radius: 20px;
+  border-radius: 8px;
 
   ::placeholder {
     color: ${colors.TEXT_BLACK};

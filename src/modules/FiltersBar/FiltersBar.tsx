@@ -28,6 +28,7 @@ const FiltersBar = () => {
   return (
     <FiltersBarStyled>
       <Title>Filter Bar</Title>
+      <Hr />
       <FilterCriteria
         searchParam={criteria}
         onSelectedParams={onSelectedValues}
