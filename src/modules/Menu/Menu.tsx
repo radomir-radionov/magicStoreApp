@@ -1,5 +1,4 @@
 import { Navigation } from "modules";
-
 import { Logo, LogoBox, MenuStyled, Socials, Title } from "./styles";
 
 const Menu = () => {

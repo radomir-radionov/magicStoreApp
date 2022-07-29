@@ -5,7 +5,6 @@ import {
   getSearchedGamesRequest,
   getTopGamesRequest,
 } from "requests";
-
 import { gameActions } from "./slice";
 
 export function* getTopGamesSaga() {

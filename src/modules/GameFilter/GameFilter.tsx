@@ -1,11 +1,10 @@
 import { FiltersBar, GameList, SearchBar } from "modules";
 import { Spinner } from "components";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  filteredGamesSelector,
-  isLoadingSelector,
-  searchedGamesSelector,
-} from "redux/game/selectors";
+import { useEffect } from "react";
+import { filteredGamesSelector, isLoadingSelector } from "redux/game/selectors";
+import { useSearchParams } from "react-router-dom";
+import { gameActions } from "redux/game";
 import {
   FilteredGames,
   GameFilterStyled,
@@ -13,9 +12,6 @@ import {
   Hr,
   Title,
 } from "./styles";
-import { useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
-import { gameActions } from "redux/game";
 
 const GameFilter = () => {
   const dispatch = useDispatch();
