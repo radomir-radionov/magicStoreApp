@@ -13,3 +13,5 @@ export { default as FilterAge } from "./Filters/FilterAge/FilterAge";
 export { default as FilterCriteria } from "./Filters/FilterCriteria/FilterCriteria";
 export { default as FilterGenre } from "./Filters/FilterGenre/FilterGenre";
 export { default as GameFilter } from "./GameFilter/GameFilter";
+export { default as Navigation } from "./Navigation/Navigation";
+export { default as NavItem } from "./NavItem/NavItem";
