@@ -1,10 +1,19 @@
 import styled from "styled-components";
 import { colors } from "styles";
+import { BUTTON_VARIANTS } from "./types";
 
-export const ButtonStyled = styled.button`
+interface IProps {
+  $variant: BUTTON_VARIANTS;
+}
+
+export const ButtonStyled = styled.button<IProps>`
   position: relative;
-  width: 18rem;
-  height: 5rem;
+  width: ${({ $variant }: IProps) =>
+    $variant === BUTTON_VARIANTS.PRIMARY ? "18rem" : "12rem"};
+  height: ${({ $variant }: IProps) =>
+    $variant === BUTTON_VARIANTS.PRIMARY ? "5rem" : "3rem"};
+  font-size: ${({ $variant }: IProps) =>
+    $variant === BUTTON_VARIANTS.PRIMARY ? undefined : "1.4rem"};
   letter-spacing: 4px;
   color: ${colors.TEXT_VIVID_CYAN};
   border: 1px solid ${colors.TEXT_VIVID_CYAN};
