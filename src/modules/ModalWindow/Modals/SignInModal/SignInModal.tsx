@@ -3,11 +3,11 @@ import { FC } from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { ButtonsBox, Form, SignInModalStyled, Title } from "./styles";
 import schema from "./schema";
 import { userActions } from "redux/user";
 import { modalActionTypes } from "redux/modal";
 import { ISignInDataRequest } from "types/user";
+import { ButtonsBox, Form, SignInModalStyled, Title } from "./styles";
 
 interface IProps {
   onClose: () => void;

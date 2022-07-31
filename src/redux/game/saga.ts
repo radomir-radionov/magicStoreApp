@@ -4,8 +4,9 @@ import {
   getFilteredGamesRequest,
   getSearchedGamesRequest,
   getTopGamesRequest,
+  putGameInCartRequest,
+  deleteGameCartRequest,
 } from "requests";
-
 import { gameActions } from "./slice";
 
 export function* getTopGamesSaga() {
@@ -49,11 +50,23 @@ export function* getFilteredGamesSaga({
   }
 }
 
+export function* setGameInCartSaga({
+  payload,
+}: ReturnType<typeof gameActions.setGameInCart>) {
+  try {
+    yield call(() => putGameInCartRequest(payload));
+    // yield put(gameActions.setFilteredGames(response));
+  } catch (e) {
+    // console.log(e.response?.data?.message);
+  }
+}
+
 function* gameSaga() {
   yield all([
     takeLatest(gameActions.getTopGames, getTopGamesSaga),
     takeLatest(gameActions.getSearchedGames, getSearchedGamesSaga),
     takeLatest(gameActions.getFilteredGames, getFilteredGamesSaga),
+    takeLatest(gameActions.setGameInCart, setGameInCartSaga),
   ]);
 }
 

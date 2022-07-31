@@ -56,7 +56,6 @@ const ChangeUserDataModal = () => {
         {...register("newDescription")}
         placeholder="Enter a new description"
       />
-
       <ButtonModal type="submit" disabled={!isValid}>
         Submit
       </ButtonModal>

@@ -14,3 +14,8 @@ export const userNameSelector = createSelector(
   user,
   (state) => state.userData.name
 );
+
+export const cartGamesSelector = createSelector(
+  user,
+  (state) => state.userData.cart
+);

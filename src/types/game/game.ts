@@ -10,7 +10,7 @@ export interface IGame {
   _id: string;
   name: string;
   genre: string;
-  image: string;
+  img: string;
   price: string;
   rating: number;
   description: string;

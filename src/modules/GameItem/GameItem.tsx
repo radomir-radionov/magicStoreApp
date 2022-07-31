@@ -1,12 +1,13 @@
-import { PC, Playstation, Xbox } from "assets";
 import { GameRating } from "modules";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { IGame } from "types/game/game";
+import { PC, Playstation, Xbox } from "assets";
+import { gameActions } from "redux/game";
+import { currentUserDataSelector } from "redux/user/selectors";
 import {
   Age,
   Back,
   Body,
-  Button,
   Description,
   Footer,
   Front,
@@ -16,7 +17,9 @@ import {
   Platforms,
   Price,
   Title,
+  ButtonStyled,
 } from "./styles";
+import { BUTTON_VARIANTS } from "components/Button/types";
 
 interface IGameItemProps {
   game: IGame;
@@ -24,11 +27,12 @@ interface IGameItemProps {
 
 const GameItem = ({ game }: IGameItemProps) => {
   const dispatch = useDispatch();
+  const { id } = useSelector(currentUserDataSelector);
   const {
     _id,
     name,
     genre,
-    image,
+    img,
     price,
     rating,
     description,
@@ -53,18 +57,13 @@ const GameItem = ({ game }: IGameItemProps) => {
   // const date = `${month}/${day}/${dateTime.getFullYear()}`;
   // ----------------------------------------------------
 
-  const onClickEditGameHandler = () => {
-    // dispatch(addEditGameData(currentGameData));
-    // dispatch(openModal({ type: MODAL_TYPES.EDIT_GAME_MODAL }));
-    console.log("onClickEditGameHandler");
-  };
-
   const onClickAddGameHandler = () => {
+    // console.log(111);
     // const isEven = cartGames.some(
     //   (cartGame) => currentGameData._id === cartGame._id
     // );
     // if (!isEven) {
-    //   dispatch(addGameInCart(currentGameData));
+    dispatch(gameActions.setGameInCart({ id, game }));
     // }
   };
 
@@ -90,7 +89,7 @@ const GameItem = ({ game }: IGameItemProps) => {
             />
           ))}
         </Platforms>
-        <ImgBox image={image} />
+        <ImgBox img={img} />
         <Body>
           <Title>{name}</Title>
           <Price>{price}$</Price>
@@ -102,12 +101,16 @@ const GameItem = ({ game }: IGameItemProps) => {
         <Age>{age}+</Age>
         {/* {currentUser?.role === "Admin" && ( */}
         <Footer>
-          <Button type="submit" onClick={onClickAddGameHandler}>
+          <ButtonStyled
+            type="submit"
+            onClick={onClickAddGameHandler}
+            variant={BUTTON_VARIANTS.SECONDARY}
+          >
             Add to cart
-          </Button>
-          <Button type="submit" onClick={onClickEditGameHandler}>
+          </ButtonStyled>
+          {/* <Button type="submit" onClick={onClickEditGameHandler}>
             Edit
-          </Button>
+          </Button> */}
         </Footer>
         {/* )} */}
         {/* {currentUser?.role === "User" && ( */}
