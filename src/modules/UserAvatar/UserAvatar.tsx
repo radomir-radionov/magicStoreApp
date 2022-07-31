@@ -42,7 +42,6 @@ const UserAvatar = () => {
       ) : (
         <Avatar src={defaultAvatarUrl} alt="Default Avatar" />
       )}
-
       <InputStyled {...getInputProps()} />
       <ButtonModal onClick={OnClickSelectFileHandler}>Select file</ButtonModal>
     </UserAvatarStyled>

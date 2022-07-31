@@ -1,8 +1,9 @@
 import { colors, typography } from "styles";
 import styled from "styled-components";
+import { Button } from "components";
 
 export interface ICardImage {
-  image: string;
+  img: string;
 }
 
 export const Front = styled.div`
@@ -61,7 +62,7 @@ export const Icon = styled.img`
 export const ImgBox = styled.div<ICardImage>`
   height: 26rem;
   border-radius: 8px 8px 0 0;
-  background-image: url(${({ image }) => image});
+  background-image: url(${({ img }) => img});
   background-size: cover;
 `;
 
@@ -104,18 +105,7 @@ export const Footer = styled.footer`
   gap: 1rem;
 `;
 
-export const Button = styled.button`
-  width: 10rem;
+export const ButtonStyled = styled(Button)`
+  width: 14rem;
   height: 4rem;
-  margin-bottom: 1rem;
-  font-size: 1.6rem;
-  border: 2px solid ${colors.TEXT_1};
-  border-radius: 8px;
-  color: ${colors.TEXT_1};
-  background-color: ${colors.BACKGROUND_BLACK};
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${colors.TEXT_RED};
-  }
 `;

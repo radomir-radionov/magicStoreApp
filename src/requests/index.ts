@@ -5,3 +5,5 @@ export { default as getIsAuthRequest } from "./getIsAuthRequest";
 export { default as getTopGamesRequest } from "./getTopGamesRequest";
 export { default as getSearchedGamesRequest } from "./getSearchedGamesRequest";
 export { default as getFilteredGamesRequest } from "./getFilteredGamesRequest";
+export { default as putGameInCartRequest } from "./putGameInCartRequest";
+export { default as deleteGameCartRequest } from "./deleteGameCartRequest";

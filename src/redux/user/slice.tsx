@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IRemoveGameInCartPayload } from "redux/game/types";
 import { ISignInDataRequest, ISignUpDataRequest, IUser } from "types/user";
 import { IChangedUserData, IUserState } from "./types";
 
@@ -35,6 +36,10 @@ export const userSlice = createSlice({
     changeUserData: (
       state: IUserState,
       { payload }: PayloadAction<IChangedUserData>
+    ) => {},
+    removeGameInCart: (
+      state: IUserState,
+      { payload }: PayloadAction<IRemoveGameInCartPayload>
     ) => {},
     setError: (state: IUserState, { payload }: PayloadAction<string>) => {
       // state.userData = null;

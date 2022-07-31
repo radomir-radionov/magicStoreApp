@@ -1,5 +1,6 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
 import {
+  deleteGameCartRequest,
   getIsAuthRequest,
   postLogoutRequest,
   postSignInRequest,
@@ -72,6 +73,16 @@ export function* changeUserDataSaga({
   }
 }
 
+export function* removeGameInCartSaga({
+  payload,
+}: ReturnType<typeof userActions.removeGameInCart>) {
+  try {
+    yield call(() => deleteGameCartRequest(payload));
+  } catch (e) {
+    // console.log(e.response?.data?.message);
+  }
+}
+
 export default function* userSaga() {
   yield all([
     takeLatest(userActions.registration, registrationSaga),
@@ -79,5 +90,6 @@ export default function* userSaga() {
     takeLatest(userActions.logout, logoutSaga),
     takeLatest(userActions.checkAuth, checkAuthSaga),
     takeLatest(userActions.changeUserData, changeUserDataSaga),
+    takeLatest(userActions.removeGameInCart, removeGameInCartSaga),
   ]);
 }

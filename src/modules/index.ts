@@ -15,3 +15,4 @@ export { default as FilterGenre } from "./Filters/FilterGenre/FilterGenre";
 export { default as GameFilter } from "./GameFilter/GameFilter";
 export { default as Navigation } from "./Navigation/Navigation";
 export { default as NavItem } from "./NavItem/NavItem";
+export { default as GameItemCart } from "./GameItemCart/GameItemCart";
