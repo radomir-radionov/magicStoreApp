@@ -5,10 +5,11 @@ export const FiltersBarStyled = styled.nav`
   height: fit-content;
   padding: 2.6rem;
   border-radius: 8px;
-  background: ${colors.BOX_SHADOW};
+  background-color: ${colors.BACKGROUND_DARK_GRAY};
 `;
 
 export const Title = styled.h2`
+  padding-left: 2.4rem;
   margin-bottom: 1rem;
   ${typography.H2}
   color: ${colors.TEXT_1};
@@ -16,5 +17,5 @@ export const Title = styled.h2`
 
 export const Hr = styled.hr`
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 `;

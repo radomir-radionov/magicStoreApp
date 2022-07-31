@@ -1,8 +1,11 @@
+import { IGame } from "./../game/game";
+
 export interface IUser {
   id: string;
   email: string;
   name: string;
   description: string;
+  cart: IGame[];
 }
 
 export interface ISignUpDataRequest {

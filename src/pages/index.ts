@@ -5,3 +5,4 @@ export { default as ProductPage } from "./ProductPage/ProductPage";
 export { default as UserPage } from "./UserPage/UserPage";
 export { default as NotFoundPage } from "./NotFoundPage/NotFoundPage";
 export { default as AboutPage } from "./AboutPage/AboutPage";
+export { default as CartPage } from "./CartPage/CartPage";

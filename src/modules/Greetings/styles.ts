@@ -8,11 +8,13 @@ const BounceAnimation = keyframes`
   100% { padding-bottom: 0 }
 `;
 
-export const GreetingsStyled = styled.div`
+export const GreetingsStyled = styled.section`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 6rem;
+  width: 100%;
   height: 100vh;
   padding: 6rem;
 `;

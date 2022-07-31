@@ -1,8 +1,14 @@
-import { FiltersBar, GameList } from "modules";
+import { FiltersBar, GameList, SearchBar } from "modules";
 import { Spinner } from "components";
 import { useSelector } from "react-redux";
 import { filteredGamesSelector, isLoadingSelector } from "redux/game/selectors";
-import { FilteredGames, GameFilterStyled, Hr, Title } from "./styles";
+import {
+  FilteredGames,
+  GameFilterStyled,
+  WrapperFilteredGames,
+  Hr,
+  Title,
+} from "./styles";
 
 const GameFilter = () => {
   const filteredGames = useSelector(filteredGamesSelector);
@@ -10,18 +16,21 @@ const GameFilter = () => {
 
   return (
     <GameFilterStyled>
-      <FiltersBar />
-      <FilteredGames>
-        <Title textAlign="left">Products</Title>
-        <Hr />
-        {isLoading ? (
-          <Spinner />
-        ) : filteredGames.length ? (
-          <GameList games={filteredGames} />
-        ) : (
-          <p>Just click an option in the filter bar...</p>
-        )}
-      </FilteredGames>
+      <SearchBar />
+      <WrapperFilteredGames>
+        <FiltersBar />
+        <FilteredGames>
+          <Title>Searched Games</Title>
+          <Hr />
+          {isLoading ? (
+            <Spinner />
+          ) : filteredGames.length ? (
+            <GameList games={filteredGames} />
+          ) : (
+            <p>Just click an option in the filter bar...</p>
+          )}
+        </FilteredGames>
+      </WrapperFilteredGames>
     </GameFilterStyled>
   );
 };

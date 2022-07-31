@@ -5,14 +5,9 @@ export const ProductPageStyled = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding-top: 3rem;
 `;
 
-export const SectionStyled = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12rem;
-  width: 100%;
-  min-height: 100vh;
-  padding: 5rem;
+export const Title = styled.h1`
+  margin-bottom: 7rem;
 `;
