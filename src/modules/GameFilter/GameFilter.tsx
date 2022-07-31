@@ -1,10 +1,7 @@
 import { FiltersBar, GameList, SearchBar } from "modules";
 import { Spinner } from "components";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { filteredGamesSelector, isLoadingSelector } from "redux/game/selectors";
-import { useSearchParams } from "react-router-dom";
-import { gameActions } from "redux/game";
 import {
   FilteredGames,
   GameFilterStyled,
@@ -14,25 +11,12 @@ import {
 } from "./styles";
 
 const GameFilter = () => {
-  const dispatch = useDispatch();
   const filteredGames = useSelector(filteredGamesSelector);
   const isLoading = useSelector(isLoadingSelector);
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  const searchText = searchParams.get("searchText") || "";
-
-  const onSelectedValue = (key: string, searchParam: string) => {
-    searchParams.set(key, searchParam);
-    setSearchParams(searchParams);
-  };
-
-  useEffect(() => {
-    dispatch(gameActions.getSearchedGames(searchText));
-  }, [dispatch, searchText]);
-
   return (
     <GameFilterStyled>
-      <SearchBar searchParam={searchText} onSelectedParams={onSelectedValue} />
+      <SearchBar />
       <WrapperFilteredGames>
         <FiltersBar />
         <FilteredGames>
