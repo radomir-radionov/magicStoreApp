@@ -4,20 +4,19 @@ export interface IUserState {
   isAuth: boolean;
   userData: IUser;
   isLoading: boolean;
+  isDataChangedOnServer: boolean;
   error: {
     isError: boolean;
     status: string | null;
   };
 }
 
-export interface IChangeUserDataAction {
+export interface IChangedUserData {
   userId: string;
   newName: string;
   newDescription: string;
 }
 
-export interface IChangedUserData {
-  userId: string;
-  newName: string;
-  newDescription: string;
+export interface IGetUserCartGames {
+  id: string;
 }

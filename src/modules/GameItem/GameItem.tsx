@@ -2,8 +2,10 @@ import { GameRating } from "modules";
 import { useDispatch, useSelector } from "react-redux";
 import { IGame } from "types/game/game";
 import { PC, Playstation, Xbox } from "assets";
-import { gameActions } from "redux/game";
-import { currentUserDataSelector } from "redux/user/selectors";
+import {
+  cartGamesSelector,
+  currentUserDataSelector,
+} from "redux/user/selectors";
 import {
   Age,
   Back,
@@ -20,6 +22,7 @@ import {
   ButtonStyled,
 } from "./styles";
 import { BUTTON_VARIANTS } from "components/Button/types";
+import { userActions } from "redux/user";
 
 interface IGameItemProps {
   game: IGame;
@@ -28,6 +31,8 @@ interface IGameItemProps {
 const GameItem = ({ game }: IGameItemProps) => {
   const dispatch = useDispatch();
   const { id } = useSelector(currentUserDataSelector);
+  const cart = useSelector(cartGamesSelector);
+
   const {
     _id,
     name,
@@ -40,6 +45,12 @@ const GameItem = ({ game }: IGameItemProps) => {
     platform,
     selected,
   } = game;
+
+  const isEven = cart?.some((cartGame) => cartGame._id === game._id);
+
+  const onClickRemoveItem = () => {
+    dispatch(userActions.removeGameInCart({ id, game }));
+  };
 
   // ----------------------------------------------------
 
@@ -63,7 +74,7 @@ const GameItem = ({ game }: IGameItemProps) => {
     //   (cartGame) => currentGameData._id === cartGame._id
     // );
     // if (!isEven) {
-    dispatch(gameActions.setGameInCart({ id, game }));
+    dispatch(userActions.setGameInCart({ id, game }));
     // }
   };
 
@@ -105,6 +116,7 @@ const GameItem = ({ game }: IGameItemProps) => {
             type="submit"
             onClick={onClickAddGameHandler}
             variant={BUTTON_VARIANTS.SECONDARY}
+            disabled={isEven}
           >
             Add to cart
           </ButtonStyled>

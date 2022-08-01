@@ -19,3 +19,7 @@ export interface ISignInDataRequest {
   email: string;
   password: string;
 }
+
+export interface IChangeUserDataRequest {
+  id: string;
+}

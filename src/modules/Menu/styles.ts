@@ -19,15 +19,20 @@ export const MenuStyled = styled.menu`
 `;
 
 export const LogoBox = styled.div`
+  padding: 2rem;
   background-color: ${colors.BACKGROUND_BLACK};
 `;
 
-export const Logo = styled.img``;
+export const Logo = styled.img`
+  width: 8rem;
+`;
 
-export const Title = styled.h2`
-  margin-bottom: 60px;
+export const Title = styled.h3`
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
   text-align: center;
-  ${typography.H2};
+  ${typography.H3};
+  color: ${colors.TEXT_GRAY};
 `;
 
 export const Socials = styled.div``;

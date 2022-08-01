@@ -8,9 +8,10 @@ interface IProps {
   children: ReactNode;
   variant?: BUTTON_VARIANTS;
   className?: string;
+  disabled?: boolean;
 }
 //   className?: string;
-//   disabled?: boolean;
+
 //   onClick?: (event: MouseEvent<HTMLElement>) => void;
 
 const Button = ({
@@ -18,9 +19,15 @@ const Button = ({
   onClick,
   className,
   variant = BUTTON_VARIANTS.PRIMARY,
+  disabled = false,
 }: IProps) => {
   return (
-    <ButtonStyled className={className} onClick={onClick} $variant={variant}>
+    <ButtonStyled
+      className={className}
+      onClick={onClick}
+      $variant={variant}
+      disabled={disabled}
+    >
       {children}
     </ButtonStyled>
   );

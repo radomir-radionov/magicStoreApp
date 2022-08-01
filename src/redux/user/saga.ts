@@ -5,11 +5,13 @@ import {
   postLogoutRequest,
   postSignInRequest,
   postSignUpRequest,
+  putGameInCartRequest,
 } from "requests";
 import { userActions } from "./slice";
 import { IUser } from "types/user";
 import { putNewUserDataRequest } from "requests/putNewUserDataRequest";
 import { IAuthResponse } from "types/response";
+import getUserCartGamesRequest from "requests/getUserCartGamesRequest";
 
 export function* registrationSaga({
   payload,
@@ -73,11 +75,34 @@ export function* changeUserDataSaga({
   }
 }
 
+export function* getUserCartGames({
+  payload,
+}: ReturnType<typeof userActions.getUserCartGames>) {
+  try {
+    const { data } = yield call(() => getUserCartGamesRequest(payload));
+    yield put(userActions.setUserCartGames(data));
+  } catch (e) {
+    // console.log(e.response?.data?.message);
+  }
+}
+
+export function* setGameInCartSaga({
+  payload,
+}: ReturnType<typeof userActions.setGameInCart>) {
+  try {
+    yield call(() => putGameInCartRequest(payload));
+    yield put(userActions.setDataChangedOnServer(true));
+  } catch (e) {
+    // console.log(e.response?.data?.message);
+  }
+}
+
 export function* removeGameInCartSaga({
   payload,
-}: ReturnType<typeof userActions.removeGameInCart>) {
+}: ReturnType<typeof userActions.removeGameInCart>): any {
   try {
     yield call(() => deleteGameCartRequest(payload));
+    yield put(userActions.setDataChangedOnServer(true));
   } catch (e) {
     // console.log(e.response?.data?.message);
   }
@@ -88,8 +113,10 @@ export default function* userSaga() {
     takeLatest(userActions.registration, registrationSaga),
     takeLatest(userActions.login, loginSaga),
     takeLatest(userActions.logout, logoutSaga),
-    takeLatest(userActions.checkAuth, checkAuthSaga),
+    takeLatest(userActions.getUserData, checkAuthSaga),
     takeLatest(userActions.changeUserData, changeUserDataSaga),
+    takeLatest(userActions.getUserCartGames, getUserCartGames),
     takeLatest(userActions.removeGameInCart, removeGameInCartSaga),
+    takeLatest(userActions.setGameInCart, setGameInCartSaga),
   ]);
 }
