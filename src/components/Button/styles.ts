@@ -27,6 +27,10 @@ export const ButtonStyled = styled.button<IProps>`
   transition: all 0.3s ease-out;
   cursor: pointer;
 
+  &:disabled {
+    display: none;
+  }
+
   &:after {
     position: absolute;
     right: 0;

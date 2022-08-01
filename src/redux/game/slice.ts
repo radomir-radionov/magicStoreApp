@@ -37,10 +37,6 @@ const gameSlice = createSlice({
     ) => {
       state.filteredGames = payload;
     },
-    setGameInCart: (
-      state: IGameState,
-      { payload }: PayloadAction<ISetGameInCartPayload>
-    ) => {},
 
     setLoading: (state: IGameState, { payload }: PayloadAction<boolean>) => {
       state.loading = payload;

@@ -39,6 +39,7 @@ const GameItemCart = ({ game }: IGameItemCartProps) => {
         <ButtonStyled
           onClick={onClickRemoveItem}
           variant={BUTTON_VARIANTS.SECONDARY}
+          // disabled={isEven}
         >
           Remove
         </ButtonStyled>

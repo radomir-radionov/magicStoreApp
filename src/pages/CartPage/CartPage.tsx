@@ -11,9 +11,9 @@ const CartPage = () => {
       <Title>
         <CartIcon />
         My Cart
-        <SpanStyled>{cartGames.length}</SpanStyled>
+        <SpanStyled>{cartGames?.length || 0}</SpanStyled>
       </Title>
-      {cartGames.map((game) => (
+      {cartGames?.map((game) => (
         <GameItemCart key={game._id} game={game} />
       ))}
     </CartPageStyled>
