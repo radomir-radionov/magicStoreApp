@@ -6,6 +6,7 @@ const getIsAuthRequest = async () => {
   const response = await axios.get<IAuthResponse>(`${API_URL}/refresh`, {
     withCredentials: true,
   });
+
   return response;
 };
 

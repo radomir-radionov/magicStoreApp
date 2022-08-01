@@ -4,5 +4,6 @@ import Xbox from "./images/xbox.svg";
 import EmptyStar from "./images/emptyStar.svg";
 import Star from "./images/star.svg";
 import SearchIcon from "./images/searchIcon.svg";
+import LetterM from "./images/letterM.svg";
 
-export { PC, Playstation, Xbox, EmptyStar, Star, SearchIcon };
+export { PC, Playstation, Xbox, EmptyStar, Star, SearchIcon, LetterM };

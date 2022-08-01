@@ -5,7 +5,9 @@ const deleteGameCartRequest = async ({
   id,
   game,
 }: IRemoveGameInCartPayload) => {
-  await $api.delete(`/deleteGameInCart/${id}/${game._id}`);
+  const response = await $api.delete(`/deleteGameInCart/${id}/${game._id}`);
+
+  return response;
 };
 
 export default deleteGameCartRequest;

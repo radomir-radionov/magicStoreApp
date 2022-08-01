@@ -6,7 +6,10 @@ const postSignInRequest = async (
   email: string,
   password: string
 ): Promise<AxiosResponse<IAuthResponse>> => {
-  const response = $api.post<IAuthResponse>("/login", { email, password });
+  const response = await $api.post<IAuthResponse>("/login", {
+    email,
+    password,
+  });
   return response;
 };
 
