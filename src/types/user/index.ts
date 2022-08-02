@@ -2,6 +2,7 @@ import { IGame } from "./../game/game";
 
 export interface IUser {
   id: string;
+  role: string;
   email: string;
   name: string;
   description: string;

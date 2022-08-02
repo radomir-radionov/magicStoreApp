@@ -10,9 +10,6 @@ interface IProps {
   className?: string;
   disabled?: boolean;
 }
-//   className?: string;
-
-//   onClick?: (event: MouseEvent<HTMLElement>) => void;
 
 const Button = ({
   children,

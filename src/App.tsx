@@ -21,8 +21,9 @@ function App() {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(userActions.getUserCartGames({ id }));
-    dispatch(userActions.setDataChangedOnServer(false));
+    id &&
+      dispatch(userActions.getUserCartGames({ id })) &&
+      dispatch(userActions.setDataChangedOnServer(false));
   }, [dispatch, id, isDataChangedOnServer]);
 
   return (

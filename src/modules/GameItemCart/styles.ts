@@ -1,4 +1,4 @@
-import { typography } from "styles";
+import { colors, typography } from "styles";
 import styled from "styled-components";
 import { Button } from "components";
 
@@ -6,19 +6,27 @@ export const GameItemCartStyled = styled.article`
   display: flex;
   gap: 3rem;
   width: fit-content;
+  height: 28rem;
   padding: 2rem 0;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid ${colors.BACKGROUND_VIVID_CYAN};
 `;
 
 export const GameImgBox = styled.div`
   width: 20rem;
-  height: 23rem;
+  height: 24rem;
 `;
 
 export const GameImg = styled.img`
   height: 100%;
   width: 100%;
   border-radius: 8px;
+`;
+
+export const GameDetailsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24rem;
 `;
 
 export const GameDetails = styled.div`
@@ -42,6 +50,6 @@ export const InputStyled = styled.input`
   margin: 0;
 `;
 
-export const ButtonStyled = styled(Button)`
-  margin-top: 3rem;
-`;
+export const ButtonStyled = styled(Button)``;
+
+export const InteractPanel = styled.div``;
