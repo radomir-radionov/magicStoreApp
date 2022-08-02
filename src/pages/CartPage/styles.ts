@@ -6,6 +6,7 @@ export const CartPageStyled = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  gap: 5rem;
   width: 100%;
   padding: 5rem;
 `;
@@ -15,7 +16,8 @@ export const Title = styled.h2`
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid ${colors.COLOR_RED};
 `;
 
 export const HeaderTable = styled.div`
@@ -31,5 +33,9 @@ export const SpanStyled = styled.span`
   padding: 0 0.6rem;
   text-align: center;
   border-radius: 30%;
-  background-color: ${colors.TEXT_RED};
+  background-color: ${colors.BACKGROUND_RED};
+`;
+
+export const GameListWrapper = styled.div`
+  min-height: 62rem;
 `;

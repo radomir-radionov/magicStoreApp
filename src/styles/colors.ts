@@ -14,8 +14,11 @@ enum colors {
   BACKGROUND_VIVID_CYAN = "#08fdd8",
   BACKGROUND_DARK_GRAY = "#181818",
   BACKGROUND_WHITESMOKE = "whitesmoke",
+  BACKGROUND_RED = "#FD2155",
   MODAL_BACKGROUND_OPACITY = "rgba(64, 63, 77, 0.7)",
   BOX_SHADOW = "rgba(0, 0, 0, 0.6)",
+  COLOR_WHITE = "white",
+  COLOR_RED = "#FD2155",
 }
 
 export default colors;

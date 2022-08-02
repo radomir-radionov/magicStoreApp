@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
   IRemoveGameInCartPayload,
   ISetGameInCartPayload,
+  IUpdateCartDataPayload,
 } from "redux/game/types";
 import { start } from "repl";
 import { IGame } from "types/game/game";
@@ -60,6 +61,10 @@ export const userSlice = createSlice({
     removeGameInCart: (
       state: IUserState,
       { payload }: PayloadAction<IRemoveGameInCartPayload>
+    ) => {},
+    updateCartData: (
+      state: IUserState,
+      { payload }: PayloadAction<IUpdateCartDataPayload>
     ) => {},
     setDataChangedOnServer: (
       state: IUserState,
