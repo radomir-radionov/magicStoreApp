@@ -6,6 +6,7 @@ import {
   postSignInRequest,
   postSignUpRequest,
   putGameInCartRequest,
+  putNewDataCartRequest,
 } from "requests";
 import { userActions } from "./slice";
 import { IUser } from "types/user";
@@ -108,6 +109,17 @@ export function* removeGameInCartSaga({
   }
 }
 
+export function* updateCartDataSaga({
+  payload,
+}: ReturnType<typeof userActions.updateCartData>) {
+  try {
+    yield call(() => putNewDataCartRequest(payload));
+    yield put(userActions.setDataChangedOnServer(true));
+  } catch (e) {
+    // console.log(e.response?.data?.message);
+  }
+}
+
 export default function* userSaga() {
   yield all([
     takeLatest(userActions.registration, registrationSaga),
@@ -118,5 +130,6 @@ export default function* userSaga() {
     takeLatest(userActions.getUserCartGames, getUserCartGames),
     takeLatest(userActions.removeGameInCart, removeGameInCartSaga),
     takeLatest(userActions.setGameInCart, setGameInCartSaga),
+    takeLatest(userActions.updateCartData, updateCartDataSaga),
   ]);
 }

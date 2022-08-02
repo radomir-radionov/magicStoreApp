@@ -15,3 +15,8 @@ export interface IRemoveGameInCartPayload {
   id: string;
   game: IGame;
 }
+
+export interface IUpdateCartDataPayload {
+  id: string;
+  cartGames: IGame[];
+}

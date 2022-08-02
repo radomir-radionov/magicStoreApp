@@ -1,5 +1,7 @@
+import { AboutPageStyled } from "./styles";
+
 const AboutPage = () => {
-  return <div>AboutPage</div>;
+  return <AboutPageStyled></AboutPageStyled>;
 };
 
 export default AboutPage;

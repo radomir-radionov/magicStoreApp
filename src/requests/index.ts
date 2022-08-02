@@ -7,3 +7,4 @@ export { default as getSearchedGamesRequest } from "./getSearchedGamesRequest";
 export { default as getFilteredGamesRequest } from "./getFilteredGamesRequest";
 export { default as putGameInCartRequest } from "./putGameInCartRequest";
 export { default as deleteGameCartRequest } from "./deleteGameCartRequest";
+export { default as putNewDataCartRequest } from "./putNewDataCartRequest";

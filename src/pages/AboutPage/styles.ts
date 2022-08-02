@@ -1,5 +1,3 @@
 import styled from "styled-components";
 
-export const LayoutPageStyled = styled.div`
-  display: flex;
-`;
+export const AboutPageStyled = styled.div``;

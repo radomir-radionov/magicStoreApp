@@ -7,9 +7,11 @@ import {
   ButtonStyled,
   Description,
   GameDetails,
+  GameDetailsWrapper,
   GameImg,
   GameImgBox,
   GameItemCartStyled,
+  InteractPanel,
   Title,
 } from "./styles";
 
@@ -30,20 +32,23 @@ const GameItemCart = ({ game }: IGameItemCartProps) => {
       <GameImgBox>
         <GameImg src={game.img} alt="Game Icon" />
       </GameImgBox>
-      <GameDetails>
-        <Title>{game.name}</Title>
-        <Description>{game.description}</Description>
-        <Description>Genre: {game.genre}</Description>
-        <Description>Age: {game.age}+</Description>
-        <Description>Price: ${game.price}</Description>{" "}
-        <ButtonStyled
-          onClick={onClickRemoveItem}
-          variant={BUTTON_VARIANTS.SECONDARY}
-          // disabled={isEven}
-        >
-          Remove
-        </ButtonStyled>
-      </GameDetails>
+      <GameDetailsWrapper>
+        <GameDetails>
+          <Title>{game.name}</Title>
+          <Description>{game.description}</Description>
+          <Description>Genre: {game.genre}</Description>
+          <Description>Age: {game.age}+</Description>
+          <Description>Price: ${game.price}</Description>
+        </GameDetails>
+        <InteractPanel>
+          <ButtonStyled
+            onClick={onClickRemoveItem}
+            variant={BUTTON_VARIANTS.SECONDARY}
+          >
+            Remove
+          </ButtonStyled>
+        </InteractPanel>
+      </GameDetailsWrapper>
     </GameItemCartStyled>
   );
 };
