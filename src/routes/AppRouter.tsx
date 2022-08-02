@@ -9,6 +9,7 @@ import {
   AboutPage,
   ProtectedPage,
   CartPage,
+  AdminPage,
 } from "pages";
 
 const AppRouter = () => {
@@ -21,6 +22,7 @@ const AppRouter = () => {
           <Route path={pageRoutes.PRODUCT} element={<ProductPage />} />
           <Route path={pageRoutes.ABOUT} element={<AboutPage />} />
           <Route path={pageRoutes.CART} element={<CartPage />} />
+          <Route path={pageRoutes.ADMIN} element={<AdminPage />} />
         </Route>
       </Route>
       <Route path={pageRoutes.NOT_FOUND} element={<NotFoundPage />} />

@@ -4,6 +4,7 @@ enum pageRoutes {
   PRODUCT = "/product",
   CART = "/cart",
   ABOUT = "/about",
+  ADMIN = "/admin",
   NOT_FOUND = "*",
 }
 
