@@ -1,6 +1,6 @@
 import { GameRating } from "modules";
 import { useDispatch, useSelector } from "react-redux";
-import { IGame } from "types/game/game";
+import { IGame } from "types/game";
 import { PC, Playstation, Xbox } from "assets";
 import {
   cartGamesSelector,
@@ -23,6 +23,8 @@ import {
 } from "./styles";
 import { BUTTON_VARIANTS } from "components/Button/types";
 import { userActions } from "redux/user";
+import { modalActionTypes } from "redux/modal";
+import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
 
 interface IGameItemProps {
   game: IGame;
@@ -68,7 +70,7 @@ const GameItem = ({ game }: IGameItemProps) => {
   // const date = `${month}/${day}/${dateTime.getFullYear()}`;
   // ----------------------------------------------------
 
-  const onClickAddGameHandler = () => {
+  const onClickAddGameInCart = () => {
     // console.log(111);
     // const isEven = cartGames.some(
     //   (cartGame) => currentGameData._id === cartGame._id
@@ -76,6 +78,12 @@ const GameItem = ({ game }: IGameItemProps) => {
     // if (!isEven) {
     dispatch(userActions.setGameInCart({ id, game }));
     // }
+  };
+
+  const onClickEditGame = () => {
+    dispatch(
+      modalActionTypes.openModal({ modalType: MODAL_TYPES.EDIT_GAME_MODAL })
+    );
   };
 
   const dataPlatforms = platform.map((itemPlatform) => ({
@@ -114,11 +122,19 @@ const GameItem = ({ game }: IGameItemProps) => {
         <Footer>
           <ButtonStyled
             type="submit"
-            onClick={onClickAddGameHandler}
+            onClick={onClickAddGameInCart}
             variant={BUTTON_VARIANTS.SECONDARY}
             disabled={isEven}
           >
             Add to cart
+          </ButtonStyled>
+          <ButtonStyled
+            type="submit"
+            onClick={onClickEditGame}
+            variant={BUTTON_VARIANTS.SECONDARY}
+            disabled={isEven}
+          >
+            Edit game
           </ButtonStyled>
           {/* <Button type="submit" onClick={onClickEditGameHandler}>
             Edit

@@ -2,7 +2,7 @@ import { ChangeEvent, forwardRef } from "react";
 import { FieldError } from "react-hook-form";
 import { ErrorMessage, InputStyled, InputWrapper, LabelStyled } from "./styles";
 
-interface IProps {
+interface IInputTextProps {
   disabled?: boolean;
   errors?: FieldError;
   label?: string;
@@ -24,7 +24,7 @@ const InputText = forwardRef(
       onChange,
       fieldData = { invalid: false, isDirty: false },
       errors,
-    }: IProps,
+    }: IInputTextProps,
     ref
   ) => {
     const { invalid, isDirty } = fieldData;

@@ -6,7 +6,6 @@ import {
   currentUserDataSelector,
   isDataChangedOnServerSelector,
 } from "redux/user/selectors";
-
 import AppRouter from "routes/AppRouter";
 
 function App() {

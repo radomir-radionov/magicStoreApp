@@ -25,7 +25,7 @@ export const Form = styled.form`
   width: 300px;
 `;
 
-export const ButtonsBox = styled.div`
+export const InteractionPanel = styled.div`
   display: flex;
   gap: 20px;
   margin-top: 2rem;
