@@ -1,9 +1,16 @@
 import { BUTTON_VARIANTS } from "components/Button/types";
+import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
+import { useDispatch } from "react-redux";
+import { modalActionTypes } from "redux/modal";
 import { AdminPageStyled, AdminControlPanel, ButtonStyled } from "./styles";
 
 const AdminPage = () => {
+  const dispatch = useDispatch();
+
   const onClickAddGame = () => {
-    console.log(1);
+    dispatch(
+      modalActionTypes.openModal({ modalType: MODAL_TYPES.ADD_GAME_MODAL })
+    );
   };
 
   return (

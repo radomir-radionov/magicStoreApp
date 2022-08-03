@@ -1,7 +1,13 @@
 import { ChangeEvent, ChangeEventHandler, forwardRef } from "react";
-import { TextareaWrapper, TextareaStyled, Label } from "./styles";
+import { FieldError } from "react-hook-form";
+import {
+  TextareaWrapper,
+  TextareaStyled,
+  LabelStyled,
+  ErrorMessage,
+} from "./styles";
 
-interface IProps {
+interface ITextareaProps {
   name: string;
   label: string;
   placeholder: string;
@@ -9,20 +15,45 @@ interface IProps {
     | (ChangeEventHandler<HTMLTextAreaElement> &
         ((event: ChangeEvent<HTMLInputElement>) => void))
     | undefined;
+  fieldData?: { invalid: boolean; isDirty: boolean };
+  errors?: FieldError;
 }
 
 const Textarea = forwardRef(
-  ({ name, label, placeholder, onChange }: IProps, ref) => {
+  (
+    {
+      name,
+      label,
+      placeholder,
+      onChange,
+      fieldData = { invalid: false, isDirty: false },
+      errors,
+    }: ITextareaProps,
+    ref
+  ) => {
+    const { invalid, isDirty } = fieldData;
+
     return (
       <TextareaWrapper>
-        <Label htmlFor={name}>{label}</Label>
+        <LabelStyled
+          htmlFor={name}
+          invalid={invalid}
+          isDirty={isDirty}
+          errors={errors}
+        >
+          {label}
+        </LabelStyled>
         <TextareaStyled
           id={name}
           name={name}
           placeholder={placeholder}
           ref={ref}
           onChange={onChange}
+          invalid={invalid}
+          isDirty={isDirty}
+          errors={errors}
         />
+        {errors && <ErrorMessage>{errors.message}</ErrorMessage>}
       </TextareaWrapper>
     );
   }
