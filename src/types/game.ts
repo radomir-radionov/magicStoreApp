@@ -1,11 +1,3 @@
-export interface IGameState {
-  topGames: IGame[];
-  searchedGames: IGame[];
-  games: IGame[];
-  filteredGames: IGame[];
-  loading: boolean;
-}
-
 export interface IGame {
   _id: string;
   name: string;
@@ -18,4 +10,14 @@ export interface IGame {
   platform: string[];
   selected: boolean;
   date?: string;
+}
+
+export interface INewGameData {
+  name: string;
+  genre: string;
+  description: string;
+  price: string;
+  age: string;
+  img: string;
+  platfotm?: string[];
 }

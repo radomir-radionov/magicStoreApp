@@ -1,5 +1,5 @@
 import { GameItem, GameItemCart } from "modules";
-import { IGame } from "types/game/game";
+import { IGame } from "types/game";
 import { GameListStyled } from "./styles";
 
 interface IGameProps {

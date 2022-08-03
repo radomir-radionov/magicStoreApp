@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors, typography } from "styles";
 
-export const SignInModalStyled = styled.div`
+export const AddGameModalStyled = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;

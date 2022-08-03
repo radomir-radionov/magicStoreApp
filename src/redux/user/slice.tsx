@@ -4,8 +4,8 @@ import {
   ISetGameInCartPayload,
   IUpdateCartDataPayload,
 } from "redux/game/types";
-import { IGame } from "types/game/game";
-import { ISignInDataRequest, ISignUpDataRequest, IUser } from "types/user";
+import { IGame } from "types/game";
+import { ISignInData, ISignUpDataRequest, IUser } from "types/user";
 import { IChangedUserData, IGetUserCartGames, IUserState } from "./types";
 
 const initialState: IUserState = {
@@ -30,10 +30,7 @@ export const userSlice = createSlice({
       state: IUserState,
       { payload }: PayloadAction<ISignUpDataRequest>
     ) => {},
-    login: (
-      state: IUserState,
-      { payload }: PayloadAction<ISignInDataRequest>
-    ) => {},
+    login: (state: IUserState, { payload }: PayloadAction<ISignInData>) => {},
     logout: () => {},
     getUserData: () => {},
     setAuth: (state: IUserState, { payload }: PayloadAction<boolean>) => {

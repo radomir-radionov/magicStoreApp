@@ -1,4 +1,4 @@
-import { IGame } from "./../game/game";
+import { IGame } from "./game";
 
 export interface IUser {
   id: string;
@@ -16,7 +16,7 @@ export interface ISignUpDataRequest {
   confirmPassword: string;
 }
 
-export interface ISignInDataRequest {
+export interface ISignInData {
   email: string;
   password: string;
 }

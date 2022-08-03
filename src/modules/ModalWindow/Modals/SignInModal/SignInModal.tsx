@@ -1,19 +1,18 @@
 import { ButtonModal, InputText } from "components";
-import { FC } from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import schema from "./schema";
 import { userActions } from "redux/user";
 import { modalActionTypes } from "redux/modal";
-import { ISignInDataRequest } from "types/user";
-import { ButtonsBox, Form, SignInModalStyled, Title } from "./styles";
+import { ISignInData } from "types/user";
+import { Form, InteractionPanel, SignInModalStyled, Title } from "./styles";
 
-interface IProps {
+interface ISignInModalProps {
   onClose: () => void;
 }
 
-const SignInModal: FC<IProps> = ({ onClose }) => {
+const SignInModal = ({ onClose }: ISignInModalProps) => {
   const dispatch = useDispatch();
 
   const {
@@ -21,7 +20,7 @@ const SignInModal: FC<IProps> = ({ onClose }) => {
     handleSubmit,
     getFieldState,
     formState: { errors, isDirty, isValid, dirtyFields },
-  } = useForm<ISignInDataRequest>({
+  } = useForm<ISignInData>({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
@@ -29,7 +28,7 @@ const SignInModal: FC<IProps> = ({ onClose }) => {
   const fieldEmail = getFieldState("email");
   const fieldPassword = getFieldState("password");
 
-  const onSubmitHandler = (data: ISignInDataRequest) => {
+  const onSubmitHandler = (data: ISignInData) => {
     dispatch(userActions.login(data));
     dispatch(modalActionTypes.closeModal());
   };
@@ -54,14 +53,14 @@ const SignInModal: FC<IProps> = ({ onClose }) => {
           errors={errors.password}
           {...register("password")}
         />
-        <ButtonsBox>
+        <InteractionPanel>
           <ButtonModal type="submit" disabled={!isDirty || !isValid}>
             Submit
           </ButtonModal>
           <ButtonModal onClick={onClose} type="submit">
             Close
           </ButtonModal>
-        </ButtonsBox>
+        </InteractionPanel>
       </Form>
     </SignInModalStyled>
   );
