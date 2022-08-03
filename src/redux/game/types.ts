@@ -1,4 +1,12 @@
-import { IGame } from "./../../types/game/game";
+import { IGame } from "../../types/game";
+
+export interface IGameState {
+  topGames: IGame[];
+  searchedGames: IGame[];
+  games: IGame[];
+  filteredGames: IGame[];
+  loading: boolean;
+}
 
 export interface IChangedUserData {
   userId: string;

@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import schema from "./schema";
@@ -10,11 +9,11 @@ import { userActions } from "redux/user";
 import { modalActionTypes } from "redux/modal";
 import { ISignUpDataRequest } from "types/user";
 
-interface IProps {
+interface ISignUpModalProps {
   onClose: () => void;
 }
 
-const SignUpModal: FC<IProps> = ({ onClose }) => {
+const SignUpModal = ({ onClose }: ISignUpModalProps) => {
   const dispatch = useDispatch();
 
   const {
