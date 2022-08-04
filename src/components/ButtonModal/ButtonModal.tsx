@@ -1,14 +1,18 @@
-import { ReactNode, MouseEvent, FC } from "react";
+import { ReactNode, MouseEvent } from "react";
 import { ButtonStyled } from "./styles";
 
-interface IProps {
+interface IButtonModalProps {
   children: ReactNode;
   onClick?: (event: MouseEvent<HTMLElement>) => void;
   type?: "button" | "submit";
   disabled?: boolean;
 }
 
-const ButtonModal: FC<IProps> = ({ children, onClick, disabled = false }) => {
+const ButtonModal = ({
+  children,
+  onClick,
+  disabled = false,
+}: IButtonModalProps) => {
   return (
     <ButtonStyled onClick={onClick} disabled={disabled}>
       {children}

@@ -9,7 +9,7 @@ const getFilteredGamesRequest = async ({
   searchText,
 }: any) => {
   const { data } = await axios.get(
-    `${API_URL}/product?criteria=${criteria}&genre=${genre}&age=${age}&searchText=${searchText}`
+    `${API_URL}/product?platform=${platform}&criteria=${criteria}&genre=${genre}&age=${age}&searchText=${searchText}`
   );
   return data;
 };

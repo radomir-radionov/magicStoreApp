@@ -7,6 +7,12 @@ export const ages = [
   { id: 6, value: "18", name: "18+" },
 ];
 
+export const platforms = [
+  { id: 1, name: "PC", value: "PC" },
+  { id: 2, name: "Playstation", value: "Playstation" },
+  { id: 3, name: "Xbox", value: "Xbox" },
+];
+
 export const criteries = [
   { id: 1, name: "Name", value: "name" },
   { id: 2, name: "Rating", value: "rating" },

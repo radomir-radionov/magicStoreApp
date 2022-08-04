@@ -27,6 +27,6 @@ export const Form = styled.form`
 
 export const InteractionPanel = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 1rem;
   margin-top: 2rem;
 `;

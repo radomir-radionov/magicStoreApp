@@ -1,13 +1,11 @@
 import { GameFilter, SearchBar } from "modules";
-import { ProductPageStyled, SearchBarWrapper, Title } from "./styles";
+import { ProductPageStyled, Title } from "./styles";
 
 const ProductPage = () => {
   return (
     <ProductPageStyled>
       <Title>Find your favorite game</Title>
-      <SearchBarWrapper>
-        <SearchBar />
-      </SearchBarWrapper>
+      <SearchBar />
       <GameFilter />
     </ProductPageStyled>
   );

@@ -5,5 +5,15 @@ import EmptyStar from "./images/emptyStar.svg";
 import Star from "./images/star.svg";
 import SearchIcon from "./images/searchIcon.svg";
 import LetterM from "./images/letterM.svg";
+import RectangleLeft from "./images/rectangleLeft.svg";
 
-export { PC, Playstation, Xbox, EmptyStar, Star, SearchIcon, LetterM };
+export {
+  PC,
+  Playstation,
+  Xbox,
+  EmptyStar,
+  Star,
+  SearchIcon,
+  LetterM,
+  RectangleLeft,
+};
