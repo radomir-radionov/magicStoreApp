@@ -19,5 +19,5 @@ export interface INewGameData {
   price: string;
   age: string;
   img: string;
-  platfotm?: string[];
+  platform: string[];
 }

@@ -3,14 +3,14 @@ import { FieldError } from "react-hook-form";
 import { ErrorMessage, InputStyled, InputWrapper, LabelStyled } from "./styles";
 
 interface IInputTextProps {
-  disabled?: boolean;
-  errors?: FieldError;
+  type?: string;
   label?: string;
   htmlFor?: string;
-  type?: string;
-  fieldData?: { invalid: boolean; isDirty: boolean };
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  fieldData?: { invalid: boolean; isDirty: boolean };
+  disabled?: boolean;
+  errors?: FieldError;
 }
 
 const InputText = forwardRef(
@@ -19,10 +19,10 @@ const InputText = forwardRef(
       type = "text",
       htmlFor = "",
       label = "",
-      disabled = false,
       placeholder = "",
       onChange,
       fieldData = { invalid: false, isDirty: false },
+      disabled = false,
       errors,
     }: IInputTextProps,
     ref

@@ -3,8 +3,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
 import { INewGameData } from "types/game";
 import schema from "./schema";
-import { ButtonModal, InputText, Textarea } from "components";
-import { AddGameModalStyled, Form, InteractionPanel, Title } from "./styles";
+import { ButtonModal, InputCheckbox, InputText, Textarea } from "components";
+import {
+  AddGameModalStyled,
+  Form,
+  InputCheckboxWrapper,
+  InteractionPanel,
+  Title,
+} from "./styles";
 import { gameActions } from "redux/game";
 
 interface IAddGameModalProps {
@@ -32,7 +38,7 @@ const AddGameModal = ({ onClose }: IAddGameModalProps) => {
   const fieldImg = getFieldState("img");
 
   const onSubmitHandler = (data: INewGameData) => {
-    // dispatch(gameActions.addNewGame(data));
+    dispatch(gameActions.addNewGame(data));
     // dispatch(modalActionTypes.closeModal());
   };
 
@@ -87,14 +93,18 @@ const AddGameModal = ({ onClose }: IAddGameModalProps) => {
           {...register("img")}
           errors={errors.img}
         />
-        {/* <InputText
-          label="Platfotm"
-          htmlFor="platfotm"
-          placeholder="Enter your password"
-          // fieldData={fieldPassword}
-          errors={errors.platfotm}
-          {...register("platfotm")}
-        /> */}
+        <InputCheckboxWrapper>
+          {["PC", "Playstation", "Xbox"].map((value) => (
+            <InputCheckbox
+              key={value}
+              value={value}
+              label={value}
+              htmlFor={value}
+              {...register("platform")}
+              errors={errors.platform}
+            />
+          ))}
+        </InputCheckboxWrapper>
         <InteractionPanel>
           <ButtonModal type="submit" disabled={!isDirty || !isValid}>
             Submit

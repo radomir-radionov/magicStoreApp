@@ -27,6 +27,11 @@ export const Form = styled.form`
 
 export const InteractionPanel = styled.div`
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
   margin-top: 2rem;
+`;
+
+export const InputCheckboxWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
 `;
