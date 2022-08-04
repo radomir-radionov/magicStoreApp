@@ -1,16 +1,15 @@
 import { ages } from "constants/filtersData";
-import { Form, Hr, Label, RadioInput, Title } from "./styles";
+import { Form, Label, RadioInput, Title } from "./styles";
 
 interface IAgeFilterParams {
   searchParams: string;
   onSelectedParams: (key: string, searchParam: string) => void;
 }
 
-const FilterAge = ({ searchParams, onSelectedParams }: IAgeFilterParams) => {
+const AgeFilter = ({ searchParams, onSelectedParams }: IAgeFilterParams) => {
   return (
     <Form>
       <Title>Age</Title>
-      <Hr />
       {ages.map(({ id, value, name }) => (
         <Label key={id}>
           <RadioInput
@@ -29,4 +28,4 @@ const FilterAge = ({ searchParams, onSelectedParams }: IAgeFilterParams) => {
   );
 };
 
-export default FilterAge;
+export default AgeFilter;

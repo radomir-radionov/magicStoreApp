@@ -3,11 +3,9 @@ import { colors, typography } from "styles";
 
 export const GameFilterStyled = styled.section`
   display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 10rem;
   width: 100%;
-  padding: 0 5rem 5rem 5rem;
+  padding: 0 5rem 0 5rem;
 `;
 
 export const SectionSearchBar = styled.section`
@@ -51,8 +49,10 @@ export const Content = styled.div`
   margin-top: 5rem;
 `;
 
-export const WrapperFilteredGames = styled.div`
-  display: flex;
-  gap: 7rem;
-  width: 100%;
+export const SpanStyled = styled.span`
+  min-width: 4rem;
+  padding: 0 0.6rem;
+  text-align: center;
+  border-radius: 30%;
+  background-color: ${colors.BACKGROUND_RED};
 `;

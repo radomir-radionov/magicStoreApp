@@ -1,15 +1,20 @@
-import { FilterAge, FilterCriteria, FilterGenre } from "modules";
+import {
+  AgeFilter,
+  CriteriaFilter,
+  GenreFilter,
+  PlatformFilter,
+} from "modules";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { gameActions } from "redux/game";
 import { FiltersBarStyled, Hr, Title } from "./styles";
 
 const FiltersBar = () => {
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
-  const { platform } = useParams(); //add platform in an adres
 
+  const platform = searchParams.get("platform") || "";
   const criteria = searchParams.get("criteria") || "";
   const genre = searchParams.get("genre") || "";
   const age = searchParams.get("age") || "";
@@ -29,12 +34,16 @@ const FiltersBar = () => {
     <FiltersBarStyled>
       <Title>Filter Bar</Title>
       <Hr />
-      <FilterCriteria
+      <PlatformFilter
+        searchParam={platform}
+        onSelectedParams={onSelectedValues}
+      />
+      <CriteriaFilter
         searchParam={criteria}
         onSelectedParams={onSelectedValues}
       />
-      <FilterGenre searchParam={genre} onSelectedParams={onSelectedValues} />
-      <FilterAge searchParams={age} onSelectedParams={onSelectedValues} />
+      <GenreFilter searchParam={genre} onSelectedParams={onSelectedValues} />
+      <AgeFilter searchParams={age} onSelectedParams={onSelectedValues} />
     </FiltersBarStyled>
   );
 };

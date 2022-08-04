@@ -2,7 +2,10 @@ import styled from "styled-components";
 import { colors } from "styles";
 
 export const Form = styled.form`
-  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1.6rem;
+  margin-bottom: 1.6rem;
 `;
 
 export const Title = styled.h3`
@@ -10,10 +13,6 @@ export const Title = styled.h3`
   margin-bottom: 1.2rem;
   font-size: 1.2rem;
   color: ${colors.TEXT_1};
-`;
-
-export const Criteries = styled.div`
-  display: flex;
 `;
 
 export const Label = styled.label`
@@ -33,8 +32,4 @@ export const Select = styled.select`
 export const Option = styled.option`
   color: ${colors.TEXT_BLACK};
   background: transparent;
-`;
-
-export const Hr = styled.hr`
-  margin-bottom: 1rem;
 `;
