@@ -17,3 +17,4 @@ export { default as Navigation } from "./Navigation/Navigation";
 export { default as NavItem } from "./NavItem/NavItem";
 export { default as GameItemCart } from "./GameItemCart/GameItemCart";
 export { default as CartTotalPanel } from "./CartTotalPanel/CartTotalPanel";
+export { default as Pagination } from "./Pagination/Pagination";

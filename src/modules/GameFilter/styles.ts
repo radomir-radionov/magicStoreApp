@@ -24,7 +24,6 @@ export const FilteredGames = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 0 2.6rem 2.6rem 2.6rem;
 
   @media (max-width: 600px) {
     flex-direction: column;
@@ -41,7 +40,7 @@ export const Title = styled.h2`
 
 export const Hr = styled.hr`
   width: 100%;
-  margin-bottom: 8rem;
+  margin-bottom: 7rem;
 `;
 
 export const Content = styled.div`
@@ -54,5 +53,6 @@ export const Content = styled.div`
 
 export const WrapperFilteredGames = styled.div`
   display: flex;
+  gap: 7rem;
   width: 100%;
 `;

@@ -17,6 +17,8 @@ enum colors {
   BACKGROUND_WHITESMOKE = "whitesmoke",
   BACKGROUND_RED = "#FD2155",
   BACKGROUND_ORANGE = "orange",
+  BACKGROUND_BLUE = "#0064eb",
+  BACKGROUND_LIGHT_GRAY = "#808080",
   MODAL_BACKGROUND_OPACITY = "rgba(64, 63, 77, 0.7)",
   BOX_SHADOW = "rgba(0, 0, 0, 0.6)",
   COLOR_WHITE = "white",

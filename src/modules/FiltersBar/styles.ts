@@ -3,9 +3,7 @@ import { colors, typography } from "styles";
 
 export const FiltersBarStyled = styled.nav`
   height: fit-content;
-  padding: 2.6rem;
   border-radius: 8px;
-  background-color: ${colors.BACKGROUND_DARK_GRAY};
 `;
 
 export const Title = styled.h2`

@@ -1,8 +1,7 @@
-import { FiltersBar, GameList, SearchBar } from "modules";
+import { FiltersBar, GameList, Pagination } from "modules";
 import { Spinner } from "components";
 import { useSelector } from "react-redux";
 import { filteredGamesSelector, isLoadingSelector } from "redux/game/selectors";
-import { userRoleSelector } from "redux/user/selectors";
 import {
   FilteredGames,
   GameFilterStyled,
@@ -21,12 +20,12 @@ const GameFilter = () => {
       <WrapperFilteredGames>
         <FiltersBar />
         <FilteredGames>
-          <Title>Searched Games</Title>
+          <Title>Searched Games {filteredGames.length}</Title>
           <Hr />
           {isLoading ? (
             <Spinner />
           ) : filteredGames.length ? (
-            <GameList games={filteredGames} />
+            <Pagination games={filteredGames} itemsPerPage={3} />
           ) : (
             <p>Just click an option in the filter bar...</p>
           )}
