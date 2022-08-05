@@ -1,7 +1,7 @@
-import { BUTTON_VARIANTS } from "components/Button/types";
 import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "redux/user";
 import { currentUserDataSelector } from "redux/user/selectors";
+import { BUTTON_VARIANTS } from "components/Button/types";
 import { IGame } from "types/game";
 import {
   ButtonStyled,

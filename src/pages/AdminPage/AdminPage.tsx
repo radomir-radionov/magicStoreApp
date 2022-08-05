@@ -16,10 +16,7 @@ const AdminPage = () => {
   return (
     <AdminPageStyled>
       <AdminControlPanel>
-        <ButtonStyled
-          onClick={onClickAddGame}
-          variant={BUTTON_VARIANTS.PRIMARY}
-        >
+        <ButtonStyled onClick={onClickAddGame} variant={BUTTON_VARIANTS.ADMIN}>
           Add game
         </ButtonStyled>
       </AdminControlPanel>

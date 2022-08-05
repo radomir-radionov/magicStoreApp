@@ -106,6 +106,6 @@ export const Footer = styled.footer`
 `;
 
 export const ButtonStyled = styled(Button)`
-  width: 14rem;
-  height: 4rem;
+  width: 14rem !important;
+  height: 4rem !important;
 `;

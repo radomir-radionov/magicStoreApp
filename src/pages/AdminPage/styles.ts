@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { colors } from "styles";
 
 export const AdminPageStyled = styled.div`
+  flex: 1;
   padding: 10rem;
 `;
 

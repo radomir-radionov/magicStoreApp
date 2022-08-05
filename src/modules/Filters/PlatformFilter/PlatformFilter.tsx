@@ -3,7 +3,7 @@ import { Form, Label, Select, Option } from "./styles";
 
 interface IPlatformFilterProps {
   searchParam: string;
-  onSelectedParams: (key: string, searchParam: string) => void;
+  onSelectedParams: (key: string, newParamValue: string) => void;
 }
 
 const PlatformFilter = ({

@@ -15,7 +15,7 @@ export const InputCheckboxWrapper = styled.div`
   margin-bottom: 1rem;
 `;
 
-export const InputCheckboxStyled: any = styled.input``;
+export const InputCheckboxStyled = styled.input``;
 
 export const LabelStyled = styled.label<ILabelStyled>`
   ${typography.H4};

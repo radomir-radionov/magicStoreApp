@@ -19,7 +19,9 @@ interface ITextareaProps {
   errors?: FieldError;
 }
 
-const Textarea = forwardRef(
+type Ref = HTMLTextAreaElement;
+
+const Textarea = forwardRef<Ref, ITextareaProps>(
   (
     {
       name,

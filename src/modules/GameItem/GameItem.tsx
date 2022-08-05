@@ -25,6 +25,7 @@ import { BUTTON_VARIANTS } from "components/Button/types";
 import { userActions } from "redux/user";
 import { modalActionTypes } from "redux/modal";
 import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
+import { Button } from "components";
 
 interface IGameItemProps {
   game: IGame;
@@ -120,22 +121,22 @@ const GameItem = ({ game }: IGameItemProps) => {
         <Age>{age}+</Age>
         {/* {currentUser?.role === "Admin" && ( */}
         <Footer>
-          <ButtonStyled
+          <Button
             type="submit"
             onClick={onClickAddGameInCart}
             variant={BUTTON_VARIANTS.SECONDARY}
             disabled={isEven}
           >
             Add to cart
-          </ButtonStyled>
-          <ButtonStyled
+          </Button>
+          <Button
             type="submit"
             onClick={onClickEditGame}
-            variant={BUTTON_VARIANTS.SECONDARY}
+            variant={BUTTON_VARIANTS.ADMIN}
             disabled={isEven}
           >
             Edit game
-          </ButtonStyled>
+          </Button>
           {/* <Button type="submit" onClick={onClickEditGameHandler}>
             Edit
           </Button> */}

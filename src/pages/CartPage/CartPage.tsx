@@ -1,4 +1,4 @@
-import { CartTotalPanel, GameList } from "modules";
+import { CartTotalPanel, GameList, Pagination } from "modules";
 import { useSelector } from "react-redux";
 import { cartGamesSelector } from "redux/user/selectors";
 import {
@@ -20,7 +20,11 @@ const CartPage = () => {
         <SpanStyled>{cartGames?.length || 0}</SpanStyled>
       </Title>
       <GameListWrapper>
-        <GameList games={cartGames} kindOfGames="cartGames" />
+        <Pagination
+          itemsPerPage={4}
+          games={cartGames}
+          kindOfGames="cartGames"
+        />
       </GameListWrapper>
       <CartTotalPanel />
     </CartPageStyled>

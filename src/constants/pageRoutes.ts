@@ -6,6 +6,10 @@ enum pageRoutes {
   ABOUT = "/about",
   ADMIN = "/admin",
   NOT_FOUND = "*",
+
+  GIT = "https://github.com/radomir-radionov",
+  LINKEDIN = "https://www.linkedin.com/in/radomir-radionov/",
+  GOOGLE = "https://www.google.com/",
 }
 
 export default pageRoutes;

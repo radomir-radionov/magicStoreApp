@@ -3,9 +3,9 @@ import styled, { keyframes } from "styled-components";
 import { AiOutlineArrowDown } from "react-icons/ai";
 
 const BounceAnimation = keyframes`
-  0% { padding-bottom: 0; }
-  50% { padding-bottom: 15px }
-  100% { padding-bottom: 0 }
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-16px); }
+  100% { transform: translateY(0); }
 `;
 
 export const GreetingsStyled = styled.section`
@@ -28,14 +28,15 @@ export const RegistrationZone = styled.div`
 
 export const ScrollDownRight = styled.div`
   position: absolute;
+  display: flex;
   bottom: 1rem;
   right: 10px;
   writing-mode: vertical-lr;
-  z-index: 0;
 `;
 
 export const ScrollDownLeft = styled.div`
   position: absolute;
+  display: flex;
   bottom: 1rem;
   left: 10px;
   writing-mode: vertical-lr;
@@ -43,7 +44,7 @@ export const ScrollDownLeft = styled.div`
 
 export const TextScrollDown = styled.span`
   font-size: 14px;
-  animation: ${BounceAnimation} 1s linear infinite;
+  animation: ${BounceAnimation} 1.5s linear infinite;
 `;
 
 export const Icon = styled(AiOutlineArrowDown)`

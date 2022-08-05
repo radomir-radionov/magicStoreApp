@@ -13,7 +13,9 @@ interface IInputTextProps {
   errors?: FieldError;
 }
 
-const InputText = forwardRef(
+type Ref = HTMLInputElement;
+
+const InputText = forwardRef<Ref, IInputTextProps>(
   (
     {
       type = "text",
