@@ -37,7 +37,7 @@ export const ButtonStyled = styled.button<IProps>`
       )`};
   background-size: 200% 100%;
   background-position: right bottom;
-  transition: all 0.3s ease-out;
+  transition: all 0.2s ease-out;
   cursor: pointer;
 
   &:disabled {

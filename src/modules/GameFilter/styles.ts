@@ -5,7 +5,7 @@ export const GameFilterStyled = styled.section`
   display: flex;
   gap: 10rem;
   width: 100%;
-  padding: 0 5rem 0 5rem;
+  padding: 0 5rem 5rem 5rem;
 `;
 
 export const FilteredGames = styled.div`

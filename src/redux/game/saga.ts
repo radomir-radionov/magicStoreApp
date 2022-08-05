@@ -37,7 +37,6 @@ export function* getFilteredGamesSaga({
   payload,
 }: ReturnType<typeof gameActions.getFilteredGames>) {
   try {
-    console.log("getFilteredGamesSaga:", payload);
     yield put(gameActions.setLoading(true));
     const response: IGame[] = yield call(() =>
       getFilteredGamesRequest(payload)

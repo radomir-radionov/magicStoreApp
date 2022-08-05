@@ -9,7 +9,6 @@ const getFilteredGamesRequest = async ({
   platform,
   searchText,
 }: IGetFilteredGamesRequest) => {
-  console.log(age, criteria, genre, platform, searchText);
   const { data } = await axios.get(
     `${API_URL}/product?platform=${platform}&criteria=${criteria}&genre=${genre}&age=${age}&searchText=${searchText}`
   );
