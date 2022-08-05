@@ -6,7 +6,7 @@ import {
   LabelStyled,
 } from "./styles";
 
-interface IInputCheckbox {
+interface IInputCheckboxProps {
   key: string;
   type?: string;
   value: any;
@@ -15,7 +15,9 @@ interface IInputCheckbox {
   errors: any;
 }
 
-const InputCheckbox = forwardRef(
+type Ref = HTMLInputElement;
+
+const InputCheckbox = forwardRef<Ref, IInputCheckboxProps>(
   (
     {
       type = "checkbox",
@@ -24,7 +26,7 @@ const InputCheckbox = forwardRef(
       htmlFor,
       errors,
       ...rest
-    }: IInputCheckbox,
+    }: IInputCheckboxProps,
     ref
   ) => {
     return (

@@ -1,4 +1,5 @@
 export enum BUTTON_VARIANTS {
   PRIMARY = "PRIMARY",
   SECONDARY = "SECONDARY",
+  ADMIN = "ADMIN",
 }

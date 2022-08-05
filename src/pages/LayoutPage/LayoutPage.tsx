@@ -1,11 +1,15 @@
-import { Menu } from "modules";
+import { Footer, Menu } from "modules";
 import { Outlet } from "react-router-dom";
+import { Wrapper } from "./styles";
 
 const LayoutPage = () => {
   return (
     <>
       <Menu />
-      <Outlet />
+      <Wrapper>
+        <Outlet />
+        <Footer />
+      </Wrapper>
     </>
   );
 };

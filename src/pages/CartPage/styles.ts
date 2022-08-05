@@ -5,6 +5,7 @@ import { BsCart } from "react-icons/bs";
 export const CartPageStyled = styled.div`
   position: relative;
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 5rem;
   width: 100%;

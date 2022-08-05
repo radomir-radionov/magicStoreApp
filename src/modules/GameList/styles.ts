@@ -8,7 +8,7 @@ export const GameListStyled = styled.div`
   display: ${({ display }: IGameListStyledProps) =>
     display ? "flex" : "none"};
   justify-content: center;
-  gap: 6rem;
+  gap: 4rem;
   flex-wrap: wrap;
   width: 100%;
 `;

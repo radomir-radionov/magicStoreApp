@@ -1,13 +1,12 @@
-import { SearchIcon } from "assets";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { gameActions } from "redux/game";
+import { SearchIcon } from "assets";
 import { Form, BoxImg, Img, Input } from "./styles";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
-
   const [searchParams, setSearchParams] = useSearchParams();
   const searchText = searchParams.get("searchText") || "";
 

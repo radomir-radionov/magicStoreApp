@@ -2,6 +2,12 @@ import styled from "styled-components";
 import { FieldError } from "react-hook-form";
 import { colors, typography } from "styles";
 
+interface IInputStyled {
+  errors: FieldError | undefined;
+  invalid: boolean;
+  isDirty: boolean;
+}
+
 interface ILabelStyled {
   errors: FieldError | undefined;
   invalid: boolean;
@@ -34,12 +40,7 @@ export const LabelStyled = styled.label<ILabelStyled>`
   `}
 `;
 
-export const InputStyled: any = styled.input<{
-  errors: FieldError;
-  validData: boolean;
-  invalid: boolean;
-  isDirty: boolean;
-}>`
+export const InputStyled = styled.input<IInputStyled>`
   width: 300px;
   padding: 1.2rem 2.4rem;
   margin-top: 0.6rem;

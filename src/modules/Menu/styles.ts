@@ -18,9 +18,10 @@ export const MenuStyled = styled.menu`
   background-color: ${colors.BACKGROUND_DARK_GRAY};
 `;
 
-export const LogoBox = styled.div`
+export const LogoIcon = styled.div`
   padding: 2rem;
   background-color: ${colors.BACKGROUND_BLACK};
+  cursor: pointer;
 `;
 
 export const Logo = styled.img`
@@ -35,6 +36,19 @@ export const Title = styled.h3`
   color: ${colors.TEXT_GRAY};
 `;
 
-export const Socials = styled.div``;
+export const Social = styled.ul`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+`;
 
-export const Link = styled.a``;
+export const SocialItem = styled.li``;
+
+export const Link = styled.a`
+  margin-right: 1rem;
+  color: ${colors.TEXT_GRAY};
+
+  &:hover {
+    color: ${colors.TEXT_VIVID_CYAN};
+  }
+`;
