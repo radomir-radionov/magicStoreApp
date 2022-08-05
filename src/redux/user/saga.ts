@@ -100,7 +100,7 @@ export function* setGameInCartSaga({
 
 export function* removeGameInCartSaga({
   payload,
-}: ReturnType<typeof userActions.removeGameInCart>): any {
+}: ReturnType<typeof userActions.removeGameInCart>) {
   try {
     yield call(() => deleteGameCartRequest(payload));
     yield put(userActions.setDataChangedOnServer(true));

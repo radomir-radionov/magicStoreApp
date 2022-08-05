@@ -33,7 +33,7 @@ export const GameDetails = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 34rem;
+  width: 27rem;
 `;
 
 export const Title = styled.h3`

@@ -14,15 +14,16 @@ import {
 interface IPaginationProps {
   itemsPerPage: number;
   games: IGame[];
+  kindOfGames?: "cartGames";
 }
 
-const Pagination = ({ games, itemsPerPage }: IPaginationProps) => {
+const Pagination = ({ itemsPerPage, games, kindOfGames }: IPaginationProps) => {
   const [currentGames, setCurrentGames] = useState([] as IGame[]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
 
-  const onClickChangePage = (event: any) => {
+  const onClickChangePage = (event: { selected: number }) => {
     const newOffset = (event.selected * itemsPerPage) % games.length;
     setItemOffset(newOffset);
   };
@@ -33,8 +34,8 @@ const Pagination = ({ games, itemsPerPage }: IPaginationProps) => {
   }, [endOffset, itemOffset, itemsPerPage, games]);
 
   return (
-    <PaginationWrapper>
-      <GameList games={currentGames} />
+    <PaginationWrapper display={currentGames?.length}>
+      <GameList games={currentGames} kindOfGames={kindOfGames} />
       <PaginationStyled>
         <PaginationText>
           {itemOffset + 1}-{endOffset} of {games.length} items

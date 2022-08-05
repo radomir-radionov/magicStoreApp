@@ -1,13 +1,14 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useSearchParams } from "react-router-dom";
+import { gameActions } from "redux/game";
 import {
   AgeFilter,
   CriteriaFilter,
   GenreFilter,
   PlatformFilter,
 } from "modules";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useSearchParams } from "react-router-dom";
-import { gameActions } from "redux/game";
+
 import { FiltersBarStyled, Hr, Title } from "./styles";
 
 const FiltersBar = () => {

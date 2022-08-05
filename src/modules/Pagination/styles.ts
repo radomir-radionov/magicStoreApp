@@ -2,8 +2,13 @@ import styled from "styled-components";
 import SVG from "react-inlinesvg";
 import { colors } from "styles";
 
+interface IPaginationWrapperProps {
+  display: number;
+}
+
 export const PaginationWrapper = styled.section`
-  display: flex;
+  display: ${({ display }: IPaginationWrapperProps) =>
+    display ? "flex" : "none"};
   flex-direction: column;
   flex: 1;
   width: 100%;
@@ -40,8 +45,9 @@ export const PaginationText = styled.p`
 
 export const PaginationStyled = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: end;
+
   margin-top: 6rem;
   font-size: 1.6rem;
 
@@ -67,8 +73,8 @@ export const PaginationStyled = styled.div`
   }
 
   .active {
-    background-color: ${colors.BACKGROUND_BLUE};
-    color: white;
+    background-color: ${colors.BACKGROUND_RED};
+    color: ${colors.TEXT_1};
   }
 
   a {

@@ -1,20 +1,11 @@
 import styled from "styled-components";
-import { ChangeEvent, ChangeEventHandler } from "react";
 import { FieldError } from "react-hook-form";
 import { colors, typography } from "styles";
 
 interface ITextareaStyledProps {
-  id: string;
-  name: string;
-  placeholder: string;
-  ref?: any;
-  onChange?:
-    | (ChangeEventHandler<HTMLTextAreaElement> &
-        ((event: ChangeEvent<HTMLInputElement>) => void))
-    | undefined;
-  invalid?: boolean;
-  isDirty?: boolean;
-  errors?: FieldError | undefined;
+  errors: FieldError | undefined;
+  invalid: boolean;
+  isDirty: boolean;
 }
 
 interface ILabelStyled {

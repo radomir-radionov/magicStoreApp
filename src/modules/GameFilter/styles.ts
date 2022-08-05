@@ -8,15 +8,6 @@ export const GameFilterStyled = styled.section`
   padding: 0 5rem 0 5rem;
 `;
 
-export const SectionSearchBar = styled.section`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12rem;
-  width: 100%;
-`;
-
 export const FilteredGames = styled.div`
   position: relative;
   display: flex;
@@ -39,14 +30,6 @@ export const Title = styled.h2`
 export const Hr = styled.hr`
   width: 100%;
   margin-bottom: 7rem;
-`;
-
-export const Content = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 5rem 8rem;
-  margin-top: 5rem;
 `;
 
 export const SpanStyled = styled.span`
