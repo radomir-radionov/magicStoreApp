@@ -1,5 +1,5 @@
 
-# "M-store" is a store presents an unbelievable experience by Radomir.
+## "M-store" is a store presents an unbelievable experience by Radomir.
 
 SPA app with cliend-server architecture.
 1. Has developer Authorization/Registration, JWT.
@@ -9,8 +9,8 @@ Pagination).
 4. Cart page (List of games, total price) with the ability to buy and remove.
 5. Admin panel (ability to add,edit game, get users(soon) and list of games(soon)).
 
-# Admin Login/Password: admin@gmail.com, Q!1aaa
-# deploy: soon
+## Admin Login/Password: admin@gmail.com, Q!1aaa
+## deploy: soon
 
 # The technology stack:
 - React, Typescript
@@ -18,3 +18,7 @@ Pagination).
 - Styled Components
 - NodeJS, Express, MongoDB
 
+## Important  
+
+App doesn't work without server side.  
+Server side will be soon.
