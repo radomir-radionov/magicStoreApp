@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import { cartActions } from "redux/cart";
 import { userActions } from "redux/user";
 import {
   currentUserDataSelector,
@@ -21,7 +22,7 @@ function App() {
 
   useEffect(() => {
     id &&
-      dispatch(userActions.getUserCartGames({ id })) &&
+      dispatch(cartActions.getUserCartGames({ id })) &&
       dispatch(userActions.setDataChangedOnServer(false));
   }, [dispatch, id, isDataChangedOnServer]);
 

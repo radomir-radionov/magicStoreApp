@@ -1,10 +1,12 @@
-import { IChangedUserData } from "redux/user/types";
+import { IChangeUserData } from "redux/user/types";
 import $api from "../http/index";
 
-export const putNewUserDataRequest = async ({
+const putNewUserData = async ({
   userId,
   newName,
   newDescription,
-}: IChangedUserData) => {
+}: IChangeUserData) => {
   await $api.put("/changeUserData", { userId, newName, newDescription });
 };
+
+export default putNewUserData;

@@ -11,12 +11,8 @@ export interface IUserState {
   };
 }
 
-export interface IChangedUserData {
+export interface IChangeUserData {
   userId: string;
   newName: string;
   newDescription: string;
-}
-
-export interface IGetUserCartGames {
-  id: string;
 }
