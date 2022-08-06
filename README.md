@@ -12,7 +12,7 @@ Pagination).
 ## Admin Login/Password: admin@gmail.com, Q!1aaa
 ## deploy: soon
 
-# The technology stack:
+## The technology stack:
 - React, Typescript
 - React-Redux, Redux Toolkit, Redux-saga
 - Styled Components
