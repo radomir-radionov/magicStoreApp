@@ -1,7 +1,13 @@
 enum serverEndpoints {
-  SIGN_UP = "http://localhost:5000/api/registration",
-  SIGN_IN = "http://localhost:5000/api/login",
-  TOP_GAMES = "http://localhost:5000/api/getTopGames",
+  API_URL = "http://localhost:5000/api",
+  REFRESH = "refresh",
+  SIGN_IN = "signIn",
+  SIGN_UP = "signUp",
+  LOGOUT = "logout",
+  UPDATE_USER_DATA = "updateUserData",
+
+  TOP_GAMES = "getTopGames",
+  ADD_NEW_GAME = "addNewGame",
 }
 
 export default serverEndpoints;

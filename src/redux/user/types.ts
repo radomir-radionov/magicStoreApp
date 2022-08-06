@@ -11,6 +11,11 @@ export interface IUserState {
   };
 }
 
+export interface ISignInData {
+  email: string;
+  password: string;
+}
+
 export interface IChangeUserData {
   userId: string;
   newName: string;

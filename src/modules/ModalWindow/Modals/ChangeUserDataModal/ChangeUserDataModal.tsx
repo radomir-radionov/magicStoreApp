@@ -36,8 +36,6 @@ const ChangeUserDataModal = () => {
     newName,
     newDescription,
   }: IFormProps) => {
-    console.log("NEWNAME:", newName);
-    console.log("NEWDESCRIPTION:", newDescription);
     dispatch(userActions.changeUserData({ userId, newName, newDescription }));
   };
 

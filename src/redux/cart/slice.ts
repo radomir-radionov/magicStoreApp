@@ -2,10 +2,10 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IGame } from "types/game";
 import {
   IGetUserCartGames,
-  IRemoveGameInCart,
-  ISetGameInCart,
-  IUpdateCartData,
   ICartState,
+  IPutGameInCartData,
+  INewDataCartData,
+  IDeleteGameCartData,
 } from "./types";
 
 const initialState: ICartState = {
@@ -28,12 +28,15 @@ export const cartSlice = createSlice({
     setUserCartGames: (state, { payload }: PayloadAction<IGame[]>) => {
       state.cart = payload;
     },
-    setGameInCart: (state, { payload }: PayloadAction<ISetGameInCart>) => {},
+    setGameInCart: (
+      state,
+      { payload }: PayloadAction<IPutGameInCartData>
+    ) => {},
     removeGameInCart: (
       state,
-      { payload }: PayloadAction<IRemoveGameInCart>
+      { payload }: PayloadAction<IDeleteGameCartData>
     ) => {},
-    updateCartData: (state, { payload }: PayloadAction<IUpdateCartData>) => {},
+    updateCartData: (state, { payload }: PayloadAction<INewDataCartData>) => {},
     setError: (state, { payload }: PayloadAction<string>) => {
       // state.userData = null;
       state.error.isError = true;

@@ -1,18 +1,14 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
 import { userActions } from "redux/user";
-import {
-  deleteGameCart,
-  getUserCartGames,
-  putGameInCart,
-  putNewDataCart,
-} from "requests";
+
+import { cartService } from "services";
 import { cartActions } from "./slice";
 
 export function* getUserCartGamesSaga({
   payload,
 }: ReturnType<typeof cartActions.getUserCartGames>) {
   try {
-    const { data } = yield call(() => getUserCartGames(payload));
+    const { data } = yield call(() => cartService.getUserCartGames(payload));
     yield put(cartActions.setUserCartGames(data));
   } catch (e) {
     // console.log(e.response?.data?.message);
@@ -23,7 +19,7 @@ export function* setGameInCartSaga({
   payload,
 }: ReturnType<typeof cartActions.setGameInCart>) {
   try {
-    yield call(() => putGameInCart(payload));
+    yield call(() => cartService.putGameInCart(payload));
     yield put(userActions.setDataChangedOnServer(true));
   } catch (e) {
     // console.log(e.response?.data?.message);
@@ -34,7 +30,7 @@ export function* removeGameInCartSaga({
   payload,
 }: ReturnType<typeof cartActions.removeGameInCart>) {
   try {
-    yield call(() => deleteGameCart(payload));
+    yield call(() => cartService.deleteGameCart(payload));
     yield put(userActions.setDataChangedOnServer(true));
   } catch (e) {
     // console.log(e.response?.data?.message);
@@ -45,7 +41,7 @@ export function* updateCartDataSaga({
   payload,
 }: ReturnType<typeof cartActions.updateCartData>) {
   try {
-    yield call(() => putNewDataCart(payload));
+    yield call(() => cartService.putNewDataCart(payload));
     yield put(userActions.setDataChangedOnServer(true));
   } catch (e) {
     // console.log(e.response?.data?.message);
