@@ -2,7 +2,7 @@ import { AxiosResponse } from "axios";
 import $api from "../http/index";
 import { IAuthResponse } from "types/response";
 
-const postSignInRequest = async (
+const postSignIn = async (
   email: string,
   password: string
 ): Promise<AxiosResponse<IAuthResponse>> => {
@@ -13,4 +13,4 @@ const postSignInRequest = async (
   return response;
 };
 
-export default postSignInRequest;
+export default postSignIn;

@@ -5,9 +5,8 @@ import { ButtonsBox, Form, SignUpModalStyled, Title } from "./styles";
 import { ButtonModal, InputText } from "components";
 import { useDispatch } from "react-redux";
 import { userActions } from "redux/user";
-
 import { modalActionTypes } from "redux/modal";
-import { ISignUpDataRequest } from "types/user";
+import { ISignUpData } from "types/user";
 
 interface ISignUpModalProps {
   onClose: () => void;
@@ -21,7 +20,7 @@ const SignUpModal = ({ onClose }: ISignUpModalProps) => {
     handleSubmit,
     getFieldState,
     formState: { errors, isDirty, isValid, dirtyFields },
-  } = useForm<ISignUpDataRequest>({
+  } = useForm<ISignUpData>({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
@@ -31,7 +30,7 @@ const SignUpModal = ({ onClose }: ISignUpModalProps) => {
   const fieldPassword = getFieldState("password");
   const fieldConfirmPassword = getFieldState("confirmPassword");
 
-  const onSubmitHandler = (data: ISignUpDataRequest) => {
+  const onSubmitHandler = (data: ISignUpData) => {
     dispatch(userActions.registration(data));
     dispatch(modalActionTypes.closeModal());
   };

@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-import { userActions } from "redux/user";
 import { currentUserDataSelector } from "redux/user/selectors";
 import { BUTTON_VARIANTS } from "components/Button/types";
 import { IGame } from "types/game";
@@ -14,6 +13,7 @@ import {
   InteractPanel,
   Title,
 } from "./styles";
+import { cartActions } from "redux/cart";
 
 interface IGameItemCartProps {
   game: IGame;
@@ -24,7 +24,7 @@ const GameItemCart = ({ game }: IGameItemCartProps) => {
   const { id } = useSelector(currentUserDataSelector);
 
   const onClickRemoveItem = () => {
-    dispatch(userActions.removeGameInCart({ id, game }));
+    dispatch(cartActions.removeGameInCart({ id, game }));
   };
 
   return (

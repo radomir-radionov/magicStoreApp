@@ -20,11 +20,6 @@ export const userNameSelector = createSelector(
   (state) => state.userData.name
 );
 
-export const cartGamesSelector = createSelector(
-  user,
-  (state) => state.userData.cart
-);
-
 export const isDataChangedOnServerSelector = createSelector(
   user,
   (state) => state.isDataChangedOnServer

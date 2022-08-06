@@ -16,7 +16,7 @@ const modalSlice = createSlice({
   initialState,
   reducers: {
     openModal: (
-      state: IModalInitialState,
+      state,
       action: PayloadAction<{ modalType: TModalType; modalInfo?: IModalInfo }>
     ) => {
       const { modalType, modalInfo } = action.payload;

@@ -2,7 +2,7 @@ import axios from "axios";
 import { API_URL } from "../http/index";
 import { IAuthResponse } from "types/response";
 
-const getIsAuthRequest = async () => {
+const getIsAuth = async () => {
   const response = await axios.get<IAuthResponse>(`${API_URL}/refresh`, {
     withCredentials: true,
   });
@@ -10,4 +10,4 @@ const getIsAuthRequest = async () => {
   return response;
 };
 
-export default getIsAuthRequest;
+export default getIsAuth;

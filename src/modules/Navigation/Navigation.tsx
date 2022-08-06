@@ -12,7 +12,7 @@ const Navigation = () => {
     <NavStyled>
       <NavList>
         <NavItem link={pageRoutes.HOME}>Home</NavItem>
-        <NavItem link={pageRoutes.USER}>User</NavItem>
+        <NavItem link={pageRoutes.USER}>Profile</NavItem>
         <NavItem link={pageRoutes.PRODUCT}>Product</NavItem>
         {isAuth && <NavItem link={pageRoutes.CART}>Cart</NavItem>}
         <NavItem link={pageRoutes.ABOUT}>About</NavItem>
