@@ -1,18 +1,18 @@
 import axios from "axios";
 import { API_URL } from "../http/index";
-import { IGetFilteredGamesRequest } from "./types";
+import { IGetFilteredGames } from "./types";
 
-const getFilteredGamesRequest = async ({
+const getFilteredGames = async ({
   age,
   criteria,
   genre,
   platform,
   searchText,
-}: IGetFilteredGamesRequest) => {
+}: IGetFilteredGames) => {
   const { data } = await axios.get(
     `${API_URL}/product?platform=${platform}&criteria=${criteria}&genre=${genre}&age=${age}&searchText=${searchText}`
   );
   return data;
 };
 
-export default getFilteredGamesRequest;
+export default getFilteredGames;

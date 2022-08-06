@@ -1,6 +1,6 @@
-import { CartTotalPanel, GameList, Pagination } from "modules";
+import { CartTotalPanel, Pagination } from "modules";
 import { useSelector } from "react-redux";
-import { cartGamesSelector } from "redux/user/selectors";
+import { cartGamesSelector } from "redux/cart/selectors";
 import {
   CartPageStyled,
   Title,

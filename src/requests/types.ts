@@ -2,7 +2,7 @@ export interface IGetUserCartGamesRequest {
   id: string;
 }
 
-export interface IGetFilteredGamesRequest {
+export interface IGetFilteredGames {
   age: string | undefined;
   criteria: string | undefined;
   genre: string | undefined;

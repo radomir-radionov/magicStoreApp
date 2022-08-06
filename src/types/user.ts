@@ -9,7 +9,7 @@ export interface IUser {
   cart: IGame[];
 }
 
-export interface ISignUpDataRequest {
+export interface ISignUpData {
   email: string;
   password: string;
   name: string;
@@ -21,6 +21,6 @@ export interface ISignInData {
   password: string;
 }
 
-export interface IChangeUserDataRequest {
+export interface IChangeUserData {
   id: string;
 }

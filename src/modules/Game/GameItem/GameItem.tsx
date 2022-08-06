@@ -2,10 +2,7 @@ import { GameRating } from "modules";
 import { useDispatch, useSelector } from "react-redux";
 import { IGame } from "types/game";
 import { PC, Playstation, Xbox } from "assets";
-import {
-  cartGamesSelector,
-  currentUserDataSelector,
-} from "redux/user/selectors";
+import { currentUserDataSelector } from "redux/user/selectors";
 import {
   Age,
   Back,
@@ -19,13 +16,13 @@ import {
   Platforms,
   Price,
   Title,
-  ButtonStyled,
 } from "./styles";
 import { BUTTON_VARIANTS } from "components/Button/types";
-import { userActions } from "redux/user";
 import { modalActionTypes } from "redux/modal";
 import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
 import { Button } from "components";
+import { cartActions } from "redux/cart";
+import { cartGamesSelector } from "redux/cart/selectors";
 
 interface IGameItemProps {
   game: IGame;
@@ -36,23 +33,13 @@ const GameItem = ({ game }: IGameItemProps) => {
   const { id } = useSelector(currentUserDataSelector);
   const cart = useSelector(cartGamesSelector);
 
-  const {
-    _id,
-    name,
-    genre,
-    img,
-    price,
-    rating,
-    description,
-    age,
-    platform,
-    selected,
-  } = game;
+  const { _id, name, genre, img, price, rating, description, age, platform } =
+    game;
 
   const isEven = cart?.some((cartGame) => cartGame._id === game._id);
 
   const onClickRemoveItem = () => {
-    dispatch(userActions.removeGameInCart({ id, game }));
+    dispatch(cartActions.removeGameInCart({ id, game }));
   };
 
   // ----------------------------------------------------
@@ -77,7 +64,7 @@ const GameItem = ({ game }: IGameItemProps) => {
     //   (cartGame) => currentGameData._id === cartGame._id
     // );
     // if (!isEven) {
-    dispatch(userActions.setGameInCart({ id, game }));
+    dispatch(cartActions.setGameInCart({ id, game }));
     // }
   };
 
@@ -119,7 +106,7 @@ const GameItem = ({ game }: IGameItemProps) => {
       <Back>
         <Description>{description}</Description>
         <Age>{age}+</Age>
-        {/* {currentUser?.role === "Admin" && ( */}
+        {/* {currentUser?.role === "Admin" &&  */}
         <Footer>
           <Button
             type="submit"
@@ -137,18 +124,7 @@ const GameItem = ({ game }: IGameItemProps) => {
           >
             Edit game
           </Button>
-          {/* <Button type="submit" onClick={onClickEditGameHandler}>
-            Edit
-          </Button> */}
         </Footer>
-        {/* )} */}
-        {/* {currentUser?.role === "User" && ( */}
-        {/* <Footer>
-          <Button type="submit" onClick={onClickAddGameHandler}>
-            Add to cart
-          </Button>
-        </Footer> */}
-        {/* )} */}
       </Back>
     </GameItemStyled>
   );

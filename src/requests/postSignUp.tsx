@@ -2,7 +2,7 @@ import { AxiosResponse } from "axios";
 import $api from "../http/index";
 import { IAuthResponse } from "types/response";
 
-const postSignUpRequest = async (
+const postSignUp = async (
   email: string,
   password: string,
   name?: string
@@ -15,4 +15,4 @@ const postSignUpRequest = async (
   return response;
 };
 
-export default postSignUpRequest;
+export default postSignUp;

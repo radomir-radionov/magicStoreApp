@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "redux/cart";
+import { cartGamesSelector } from "redux/cart/selectors";
 import { userActions } from "redux/user";
-import {
-  cartGamesSelector,
-  currentUserDataSelector,
-} from "redux/user/selectors";
+import { currentUserDataSelector } from "redux/user/selectors";
 import { ButtonStyled, CartTotalPanelStyled, PStyled } from "./styles";
 
 const CartTotalPanel = () => {
@@ -15,7 +14,7 @@ const CartTotalPanel = () => {
   const totalCost = arrayOfGamePrices?.reduce((sum, game) => sum + game, 0);
 
   const onClickBuyGames = () => {
-    dispatch(userActions.updateCartData({ id, cartGames }));
+    dispatch(cartActions.updateCartData({ id, cartGames }));
   };
 
   return (

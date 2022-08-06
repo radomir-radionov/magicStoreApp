@@ -8,23 +8,8 @@ export interface IGameState {
   loading: boolean;
 }
 
-export interface IChangedUserData {
+export interface IChangeUserData {
   userId: string;
   newName: string;
   newDescription: string;
-}
-
-export interface ISetGameInCartPayload {
-  id: string;
-  game: IGame;
-}
-
-export interface IRemoveGameInCartPayload {
-  id: string;
-  game: IGame;
-}
-
-export interface IUpdateCartDataPayload {
-  id: string;
-  cartGames: IGame[];
 }
