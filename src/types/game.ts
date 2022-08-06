@@ -21,3 +21,15 @@ export interface INewGameData {
   img: string;
   platform: string[];
 }
+
+export interface IFilteredGamesParams {
+  age: string | undefined;
+  criteria: string | undefined;
+  genre: string | undefined;
+  platform: string | undefined;
+  searchText: string | undefined;
+}
+
+export interface IGetUserCartGamesData {
+  id: string;
+}

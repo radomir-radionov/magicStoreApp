@@ -1,11 +1,10 @@
 import axios from "axios";
+import serverEndpoints from "constants/serverEndpoints";
 import { IAuthDataResponse } from "types/response";
-
-export const API_URL = `http://localhost:5000/api`;
 
 const $api = axios.create({
   withCredentials: true,
-  baseURL: API_URL,
+  baseURL: serverEndpoints.API_URL,
 });
 
 $api.interceptors.request.use((config) => {
@@ -27,7 +26,7 @@ $api.interceptors.response.use(
       originalRequest._isRetry = true;
       try {
         const response = await axios.get<IAuthDataResponse>(
-          `${API_URL}/refresh`,
+          `${serverEndpoints.API_URL}/refresh`,
           {
             withCredentials: true,
           }
@@ -41,5 +40,14 @@ $api.interceptors.response.use(
     throw error;
   }
 );
+
+export const httpService = {
+  get: $api.get,
+  post: $api.post,
+  put: $api.put,
+  delete: $api.delete,
+  // read about patch
+  patch: $api.patch,
+};
 
 export default $api;

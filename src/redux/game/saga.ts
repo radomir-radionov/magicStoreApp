@@ -1,16 +1,11 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
-import {
-  getFilteredGames,
-  getSearchedGames,
-  getTopGames,
-  postNewGame,
-} from "requests";
+import { gameService } from "services";
 import { IGame } from "types/game";
 import { gameActions } from "./slice";
 
 export function* getTopGamesSaga() {
   try {
-    const response: IGame[] = yield call(() => getTopGames());
+    const response: IGame[] = yield call(() => gameService.getTopGames());
     yield put(gameActions.setTopGames(response));
   } catch (e) {
     // console.log(e.response?.data?.message);
@@ -22,7 +17,9 @@ export function* getSearchedGamesSaga({
 }: ReturnType<typeof gameActions.getSearchedGames>) {
   try {
     yield put(gameActions.setLoading(true));
-    const response: IGame[] = yield call(() => getSearchedGames(payload));
+    const response: IGame[] = yield call(() =>
+      gameService.getSearchedGames(payload)
+    );
     yield put(gameActions.setSearchedGames(response));
     yield put(gameActions.setLoading(false));
   } catch (e) {
@@ -36,7 +33,9 @@ export function* getFilteredGamesSaga({
 }: ReturnType<typeof gameActions.getFilteredGames>) {
   try {
     yield put(gameActions.setLoading(true));
-    const response: IGame[] = yield call(() => getFilteredGames(payload));
+    const response: IGame[] = yield call(() =>
+      gameService.getFilteredGames(payload)
+    );
     yield put(gameActions.setFilteredGames(response));
     yield put(gameActions.setLoading(false));
   } catch (e) {
@@ -49,7 +48,7 @@ export function* addNewGameSaga({
   payload,
 }: ReturnType<typeof gameActions.addNewGame>) {
   try {
-    yield call(() => postNewGame(payload));
+    yield call(() => gameService.addNewGame(payload));
     // yield put(gameActions.setLoading(true));
     // const response: IGame[] = yield call(() =>
     //   getFilteredGamesRequest(payload)

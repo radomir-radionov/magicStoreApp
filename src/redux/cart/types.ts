@@ -13,17 +13,17 @@ export interface IGetUserCartGames {
   id: string;
 }
 
-export interface ISetGameInCart {
+export interface IPutGameInCartData {
   id: string;
   game: IGame;
 }
 
-export interface IRemoveGameInCart {
+export interface IDeleteGameCartData {
   id: string;
   game: IGame;
 }
 
-export interface IUpdateCartData {
+export interface INewDataCartData {
   id: string;
   cartGames: IGame[];
 }

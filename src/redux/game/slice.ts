@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IGameState } from "./types";
-import { IGame, INewGameData } from "types/game";
-import { IGetFilteredGames } from "requests/types";
+import { IFilteredGamesParams, IGame, INewGameData } from "types/game";
 
 const initialState: IGameState = {
   topGames: [],
@@ -26,7 +25,7 @@ const gameSlice = createSlice({
     },
     getFilteredGames: (
       state,
-      { payload }: PayloadAction<IGetFilteredGames>
+      { payload }: PayloadAction<IFilteredGamesParams>
     ) => {},
     setFilteredGames: (state, { payload }: PayloadAction<IGame[]>) => {
       state.filteredGames = payload;

@@ -7,7 +7,7 @@ export const UserPageStyled = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: ${colors.BACKGROUND_WHITESMOKE};
+  background-color: #a0a0a0;
 `;
 
 export const PersonalInfo = styled.section`
