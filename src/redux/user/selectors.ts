@@ -8,6 +8,11 @@ export const currentUserDataSelector = createSelector(
   (state) => state.userData
 );
 
+export const userIdSelector = createSelector(
+  user,
+  (state) => state.userData.id
+);
+
 export const userRoleSelector = createSelector(
   user,
   (state) => state.userData.role

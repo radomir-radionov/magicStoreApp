@@ -7,7 +7,7 @@ import { isAuthSelector } from "redux/user/selectors";
 import { NavItemStyled, NavLinkStyled } from "./styles";
 
 interface INavItemProps {
-  link: pageRoutes;
+  link: pageRoutes | string;
   children: ReactNode;
 }
 

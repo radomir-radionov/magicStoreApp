@@ -3,6 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { IGame } from "types/game";
 import { PC, Playstation, Xbox } from "assets";
 import { currentUserDataSelector } from "redux/user/selectors";
+import { BUTTON_VARIANTS } from "components/Button/types";
+import { modalActionTypes } from "redux/modal";
+import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
+import { Button } from "components";
+import { cartActions } from "redux/cart";
+import { cartGamesSelector } from "redux/cart/selectors";
 import {
   Age,
   Back,
@@ -17,12 +23,6 @@ import {
   Price,
   Title,
 } from "./styles";
-import { BUTTON_VARIANTS } from "components/Button/types";
-import { modalActionTypes } from "redux/modal";
-import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
-import { Button } from "components";
-import { cartActions } from "redux/cart";
-import { cartGamesSelector } from "redux/cart/selectors";
 
 interface IGameItemProps {
   game: IGame;

@@ -58,7 +58,9 @@ export function* changeUserDataSaga({
   payload,
 }: ReturnType<typeof userActions.changeUserData>) {
   try {
+    console.log("changeUserDataSaga", 1);
     yield call(() => userService.updateUserData(payload));
+    yield put(userActions.isDataChangedOnServer(true));
   } catch (e) {
     // console.log(e.response?.data?.message);
   }

@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     id &&
       dispatch(cartActions.getUserCartGames({ id })) &&
-      dispatch(userActions.setDataChangedOnServer(false));
+      dispatch(userActions.isDataChangedOnServer(false));
   }, [dispatch, id, isDataChangedOnServer]);
 
   return (

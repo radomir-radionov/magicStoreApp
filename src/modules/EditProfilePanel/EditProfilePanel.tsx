@@ -1,20 +1,21 @@
+import { UserAvatar } from "modules";
+import { ChangeUserDataModal } from "modules/ModalWindow/Modals";
 import { useSelector } from "react-redux";
 import { userNameSelector } from "redux/user/selectors";
+
 import {
+  EditProfilePanelStyled,
   Header,
+  PersonalInfo,
   Title,
   UserData,
-  PersonalInfo,
-  UserPageStyled,
 } from "./styles";
-import { ChangeUserDataModal } from "modules/ModalWindow/Modals";
-import { UserAvatar } from "modules";
 
-const UserPage = () => {
+const EditProfilePanel = () => {
   const userName = useSelector(userNameSelector);
 
   return (
-    <UserPageStyled>
+    <EditProfilePanelStyled>
       <PersonalInfo>
         <Header>
           <Title>Name: {userName}</Title>
@@ -24,8 +25,8 @@ const UserPage = () => {
           <ChangeUserDataModal />
         </UserData>
       </PersonalInfo>
-    </UserPageStyled>
+    </EditProfilePanelStyled>
   );
 };
 
-export default UserPage;
+export default EditProfilePanel;
