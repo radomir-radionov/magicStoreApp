@@ -2,11 +2,15 @@ import { BUTTON_VARIANTS } from "components/Button/types";
 import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
 import { useDispatch } from "react-redux";
 import { modalActionTypes } from "redux/modal";
-import { AdminPageStyled, AdminControlPanel, ButtonStyled } from "./styles";
+import {
+  AdminControlPanel,
+  AdminPanelStyled,
+  ButtonStyled,
+  Description,
+  Title,
+} from "./styles";
 
-// unused Component
-
-const AdminPage = () => {
+const AdminPanel = () => {
   const dispatch = useDispatch();
 
   const onClickAddGame = () => {
@@ -16,14 +20,16 @@ const AdminPage = () => {
   };
 
   return (
-    <AdminPageStyled>
+    <AdminPanelStyled>
+      <Title>Features</Title>
+      <Description>Hello Admin! Here you can utilize next features</Description>
       <AdminControlPanel>
         <ButtonStyled onClick={onClickAddGame} variant={BUTTON_VARIANTS.ADMIN}>
           Add game
         </ButtonStyled>
       </AdminControlPanel>
-    </AdminPageStyled>
+    </AdminPanelStyled>
   );
 };
 
-export default AdminPage;
+export default AdminPanel;

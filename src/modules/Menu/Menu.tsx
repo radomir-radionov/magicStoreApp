@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import pageRoutes from "constants/pageRoutes";
 import { Navigation } from "modules";
-
 import { LetterM } from "assets";
+import { socialData } from "./data";
 import {
   Link,
   Logo,
@@ -12,7 +12,6 @@ import {
   Social,
   Title,
 } from "./styles";
-import { socialData } from "./data";
 
 const Menu = () => {
   const navigate = useNavigate();

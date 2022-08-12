@@ -49,5 +49,3 @@ export const httpService = {
   // read about patch
   patch: $api.patch,
 };
-
-export default $api;

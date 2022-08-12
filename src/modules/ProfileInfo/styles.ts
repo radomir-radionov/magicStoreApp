@@ -1,14 +1,7 @@
-import { colors } from "styles";
 import styled from "styled-components";
+import { colors } from "styles";
 
-export const UserPageStyled = styled.div`
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: #a0a0a0;
-`;
+export const ProfileInfoStyled = styled.div``;
 
 export const PersonalInfo = styled.section`
   padding: 2rem;
@@ -28,13 +21,12 @@ export const Title = styled.h3`
 
 export const UserData = styled.div`
   display: flex;
-  gap: 3rem;
+  flex-direction: column;
+  gap: 1rem;
 `;
 
-export const Form = styled.form``;
+export const UserImg = styled.div``;
 
-export const Img = styled.img`
-  width: 300px;
-  height: 300px;
-  cursor: pointer;
-`;
+export const Name = styled.p``;
+
+export const Description = styled.p``;

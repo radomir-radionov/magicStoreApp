@@ -28,7 +28,8 @@ export const userSlice = createSlice({
     logout: () => {},
     getUserData: () => {},
     changeUserData: (state, { payload }: PayloadAction<IChangeUserData>) => {},
-    setDataChangedOnServer: (state, { payload }: PayloadAction<boolean>) => {
+    isDataChangedOnServer: (state, { payload }: any) => {
+      console.log(payload);
       state.isDataChangedOnServer = payload;
     },
     setError: (state, { payload }: PayloadAction<string>) => {
