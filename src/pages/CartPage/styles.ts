@@ -5,7 +5,6 @@ import { BsCart } from "react-icons/bs";
 export const CartPageStyled = styled.div`
   position: relative;
   display: flex;
-  flex: 1;
   flex-direction: column;
   gap: 5rem;
   width: 100%;
@@ -38,5 +37,5 @@ export const SpanStyled = styled.span`
 `;
 
 export const GameListWrapper = styled.div`
-  min-height: 62rem;
+  min-height: 40rem;
 `;

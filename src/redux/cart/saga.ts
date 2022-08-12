@@ -20,7 +20,7 @@ export function* setGameInCartSaga({
 }: ReturnType<typeof cartActions.setGameInCart>) {
   try {
     yield call(() => cartService.putGameInCart(payload));
-    yield put(userActions.setDataChangedOnServer(true));
+    yield put(userActions.isDataChangedOnServer(true));
   } catch (e) {
     // console.log(e.response?.data?.message);
   }
@@ -31,7 +31,7 @@ export function* removeGameInCartSaga({
 }: ReturnType<typeof cartActions.removeGameInCart>) {
   try {
     yield call(() => cartService.deleteGameCart(payload));
-    yield put(userActions.setDataChangedOnServer(true));
+    yield put(userActions.isDataChangedOnServer(true));
   } catch (e) {
     // console.log(e.response?.data?.message);
   }
@@ -42,7 +42,7 @@ export function* updateCartDataSaga({
 }: ReturnType<typeof cartActions.updateCartData>) {
   try {
     yield call(() => cartService.putNewDataCart(payload));
-    yield put(userActions.setDataChangedOnServer(true));
+    yield put(userActions.isDataChangedOnServer(true));
   } catch (e) {
     // console.log(e.response?.data?.message);
   }

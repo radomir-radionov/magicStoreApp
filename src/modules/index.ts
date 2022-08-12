@@ -21,3 +21,8 @@ export { default as CartTotalPanel } from "./CartTotalPanel/CartTotalPanel";
 export { default as Pagination } from "./Pagination/Pagination";
 export { default as FilterController } from "./Filter/FilterController/FilterController";
 export { default as Footer } from "./Footer/Footer";
+export { default as EditProfilePanel } from "./EditProfilePanel/EditProfilePanel";
+export { default as AdminPanel } from "./AdminPanel/AdminPanel";
+export { default as MenuItem } from "./MenuItem/MenuItem";
+export { default as ProfileMenu } from "./ProfileMenu/ProfileMenu";
+export { default as ProfileInfo } from "./ProfileInfo/ProfileInfo";

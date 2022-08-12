@@ -37,9 +37,7 @@ const userService = {
     await httpService.post(serverEndpoints.LOGOUT);
   },
   updateUserData: async (payload: IChangeUserData) => {
-    await httpService.put(serverEndpoints.UPDATE_USER_DATA, {
-      payload,
-    });
+    await httpService.put(serverEndpoints.UPDATE_USER_DATA, payload);
   },
 };
 
