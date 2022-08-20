@@ -1,10 +1,9 @@
 import {
   IDeleteGameCartData,
-  INewDataCartData,
+  INewCartData,
   IPutGameInCartData,
 } from "redux/cart/types";
 import { IGetUserCartGamesData } from "types/game";
-
 import { httpService } from "../http/index";
 
 const cartService = {
@@ -21,8 +20,12 @@ const cartService = {
 
     return response;
   },
-  putNewDataCart: async ({ id, cartGames }: INewDataCartData) => {
-    await httpService.put("/putNewDataCart", { id, cartGames });
+  putNewDataCart: async ({ id, cartGames }: INewCartData) => {
+    const response = await httpService.put("/putNewDataCart", {
+      id,
+      cartGames,
+    });
+    return response;
   },
   deleteGameCart: async ({ id, game }: IDeleteGameCartData) => {
     const response = await httpService.delete(

@@ -1,17 +1,17 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
+import { toast } from "react-toastify";
 import { userActions } from "redux/user";
-
 import { cartService } from "services";
 import { cartActions } from "./slice";
 
 export function* getUserCartGamesSaga({
   payload,
-}: ReturnType<typeof cartActions.getUserCartGames>) {
+}: ReturnType<typeof cartActions.getUserCartGames>): any {
   try {
-    const { data } = yield call(() => cartService.getUserCartGames(payload));
-    yield put(cartActions.setUserCartGames(data));
-  } catch (e) {
-    // console.log(e.response?.data?.message);
+    const res: any = yield call(() => cartService.getUserCartGames(payload));
+    yield put(cartActions.setUserCartGames(res.data));
+  } catch (e: any) {
+    toast.error(e.response.data.message);
   }
 }
 
@@ -19,10 +19,12 @@ export function* setGameInCartSaga({
   payload,
 }: ReturnType<typeof cartActions.setGameInCart>) {
   try {
-    yield call(() => cartService.putGameInCart(payload));
-    yield put(userActions.isDataChangedOnServer(true));
-  } catch (e) {
-    // console.log(e.response?.data?.message);
+    const { data } = yield call(() => cartService.putGameInCart(payload));
+    const { isDataChanged, message } = data;
+    yield put(userActions.isDataChangedOnServer(isDataChanged));
+    toast.success(message);
+  } catch (e: any) {
+    toast.error(e.response.data.message);
   }
 }
 
@@ -30,21 +32,25 @@ export function* removeGameInCartSaga({
   payload,
 }: ReturnType<typeof cartActions.removeGameInCart>) {
   try {
-    yield call(() => cartService.deleteGameCart(payload));
-    yield put(userActions.isDataChangedOnServer(true));
-  } catch (e) {
-    // console.log(e.response?.data?.message);
+    const { data } = yield call(() => cartService.deleteGameCart(payload));
+    const { isDataChanged, message } = data;
+    yield put(userActions.isDataChangedOnServer(isDataChanged));
+    toast.success(message);
+  } catch (e: any) {
+    toast.error(e.response.data.message);
   }
 }
 
-export function* updateCartDataSaga({
+export function* buyCartGamesSaga({
   payload,
-}: ReturnType<typeof cartActions.updateCartData>) {
+}: ReturnType<typeof cartActions.buyCartGames>) {
   try {
-    yield call(() => cartService.putNewDataCart(payload));
-    yield put(userActions.isDataChangedOnServer(true));
-  } catch (e) {
-    // console.log(e.response?.data?.message);
+    const { data } = yield call(() => cartService.putNewDataCart(payload));
+    const { isCartDataChanged, message } = data;
+    yield put(userActions.isDataChangedOnServer(isCartDataChanged));
+    toast.success(message);
+  } catch (e: any) {
+    toast.error(e.response.data.message);
   }
 }
 
@@ -53,6 +59,6 @@ export default function* userSaga() {
     takeLatest(cartActions.getUserCartGames, getUserCartGamesSaga),
     takeLatest(cartActions.removeGameInCart, removeGameInCartSaga),
     takeLatest(cartActions.setGameInCart, setGameInCartSaga),
-    takeLatest(cartActions.updateCartData, updateCartDataSaga),
+    takeLatest(cartActions.buyCartGames, buyCartGamesSaga),
   ]);
 }

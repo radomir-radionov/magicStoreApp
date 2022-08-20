@@ -2,21 +2,20 @@ import { UserAvatar } from "modules";
 import { ChangeUserDataModal } from "modules/ModalWindow/Modals";
 import { useSelector } from "react-redux";
 import { userNameSelector } from "redux/user/selectors";
-
 import {
   EditProfilePanelStyled,
   Header,
-  PersonalInfo,
   Title,
   UserData,
+  Wrapper,
 } from "./styles";
 
 const EditProfilePanel = () => {
   const userName = useSelector(userNameSelector);
 
   return (
-    <EditProfilePanelStyled>
-      <PersonalInfo>
+    <Wrapper>
+      <EditProfilePanelStyled>
         <Header>
           <Title>Name: {userName}</Title>
         </Header>
@@ -24,8 +23,8 @@ const EditProfilePanel = () => {
           <UserAvatar />
           <ChangeUserDataModal />
         </UserData>
-      </PersonalInfo>
-    </EditProfilePanelStyled>
+      </EditProfilePanelStyled>
+    </Wrapper>
   );
 };
 
