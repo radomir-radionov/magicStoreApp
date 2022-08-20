@@ -8,6 +8,9 @@ import {
   isDataChangedOnServerSelector,
 } from "redux/user/selectors";
 import AppRouter from "routes/AppRouter";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import { ToastContainerStyled } from "styles/globalStyles";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,6 +32,7 @@ function App() {
   return (
     <BrowserRouter>
       <AppRouter />
+      <ToastContainerStyled autoClose={2000} />
     </BrowserRouter>
   );
 }

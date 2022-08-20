@@ -1,45 +1,48 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
 import { userActions } from "./slice";
 import { IUser } from "types/user";
-import { IAuthResponse } from "types/response";
 import { userService } from "services";
+import { toast } from "react-toastify";
 
-export function* checkAuthSaga() {
+export function* checkAuthSaga(): any {
   try {
-    const { data }: IAuthResponse = yield call(() => userService.isAuth());
-    localStorage.setItem("token", data.accessToken);
+    const { data }: any = yield call(() => userService.isAuth());
+    const { accessToken, userData } = data;
+    localStorage.setItem("token", accessToken);
     yield put(userActions.setAuth(true));
-    yield put(userActions.setUser(data.user));
-  } catch (e) {
-    // console.log(e.response?.data?.message);
+    yield put(userActions.setUser(userData));
+  } catch (e: any) {
+    toast.error(e.response.data.message);
   }
 }
 
 export function* registrationSaga({
   payload,
-}: ReturnType<typeof userActions.registration>) {
+}: ReturnType<typeof userActions.registration>): any {
   try {
-    const { data }: IAuthResponse = yield call(() =>
-      userService.signUp(payload)
-    );
-    localStorage.setItem("token", data.accessToken);
+    const { data }: any = yield call(() => userService.signUp(payload));
+    const { userData, message } = data;
+    localStorage.setItem("token", userData.accessToken);
     yield put(userActions.setAuth(true));
-    yield put(userActions.setUser(data.user));
-  } catch (e) {
-    yield put(userActions.setError("User is not authorized!!!"));
+    yield put(userActions.setUser(userData.user));
+    toast.success(message);
+  } catch (e: any) {
+    console.log(e);
+    toast.error(e.response.data.message);
   }
 }
 
-export function* loginSaga({ payload }: ReturnType<typeof userActions.login>) {
+export function* loginSaga({
+  payload,
+}: ReturnType<typeof userActions.login>): any {
   try {
-    const { data }: IAuthResponse = yield call(() =>
-      userService.signIn(payload)
-    );
-    localStorage.setItem("token", data.accessToken);
+    const { data }: any = yield call(() => userService.signIn(payload));
+    const { userData } = data;
+    localStorage.setItem("token", userData.accessToken);
     yield put(userActions.setAuth(true));
-    yield put(userActions.setUser(data.user));
-  } catch (e) {
-    yield put(userActions.setError("User is not authorized!!!"));
+    yield put(userActions.setUser(userData.user));
+  } catch (e: any) {
+    toast.error(e.response.data.message);
   }
 }
 
@@ -49,6 +52,16 @@ export function* logoutSaga() {
     localStorage.removeItem("token");
     yield put(userActions.setAuth(false));
     yield put(userActions.setUser({} as IUser));
+  } catch (e: any) {
+    toast.error(e.response.data.message);
+  }
+}
+
+export function* setUserImgSaga({
+  payload,
+}: ReturnType<typeof userActions.setUserImg>) {
+  try {
+    yield call(() => userService.setUserImg(payload));
   } catch (e) {
     // console.log(e.response?.data?.message);
   }
@@ -56,13 +69,15 @@ export function* logoutSaga() {
 
 export function* changeUserDataSaga({
   payload,
-}: ReturnType<typeof userActions.changeUserData>) {
+}: ReturnType<typeof userActions.changeUserData>): any {
   try {
-    console.log("changeUserDataSaga", 1);
     yield call(() => userService.updateUserData(payload));
+
+    console.log("changeUserDataSaga", 1);
     yield put(userActions.isDataChangedOnServer(true));
-  } catch (e) {
-    // console.log(e.response?.data?.message);
+    // toast.success("Data changed");
+  } catch (e: any) {
+    toast.error(e.response.data.message);
   }
 }
 
@@ -73,5 +88,6 @@ export default function* userSaga() {
     takeLatest(userActions.logout, logoutSaga),
     takeLatest(userActions.getUserData, checkAuthSaga),
     takeLatest(userActions.changeUserData, changeUserDataSaga),
+    takeLatest(userActions.setUserImg, setUserImgSaga),
   ]);
 }

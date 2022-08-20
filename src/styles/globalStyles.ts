@@ -1,4 +1,5 @@
-import { createGlobalStyle } from "styled-components";
+import { ToastContainer } from "react-toastify";
+import styled, { createGlobalStyle } from "styled-components";
 import colors from "./colors";
 import typography from "./typography";
 
@@ -68,3 +69,40 @@ textarea, input { outline: none; }
 `;
 
 export default GlobalStyles;
+
+export const ToastContainerStyled = styled(ToastContainer)`
+  &&&.Toastify__toast-container {
+  }
+  .Toastify__toast--success {
+    color: whitesmoke;
+    background-color: #1d1d1d;
+    border: 1px solid whitesmoke;
+
+    svg {
+      fill: #08fdd8;
+    }
+  }
+  .Toastify__toast--error {
+    color: whitesmoke;
+    background-color: #1d1d1d;
+    border: 1px solid whitesmoke;
+
+    svg {
+      fill: #fd2155;
+    }
+  }
+  .Toastify__toast-body {
+  }
+  .Toastify__progress-bar--success {
+    background-color: #08fdd8;
+  }
+  .Toastify__progress-bar--error {
+    background-color: #fd2155;
+  }
+  .toastProgress--success {
+    background: #08fdd8;
+  }
+  .toastProgress--error {
+    background: #fd2155;
+  }
+`;

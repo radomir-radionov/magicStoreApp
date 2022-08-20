@@ -36,6 +36,9 @@ const userService = {
   logout: async () => {
     await httpService.post(serverEndpoints.LOGOUT);
   },
+  setUserImg: async (payload: any) => {
+    await httpService.put(serverEndpoints.SAVE_IMAGE, payload);
+  },
   updateUserData: async (payload: IChangeUserData) => {
     await httpService.put(serverEndpoints.UPDATE_USER_DATA, payload);
   },

@@ -1,7 +1,17 @@
 import styled from "styled-components";
 import { colors } from "styles";
 
-export const EditProfilePanelStyled = styled.div``;
+export const Wrapper = styled.div`
+  border-radius: 20px;
+  background-color: whitesmoke;
+`;
+
+export const EditProfilePanelStyled = styled.div`
+  padding: 2rem;
+  border: 1px solid ${colors.BORDER_GRAY};
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.05);
+`;
 
 export const PersonalInfo = styled.section`
   padding: 2rem;

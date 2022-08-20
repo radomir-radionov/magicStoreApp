@@ -3,6 +3,7 @@ enum colors {
   TEXT_BLACK = "black",
   TEXT_GRAY = "#909096",
   TEXT_VIVID_CYAN = "#08fdd8",
+  TEXT_YELLOWGREEN = "yellowgreen",
   TEXT_ORANGE = "orange",
   TEXT_GREEN = "#00B347",
   TEXT_RED = "red",

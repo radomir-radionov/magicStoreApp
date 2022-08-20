@@ -6,13 +6,14 @@ export interface IUser {
   email: string;
   name: string;
   description: string;
+  avatar: any;
   cart: IGame[];
 }
 
 export interface ISignUpData {
   email: string;
-  password: string;
   name: string;
+  password: string;
   confirmPassword: string;
 }
 

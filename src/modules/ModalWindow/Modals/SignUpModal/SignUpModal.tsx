@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import schema from "./schema";
-import { ButtonsBox, Form, SignUpModalStyled, Title } from "./styles";
 import { ButtonModal, InputText } from "components";
 import { useDispatch } from "react-redux";
 import { userActions } from "redux/user";
 import { modalActionTypes } from "redux/modal";
 import { ISignUpData } from "types/user";
+import { ButtonsBox, Form, SignUpModalStyled, Title } from "./styles";
 
 interface ISignUpModalProps {
   onClose: () => void;
