@@ -4,7 +4,7 @@ import {
   IGetUserCartGames,
   ICartState,
   IPutGameInCartData,
-  INewDataCartData,
+  INewCartData,
   IDeleteGameCartData,
 } from "./types";
 
@@ -36,7 +36,7 @@ export const cartSlice = createSlice({
       state,
       { payload }: PayloadAction<IDeleteGameCartData>
     ) => {},
-    updateCartData: (state, { payload }: PayloadAction<INewDataCartData>) => {},
+    buyCartGames: (state, { payload }: PayloadAction<INewCartData>) => {},
     setError: (state, { payload }: PayloadAction<string>) => {
       // state.userData = null;
       state.error.isError = true;

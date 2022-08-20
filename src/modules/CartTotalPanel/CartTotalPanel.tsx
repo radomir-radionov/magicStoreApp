@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "redux/cart";
 import { cartGamesSelector } from "redux/cart/selectors";
-import { userActions } from "redux/user";
 import { currentUserDataSelector } from "redux/user/selectors";
 import { ButtonStyled, CartTotalPanelStyled, PStyled } from "./styles";
 
@@ -14,13 +13,15 @@ const CartTotalPanel = () => {
   const totalCost = arrayOfGamePrices?.reduce((sum, game) => sum + game, 0);
 
   const onClickBuyGames = () => {
-    dispatch(cartActions.updateCartData({ id, cartGames }));
+    dispatch(cartActions.buyCartGames({ id, cartGames }));
   };
 
   return (
     <CartTotalPanelStyled>
       <PStyled>Total price: ${totalCost ? totalCost.toFixed(2) : 0}</PStyled>
-      <ButtonStyled onClick={onClickBuyGames}>Buy</ButtonStyled>
+      <ButtonStyled onClick={onClickBuyGames} disabled={cartGames.length}>
+        Buy
+      </ButtonStyled>
     </CartTotalPanelStyled>
   );
 };

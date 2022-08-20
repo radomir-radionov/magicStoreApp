@@ -1,11 +1,13 @@
 import { IUser } from "types/user";
 
 export interface IAuthResponse {
-  data: IAuthDataResponse;
+  userData: IAuthDataResponse;
+  message: string;
 }
 
 export interface IAuthDataResponse {
   accessToken: string;
   refreshToken: string;
   user: IUser;
+  message?: string;
 }

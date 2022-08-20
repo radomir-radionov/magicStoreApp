@@ -1,3 +1,4 @@
+import { colors } from "styles";
 import styled from "styled-components";
 
 export const ProductPageStyled = styled.div`
@@ -10,4 +11,8 @@ export const ProductPageStyled = styled.div`
   padding-top: 3rem;
 `;
 
-export const Title = styled.h1``;
+export const Title = styled.h1`
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid ${colors.BACKGROUND_WHITESMOKE};
+  color: ${colors.TEXT_VIVID_CYAN};
+`;

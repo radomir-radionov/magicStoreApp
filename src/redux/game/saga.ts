@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { all, call, put, takeLatest } from "redux-saga/effects";
 import { gameService } from "services";
 import { IGame } from "types/game";
@@ -7,8 +8,8 @@ export function* getTopGamesSaga() {
   try {
     const response: IGame[] = yield call(() => gameService.getTopGames());
     yield put(gameActions.setTopGames(response));
-  } catch (e) {
-    // console.log(e.response?.data?.message);
+  } catch (e: any) {
+    toast.error(e.response.data.message);
   }
 }
 
@@ -22,9 +23,9 @@ export function* getSearchedGamesSaga({
     );
     yield put(gameActions.setSearchedGames(response));
     yield put(gameActions.setLoading(false));
-  } catch (e) {
+  } catch (e: any) {
     yield put(gameActions.setLoading(false));
-    // console.log(e.response?.data?.message);
+    toast.error(e.response.data.message);
   }
 }
 
@@ -38,9 +39,9 @@ export function* getFilteredGamesSaga({
     );
     yield put(gameActions.setFilteredGames(response));
     yield put(gameActions.setLoading(false));
-  } catch (e) {
+  } catch (e: any) {
     yield put(gameActions.setLoading(false));
-    // console.log(e.response?.data?.message);
+    toast.error(e.response.data.message);
   }
 }
 

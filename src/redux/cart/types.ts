@@ -23,7 +23,7 @@ export interface IDeleteGameCartData {
   game: IGame;
 }
 
-export interface INewDataCartData {
+export interface INewCartData {
   id: string;
   cartGames: IGame[];
 }
