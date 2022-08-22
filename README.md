@@ -23,3 +23,17 @@ Pagination).
 
 App doesn't work without server side.  
 Server side will be soon.
+
+## Run app
+
+```
+git clone https://github.com/radomir-radionov/MagicStore.git  
+npm i  
+cd client  
+npm i  
+cd server  
+npm i
+cd ..
+npm run dev
+```
+
