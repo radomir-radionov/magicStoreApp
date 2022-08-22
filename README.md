@@ -19,11 +19,6 @@ Pagination).
 - Styled Components
 - NodeJS, Express, MongoDB
 
-## Important  
-
-App doesn't work without server side.  
-Server side will be soon.
-
 ## Run app
 
 ```
