@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "styles";
+import { colors, indents, typography } from "styles";
 
 export const Wrapper = styled.div`
   border-radius: 20px;
@@ -8,12 +8,12 @@ export const Wrapper = styled.div`
 
 export const ProfileInfoStyled = styled.div`
   width: 59.8rem;
-  padding: 2rem;
+  padding: ${indents.p_2};
   background-color: rgba(0, 0, 0, 0.05);
 `;
 
 export const PersonalInfo = styled.section`
-  padding: 2rem;
+  padding: ${indents.p_2};
   border: 1px solid ${colors.BORDER_GRAY};
   border-radius: 20px;
 `;
@@ -23,8 +23,9 @@ export const Header = styled.header`
   border-bottom: 1px solid ${colors.BORDER_GRAY};
 `;
 
-export const Title = styled.h2`
+export const Title = styled.h3`
   margin-bottom: 1rem;
+  ${typography.H3}
   text-align: center;
   color: ${colors.TEXT_BLACK};
 `;

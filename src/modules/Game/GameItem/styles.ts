@@ -1,4 +1,4 @@
-import { colors } from "styles";
+import { colors, indents } from "styles";
 import styled from "styled-components";
 
 export interface ICardImage {
@@ -25,7 +25,7 @@ export const FrontSideWrapper = styled.div`
 export const BackSideWrapper = styled.div`
   width: 23rem;
   height: 38rem;
-  padding: 1rem;
+  padding: ${indents.p_2};
   border-radius: 8px;
   transition: 1s;
   backface-visibility: hidden;

@@ -19,7 +19,7 @@ export const Img = styled.img``;
 
 export const Input = styled.input`
   width: 500px;
-  padding: 16px 44px;
+  padding: 1.6rem 4.4rem;
   outline: none;
   border: none;
   border-radius: 8px;

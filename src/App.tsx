@@ -9,7 +9,6 @@ import {
 } from "redux/user/selectors";
 import AppRouter from "routes/AppRouter";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
 import { ToastContainerStyled } from "styles/globalStyles";
 
 function App() {

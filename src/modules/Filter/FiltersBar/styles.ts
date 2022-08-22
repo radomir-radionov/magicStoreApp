@@ -1,15 +1,15 @@
 import styled from "styled-components";
-import { colors, typography } from "styles";
+import { colors, indents, typography } from "styles";
 
 export const FiltersBarStyled = styled.nav`
   height: fit-content;
   border-radius: 8px;
 `;
 
-export const Title = styled.h2`
-  padding-left: 2.4rem;
+export const Title = styled.h3`
+  padding-left: ${indents.pl_1};
   margin-bottom: 1rem;
-  ${typography.H2}
+  ${typography.H3}
   color: ${colors.TEXT_1};
 `;
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { FieldError } from "react-hook-form";
-import { colors, typography } from "styles";
+import { colors } from "styles";
 
 interface IInputStyled {
   errors: FieldError | undefined;
@@ -22,7 +22,7 @@ export const InputWrapper = styled.div`
 `;
 
 export const LabelStyled = styled.label<ILabelStyled>`
-  ${typography.H4};
+  font-size: 1.6rem;
   color: ${colors.TEXT_BLACK};
 
   ${({ errors }) =>

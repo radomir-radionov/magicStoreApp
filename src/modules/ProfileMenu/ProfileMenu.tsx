@@ -1,6 +1,5 @@
 import { userProfileRoutes } from "constants/pageRoutes";
 import { MenuItem } from "modules";
-
 import { MenuList, ProfileMenuStyled } from "./styles";
 
 const ProfileMenu = () => {
