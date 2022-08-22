@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import { colors, typography } from "styles";
+import { colors, indents, typography } from "styles";
 
 export const Form = styled.form`
   margin-bottom: 1.6rem;
 `;
 
 export const Title = styled.h3`
-  padding-bottom: 1.6rem;
-  padding-left: 2.4rem;
+  padding-bottom: ${indents.pb_0};
+  padding-left: ${indents.pl_1};
   margin-bottom: 1rem;
   color: ${colors.TEXT_1};
   border-bottom: 1px solid ${colors.BACKGROUND_WHITE};

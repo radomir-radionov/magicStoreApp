@@ -1,4 +1,4 @@
-import { colors } from "styles";
+import { colors, indents, typography } from "styles";
 import styled from "styled-components";
 
 export const ProductPageStyled = styled.div`
@@ -8,11 +8,12 @@ export const ProductPageStyled = styled.div`
   align-items: center;
   gap: 8rem;
   width: 100%;
-  padding-top: 3rem;
+  padding: 5rem;
 `;
 
-export const Title = styled.h1`
-  padding-bottom: 1.6rem;
+export const Title = styled.h2`
+  padding-bottom: ${indents.pb_0};
+  ${typography.H2}
   border-bottom: 1px solid ${colors.BACKGROUND_WHITESMOKE};
   color: ${colors.TEXT_VIVID_CYAN};
 `;

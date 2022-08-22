@@ -1,14 +1,15 @@
 import styled from "styled-components";
-import { colors, typography } from "styles";
+import { colors, indents, typography } from "styles";
 
 export interface ICardImage {
   img: string;
 }
 
 export const Body = styled.div`
-  padding: 1rem;
   display: flex;
   justify-content: space-between;
+  margin-top: 2rem;
+  padding: 0 1rem;
 `;
 
 export const Title = styled.h3`
@@ -25,7 +26,7 @@ export const Platforms = styled.div`
   position: absolute;
   padding: 5px;
   border-radius: 8px 0 16px 0;
-  background-color: ${colors.BOX_SHADOW};
+  background-color: ${colors.BOX_SHADOW_DARK};
 `;
 
 export const Icon = styled.img`
@@ -43,6 +44,7 @@ export const ImgBox = styled.div<ICardImage>`
 export const Footer = styled.div`
   display: flex;
   justify-content: space-between;
+  padding: 0 1rem;
 `;
 
 export const Test = styled.div`

@@ -19,7 +19,7 @@ $api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
     if (
-      error.response.status == 401 &&
+      error.response.status === 401 &&
       error.config &&
       !error.config._isRetry
     ) {
@@ -46,6 +46,4 @@ export const httpService = {
   post: $api.post,
   put: $api.put,
   delete: $api.delete,
-  // read about patch
-  patch: $api.patch,
 };

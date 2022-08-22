@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { typography } from "styles";
 
 export const TopGamesStyled = styled.section`
   display: flex;
@@ -9,5 +10,6 @@ export const TopGamesStyled = styled.section`
 
 export const Title = styled.h2`
   margin-bottom: 6rem;
+  ${typography.H2}
   text-align: center;
 `;

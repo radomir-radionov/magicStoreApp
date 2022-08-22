@@ -1,15 +1,18 @@
 import { Button } from "components";
 import styled from "styled-components";
-import { colors } from "styles";
+import { typography } from "styles";
 
 export const AdminPanelStyled = styled.div``;
 
-export const Title = styled.h2`
+export const Title = styled.h3`
+  ${typography.H3}
   margin-bottom: 2rem;
   text-align: center;
 `;
 
-export const Description = styled.p``;
+export const Description = styled.p`
+  text-align: center;
+`;
 
 export const AdminControlPanel = styled.div`
   margin-top: 6rem;

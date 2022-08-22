@@ -1,4 +1,4 @@
-import { colors } from "styles";
+import { colors, indents, typography } from "styles";
 import styled from "styled-components";
 import { BsCart } from "react-icons/bs";
 
@@ -8,15 +8,16 @@ export const CartPageStyled = styled.div`
   flex-direction: column;
   gap: 5rem;
   width: 100%;
-  padding: 5rem;
+  padding: 4rem;
 `;
 
-export const Title = styled.h2`
+export const Title = styled.h3`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  padding-bottom: 2rem;
+  padding-bottom: ${indents.pb_0};
+  ${typography.H3}
   border-bottom: 2px solid ${colors.COLOR_RED};
 `;
 

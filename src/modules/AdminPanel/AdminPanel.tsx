@@ -27,6 +27,15 @@ const AdminPanel = () => {
         <ButtonStyled onClick={onClickAddGame} variant={BUTTON_VARIANTS.ADMIN}>
           Add game
         </ButtonStyled>
+        {/* <ButtonStyled onClick={onClickAddGame} variant={BUTTON_VARIANTS.ADMIN}>
+          Edit game
+        </ButtonStyled>
+        <ButtonStyled onClick={onClickAddGame} variant={BUTTON_VARIANTS.ADMIN}>
+          Delete game
+        </ButtonStyled>
+        <ButtonStyled onClick={onClickAddGame} variant={BUTTON_VARIANTS.ADMIN}>
+          Get users
+        </ButtonStyled> */}
       </AdminControlPanel>
     </AdminPanelStyled>
   );

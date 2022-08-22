@@ -2,24 +2,26 @@ import { css } from "styled-components";
 
 const H1 = css`
   font-weight: 600;
-  font-size: 8rem;
-  line-height: 7rem;
+  font-size: 7rem;
+  line-height: 6.6rem;
 `;
 
 const H2 = css`
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 5rem;
+  line-height: 4.6rem;
 `;
 
 const H3 = css`
   font-weight: 500;
-  font-size: 2rem;
-  line-height: 3rem;
+  font-size: 3.8rem;
+  line-height: 3.4rem;
 `;
 
 const H4 = css`
   font-weight: 500;
-  font-size: 1.6rem;
+  font-size: 2rem;
+  line-height: 1.6rem;
 `;
 
 const BODY1 = css`

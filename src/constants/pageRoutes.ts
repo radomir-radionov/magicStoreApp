@@ -1,9 +1,3 @@
-// export const userProfileRoutes = [
-//   { path: "/profile/booking", name: "Мои бронирования", icon: StarBorderIcon },
-//   { path: "/profile/likes", name: "Понравилось", icon: FavoriteBorderIcon },
-//   { path: "/profile/favorites", name: "Избранное", icon: BookmarkBorderIcon },
-// ];
-
 import { CgProfile } from "react-icons/cg";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { AiTwotoneSetting, AiOutlineShoppingCart } from "react-icons/ai";
@@ -22,12 +16,6 @@ enum pageRoutes {
 }
 
 export const userProfileRoutes = [
-  {
-    id: 0,
-    path: "userInfo",
-    name: "My profile",
-    Icon: CgProfile,
-  },
   {
     id: 1,
     path: "adminPanel",
