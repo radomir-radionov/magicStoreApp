@@ -1,0 +1,41 @@
+{
+  "games": [
+    {
+      "id": "1",
+      "genre": "shooter",
+      "name": "Battlefield 2042",
+      "image": "https://upload.wikimedia.org/wikipedia/ru/7/79/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_Battlefield_2042.jpg",
+      "price": "50",
+      "rating": "1",
+      "description": "Battlefield™ 2042 is a first-person shooter that marks the return to the iconic all-out warfare of the franchise.",
+      "age": "18",
+      "platform": ["Xbox"],
+      "amount": "1",
+      "selected": false
+    },
+    {
+      "id": "2",
+      "name": "COD: Warzone",
+      "genre": "survive",
+      "description": "Call of Duty: Warzone is a free-to-play battle royale video game released on March 10, 2020, for PlayStation 4, Xbox One, and Microsoft Windows.",
+      "price": "28",
+      "rating": "5",
+      "age": "12",
+      "platform": ["Playstation", "Xbox"],
+      "img": "https://upload.wikimedia.org/wikipedia/ru/thumb/5/5f/COD_Warzone.jpg/800px-COD_Warzone.jpg"
+    },
+    {
+      "id": "3",
+      "genre": "arcade",
+      "name": "CS:GO",
+      "image": "https://s1.gaming-cdn.com/images/products/9459/orig/counter-strike-global-offensive-pc-mac-game-steam-cover.jpg",
+      "price": "10.99",
+      "rating": "3",
+      "description": "Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago.",
+      "age": "6",
+      "platform": ["PC"],
+      "amount": "1",
+      "selected": false
+    }
+  ]
+}
