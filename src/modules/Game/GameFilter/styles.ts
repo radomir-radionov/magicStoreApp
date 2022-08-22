@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import { colors, typography } from "styles";
+import { colors, indents, typography } from "styles";
 
 export const GameFilterStyled = styled.section`
   display: flex;
   gap: 10rem;
   width: 100%;
-  padding: 0 5rem 5rem 5rem;
 `;
 
 export const FilteredGames = styled.div`
@@ -21,9 +20,9 @@ export const FilteredGames = styled.div`
   }
 `;
 
-export const Title = styled.h2`
-  padding-left: 2.4rem;
-  ${typography.H2}
+export const Title = styled.h3`
+  padding-left: ${indents.pl_1};
+  ${typography.H3}
   color: ${colors.TEXT_1};
 `;
 

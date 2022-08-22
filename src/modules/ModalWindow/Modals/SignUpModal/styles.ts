@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, typography } from "styles";
+import { colors, indents, typography } from "styles";
 
 export const SignUpModalStyled = styled.div`
   position: absolute;
@@ -8,7 +8,7 @@ export const SignUpModalStyled = styled.div`
   min-width: 300px;
   min-height: 300px;
   margin-right: -50%;
-  padding: 4rem 6rem;
+  padding: ${indents.p_1};
   border-radius: 16px;
   background-color: ${colors.BACKGROUND_WHITE};
   transform: translate(-50%, -50%);

@@ -1,5 +1,4 @@
 import { Greetings, TopGames } from "modules";
-
 import { HomePageStyled } from "./styles";
 
 const HomePage = () => {

@@ -1,15 +1,15 @@
 import styled from "styled-components";
-import { colors } from "styles";
+import { colors, indents } from "styles";
 
 export const Form = styled.form`
   display: flex;
   justify-content: space-between;
-  padding-bottom: 1.6rem;
+  padding-bottom: ${indents.pb_0};
   margin-bottom: 1.6rem;
 `;
 
 export const Title = styled.h3`
-  padding-left: 2.4rem;
+  padding-left: ${indents.pl_1};
   margin-bottom: 1.2rem;
   font-size: 1.2rem;
   color: ${colors.TEXT_1};

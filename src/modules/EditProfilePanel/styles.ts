@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "styles";
+import { colors, indents } from "styles";
 
 export const Wrapper = styled.div`
   border-radius: 20px;
@@ -7,14 +7,14 @@ export const Wrapper = styled.div`
 `;
 
 export const EditProfilePanelStyled = styled.div`
-  padding: 2rem;
+  padding: ${indents.p_2};
   border: 1px solid ${colors.BORDER_GRAY};
   border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: ${colors.BOX_SHADOW};
 `;
 
 export const PersonalInfo = styled.section`
-  padding: 2rem;
+  padding: ${indents.p_2};
   border: 1px solid ${colors.BORDER_GRAY};
   border-radius: 20px;
 `;

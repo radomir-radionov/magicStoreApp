@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, typography } from "styles";
+import { colors, indents } from "styles";
 
 export const MenuStyled = styled.menu`
   position: fixed;
@@ -19,7 +19,7 @@ export const MenuStyled = styled.menu`
 `;
 
 export const LogoIcon = styled.div`
-  padding: 2rem;
+  padding: ${indents.p_2};
   background-color: ${colors.BACKGROUND_BLACK};
   cursor: pointer;
 `;
@@ -28,11 +28,11 @@ export const Logo = styled.img`
   width: 8rem;
 `;
 
-export const Title = styled.h3`
+export const Title = styled.h4`
   margin-top: 2rem;
   margin-bottom: 1.5rem;
   text-align: center;
-  ${typography.H3};
+  font-size: 1.6rem;
   color: ${colors.TEXT_GRAY};
 `;
 

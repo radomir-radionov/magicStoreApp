@@ -19,7 +19,7 @@ const CartTotalPanel = () => {
   return (
     <CartTotalPanelStyled>
       <PStyled>Total price: ${totalCost ? totalCost.toFixed(2) : 0}</PStyled>
-      <ButtonStyled onClick={onClickBuyGames} disabled={cartGames.length}>
+      <ButtonStyled onClick={onClickBuyGames} disabled={!cartGames.length}>
         Buy
       </ButtonStyled>
     </CartTotalPanelStyled>

@@ -1,6 +1,7 @@
 import { ToastContainer } from "react-toastify";
 import styled, { createGlobalStyle } from "styled-components";
 import colors from "./colors";
+import indents from "./indents";
 import typography from "./typography";
 
 const GlobalStyles = createGlobalStyle`
@@ -12,7 +13,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     height: 100%;
     margin: 0;
-    padding: 0;
+    padding: ${indents.p_0};
     font-size: 62.5%;
     font-family: ${typography.FONT_FAMILY_MONTSERRAT};
     color: ${colors.TEXT_1};
@@ -20,7 +21,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    padding-left: 13rem;
+    padding-left: ${indents.pl_0};
     font-size: 2rem;
     overflow-x: hidden;
   }
@@ -32,7 +33,7 @@ const GlobalStyles = createGlobalStyle`
 
   ul, ol, li, h1, h2, h3, h4, h5, h6, p {
     margin: 0;
-    padding: 0;
+    padding: ${indents.p_0};
   }
   
   ul, ol, li {
@@ -48,7 +49,7 @@ const GlobalStyles = createGlobalStyle`
 	background: none;
 	color: inherit;
 	border: none;
-	padding: 0;
+	padding: ${indents.p_0};
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;

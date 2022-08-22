@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { currentUserDataSelector } from "redux/user/selectors";
 import { BUTTON_VARIANTS } from "components/Button/types";
 import { IGame } from "types/game";
+import { cartActions } from "redux/cart";
 import {
   ButtonStyled,
   Description,
@@ -13,7 +14,6 @@ import {
   InteractPanel,
   Title,
 } from "./styles";
-import { cartActions } from "redux/cart";
 
 interface IGameItemCartProps {
   game: IGame;
