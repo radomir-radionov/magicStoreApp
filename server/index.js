@@ -29,7 +29,7 @@ const start = async () => {
     });
     app.listen(
       process.env.PORT || 5000,
-      console.log(`Server running on port ${PORT}`)
+      console.log(`Server running on port ${process.env.PORT}`)
     );
   } catch (e) {
     console.log(e);
