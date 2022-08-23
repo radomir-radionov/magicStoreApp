@@ -37,21 +37,21 @@ const start = async () => {
 
 start();
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "images/");
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "images/");
+//   },
+// });
 
-const upload = multer({ storage: storage });
+// const upload = multer({ storage: storage });
 
-app.post("/api/userAvatar", upload.single("file"), async (req, res) => {
-  const userId = req.body.userId;
-  await User.findByIdAndUpdate(userId, {
-    avatar: { contentType: "image/jpeg", data: fs.readFileSync(req.file.path) },
-  });
-  res.json({ message: "New avatar added to the db!" });
-});
+// app.post("/api/userAvatar", upload.single("file"), async (req, res) => {
+//   const userId = req.body.userId;
+//   await User.findByIdAndUpdate(userId, {
+//     avatar: { contentType: "image/jpeg", data: fs.readFileSync(req.file.path) },
+//   });
+//   res.json({ message: "New avatar added to the db!" });
+// });
 // .get(function (req, res) {
 //   console.log(1);
 //   Img.findOne({}, "img createdAt", function (err, img) {
