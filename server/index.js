@@ -36,10 +36,6 @@ const start = async () => {
 
 start();
 
-app.get("/", (req, res) => {
-  res.send("");
-});
-
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "images/");
