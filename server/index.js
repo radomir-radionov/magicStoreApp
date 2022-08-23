@@ -22,7 +22,7 @@ app.use("/api", router);
 app.use(errorMiddleware);
 
 const start = async () => {
-  const PORT = process.env.PORT || 5000;
+  const PORT = 5000;
   try {
     await mongoose.connect(process.env.DB_URL, {
       useNewUrlParser: true,
