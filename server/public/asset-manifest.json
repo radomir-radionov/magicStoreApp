@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3d10672c.css",
+    "main.js": "/static/js/main.941209a0.js",
+    "static/js/787.c111a5a7.chunk.js": "/static/js/787.c111a5a7.chunk.js",
+    "static/media/xbox.svg": "/static/media/xbox.b04c4e6d7de7983730509697b074de51.svg",
+    "static/media/pc.svg": "/static/media/pc.005319618ecca12ad51380faac27bfe0.svg",
+    "static/media/letterM.svg": "/static/media/letterM.32a0ee51a7493b08fd0e8b285d993dfc.svg",
+    "static/media/playstation.svg": "/static/media/playstation.c5da1eb3446ab2e3156ff23da7d44874.svg",
+    "static/media/searchIcon.svg": "/static/media/searchIcon.c80841a14a0cb6862708a662c298787c.svg",
+    "index.html": "/index.html",
+    "static/media/star.svg": "/static/media/star.38854c9881ca13732ec8122be7d940ee.svg",
+    "static/media/emptyStar.svg": "/static/media/emptyStar.bd13312a7ebe2c8a8eaa172ecb0b8710.svg",
+    "static/media/rectangleLeft.svg": "/static/media/rectangleLeft.c9b8f110f9ad3d2fa70ad71f36ea15d9.svg",
+    "main.3d10672c.css.map": "/static/css/main.3d10672c.css.map",
+    "main.941209a0.js.map": "/static/js/main.941209a0.js.map",
+    "787.c111a5a7.chunk.js.map": "/static/js/787.c111a5a7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3d10672c.css",
+    "static/js/main.941209a0.js"
+  ]
+}
