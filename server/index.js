@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const multer = require("multer");
+const http = require("http");
 const cookieParser = require("cookie-parser");
 const compression = require("compression");
 const router = require("./router");
@@ -24,13 +25,17 @@ app.use(errorMiddleware);
 const PORT = process.env.PORT || 5000;
 const host = "0.0.0.0";
 
+const server = http.createServer((req, res) => {
+  //your stuff
+});
+
 const start = async () => {
   try {
     await mongoose.connect(process.env.DB_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    app.listen(PORT, host, console.log(`Listening on ${PORT}`));
+    server.listen(PORT, host, console.log(`Listening on ${PORT}`));
   } catch (e) {
     console.log(e);
   }
