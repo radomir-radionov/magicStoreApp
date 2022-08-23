@@ -3,26 +3,26 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const multer = require("multer");
-const path = require("path");
 const cookieParser = require("cookie-parser");
 const compression = require("compression");
 const router = require("./router");
 const errorMiddleware = require("./middlewares/error-middleware");
-const GameModel = require("./models/game-model");
 const User = require("./models/user-model");
 const fs = require("fs");
+const path = require("path");
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }));
+app.use(express.static(path.join(__dirname + "/public")));
 app.use(cookieParser());
 app.use(compression());
 app.use("/api", router);
 app.use(errorMiddleware);
 
 const start = async () => {
+  const PORT = process.env.PORT || 5000;
   try {
     await mongoose.connect(process.env.DB_URL, {
       useNewUrlParser: true,
@@ -35,6 +35,10 @@ const start = async () => {
 };
 
 start();
+
+app.get("/", (req, res) => {
+  res.send("");
+});
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
