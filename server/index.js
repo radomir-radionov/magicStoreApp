@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const multer = require("multer");
+const config = require("config");
 const cookieParser = require("cookie-parser");
 const compression = require("compression");
 const router = require("./router");
@@ -21,7 +22,7 @@ app.use(compression());
 app.use("/api", router);
 app.use(errorMiddleware);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || config.get("port") || 8080;
 
 const start = async () => {
   try {
