@@ -25,3 +25,4 @@ export { default as AdminPanel } from "./AdminPanel/AdminPanel";
 export { default as MenuItem } from "./MenuItem/MenuItem";
 export { default as ProfileMenu } from "./ProfileMenu/ProfileMenu";
 export { default as ProfileInfo } from "./ProfileInfo/ProfileInfo";
+export { default as AuthorizationMenu } from "./AuthorizationMenu/AuthorizationMenu";

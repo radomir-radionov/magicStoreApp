@@ -5,7 +5,8 @@ export const TopGamesStyled = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 70vh;
+  min-height: 90vh;
+  margin-bottom: 10rem;
 `;
 
 export const Title = styled.h2`

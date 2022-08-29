@@ -23,11 +23,6 @@ app.use("/api", router);
 app.use(errorMiddleware);
 
 const PORT = process.env.PORT || 5000;
-const host = "0.0.0.0";
-
-const server = http.createServer((req, res) => {
-  //your stuff
-});
 
 const start = async () => {
   try {
@@ -35,7 +30,7 @@ const start = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    server.listen(PORT, host, console.log(`Listening on ${PORT}`));
+    app.listen(PORT, console.log(`Listening on ${PORT}`));
   } catch (e) {
     console.log(e);
   }

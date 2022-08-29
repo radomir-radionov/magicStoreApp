@@ -1,6 +1,8 @@
 import styled, { keyframes } from "styled-components";
 import { colors, typography } from "styles";
 
+export const Wrapper = styled.div``;
+
 const RubberBandAnimation = keyframes`
    from {
     transform: scale3d(1, 1, 1);

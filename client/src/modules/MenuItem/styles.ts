@@ -9,6 +9,7 @@ export const NavLinkStyled = styled(NavLink)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   font-size: 1.8rem;
   transition: color 0.5s;
 

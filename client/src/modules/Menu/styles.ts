@@ -16,6 +16,10 @@ export const MenuStyled = styled.menu`
   padding: 0;
   margin: 0;
   background-color: ${colors.BACKGROUND_DARK_GRAY};
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const LogoIcon = styled.div`

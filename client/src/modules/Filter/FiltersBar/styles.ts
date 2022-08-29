@@ -4,6 +4,10 @@ import { colors, indents, typography } from "styles";
 export const FiltersBarStyled = styled.nav`
   height: fit-content;
   border-radius: 8px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Title = styled.h3`

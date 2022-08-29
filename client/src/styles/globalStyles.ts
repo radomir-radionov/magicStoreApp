@@ -24,6 +24,10 @@ const GlobalStyles = createGlobalStyle`
     padding-left: ${indents.pl_0};
     font-size: 2rem;
     overflow-x: hidden;
+
+    @media (max-width: 768px) {
+    padding: 0;
+  }
   }
 
   #root {

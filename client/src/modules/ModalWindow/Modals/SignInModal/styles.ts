@@ -5,8 +5,6 @@ export const SignInModalStyled = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  min-width: 300px;
-  min-height: 300px;
   margin-right: -50%;
   padding: ${indents.p_1};
   border-radius: 16px;
@@ -22,7 +20,9 @@ export const Title = styled.h3`
 `;
 
 export const Form = styled.form`
-  width: 300px;
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 export const InteractionPanel = styled.div`

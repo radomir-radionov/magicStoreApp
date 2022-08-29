@@ -31,5 +31,10 @@ export const Title = styled.h3`
 
 export const UserData = styled.div`
   display: flex;
-  gap: 3rem;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;

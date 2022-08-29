@@ -15,6 +15,8 @@ export const Description = styled.p`
 `;
 
 export const AdminControlPanel = styled.div`
+  display: flex;
+  justify-content: center;
   margin-top: 6rem;
 `;
 

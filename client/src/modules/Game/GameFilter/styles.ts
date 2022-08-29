@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, indents, typography } from "styles";
+import { colors, typography } from "styles";
 
 export const GameFilterStyled = styled.section`
   display: flex;
@@ -21,7 +21,7 @@ export const FilteredGames = styled.div`
 `;
 
 export const Title = styled.h3`
-  padding-left: ${indents.pl_1};
+  text-align: center;
   ${typography.H3}
   color: ${colors.TEXT_1};
 `;
@@ -32,6 +32,7 @@ export const Hr = styled.hr`
 `;
 
 export const SpanStyled = styled.span`
+  margin-top: 2rem;
   min-width: 4rem;
   padding: 0 0.6rem;
   text-align: center;

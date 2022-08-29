@@ -5,8 +5,6 @@ export const SignUpModalStyled = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  min-width: 300px;
-  min-height: 300px;
   margin-right: -50%;
   padding: ${indents.p_1};
   border-radius: 16px;
@@ -21,9 +19,7 @@ export const Title = styled.h3`
   color: ${colors.TEXT_BLACK};
 `;
 
-export const Form = styled.form`
-  width: 300px;
-`;
+export const Form = styled.form``;
 
 export const ButtonsBox = styled.div`
   display: flex;

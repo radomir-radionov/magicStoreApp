@@ -41,7 +41,6 @@ export const LabelStyled = styled.label<ILabelStyled>`
 `;
 
 export const InputStyled = styled.input<IInputStyled>`
-  width: 300px;
   padding: 1.2rem 2.4rem;
   margin-top: 0.6rem;
   border: 1px solid;

@@ -19,13 +19,6 @@ export const GreetingsStyled = styled.section`
   padding: 6rem;
 `;
 
-export const GreetingsZone = styled.div``;
-
-export const RegistrationZone = styled.div`
-  display: flex;
-  gap: 40px;
-`;
-
 export const ScrollDownRight = styled.div`
   position: absolute;
   display: flex;
