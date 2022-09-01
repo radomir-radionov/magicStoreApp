@@ -17,7 +17,6 @@ const BackSide = ({ game }: IBackSideProps) => {
   const dispatch = useDispatch();
   const { id } = useSelector(currentUserDataSelector);
   const cart = useSelector(cartGamesSelector);
-
   const { description, age } = game;
 
   const onClickAddGameInCart = () => {
@@ -26,7 +25,10 @@ const BackSide = ({ game }: IBackSideProps) => {
 
   const onClickEditGame = () => {
     dispatch(
-      modalActionTypes.openModal({ modalType: MODAL_TYPES.EDIT_GAME_MODAL })
+      modalActionTypes.openModal({
+        modalType: MODAL_TYPES.EDIT_GAME_MODAL,
+        modalInfo: { gameData: game },
+      })
     );
   };
 

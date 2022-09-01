@@ -7,13 +7,13 @@ import {
   Link,
   Logo,
   LogoIcon,
-  MenuStyled,
+  HeaderStyled,
   SocialItem,
   Social,
   Title,
 } from "./styles";
 
-const Menu = () => {
+const Header = () => {
   const navigate = useNavigate();
 
   const onClickNavigate = () => {
@@ -21,7 +21,7 @@ const Menu = () => {
   };
 
   return (
-    <MenuStyled>
+    <HeaderStyled>
       <LogoIcon>
         <Logo onClick={onClickNavigate} src={LetterM} alt="Logo" />
         <Title>M-store</Title>
@@ -36,8 +36,8 @@ const Menu = () => {
           </SocialItem>
         ))}
       </Social>
-    </MenuStyled>
+    </HeaderStyled>
   );
 };
 
-export default Menu;
+export default Header;

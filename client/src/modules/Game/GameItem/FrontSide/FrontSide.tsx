@@ -11,7 +11,7 @@ import {
   Icon,
   ImgBox,
   Platforms,
-  Test,
+  IconWrapper,
   Footer,
 } from "./styles";
 
@@ -54,7 +54,7 @@ const FrontSide = ({ game }: IFrontSideProps) => {
       </Body>
       <Footer>
         <GameRating rating={rating} />
-        <Test>{isInCart && <TiTickOutline />}</Test>
+        <IconWrapper>{isInCart && <TiTickOutline />}</IconWrapper>
       </Footer>
     </>
   );

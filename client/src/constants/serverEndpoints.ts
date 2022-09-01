@@ -9,6 +9,7 @@ enum serverEndpoints {
 
   TOP_GAMES = "getTopGames",
   ADD_NEW_GAME = "addNewGame",
+  EDIT_GAME = "editGame",
 }
 
 export default serverEndpoints;

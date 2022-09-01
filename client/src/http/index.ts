@@ -1,6 +1,6 @@
 import axios from "axios";
 import serverEndpoints from "constants/serverEndpoints";
-import { IAuthDataResponse } from "types/response";
+import { IUserData } from "types/auth";
 
 const $api = axios.create({
   withCredentials: true,
@@ -25,7 +25,7 @@ $api.interceptors.response.use(
     ) {
       originalRequest._isRetry = true;
       try {
-        const response = await axios.get<IAuthDataResponse>(
+        const response = await axios.get<IUserData>(
           `${serverEndpoints.API_URL}/refresh`,
           {
             withCredentials: true,

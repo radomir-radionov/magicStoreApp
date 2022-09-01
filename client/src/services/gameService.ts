@@ -1,5 +1,5 @@
 import serverEndpoints from "constants/serverEndpoints";
-import { IFilteredGamesParams, INewGameData } from "types/game";
+import { IEditGameData, IFilteredGamesParams, INewGameData } from "types/game";
 import { httpService } from "../http/index";
 
 const gameService = {
@@ -31,6 +31,12 @@ const gameService = {
     const newGameData = payload;
     await httpService.post(serverEndpoints.ADD_NEW_GAME, {
       newGameData,
+    });
+  },
+  editGame: async (payload: IEditGameData) => {
+    const editedGameData = payload;
+    await httpService.put(serverEndpoints.EDIT_GAME, {
+      editedGameData,
     });
   },
 };

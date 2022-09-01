@@ -21,14 +21,12 @@ export const FilteredGames = styled.div`
 `;
 
 export const Title = styled.h3`
+  padding: 1rem;
+  margin-bottom: 4rem;
   text-align: center;
   ${typography.H3}
   color: ${colors.TEXT_1};
-`;
-
-export const Hr = styled.hr`
-  width: 100%;
-  margin-bottom: 7rem;
+  border-bottom: 1px solid ${colors.COLOR_WHITE};
 `;
 
 export const SpanStyled = styled.span`

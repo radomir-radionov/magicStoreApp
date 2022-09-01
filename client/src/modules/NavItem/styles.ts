@@ -8,6 +8,10 @@ export const NavItemStyled = styled.li`
   &:hover {
     color: ${colors.TEXT_VIVID_CYAN};
   }
+
+  @media (max-width: 768px) {
+    display: block;
+  }
 `;
 
 export const NavLinkStyled = styled(NavLink)`

@@ -3,6 +3,7 @@ import { FieldError } from "react-hook-form";
 import { ErrorMessage, InputStyled, InputWrapper, LabelStyled } from "./styles";
 
 interface IInputTextProps {
+  ref: any;
   type?: string;
   label?: string;
   htmlFor?: string;

@@ -12,6 +12,7 @@ import {
   Title,
 } from "./styles";
 import { gameActions } from "redux/game";
+import { modalActionTypes } from "redux/modal";
 
 interface IAddGameModalProps {
   onClose: () => void;
@@ -27,6 +28,14 @@ const AddGameModal = ({ onClose }: IAddGameModalProps) => {
     formState: { errors, isDirty, isValid, dirtyFields },
   } = useForm<INewGameData>({
     resolver: yupResolver(schema),
+    defaultValues: {
+      name: "bill",
+      genre: "luo",
+      description: "description",
+      price: "bill",
+      age: "luo",
+      img: "bluebill1049@hotmail.com",
+    },
     mode: "onChange",
   });
 
@@ -39,7 +48,7 @@ const AddGameModal = ({ onClose }: IAddGameModalProps) => {
 
   const onSubmitHandler = (data: INewGameData) => {
     dispatch(gameActions.addNewGame(data));
-    // dispatch(modalActionTypes.closeModal());
+    dispatch(modalActionTypes.closeModal());
   };
 
   return (

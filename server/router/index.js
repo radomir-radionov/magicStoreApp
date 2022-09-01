@@ -24,5 +24,6 @@ router.get("/search", gameController.getSearchedGames);
 router.get("/product", gameController.getProduct);
 
 router.post("/addNewGame", gameController.addNewGame);
+router.put("/editGame", gameController.editGame);
 
 module.exports = router;

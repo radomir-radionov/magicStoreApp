@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors, indents } from "styles";
 
-export const MenuStyled = styled.menu`
+export const HeaderStyled = styled.header`
   position: fixed;
   left: 0;
   top: 0;

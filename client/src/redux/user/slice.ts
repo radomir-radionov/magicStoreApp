@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ISignInData, ISignUpData, IUser } from "types/user";
-import { IChangeUserData, IUserState } from "./types";
+import { ISignUpData } from "types/auth";
+import { IUser } from "types/user";
+import { IChangeUserData, ISignInData, IUserState } from "./types";
 
 const initialState: IUserState = {
   isAuth: false,

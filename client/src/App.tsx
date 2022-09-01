@@ -10,6 +10,7 @@ import {
 import AppRouter from "routes/AppRouter";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainerStyled } from "styles/globalStyles";
+import { Portal } from "modules/ModalWindow/styles";
 
 function App() {
   const dispatch = useDispatch();

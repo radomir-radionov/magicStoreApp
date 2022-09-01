@@ -16,7 +16,11 @@ export const GreetingsStyled = styled.section`
   gap: 6rem;
   width: 100%;
   height: 100vh;
-  padding: 6rem;
+  padding: 0 6rem 6rem 6rem;
+
+  @media (max-width: 768px) {
+    height: 95vh;
+  }
 `;
 
 export const ScrollDownRight = styled.div`

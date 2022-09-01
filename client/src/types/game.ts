@@ -22,6 +22,17 @@ export interface INewGameData {
   platform: string[];
 }
 
+export interface IEditGameData {
+  id: string;
+  name: string;
+  genre: string;
+  description: string;
+  price: string;
+  age: string;
+  img: string;
+  platform: string[];
+}
+
 export interface IFilteredGamesParams {
   age: string | undefined;
   criteria: string | undefined;

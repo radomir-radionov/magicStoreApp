@@ -1,8 +1,24 @@
 import styled from "styled-components";
+import { colors } from "styles";
 
 export const HomePageStyled = styled.main`
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 10rem;
+`;
+
+export const Header = styled.header`
+  display: none;
+  height: 6vh;
+  padding: 0 2rem;
+  background-color: #181818;
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+`;
+
+export const Title = styled.h2`
+  color: ${colors.TEXT_GRAY};
 `;

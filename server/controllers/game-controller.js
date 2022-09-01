@@ -44,6 +44,17 @@ class GameController {
     try {
       const { newGameData } = req.body;
       await gameService.addGame(newGameData);
+      return res.status(200);
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  async editGame(req, res, next) {
+    try {
+      const { editedGameData } = req.body;
+      await gameService.editGame(editedGameData);
+      return res.status(200).json({ message: "Data has changed!" });
     } catch (e) {
       next(e);
     }

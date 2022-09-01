@@ -12,8 +12,6 @@ interface IModalTypes {
   EDIT_GAME_MODAL: string;
 }
 
-export type TModalType = string;
-
 export const MODAL_TYPES: IModalTypes = {
   SIGN_IN_MODAL: "SIGN_IN_MODAL",
   SIGN_UP_MODAL: "SIGN_UP_MODAL",
@@ -27,3 +25,16 @@ export const MODALS_MAPPING = {
   [MODAL_TYPES.ADD_GAME_MODAL]: AddGameModal,
   [MODAL_TYPES.EDIT_GAME_MODAL]: EditGameModal,
 };
+
+export type TModalType = string;
+
+export interface IModalInfo {
+  [key: string]: any;
+}
+
+export interface IModalSelectorData {
+  modalInfo: {
+    [key: string]: IModalInfo;
+  };
+  modalTypeArray: TModalType[];
+}

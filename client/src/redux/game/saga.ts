@@ -62,12 +62,27 @@ export function* addNewGameSaga({
   }
 }
 
+export function* editGameSaga({
+  payload,
+}: ReturnType<typeof gameActions.editGame>) {
+  try {
+    const { data } = yield call(() => gameService.editGame(payload));
+    const { message } = data;
+    console.log("editGameSaga", message);
+    toast.success(message);
+  } catch (e) {
+    // yield put(gameActions.setLoading(false));
+    // console.log(e.response?.data?.message);
+  }
+}
+
 function* gameSaga() {
   yield all([
     takeLatest(gameActions.getTopGames, getTopGamesSaga),
     takeLatest(gameActions.getSearchedGames, getSearchedGamesSaga),
     takeLatest(gameActions.getFilteredGames, getFilteredGamesSaga),
     takeLatest(gameActions.addNewGame, addNewGameSaga),
+    takeLatest(gameActions.editGame, editGameSaga),
   ]);
 }
 

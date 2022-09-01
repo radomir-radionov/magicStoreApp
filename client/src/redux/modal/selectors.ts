@@ -7,3 +7,8 @@ export const modalTypeSelector = createSelector(
   modal,
   (state) => state.modalType
 );
+
+export const modalInfoSelector = createSelector(
+  modal,
+  (state) => state.modalInfo
+);

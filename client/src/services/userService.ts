@@ -1,8 +1,7 @@
 import { AxiosResponse } from "axios";
 import serverEndpoints from "constants/serverEndpoints";
 import { IChangeUserData, ISignInData } from "redux/user/types";
-import { IAuthResponse } from "types/response";
-import { ISignUpData } from "types/user";
+import { IAuthResponse, ISignUpData } from "types/auth";
 import { httpService } from "../http/index";
 
 const userService = {
