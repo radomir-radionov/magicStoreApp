@@ -13,10 +13,8 @@ import {
 const AdminPanel = () => {
   const dispatch = useDispatch();
 
-  const onClickAddGame = () => {
-    dispatch(
-      modalActionTypes.openModal({ modalType: MODAL_TYPES.ADD_GAME_MODAL })
-    );
+  const onClickOpenModal = (modalValue: string) => {
+    dispatch(modalActionTypes.openModal({ type: modalValue }));
   };
 
   return (
@@ -24,13 +22,19 @@ const AdminPanel = () => {
       <Title>Features</Title>
       <Description>Hello Admin! Here you can utilize next features</Description>
       <AdminControlPanel>
-        <ButtonStyled onClick={onClickAddGame} variant={BUTTON_VARIANTS.ADMIN}>
+        <ButtonStyled
+          onClick={onClickOpenModal(MODAL_TYPES.ADD_GAME_MODAL)}
+          variant={BUTTON_VARIANTS.ADMIN}
+        >
           Add game
         </ButtonStyled>
-        {/* <ButtonStyled onClick={onClickAddGame} variant={BUTTON_VARIANTS.ADMIN}>
+        <ButtonStyled
+          onClick={onClickOpenModal}
+          variant={BUTTON_VARIANTS.ADMIN}
+        >
           Edit game
         </ButtonStyled>
-        <ButtonStyled onClick={onClickAddGame} variant={BUTTON_VARIANTS.ADMIN}>
+        {/* <ButtonStyled onClick={onClickAddGame} variant={BUTTON_VARIANTS.ADMIN}>
           Delete game
         </ButtonStyled>
         <ButtonStyled onClick={onClickAddGame} variant={BUTTON_VARIANTS.ADMIN}>

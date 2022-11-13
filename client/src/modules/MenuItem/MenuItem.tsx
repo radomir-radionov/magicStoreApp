@@ -1,5 +1,5 @@
-import pageRoutes from "constants/pageRoutes";
 import { ReactNode } from "react";
+import pageRoutes from "constants/pageRoutes";
 import { IconType } from "react-icons";
 import { MenuItemStyled, NavLinkStyled } from "./styles";
 

@@ -8,7 +8,7 @@ const GameSchema = new Schema({
   img: { type: String, required: true },
   rating: { type: String, required: true },
   age: { type: String, required: true },
-  platform: [String],
+  platform: [Object],
 });
 
 module.exports = model("Game", GameSchema);

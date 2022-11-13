@@ -15,7 +15,7 @@ export const InputCheckboxWrapper = styled.div`
   margin-bottom: 1rem;
 `;
 
-export const InputCheckboxStyled = styled.input``;
+export const InputCheckboxStyled = styled.input<any>``;
 
 export const LabelStyled = styled.label<ILabelStyled>`
   font-size: 1.6rem;

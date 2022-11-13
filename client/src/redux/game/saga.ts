@@ -6,8 +6,8 @@ import { gameActions } from "./slice";
 
 export function* getTopGamesSaga() {
   try {
-    const response: IGame[] = yield call(() => gameService.getTopGames());
-    yield put(gameActions.setTopGames(response));
+    // const response: IGame[] = yield call(() => gameService.getTopGames());
+    // yield put(gameActions.setTopGames(response));
   } catch (e: any) {
     toast.error(e.response.data.message);
   }

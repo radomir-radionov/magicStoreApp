@@ -7,9 +7,9 @@ const UserSchema = new Schema({
   password: { type: String, required: true },
   name: { type: String, required: true },
   description: { type: String },
-  avatar: {
-    contentType: { type: String },
-    data: { type: Buffer },
+  img: {
+    contentType: String,
+    data: Buffer,
   },
   cart: [GameSchema],
 });

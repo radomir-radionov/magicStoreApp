@@ -16,9 +16,7 @@ const NavItem = ({ link, children }: INavItemProps) => {
   const isAuth = useSelector(isAuthSelector);
 
   const onClickSignInModal = () => {
-    dispatch(
-      modalActionTypes.openModal({ modalType: MODAL_TYPES.SIGN_IN_MODAL })
-    );
+    dispatch(modalActionTypes.openModal({ type: MODAL_TYPES.SIGN_IN_MODAL }));
   };
 
   return (

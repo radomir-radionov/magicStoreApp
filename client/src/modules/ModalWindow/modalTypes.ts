@@ -1,9 +1,4 @@
-import {
-  AddGameModal,
-  EditGameModal,
-  SignInModal,
-  SignUpModal,
-} from "./Modals";
+import { AddGameModal, EditGameModal, SignInModal, SignUpModal } from ".";
 
 interface IModalTypes {
   SIGN_IN_MODAL: string;

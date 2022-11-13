@@ -161,9 +161,11 @@ class UserController {
     }
   }
 
-  async setUserImg(req, res, next) {
+  async setImage(req, res, next) {
     try {
-      const payload = req.body;
+      let uploadFile = req.body;
+      console.log(uploadFile);
+      console.log(2);
     } catch (e) {
       next(e);
     }

@@ -6,7 +6,7 @@ const ProfileMenu = () => {
   return (
     <ProfileMenuStyled>
       <MenuList>
-        {userProfileRoutes.map(({ id, path, name, Icon }) => (
+        {userProfileRoutes.map(({ id, role, path, name, Icon }) => (
           <MenuItem key={id} link={path} Icon={Icon}>
             {name}
           </MenuItem>

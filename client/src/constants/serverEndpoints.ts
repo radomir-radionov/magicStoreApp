@@ -5,6 +5,7 @@ enum serverEndpoints {
   SIGN_UP = "signUp",
   LOGOUT = "logout",
   SAVE_IMAGE = "setUserImg",
+  GET_IMG = "getUserImg",
   UPDATE_USER_DATA = "updateUserData",
 
   TOP_GAMES = "getTopGames",

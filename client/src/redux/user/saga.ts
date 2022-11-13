@@ -72,8 +72,6 @@ export function* changeUserDataSaga({
 }: ReturnType<typeof userActions.changeUserData>): any {
   try {
     yield call(() => userService.updateUserData(payload));
-
-    console.log("changeUserDataSaga", 1);
     yield put(userActions.isDataChangedOnServer(true));
     // toast.success("Data changed");
   } catch (e: any) {

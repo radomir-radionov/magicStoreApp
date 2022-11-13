@@ -10,12 +10,10 @@ router.get("/getUserCartGames/:userId", userController.getUserCartGames);
 router.post("/signUp", userController.registration);
 router.post("/signIn", userController.login);
 router.post("/logout", userController.logout);
-router.put("/setUserImg", userController.setUserImg);
 
 router.put("/putNewDataCart", userController.putNewDataCart);
 router.put("/updateUserData", userController.updateUserData);
 router.put("/putGameInCart", userController.putGameInCart);
-// router.put("/image", userController.putGameInCart);
 
 router.delete("/deleteGameInCart/:id/:gameId", userController.deleteGameInCart);
 

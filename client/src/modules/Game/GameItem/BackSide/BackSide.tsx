@@ -26,7 +26,7 @@ const BackSide = ({ game }: IBackSideProps) => {
   const onClickEditGame = () => {
     dispatch(
       modalActionTypes.openModal({
-        modalType: MODAL_TYPES.EDIT_GAME_MODAL,
+        type: MODAL_TYPES.EDIT_GAME_MODAL,
         modalInfo: { gameData: game },
       })
     );
