@@ -2,7 +2,7 @@
 
 ## "M-store" is a store presents an unbelievable experience by Radomir.
 
-SPA app with cliend-server architecture.
+SPA app with client-server architecture.
 1. Has developed Authorization/Registration, JWT.
 2. User's personal account(name, description, profile image) with the ability to edit.
 3. Product page ( Searching system, Sorting, Filtering,
