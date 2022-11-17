@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import schema from "./schema";
 import { userActions } from "redux/user";
 import { modalActionTypes } from "redux/modal";
-import { Form, InteractionPanel, SignInModalStyled, Title } from "./styles";
+import { Form, InteractionPanel, ModalStyled, Title } from "./styles";
 import { ISignInData } from "redux/user/types";
 
 interface ISignInModalProps {
@@ -34,7 +34,7 @@ const SignInModal = ({ onClose }: ISignInModalProps) => {
   };
 
   return (
-    <SignInModalStyled>
+    <ModalStyled>
       <Title>Sign in</Title>
       <Form onSubmit={handleSubmit(onSubmitHandler)}>
         <InputText
@@ -62,7 +62,7 @@ const SignInModal = ({ onClose }: ISignInModalProps) => {
           </ButtonModal>
         </InteractionPanel>
       </Form>
-    </SignInModalStyled>
+    </ModalStyled>
   );
 };
 

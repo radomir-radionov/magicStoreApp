@@ -1,15 +1,14 @@
 import { Outlet } from "react-router-dom";
-import { ProfileMenu } from "modules";
-import { ProfileStyled, WrapperContent } from "./styles";
+import { Menu } from "modules";
+import { ProfileStyled, Container } from "./styles";
 
 const ProfilePage = () => {
   return (
     <ProfileStyled>
-      {/* <Breadcrumbs /> */}
-      <WrapperContent>
-        <ProfileMenu />
+      <Container>
+        <Menu />
         <Outlet />
-      </WrapperContent>
+      </Container>
     </ProfileStyled>
   );
 };

@@ -7,7 +7,7 @@ import { modalActionTypes } from "redux/modal";
 import schema from "./schema";
 import { ButtonModal, InputCheckbox, InputText, Textarea } from "components";
 import {
-  AddGameModalStyled,
+  ModalStyled,
   Form,
   InputCheckboxWrapper,
   InteractionPanel,
@@ -52,7 +52,7 @@ const AddGameModal = ({ onClose }: IAddGameModalProps) => {
   };
 
   return (
-    <AddGameModalStyled>
+    <ModalStyled>
       <Title>Add game</Title>
       <Form onSubmit={handleSubmit(onSubmitHandler)}>
         <InputText
@@ -123,7 +123,7 @@ const AddGameModal = ({ onClose }: IAddGameModalProps) => {
           </ButtonModal>
         </InteractionPanel>
       </Form>
-    </AddGameModalStyled>
+    </ModalStyled>
   );
 };
 

@@ -5,7 +5,7 @@ import { ButtonModal, InputText } from "components";
 import { useDispatch } from "react-redux";
 import { userActions } from "redux/user";
 import { modalActionTypes } from "redux/modal";
-import { ButtonsBox, Form, SignUpModalStyled, Title } from "./styles";
+import { ButtonsBox, Form, ModalStyled, Title } from "./styles";
 import { ISignUpData } from "types/auth";
 
 interface ISignUpModalProps {
@@ -36,7 +36,7 @@ const SignUpModal = ({ onClose }: ISignUpModalProps) => {
   };
 
   return (
-    <SignUpModalStyled>
+    <ModalStyled>
       <Title>Sign up</Title>
       <Form onSubmit={handleSubmit(onSubmitHandler)}>
         <InputText
@@ -80,7 +80,7 @@ const SignUpModal = ({ onClose }: ISignUpModalProps) => {
           </ButtonModal>
         </ButtonsBox>
       </Form>
-    </SignUpModalStyled>
+    </ModalStyled>
   );
 };
 

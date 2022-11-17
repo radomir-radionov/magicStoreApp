@@ -5,13 +5,13 @@ export const LayoutPageStyled = styled.div`
   display: flex;
 `;
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
 `;
 
-export const Header = styled.header`
+export const Wrapper = styled.header`
   display: none;
   height: 6vh;
   padding: 0 2rem;

@@ -8,6 +8,7 @@ export interface IUser {
   description: string;
   avatar: any;
   cart: IGame[];
+  img: any;
 }
 
 export interface IChangeUserData {

@@ -69,7 +69,6 @@ class UserService {
 
   async updateUserData(userId, newName, newDescription) {
     const user = await User.findOne({ userId });
-    console.log("updateUserData:", newName, newDescription);
     let name;
     let description;
 

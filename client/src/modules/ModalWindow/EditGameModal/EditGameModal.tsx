@@ -9,7 +9,7 @@ import { modalActionTypes } from "redux/modal";
 import { modalInfoSelector } from "redux/modal/selectors";
 import { platform } from "os";
 import {
-  EditGameModalStyled,
+  ModalStyled,
   Form,
   InputCheckboxWrapper,
   InteractionPanel,
@@ -57,7 +57,7 @@ const EditGameModal = ({ onClose }: IEditGameModalProps) => {
   };
 
   return (
-    <EditGameModalStyled>
+    <ModalStyled>
       <Title>Edit game</Title>
       <Form onSubmit={handleSubmit(onSubmitHandler)}>
         <InputText
@@ -129,7 +129,7 @@ const EditGameModal = ({ onClose }: IEditGameModalProps) => {
           </ButtonModal>
         </InteractionPanel>
       </Form>
-    </EditGameModalStyled>
+    </ModalStyled>
   );
 };
 

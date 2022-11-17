@@ -8,23 +8,15 @@ import { NavItemStyled, NavLinkStyled } from "./styles";
 
 interface INavItemProps {
   link: pageRoutes | string;
+  isAuth: any;
+  action: any;
   children: ReactNode;
 }
 
-const NavItem = ({ link, children }: INavItemProps) => {
-  const dispatch = useDispatch();
-  const isAuth = useSelector(isAuthSelector);
-
-  const onClickSignInModal = () => {
-    dispatch(modalActionTypes.openModal({ type: MODAL_TYPES.SIGN_IN_MODAL }));
-  };
-
+const NavItem = ({ link, isAuth, action, children }: INavItemProps) => {
   return (
     <NavItemStyled>
-      <NavLinkStyled
-        onClick={!isAuth ? onClickSignInModal : undefined}
-        to={link}
-      >
+      <NavLinkStyled to={link} onClick={!isAuth && action}>
         {children}
       </NavLinkStyled>
     </NavItemStyled>

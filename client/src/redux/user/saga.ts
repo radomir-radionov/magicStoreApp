@@ -9,8 +9,8 @@ export function* checkAuthSaga(): any {
     const { data }: any = yield call(() => userService.isAuth());
     const { accessToken, userData } = data;
     localStorage.setItem("token", accessToken);
+    yield put(userActions.setUserId(userData.id));
     yield put(userActions.setAuth(true));
-    yield put(userActions.setUser(userData));
   } catch (e: any) {
     toast.error(e.response.data.message);
   }
@@ -24,7 +24,6 @@ export function* registrationSaga({
     const { userData, message } = data;
     localStorage.setItem("token", userData.accessToken);
     yield put(userActions.setAuth(true));
-    yield put(userActions.setUser(userData.user));
     toast.success(message);
   } catch (e: any) {
     console.log(e);
@@ -40,7 +39,6 @@ export function* loginSaga({
     const { userData } = data;
     localStorage.setItem("token", userData.accessToken);
     yield put(userActions.setAuth(true));
-    yield put(userActions.setUser(userData.user));
   } catch (e: any) {
     toast.error(e.response.data.message);
   }
@@ -73,7 +71,18 @@ export function* changeUserDataSaga({
   try {
     yield call(() => userService.updateUserData(payload));
     yield put(userActions.isDataChangedOnServer(true));
-    // toast.success("Data changed");
+    toast.success("Data changed!");
+  } catch (e: any) {
+    toast.error(e.response.data.message);
+  }
+}
+
+export function* getUserDataSaga({
+  payload,
+}: ReturnType<typeof userActions.getUserData>): any {
+  try {
+    const { data } = yield call(() => userService.getUserData(payload));
+    yield put(userActions.setUser(data));
   } catch (e: any) {
     toast.error(e.response.data.message);
   }
@@ -84,7 +93,8 @@ export default function* userSaga() {
     takeLatest(userActions.registration, registrationSaga),
     takeLatest(userActions.login, loginSaga),
     takeLatest(userActions.logout, logoutSaga),
-    takeLatest(userActions.getUserData, checkAuthSaga),
+    takeLatest(userActions.checkAuth, checkAuthSaga),
+    takeLatest(userActions.getUserData, getUserDataSaga),
     takeLatest(userActions.changeUserData, changeUserDataSaga),
     takeLatest(userActions.setUserImg, setUserImgSaga),
   ]);

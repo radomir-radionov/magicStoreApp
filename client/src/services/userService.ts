@@ -38,6 +38,12 @@ const userService = {
   setUserImg: async (payload: any) => {
     await httpService.put(serverEndpoints.SAVE_IMAGE, payload);
   },
+  getUserData: async (id: any) => {
+    const resp = await httpService.get(
+      `${serverEndpoints.GET_USER_DATA}/${id}`
+    );
+    return resp;
+  },
   updateUserData: async (payload: IChangeUserData) => {
     await httpService.put(serverEndpoints.UPDATE_USER_DATA, payload);
   },

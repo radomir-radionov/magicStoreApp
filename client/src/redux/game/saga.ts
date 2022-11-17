@@ -6,8 +6,8 @@ import { gameActions } from "./slice";
 
 export function* getTopGamesSaga() {
   try {
-    // const response: IGame[] = yield call(() => gameService.getTopGames());
-    // yield put(gameActions.setTopGames(response));
+    const response: IGame[] = yield call(() => gameService.getTopGames());
+    yield put(gameActions.setTopGames(response));
   } catch (e: any) {
     toast.error(e.response.data.message);
   }
@@ -68,7 +68,6 @@ export function* editGameSaga({
   try {
     const { data } = yield call(() => gameService.editGame(payload));
     const { message } = data;
-    console.log("editGameSaga", message);
     toast.success(message);
   } catch (e) {
     // yield put(gameActions.setLoading(false));

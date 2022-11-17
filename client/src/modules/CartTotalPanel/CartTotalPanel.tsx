@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "redux/cart";
 import { cartGamesSelector } from "redux/cart/selectors";
 import { currentUserDataSelector } from "redux/user/selectors";
-import { ButtonStyled, CartTotalPanelStyled, PStyled } from "./styles";
+import { ButtonStyled, CartTotalPanelStyled, Text } from "./styles";
 
 const CartTotalPanel = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const CartTotalPanel = () => {
 
   return (
     <CartTotalPanelStyled>
-      <PStyled>Total price: ${totalCost ? totalCost.toFixed(2) : 0}</PStyled>
+      <Text>Total price: ${totalCost ? totalCost.toFixed(2) : 0}</Text>
       <ButtonStyled onClick={onClickBuyGames} disabled={!cartGames.length}>
         Buy
       </ButtonStyled>

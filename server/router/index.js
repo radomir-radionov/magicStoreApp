@@ -5,6 +5,7 @@ const userController = require("../controllers/user-controller");
 const router = new Router();
 
 router.get("/refresh", userController.refresh);
+router.get("/getUserData/:userId", userController.getUserData);
 router.get("/getUserCartGames/:userId", userController.getUserCartGames);
 
 router.post("/signUp", userController.registration);

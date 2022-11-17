@@ -4,14 +4,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import schema from "./schema";
 import { InputText, ButtonModal, Textarea } from "components";
-import { Form } from "../SignInModal/styles";
 import { currentUserDataSelector } from "redux/user/selectors";
+import { Form } from "./styles";
 
 interface IFormProps {
   userId: string;
   newName: string;
   newDescription: string;
-  //   newPassword: string;
 }
 
 const ChangeUserDataModal = () => {

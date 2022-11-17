@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   border: 1px solid ${colors.COLOR_WHITE};
 `;
 
-export const ProfileInfoStyled = styled.div`
+export const InfoStyled = styled.div`
   width: 59.8rem;
   padding: ${indents.p_2};
 `;
@@ -36,12 +36,10 @@ export const UserData = styled.div`
   }
 `;
 
-export const Img = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  background-color: red;
+export const Img = styled.img`
+  width: 22rem;
+  height: 22rem;
+  border-radius: 10px;
 `;
 
 export const Description = styled.div`

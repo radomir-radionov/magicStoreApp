@@ -10,7 +10,7 @@ export const CartTotalPanelStyled = styled.div`
   border-top: 2px solid ${colors.BACKGROUND_RED};
 `;
 
-export const PStyled = styled.p``;
+export const Text = styled.p``;
 
 export const ButtonStyled = styled(Button)`
   width: 14rem;

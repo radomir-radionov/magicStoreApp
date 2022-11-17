@@ -10,7 +10,7 @@ import {
   Profile,
   Layout,
 } from "screens";
-import { AdminPanel, ProfileSettings, ProfileInfo } from "modules";
+import { AdminPanel, Info, Settings } from "modules";
 
 const AppRouter = () => {
   return (
@@ -19,8 +19,8 @@ const AppRouter = () => {
         <Route index element={<Home />} />
         <Route element={<Protected />}>
           <Route path={pageRoutes.PROFILE} element={<Profile />}>
-            <Route path={pageRoutes.PROFILE_INFO} element={<ProfileInfo />} />
-            <Route path={pageRoutes.SETTINGS} element={<ProfileSettings />} />
+            <Route path={pageRoutes.PROFILE_INFO} element={<Info />} />
+            <Route path={pageRoutes.SETTINGS} element={<Settings />} />
             <Route path={pageRoutes.CART} element={<Cart />} />
             <Route path={pageRoutes.ADMIN_PANEL} element={<AdminPanel />} />
           </Route>

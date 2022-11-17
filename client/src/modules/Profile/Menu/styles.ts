@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ProfileMenuStyled = styled.article`
+export const MenuStyled = styled.article`
   margin-bottom: 5rem;
 `;
 

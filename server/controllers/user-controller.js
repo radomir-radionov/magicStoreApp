@@ -1,7 +1,7 @@
 const userService = require("../service/user-service");
 const { validationResult } = require("express-validator");
 const ApiError = require("../exceptions/api-error");
-const UserModel = require("../models/user-model");
+const userModel = require("../models/user-model");
 const Role = require("../models/role-model");
 const bcrypt = require("bcrypt");
 
@@ -15,7 +15,7 @@ class UserController {
 
       const { email, password, name } = req.body;
 
-      const user = await UserModel.findOne({ email });
+      const user = await userModel.findOne({ email });
       if (user) {
         throw ApiError.BadRequest("User already exists");
       }
@@ -46,7 +46,7 @@ class UserController {
       const payload = req.body;
       let { email, password } = payload;
 
-      const user = await UserModel.findOne({ email });
+      const user = await userModel.findOne({ email });
       if (!user) {
         throw ApiError.BadRequest("User not found");
       }
@@ -81,14 +81,35 @@ class UserController {
   async refresh(req, res, next) {
     try {
       const { refreshToken } = req.cookies;
-
       const userData = await userService.refresh(refreshToken);
       res.cookie("refreshToken", userData.refreshToken, {
         maxAge: 30 * 24 * 60 * 60 * 1000,
         httpOnly: true,
       });
 
-      return res.status(200).json(userData);
+      return res.status(200).send(userData);
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  async getUserData(req, res, next) {
+    try {
+      const { userId } = req.params;
+      const { _id, role, email, password, name, description, img, cart } =
+        await userModel.findById(userId);
+      const id = _id;
+      const userClientData = {
+        id,
+        role,
+        email,
+        password,
+        name,
+        description,
+        img,
+        cart,
+      };
+      res.send(userClientData);
     } catch (e) {
       next(e);
     }
@@ -111,16 +132,6 @@ class UserController {
       return res
         .status(200)
         .json({ isDataChanged, message: "Game saved in your cart!" });
-    } catch (e) {
-      next(e);
-    }
-  }
-
-  async putUserImage(req, res, next) {
-    try {
-      const { id, game } = req.body;
-      const response = await userService.putGameInCart(id, game);
-      return res.status(200).json(response);
     } catch (e) {
       next(e);
     }
@@ -156,16 +167,6 @@ class UserController {
         isCartDataChanged,
         message: "Congratulations on purchasing!",
       });
-    } catch (e) {
-      next(e);
-    }
-  }
-
-  async setImage(req, res, next) {
-    try {
-      let uploadFile = req.body;
-      console.log(uploadFile);
-      console.log(2);
     } catch (e) {
       next(e);
     }

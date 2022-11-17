@@ -4,28 +4,29 @@ import { BrowserRouter } from "react-router-dom";
 import { cartActions } from "redux/cart";
 import { userActions } from "redux/user";
 import {
-  currentUserDataSelector,
   isDataChangedOnServerSelector,
+  userIdSelector,
 } from "redux/user/selectors";
 import AppRouter from "routes/AppRouter";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainerStyled } from "styles/globalStyles";
-import { Portal } from "modules/ModalWindow/styles";
 
 function App() {
   const dispatch = useDispatch();
-  const { id } = useSelector(currentUserDataSelector);
+  const id = useSelector(userIdSelector);
   const isDataChangedOnServer = useSelector(isDataChangedOnServerSelector);
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      dispatch(userActions.getUserData());
+      dispatch(userActions.checkAuth());
+      id && dispatch(userActions.getUserData(id));
     }
   }, [dispatch]);
 
   useEffect(() => {
     id &&
-      dispatch(cartActions.getUserCartGames({ id })) &&
+      dispatch(userActions.getUserData(id)) &&
+      dispatch(cartActions.getUserCartGames(id)) &&
       dispatch(userActions.isDataChangedOnServer(false));
   }, [dispatch, id, isDataChangedOnServer]);
 

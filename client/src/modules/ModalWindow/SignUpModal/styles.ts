@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors, indents, typography } from "styles";
 
-export const SignUpModalStyled = styled.div`
+export const ModalStyled = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;

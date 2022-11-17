@@ -1,7 +1,7 @@
 import { Navigation } from "modules";
 import { useState } from "react";
 import { useOnClickOutside } from "utils/useOnClickOutside";
-import { Icon, MenuLabel, Wrapper, Test } from "./styles";
+import { Icon, MenuLabel, Wrapper, HumburgerMenuStyled } from "./styles";
 
 const HumburgerMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,17 +10,17 @@ const HumburgerMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  useOnClickOutside(Test, () => setIsMenuOpen(false));
+  useOnClickOutside(HumburgerMenuStyled, () => setIsMenuOpen(false));
 
   return (
-    <Test>
+    <HumburgerMenuStyled>
       <MenuLabel onClick={onHandleClick}>
         <Icon clicked={isMenuOpen}>&nbsp;</Icon>
       </MenuLabel>
       <Wrapper clicked={isMenuOpen}>
         <Navigation />
       </Wrapper>
-    </Test>
+    </HumburgerMenuStyled>
   );
 };
 

@@ -27,8 +27,12 @@ export const userSlice = createSlice({
     registration: (state, { payload }: PayloadAction<ISignUpData>) => {},
     login: (state, { payload }: PayloadAction<ISignInData>) => {},
     logout: () => {},
+    setUserId: (state, { payload }) => {
+      state.userData.id = payload;
+    },
     setUserImg: (state, { payload }) => {},
-    getUserData: () => {},
+    checkAuth: () => {},
+    getUserData: (state, { payload }) => {},
     changeUserData: (state, { payload }: PayloadAction<IChangeUserData>) => {},
     isDataChangedOnServer: (state, { payload }: any) => {
       state.isDataChangedOnServer = payload;

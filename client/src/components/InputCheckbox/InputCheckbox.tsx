@@ -34,10 +34,6 @@ const InputCheckbox = forwardRef<Ref, IInputCheckboxProps>(
 
     const platforms = ["PC", "Playstation", "Xbox"];
 
-    console.log("platforms", platforms);
-    console.log("gamePlatform", gamePlatform);
-    console.log(platforms?.map((item) => gamePlatform?.includes(item)));
-
     return (
       <InputCheckboxWrapper>
         {/* {errors && <ErrorMessage>{errors.message}</ErrorMessage>} */}

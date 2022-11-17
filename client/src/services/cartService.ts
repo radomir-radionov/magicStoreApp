@@ -7,7 +7,7 @@ import { IGetUserCartGamesData } from "types/game";
 import { httpService } from "../http/index";
 
 const cartService = {
-  getUserCartGames: async ({ id }: IGetUserCartGamesData) => {
+  getUserCartGames: async (id: IGetUserCartGamesData) => {
     //will be fix soon
     const response = await httpService.get(`/getUserCartGames/${id}`);
     return response;

@@ -1,19 +1,19 @@
 import { Outlet } from "react-router-dom";
-import { Footer, HumburgerMenu, Menu } from "modules";
-import { Header, Title, Wrapper } from "./styles";
+import { Footer, HumburgerMenu, Header } from "modules";
+import { Wrapper, Title, Container } from "./styles";
 
 const Layout = () => {
   return (
     <>
-      <Menu />
-      <Wrapper>
-        <Header>
+      <Header />
+      <Container>
+        <Wrapper>
           <Title>M-store</Title>
           <HumburgerMenu />
-        </Header>
+        </Wrapper>
         <Outlet />
         <Footer />
-      </Wrapper>
+      </Container>
     </>
   );
 };

@@ -21,10 +21,7 @@ export const cartSlice = createSlice({
   name: "CART",
   initialState,
   reducers: {
-    getUserCartGames: (
-      state,
-      { payload }: PayloadAction<IGetUserCartGames>
-    ) => {},
+    getUserCartGames: (state, { payload }: PayloadAction<any>) => {},
     setUserCartGames: (state, { payload }: PayloadAction<IGame[]>) => {
       state.cart = payload;
     },

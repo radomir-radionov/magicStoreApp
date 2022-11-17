@@ -1,9 +1,9 @@
-import { Button } from "components";
 import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
 import { useDispatch, useSelector } from "react-redux";
 import { modalActionTypes } from "redux/modal";
 import { userActions } from "redux/user";
 import { isAuthSelector } from "redux/user/selectors";
+import { Button } from "components";
 import { AuthorizationMenuStyled } from "./styles";
 
 const AuthorizationMenu = () => {

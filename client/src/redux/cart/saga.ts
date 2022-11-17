@@ -9,6 +9,7 @@ export function* getUserCartGamesSaga({
 }: ReturnType<typeof cartActions.getUserCartGames>): any {
   try {
     const res: any = yield call(() => cartService.getUserCartGames(payload));
+    console.log(res.data);
     yield put(cartActions.setUserCartGames(res.data));
   } catch (e: any) {
     toast.error(e.response.data.message);

@@ -26,7 +26,6 @@ export const userProfileRoutes = [
   { id: 2, path: "cart", name: "Cart", Icon: AiOutlineShoppingCart },
   {
     id: 3,
-    role: "Admin",
     path: "adminPanel",
     name: "Admin panel",
     Icon: MdAdminPanelSettings,

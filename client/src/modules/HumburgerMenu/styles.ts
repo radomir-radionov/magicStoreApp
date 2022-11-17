@@ -43,7 +43,7 @@ export const Icon = styled.span<ComponentClickedProps>`
   }
 `;
 
-export const Test = styled.div<any>``;
+export const HumburgerMenuStyled = styled.div<any>``;
 
 export const Wrapper = styled.div<any>`
   display: none;

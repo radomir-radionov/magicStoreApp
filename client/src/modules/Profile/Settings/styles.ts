@@ -1,22 +1,11 @@
 import styled from "styled-components";
 import { colors, indents } from "styles";
 
-export const Wrapper = styled.div`
-  border-radius: 20px;
-  background-color: whitesmoke;
-`;
-
-export const ProfileSettingsStyled = styled.div`
+export const SettingsStyled = styled.div`
   padding: ${indents.p_2};
   border: 1px solid ${colors.BORDER_GRAY};
   border-radius: 20px;
-  background-color: ${colors.BOX_SHADOW};
-`;
-
-export const PersonalInfo = styled.section`
-  padding: ${indents.p_2};
-  border: 1px solid ${colors.BORDER_GRAY};
-  border-radius: 20px;
+  background-color: ${colors.BACKGROUND_WHITESMOKE};
 `;
 
 export const Header = styled.header`
@@ -29,7 +18,7 @@ export const Title = styled.h3`
   color: ${colors.TEXT_BLACK};
 `;
 
-export const UserData = styled.div`
+export const ModalWrapper = styled.div`
   display: flex;
   gap: 2rem;
 

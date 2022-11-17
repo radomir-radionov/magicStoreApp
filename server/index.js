@@ -50,11 +50,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-app.get(
-  "/api/getUserImg",
-  upload.single("file", async (req, res) => {})
-);
-
 app.post("/api/setImage", upload.single("file"), async (req, res) => {
   try {
     const userId = req.body.userId;
@@ -73,7 +68,6 @@ app.post("/api/setImage", upload.single("file"), async (req, res) => {
       },
     });
     const user = await userModel.findById(userId);
-    console.log("testData", user.img.data);
     res.set("Content-Type", user.img.contentType);
     res.send(user.img.data);
   } catch (err) {
