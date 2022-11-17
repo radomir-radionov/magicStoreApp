@@ -7,8 +7,8 @@ SPA app with cliend-server architecture.
 2. User's personal account(name, description, profile image) with the ability to edit.
 3. Product page ( Searching system, Sorting, Filtering,
 Pagination).
-4. Cart page (List of games, total price) with the ability to buy and remove.
-5. Admin panel (ability to add,edit game, get users(soon) and list of games(soon)).
+4. Cart page (list of games, total price) with the ability to buy and remove.
+5. Admin panel (ability to add, edit game, get users(soon) and list of games(soon)).
 
 ## Admin Login/Password: admin@gmail.com, Q!1aaa
 ## deploy: soon
