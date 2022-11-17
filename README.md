@@ -4,11 +4,12 @@
 
 SPA app with client-server architecture.
 1. Has developed Authorization/Registration, JWT.
-2. User's personal account(name, description, profile image) with the ability to edit.
-3. Product page ( Searching system, Sorting, Filtering,
-Pagination).
+2. User's personal account(name, description, profile image, role) with the ability to edit.
+3. Screens include: Routing, Searching system, Sorting, Filtering, Pagination.
 4. Cart page (list of games, total price) with the ability to buy and remove.
-5. Admin panel (ability to add, edit game, get users(soon) and list of games(soon)).
+5. Admin features(ability to add, edit, delete game).
+6. Server side(routes, controllers, models, middlewares).
+7. Storing data in MongoDB.
 
 ## Admin Login/Password: admin@gmail.com, Q!1aaa
 ## deploy: soon
