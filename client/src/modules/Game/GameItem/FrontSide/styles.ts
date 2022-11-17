@@ -47,7 +47,7 @@ export const Footer = styled.div`
   padding: 0 1rem;
 `;
 
-export const Test = styled.div`
+export const IconWrapper = styled.div`
   svg {
     width: 3rem;
     height: 3rem;

@@ -8,18 +8,7 @@ export interface IUser {
   description: string;
   avatar: any;
   cart: IGame[];
-}
-
-export interface ISignUpData {
-  email: string;
-  name: string;
-  password: string;
-  confirmPassword: string;
-}
-
-export interface ISignInData {
-  email: string;
-  password: string;
+  img: any;
 }
 
 export interface IChangeUserData {

@@ -6,7 +6,7 @@ export const GameItemCartStyled = styled.article`
   display: flex;
   gap: 3rem;
   width: fit-content;
-  height: 28rem;
+  height: 30rem;
   padding: 2rem 0;
   border-bottom: 1px solid ${colors.BACKGROUND_VIVID_CYAN};
 `;
@@ -26,7 +26,6 @@ export const GameDetailsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 24rem;
 `;
 
 export const GameDetails = styled.div`

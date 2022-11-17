@@ -2,13 +2,7 @@ import { FiltersBar, Pagination, SearchBar } from "modules";
 import { Spinner } from "components";
 import { useSelector } from "react-redux";
 import { filteredGamesSelector, isLoadingSelector } from "redux/game/selectors";
-import {
-  FilteredGames,
-  GameFilterStyled,
-  Hr,
-  Title,
-  SpanStyled,
-} from "./styles";
+import { FilteredGames, GameFilterStyled, Title, SpanStyled } from "./styles";
 
 const GameFilter = () => {
   const filteredGames = useSelector(filteredGamesSelector);
@@ -22,7 +16,6 @@ const GameFilter = () => {
         <Title>
           Searched Games <SpanStyled>{filteredGames.length}</SpanStyled>
         </Title>
-        <Hr />
         {isLoading ? (
           <Spinner />
         ) : filteredGames.length ? (

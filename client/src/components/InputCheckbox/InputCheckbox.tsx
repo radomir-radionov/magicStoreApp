@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import {
   InputCheckboxStyled,
   InputCheckboxWrapper,
@@ -11,6 +11,7 @@ interface IInputCheckboxProps {
   value: any;
   label: string;
   htmlFor: string;
+  gamePlatform?: string[];
   errors: any;
 }
 
@@ -24,14 +25,27 @@ const InputCheckbox = forwardRef<Ref, IInputCheckboxProps>(
       label,
       htmlFor,
       errors,
+      gamePlatform,
       ...rest
     }: IInputCheckboxProps,
     ref
   ) => {
+    const [isChecked, setIsChecked] = useState(false);
+
+    const platforms = ["PC", "Playstation", "Xbox"];
+
     return (
       <InputCheckboxWrapper>
         {/* {errors && <ErrorMessage>{errors.message}</ErrorMessage>} */}
-        <InputCheckboxStyled type={type} ref={ref} value={value} {...rest} />
+        <InputCheckboxStyled
+          type={type}
+          ref={ref}
+          value={value}
+          defaultChecked={platforms?.map((item) =>
+            gamePlatform?.includes(item)
+          )}
+          {...rest}
+        />
         {label && htmlFor && (
           <LabelStyled
             htmlFor={htmlFor}

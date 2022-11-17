@@ -1,6 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IGameState } from "./types";
-import { IFilteredGamesParams, IGame, INewGameData } from "types/game";
+import {
+  IEditGameData,
+  IFilteredGamesParams,
+  IGame,
+  INewGameData,
+} from "types/game";
 
 const initialState: IGameState = {
   topGames: [],
@@ -31,6 +36,7 @@ const gameSlice = createSlice({
       state.filteredGames = payload;
     },
     addNewGame: (state, { payload }: PayloadAction<INewGameData>) => {},
+    editGame: (state, { payload }: PayloadAction<IEditGameData>) => {},
     setLoading: (state, { payload }: PayloadAction<boolean>) => {
       state.loading = payload;
     },

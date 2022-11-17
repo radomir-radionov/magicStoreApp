@@ -4,7 +4,6 @@ import { colors, indents } from "styles";
 export const Form = styled.form`
   display: flex;
   justify-content: space-between;
-  padding-bottom: ${indents.pb_0};
   margin-bottom: 1.6rem;
 `;
 

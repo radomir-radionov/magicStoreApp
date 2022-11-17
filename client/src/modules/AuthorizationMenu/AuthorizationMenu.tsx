@@ -1,9 +1,9 @@
-import { Button } from "components";
 import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
 import { useDispatch, useSelector } from "react-redux";
 import { modalActionTypes } from "redux/modal";
 import { userActions } from "redux/user";
 import { isAuthSelector } from "redux/user/selectors";
+import { Button } from "components";
 import { AuthorizationMenuStyled } from "./styles";
 
 const AuthorizationMenu = () => {
@@ -11,15 +11,11 @@ const AuthorizationMenu = () => {
   const isAuth = useSelector(isAuthSelector);
 
   const onClickSignInModal = () => {
-    dispatch(
-      modalActionTypes.openModal({ modalType: MODAL_TYPES.SIGN_IN_MODAL })
-    );
+    dispatch(modalActionTypes.openModal({ type: MODAL_TYPES.SIGN_IN_MODAL }));
   };
 
   const onClickSignUpModal = () => {
-    dispatch(
-      modalActionTypes.openModal({ modalType: MODAL_TYPES.SIGN_UP_MODAL })
-    );
+    dispatch(modalActionTypes.openModal({ type: MODAL_TYPES.SIGN_UP_MODAL }));
   };
 
   const onClickLogoutHandler = () => {

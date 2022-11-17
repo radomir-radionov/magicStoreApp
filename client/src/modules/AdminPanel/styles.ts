@@ -14,14 +14,16 @@ export const Description = styled.p`
   text-align: center;
 `;
 
-export const AdminControlPanel = styled.div`
+export const FeaturesBox = styled.div`
   display: flex;
   justify-content: center;
+  gap: 3rem;
   margin-top: 6rem;
 `;
 
-export const ButtonStyled = styled(Button)`
-  width: 16rem;
+export const ButtonStyled = styled<any>(Button)`
   height: 5rem;
+  width: 14rem;
   font-size: 1.8rem;
+  border-radius: 3px;
 `;

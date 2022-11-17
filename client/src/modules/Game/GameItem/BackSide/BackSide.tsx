@@ -2,10 +2,12 @@ import { Button } from "components";
 import { BUTTON_VARIANTS } from "components/Button/types";
 import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
 import { useDispatch, useSelector } from "react-redux";
-import { cartActions } from "redux/cart";
-import { cartGamesSelector } from "redux/cart/selectors";
 import { modalActionTypes } from "redux/modal";
-import { currentUserDataSelector } from "redux/user/selectors";
+import { userActions } from "redux/user";
+import {
+  currentUserDataSelector,
+  userCartSelector,
+} from "redux/user/selectors";
 import { IGame } from "types/game";
 import { Age, Description, Footer } from "./styles";
 
@@ -16,17 +18,19 @@ interface IBackSideProps {
 const BackSide = ({ game }: IBackSideProps) => {
   const dispatch = useDispatch();
   const { id } = useSelector(currentUserDataSelector);
-  const cart = useSelector(cartGamesSelector);
-
+  const cart = useSelector(userCartSelector);
   const { description, age } = game;
 
   const onClickAddGameInCart = () => {
-    dispatch(cartActions.setGameInCart({ id, game }));
+    dispatch(userActions.setGameInCart({ id, game }));
   };
 
   const onClickEditGame = () => {
     dispatch(
-      modalActionTypes.openModal({ modalType: MODAL_TYPES.EDIT_GAME_MODAL })
+      modalActionTypes.openModal({
+        type: MODAL_TYPES.EDIT_GAME_MODAL,
+        modalInfo: { gameData: game },
+      })
     );
   };
 

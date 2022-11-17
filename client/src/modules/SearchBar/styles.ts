@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   gap: 10px;
   width: 100%;
-  margin-bottom: 8rem;
+  margin-bottom: 6.8rem;
 `;
 
 export const Form = styled.form`

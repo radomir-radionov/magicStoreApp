@@ -1,12 +1,12 @@
-import { CgProfile } from "react-icons/cg";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { AiTwotoneSetting, AiOutlineShoppingCart } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
 
 enum pageRoutes {
   HOME = "/",
   PROFILE = "profile/:id",
-  USER_INFO = "userInfo",
-  EDIT_PANEL = "editPanel",
+  PROFILE_INFO = "profileInfo",
+  SETTINGS = "settings",
   ADMIN_PANEL = "adminPanel",
   CART = "cart",
   PRODUCT = "product",
@@ -17,13 +17,19 @@ enum pageRoutes {
 
 export const userProfileRoutes = [
   {
-    id: 1,
+    id: 0,
+    path: "",
+    name: "Profile",
+    Icon: CgProfile,
+  },
+  { id: 1, path: "settings", name: "Settings", Icon: AiTwotoneSetting },
+  { id: 2, path: "cart", name: "Cart", Icon: AiOutlineShoppingCart },
+  {
+    id: 3,
     path: "adminPanel",
     name: "Admin panel",
     Icon: MdAdminPanelSettings,
   },
-  { id: 2, path: "editPanel", name: "Edit profile", Icon: AiTwotoneSetting },
-  { id: 3, path: "cart", name: "Cart", Icon: AiOutlineShoppingCart },
 ];
 
 export enum publicRoutes {

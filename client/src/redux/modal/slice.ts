@@ -1,21 +1,27 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TModalType } from "modules/ModalWindow/modalTypes";
+import { IModalInfo, TModalType } from "modules/ModalWindow/modalTypes";
 
 interface IModalInitialState {
-  modalType: string;
+  type: string;
+  modalInfo: any;
 }
 
 const initialState: IModalInitialState = {
-  modalType: "",
+  type: "",
+  modalInfo: {},
 };
 
 const modalSlice = createSlice({
   name: "MODAL",
   initialState,
   reducers: {
-    openModal: (state, action: PayloadAction<{ modalType: TModalType }>) => {
-      const { modalType } = action.payload;
-      state.modalType = modalType;
+    openModal: (
+      state,
+      action: PayloadAction<{ type: TModalType; modalInfo?: IModalInfo }>
+    ) => {
+      const { type, modalInfo } = action.payload;
+      state.type = type;
+      state.modalInfo = modalInfo || {};
     },
     closeModal: () => initialState,
   },
