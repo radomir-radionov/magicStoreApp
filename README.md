@@ -15,7 +15,7 @@ Pagination).
 
 ## The technology stack:
 - React, Typescript
-- React-Redux, Redux Toolkit, Redux-saga
+- Redux Toolkit, Redux-Saga
 - Styled Components
 - NodeJS, Express, MongoDB
 
