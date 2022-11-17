@@ -1,6 +1,6 @@
 import { CartTotalPanel, Pagination } from "modules";
 import { useSelector } from "react-redux";
-import { cartGamesSelector } from "redux/cart/selectors";
+import { userCartSelector } from "redux/user/selectors";
 import {
   CartStyled,
   Title,
@@ -10,7 +10,7 @@ import {
 } from "./styles";
 
 const Cart = () => {
-  const cartGames = useSelector(cartGamesSelector);
+  const cartGames = useSelector(userCartSelector);
 
   return (
     <CartStyled>

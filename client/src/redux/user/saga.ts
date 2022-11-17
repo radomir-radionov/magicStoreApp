@@ -23,10 +23,13 @@ export function* registrationSaga({
     const { data }: any = yield call(() => userService.signUp(payload));
     const { userData, message } = data;
     localStorage.setItem("token", userData.accessToken);
+    const resp = yield call(() =>
+      userService.getUserData(data.userData.user.id)
+    );
     yield put(userActions.setAuth(true));
+    yield put(userActions.setUser(resp.data));
     toast.success(message);
   } catch (e: any) {
-    console.log(e);
     toast.error(e.response.data.message);
   }
 }
@@ -38,7 +41,11 @@ export function* loginSaga({
     const { data }: any = yield call(() => userService.signIn(payload));
     const { userData } = data;
     localStorage.setItem("token", userData.accessToken);
+    const resp = yield call(() =>
+      userService.getUserData(data.userData.user.id)
+    );
     yield put(userActions.setAuth(true));
+    yield put(userActions.setUser(resp.data));
   } catch (e: any) {
     toast.error(e.response.data.message);
   }
@@ -55,23 +62,14 @@ export function* logoutSaga() {
   }
 }
 
-export function* setUserImgSaga({
-  payload,
-}: ReturnType<typeof userActions.setUserImg>) {
-  try {
-    yield call(() => userService.setUserImg(payload));
-  } catch (e) {
-    // console.log(e.response?.data?.message);
-  }
-}
-
-export function* changeUserDataSaga({
+export function* updateUserDataSaga({
   payload,
 }: ReturnType<typeof userActions.changeUserData>): any {
   try {
-    yield call(() => userService.updateUserData(payload));
+    const { data }: any = yield call(() => userService.updateUserData(payload));
+    const { message } = data;
     yield put(userActions.isDataChangedOnServer(true));
-    toast.success("Data changed!");
+    toast.success(message);
   } catch (e: any) {
     toast.error(e.response.data.message);
   }
@@ -88,6 +86,45 @@ export function* getUserDataSaga({
   }
 }
 
+export function* setGameInCartSaga({
+  payload,
+}: ReturnType<typeof userActions.setGameInCart>) {
+  try {
+    const { data } = yield call(() => userService.putGameInCart(payload));
+    const { isDataChanged, message } = data;
+    yield put(userActions.isDataChangedOnServer(isDataChanged));
+    toast.success(message);
+  } catch (e: any) {
+    toast.error(e.response.data.message);
+  }
+}
+
+export function* removeGameInCartSaga({
+  payload,
+}: ReturnType<typeof userActions.removeGameInCart>) {
+  try {
+    const { data } = yield call(() => userService.deleteGameCart(payload));
+    const { isDataChanged, message } = data;
+    yield put(userActions.isDataChangedOnServer(isDataChanged));
+    toast.success(message);
+  } catch (e: any) {
+    toast.error(e.response.data.message);
+  }
+}
+
+export function* buyCartGamesSaga({
+  payload,
+}: ReturnType<typeof userActions.buyCartGames>) {
+  try {
+    const { data } = yield call(() => userService.putNewDataCart(payload));
+    const { isCartDataChanged, message } = data;
+    yield put(userActions.isDataChangedOnServer(isCartDataChanged));
+    toast.success(message);
+  } catch (e: any) {
+    toast.error(e.response.data.message);
+  }
+}
+
 export default function* userSaga() {
   yield all([
     takeLatest(userActions.registration, registrationSaga),
@@ -95,7 +132,9 @@ export default function* userSaga() {
     takeLatest(userActions.logout, logoutSaga),
     takeLatest(userActions.checkAuth, checkAuthSaga),
     takeLatest(userActions.getUserData, getUserDataSaga),
-    takeLatest(userActions.changeUserData, changeUserDataSaga),
-    takeLatest(userActions.setUserImg, setUserImgSaga),
+    takeLatest(userActions.changeUserData, updateUserDataSaga),
+    takeLatest(userActions.removeGameInCart, removeGameInCartSaga),
+    takeLatest(userActions.setGameInCart, setGameInCartSaga),
+    takeLatest(userActions.buyCartGames, buyCartGamesSaga),
   ]);
 }

@@ -35,7 +35,7 @@ class UserController {
       });
       return res
         .status(200)
-        .json({ userData, message: "You were registered!" });
+        .send({ userData, message: "You were registered!" });
     } catch (e) {
       next(e);
     }
@@ -61,7 +61,7 @@ class UserController {
         maxAge: 30 * 24 * 60 * 60 * 1000,
         httpOnly: true,
       });
-      return res.status(200).json({ userData, message: "Successfully" });
+      return res.status(200).send({ userData, message: "Successfully" });
     } catch (e) {
       next(e);
     }
@@ -72,7 +72,7 @@ class UserController {
       const { refreshToken } = req.cookies;
       const token = await userService.logout(refreshToken);
       res.clearCookie("refreshToken");
-      return res.status(200).json(token);
+      return res.status(200).send(token);
     } catch (e) {
       next(e);
     }
@@ -120,6 +120,7 @@ class UserController {
       const payload = req.body;
       let { userId, newName = "", newDescription = "" } = payload;
       await userService.updateUserData(userId, newName, newDescription);
+      res.status(200).send({ message: "Data has been updated!" });
     } catch (e) {
       next(e);
     }
@@ -131,7 +132,7 @@ class UserController {
       const isDataChanged = await userService.putGameInCart(id, game);
       return res
         .status(200)
-        .json({ isDataChanged, message: "Game saved in your cart!" });
+        .send({ isDataChanged, message: "Game saved in your cart!" });
     } catch (e) {
       next(e);
     }
@@ -143,17 +144,7 @@ class UserController {
       const isDataChanged = await userService.deleteGameInCart(id, gameId);
       return res
         .status(200)
-        .json({ isDataChanged, message: "The game has been removed" });
-    } catch (e) {
-      next(e);
-    }
-  }
-
-  async getUserCartGames(req, res, next) {
-    try {
-      const { userId } = req.params;
-      const response = await userService.getUserCartGames(userId);
-      return res.status(200).json(response);
+        .send({ isDataChanged, message: "The game has been removed" });
     } catch (e) {
       next(e);
     }
@@ -163,7 +154,7 @@ class UserController {
     try {
       const { id } = req.body;
       const isCartDataChanged = await userService.putNewDataCart(id);
-      return res.status(200).json({
+      return res.status(200).send({
         isCartDataChanged,
         message: "Congratulations on purchasing!",
       });

@@ -3,7 +3,7 @@ import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
 import { useDispatch } from "react-redux";
 import { modalActionTypes } from "redux/modal";
 import {
-  AdminControlPanel,
+  FeaturesBox,
   AdminPanelStyled,
   ButtonStyled,
   Description,
@@ -13,34 +13,34 @@ import {
 const AdminPanel = () => {
   const dispatch = useDispatch();
 
-  // const onClickOpenModal = (modalValue: string) => {
-  //   dispatch(modalActionTypes.openModal({ type: modalValue }));
-  // };
+  const onClickOpenModal = (modalType: string) => () => {
+    dispatch(modalActionTypes.openModal({ type: modalType }));
+  };
 
   return (
     <AdminPanelStyled>
       <Title>Features</Title>
       <Description>Hello Admin! Here you can utilize next features</Description>
-      <AdminControlPanel>
-        {/* <ButtonStyled
+      <FeaturesBox>
+        <ButtonStyled
           onClick={onClickOpenModal(MODAL_TYPES.ADD_GAME_MODAL)}
           variant={BUTTON_VARIANTS.ADMIN}
         >
           Add game
-        </ButtonStyled> */}
-        {/* <ButtonStyled
-          onClick={onClickOpenModal}
+        </ButtonStyled>
+        <ButtonStyled
+          onClick={onClickOpenModal(MODAL_TYPES.ADD_GAME_MODAL)}
           variant={BUTTON_VARIANTS.ADMIN}
         >
-          Edit game
-        </ButtonStyled> */}
-        {/* <ButtonStyled onClick={onClickAddGame} variant={BUTTON_VARIANTS.ADMIN}>
           Delete game
         </ButtonStyled>
-        <ButtonStyled onClick={onClickAddGame} variant={BUTTON_VARIANTS.ADMIN}>
+        <ButtonStyled
+          onClick={onClickOpenModal(MODAL_TYPES.ADD_GAME_MODAL)}
+          variant={BUTTON_VARIANTS.ADMIN}
+        >
           Get users
-        </ButtonStyled> */}
-      </AdminControlPanel>
+        </ButtonStyled>
+      </FeaturesBox>
     </AdminPanelStyled>
   );
 };

@@ -18,7 +18,7 @@ enum pageRoutes {
 export const userProfileRoutes = [
   {
     id: 0,
-    path: "profileInfo",
+    path: "",
     name: "Profile",
     Icon: CgProfile,
   },

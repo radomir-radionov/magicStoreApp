@@ -2,7 +2,7 @@ import { PC, Playstation, Xbox } from "assets";
 import { GameRating } from "modules";
 import { TiTickOutline } from "react-icons/ti";
 import { useSelector } from "react-redux";
-import { cartGamesSelector } from "redux/cart/selectors";
+import { userCartSelector } from "redux/user/selectors";
 import { IGame } from "types/game";
 import {
   Body,
@@ -20,11 +20,11 @@ interface IFrontSideProps {
 }
 
 const FrontSide = ({ game }: IFrontSideProps) => {
-  const cart = useSelector(cartGamesSelector);
+  const cart = useSelector(userCartSelector);
 
   const { _id, img, name, price, rating } = game;
 
-  const isInCart = cart.find((cart) => cart._id === _id);
+  const isInCart = cart?.find((cart) => cart._id === _id);
 
   const dataPlatforms = game.platform.map((itemPlatform: any) => ({
     name: itemPlatform,

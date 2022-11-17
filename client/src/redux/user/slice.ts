@@ -1,7 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ISignUpData } from "types/auth";
 import { IUser } from "types/user";
-import { IChangeUserData, ISignInData, IUserState } from "./types";
+import {
+  IChangeUserData,
+  IDeleteGameCartData,
+  INewCartData,
+  IPutGameInCartData,
+  ISignInData,
+  IUserState,
+} from "./types";
 
 const initialState: IUserState = {
   isAuth: false,
@@ -30,13 +37,22 @@ export const userSlice = createSlice({
     setUserId: (state, { payload }) => {
       state.userData.id = payload;
     },
-    setUserImg: (state, { payload }) => {},
     checkAuth: () => {},
     getUserData: (state, { payload }) => {},
     changeUserData: (state, { payload }: PayloadAction<IChangeUserData>) => {},
     isDataChangedOnServer: (state, { payload }: any) => {
       state.isDataChangedOnServer = payload;
     },
+    uploadImg: (state, { payload }) => {},
+    setGameInCart: (
+      state,
+      { payload }: PayloadAction<IPutGameInCartData>
+    ) => {},
+    removeGameInCart: (
+      state,
+      { payload }: PayloadAction<IDeleteGameCartData>
+    ) => {},
+    buyCartGames: (state, { payload }: PayloadAction<INewCartData>) => {},
     setError: (state, { payload }: PayloadAction<string>) => {
       // state.userData = null;
       state.error.isError = true;

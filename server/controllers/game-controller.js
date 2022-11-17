@@ -77,36 +77,6 @@ class GameController {
       next(e);
     }
   }
-
-  // async deleteGame(req, res, next) {
-  //   try {
-  //     const { id } = req.params;
-  //     await gameService.deleteGame(id);
-  //     return res.status(200);
-  //   } catch (e) {
-  //     next(e);
-  //   }
-  // }
-
-  // async editGame(req, res, next) {
-  //   try {
-  //     const { _id, name, genre, description, price, image, platform, age } =
-  //       req.body;
-  //     await gameService.editGame(
-  //       _id,
-  //       name,
-  //       genre,
-  //       description,
-  //       price,
-  //       image,
-  //       platform,
-  //       age
-  //     );
-  //     return res.status(200);
-  //   } catch (e) {
-  //     next(e);
-  //   }
-  // }
 }
 
 module.exports = new GameController();

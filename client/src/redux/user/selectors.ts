@@ -29,3 +29,8 @@ export const isDataChangedOnServerSelector = createSelector(
   user,
   (state) => state.isDataChangedOnServer
 );
+
+export const userCartSelector = createSelector(
+  user,
+  (state) => state.userData.cart
+);

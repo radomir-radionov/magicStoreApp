@@ -14,7 +14,7 @@ export const Description = styled.p`
   text-align: center;
 `;
 
-export const AdminControlPanel = styled.div`
+export const FeaturesBox = styled.div`
   display: flex;
   justify-content: center;
   gap: 3rem;
@@ -22,7 +22,8 @@ export const AdminControlPanel = styled.div`
 `;
 
 export const ButtonStyled = styled<any>(Button)`
-  width: 16rem;
   height: 5rem;
+  width: 14rem;
   font-size: 1.8rem;
+  border-radius: 3px;
 `;

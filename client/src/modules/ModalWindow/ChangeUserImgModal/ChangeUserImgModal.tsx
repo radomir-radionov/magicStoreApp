@@ -2,11 +2,13 @@ import { DefaultAvatar } from "assets";
 import axios from "axios";
 import { ButtonModal } from "components";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { userActions } from "redux/user";
 import { userIdSelector } from "redux/user/selectors";
 import { Form, Img, Input, Label, LabelWrapper, ModalStyled } from "./styles";
 
 const ChangeUserImgModal = () => {
+  const dispatch = useDispatch();
   const [fileData, setFileData] = useState("");
   const [avatarURL, setAvatarURL] = useState("");
   const userId = useSelector(userIdSelector);
@@ -27,7 +29,9 @@ const ChangeUserImgModal = () => {
         { responseType: "blob" }
       );
       const avatarURL = URL.createObjectURL(response.data);
+
       setAvatarURL(avatarURL);
+      dispatch(userActions.isDataChangedOnServer(true));
     } catch (e) {
       console.log(e);
     }

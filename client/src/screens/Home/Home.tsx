@@ -1,5 +1,5 @@
-import { Greetings, HumburgerMenu, TopGames } from "modules";
-import { Header, HomeStyled, Title } from "./styles";
+import { Greetings, TopGames } from "modules";
+import { HomeStyled } from "./styles";
 
 const Home = () => {
   return (

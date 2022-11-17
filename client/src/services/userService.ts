@@ -1,6 +1,12 @@
 import { AxiosResponse } from "axios";
 import serverEndpoints from "constants/serverEndpoints";
-import { IChangeUserData, ISignInData } from "redux/user/types";
+import {
+  IChangeUserData,
+  IDeleteGameCartData,
+  INewCartData,
+  IPutGameInCartData,
+  ISignInData,
+} from "redux/user/types";
 import { IAuthResponse, ISignUpData } from "types/auth";
 import { httpService } from "../http/index";
 
@@ -35,17 +41,39 @@ const userService = {
   logout: async () => {
     await httpService.post(serverEndpoints.LOGOUT);
   },
-  setUserImg: async (payload: any) => {
-    await httpService.put(serverEndpoints.SAVE_IMAGE, payload);
-  },
-  getUserData: async (id: any) => {
+  getUserData: async (id: string) => {
     const resp = await httpService.get(
       `${serverEndpoints.GET_USER_DATA}/${id}`
     );
     return resp;
   },
   updateUserData: async (payload: IChangeUserData) => {
-    await httpService.put(serverEndpoints.UPDATE_USER_DATA, payload);
+    const resp = await httpService.put(
+      serverEndpoints.UPDATE_USER_DATA,
+      payload
+    );
+    return resp;
+  },
+  putGameInCart: async ({ id, game }: IPutGameInCartData) => {
+    const response = await httpService.put("/putGameInCart", {
+      id,
+      game,
+    });
+
+    return response;
+  },
+  putNewDataCart: async ({ id, cartGames }: INewCartData) => {
+    const response = await httpService.put("/putNewDataCart", {
+      id,
+      cartGames,
+    });
+    return response;
+  },
+  deleteGameCart: async ({ id, game }: IDeleteGameCartData) => {
+    const response = await httpService.delete(
+      `/deleteGameInCart/${id}/${game._id}`
+    );
+    return response;
   },
 };
 

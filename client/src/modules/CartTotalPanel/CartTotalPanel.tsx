@@ -1,19 +1,21 @@
 import { useDispatch, useSelector } from "react-redux";
-import { cartActions } from "redux/cart";
-import { cartGamesSelector } from "redux/cart/selectors";
-import { currentUserDataSelector } from "redux/user/selectors";
+import { userActions } from "redux/user";
+import {
+  currentUserDataSelector,
+  userCartSelector,
+} from "redux/user/selectors";
 import { ButtonStyled, CartTotalPanelStyled, Text } from "./styles";
 
 const CartTotalPanel = () => {
   const dispatch = useDispatch();
   const { id } = useSelector(currentUserDataSelector);
-  const cartGames = useSelector(cartGamesSelector);
+  const cartGames = useSelector(userCartSelector);
 
   const arrayOfGamePrices = cartGames?.map((game) => +game.price);
   const totalCost = arrayOfGamePrices?.reduce((sum, game) => sum + game, 0);
 
   const onClickBuyGames = () => {
-    dispatch(cartActions.buyCartGames({ id, cartGames }));
+    dispatch(userActions.buyCartGames({ id, cartGames }));
   };
 
   return (

@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { cartActions } from "redux/cart";
 import { userActions } from "redux/user";
 import {
   isDataChangedOnServerSelector,
@@ -19,15 +18,10 @@ function App() {
   useEffect(() => {
     if (localStorage.getItem("token")) {
       dispatch(userActions.checkAuth());
-      id && dispatch(userActions.getUserData(id));
+      id &&
+        dispatch(userActions.getUserData(id)) &&
+        dispatch(userActions.isDataChangedOnServer(false));
     }
-  }, [dispatch]);
-
-  useEffect(() => {
-    id &&
-      dispatch(userActions.getUserData(id)) &&
-      dispatch(cartActions.getUserCartGames(id)) &&
-      dispatch(userActions.isDataChangedOnServer(false));
   }, [dispatch, id, isDataChangedOnServer]);
 
   return (

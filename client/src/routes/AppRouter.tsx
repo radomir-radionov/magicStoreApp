@@ -19,7 +19,7 @@ const AppRouter = () => {
         <Route index element={<Home />} />
         <Route element={<Protected />}>
           <Route path={pageRoutes.PROFILE} element={<Profile />}>
-            <Route path={pageRoutes.PROFILE_INFO} element={<Info />} />
+            <Route index element={<Info />} />
             <Route path={pageRoutes.SETTINGS} element={<Settings />} />
             <Route path={pageRoutes.CART} element={<Cart />} />
             <Route path={pageRoutes.ADMIN_PANEL} element={<AdminPanel />} />

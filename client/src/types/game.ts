@@ -40,7 +40,3 @@ export interface IFilteredGamesParams {
   platform: string | undefined;
   searchText: string | undefined;
 }
-
-export interface IGetUserCartGamesData {
-  id: string;
-}

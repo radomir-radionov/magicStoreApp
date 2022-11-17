@@ -84,11 +84,6 @@ class UserService {
     });
   }
 
-  async getUserCartGames(userId) {
-    const { cart } = await User.findById(userId);
-    return cart;
-  }
-
   async putNewDataCart(id) {
     await User.findByIdAndUpdate(id, {
       cart: [],
