@@ -11,12 +11,12 @@ export const GameItemCartStyled = styled.article`
   border-bottom: 1px solid ${colors.BACKGROUND_VIVID_CYAN};
 `;
 
-export const GameImgBox = styled.div`
+export const ImgBox = styled.div`
   width: 20rem;
   height: 24rem;
 `;
 
-export const GameImg = styled.img`
+export const Img = styled.img`
   height: 100%;
   width: 100%;
   border-radius: 8px;

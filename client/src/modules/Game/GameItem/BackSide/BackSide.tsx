@@ -4,10 +4,7 @@ import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
 import { useDispatch, useSelector } from "react-redux";
 import { modalActionTypes } from "redux/modal";
 import { userActions } from "redux/user";
-import {
-  currentUserDataSelector,
-  userCartSelector,
-} from "redux/user/selectors";
+import userSelector from "redux/user/selectors";
 import { IGame } from "types/game";
 import { Age, Description, Footer } from "./styles";
 
@@ -17,8 +14,8 @@ interface IBackSideProps {
 
 const BackSide = ({ game }: IBackSideProps) => {
   const dispatch = useDispatch();
-  const { id } = useSelector(currentUserDataSelector);
-  const cart = useSelector(userCartSelector);
+  const id = useSelector(userSelector.id);
+  const cart = useSelector(userSelector.cart);
   const { description, age } = game;
 
   const onClickAddGameInCart = () => {
@@ -42,18 +39,13 @@ const BackSide = ({ game }: IBackSideProps) => {
       <Age>{age}+</Age>
       <Footer>
         <Button
-          type="submit"
           onClick={onClickAddGameInCart}
           variant={BUTTON_VARIANTS.SECONDARY}
           disabled={isEven}
         >
           Add to cart
         </Button>
-        <Button
-          type="submit"
-          onClick={onClickEditGame}
-          variant={BUTTON_VARIANTS.ADMIN}
-        >
+        <Button onClick={onClickEditGame} variant={BUTTON_VARIANTS.ADMIN}>
           Edit game
         </Button>
       </Footer>

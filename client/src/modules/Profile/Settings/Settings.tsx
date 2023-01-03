@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import { userNameSelector } from "redux/user/selectors";
+import userSelector from "redux/user/selectors";
 import { Header, SettingsStyled, Title, ModalWrapper } from "./styles";
 import { ChangeUserDataModal, ChangeUserImgModal } from "modules/ModalWindow";
 
 const Settings = () => {
-  const userName = useSelector(userNameSelector);
+  const userName = useSelector(userSelector.name);
 
   return (
     <SettingsStyled>

@@ -1,4 +1,5 @@
 import { genres } from "constants/filtersData";
+import { memo } from "react";
 import { Form, Title, Label, RadioInput } from "./styles";
 
 interface IGenreFilterProps {

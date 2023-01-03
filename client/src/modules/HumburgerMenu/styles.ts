@@ -15,7 +15,7 @@ export const Icon = styled.span<ComponentClickedProps>`
   @media (max-width: 805px) {
     position: relative;
     display: inline-block;
-    width: 35px;
+    width: 3.5rem;
     height: 2px;
     margin-top: 16px;
     background-color: ${(props) => (props.clicked ? "transparent" : "white")};
@@ -26,7 +26,7 @@ export const Icon = styled.span<ComponentClickedProps>`
       position: absolute;
       left: 0;
       display: inline-block;
-      width: 35px;
+      width: 3.5rem;
       height: 2px;
       background-color: white;
       transition: all 0.3s;

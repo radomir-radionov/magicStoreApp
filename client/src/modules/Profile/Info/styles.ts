@@ -3,11 +3,10 @@ import { colors, indents, typography } from "styles";
 
 export const Wrapper = styled.div`
   border-radius: 20px;
-  border: 1px solid ${colors.COLOR_WHITE};
+  border: 1px solid ${colors.WHITE};
 `;
 
 export const InfoStyled = styled.div`
-  width: 59.8rem;
   padding: ${indents.p_2};
 `;
 
@@ -18,7 +17,7 @@ export const PersonalInfo = styled.section`
 
 export const Header = styled.header`
   margin-bottom: 2rem;
-  border-bottom: 1px solid ${colors.COLOR_WHITE};
+  border-bottom: 1px solid ${colors.WHITE};
 `;
 
 export const Title = styled.h3`
@@ -31,14 +30,17 @@ export const UserData = styled.div`
   display: flex;
   gap: 1rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 568px) {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
 export const Img = styled.img`
   width: 22rem;
   height: 22rem;
+  border: 1px solid ${colors.WHITE};
   border-radius: 10px;
 `;
 

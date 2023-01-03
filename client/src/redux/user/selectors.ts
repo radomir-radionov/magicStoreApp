@@ -1,36 +1,27 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "store/configureStore";
 
-const user = (state: RootState) => state.user;
+const userState = (state: RootState) => state.user;
 
-export const currentUserDataSelector = createSelector(
-  user,
-  (state) => state.userData
-);
-
-export const userIdSelector = createSelector(
-  user,
-  (state) => state.userData.id
-);
-
-export const userRoleSelector = createSelector(
-  user,
-  (state) => state.userData.role
-);
-
-export const isAuthSelector = createSelector(user, (state) => state.isAuth);
-
-export const userNameSelector = createSelector(
-  user,
-  (state) => state.userData.name
-);
-
-export const isDataChangedOnServerSelector = createSelector(
-  user,
+const data = createSelector(userState, (state) => state.userData);
+const id = createSelector(userState, (state) => state.userData.id);
+const role = createSelector(userState, (state) => state.userData.role);
+const name = createSelector(userState, (state) => state.userData.name);
+const cart = createSelector(userState, (state) => state.userData.cart);
+const isAuth = createSelector(userState, (state) => state.isAuth);
+const isDataChangedOnServer = createSelector(
+  userState,
   (state) => state.isDataChangedOnServer
 );
 
-export const userCartSelector = createSelector(
-  user,
-  (state) => state.userData.cart
-);
+const user = {
+  data,
+  id,
+  role,
+  isAuth,
+  name,
+  isDataChangedOnServer,
+  cart,
+};
+
+export default user;

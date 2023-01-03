@@ -21,6 +21,7 @@ class UserController {
       }
 
       const roleData = new Role({});
+      // for Admin account use value:"Admin"
       const role = roleData.value;
 
       const userData = await userService.registration(

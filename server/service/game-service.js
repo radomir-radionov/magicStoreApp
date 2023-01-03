@@ -65,9 +65,13 @@ class GameService {
 
     if (genre) {
       gamesPlatform = gamesPlatform.filter((game) => game.genre === genre);
-    } else if (age) {
+    }
+
+    if (age) {
       gamesPlatform = gamesPlatform.filter((game) => game.age === age);
-    } else if (searchText) {
+    }
+
+    if (searchText) {
       gamesPlatform = gamesPlatform.filter(({ name }) =>
         name.toLowerCase().includes(searchText.toLowerCase())
       );

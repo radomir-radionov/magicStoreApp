@@ -2,18 +2,15 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { userActions } from "redux/user";
-import {
-  isDataChangedOnServerSelector,
-  userIdSelector,
-} from "redux/user/selectors";
+import userSelector from "redux/user/selectors";
 import AppRouter from "routes/AppRouter";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainerStyled } from "styles/globalStyles";
 
 function App() {
   const dispatch = useDispatch();
-  const id = useSelector(userIdSelector);
-  const isDataChangedOnServer = useSelector(isDataChangedOnServerSelector);
+  const id = useSelector(userSelector.id);
+  const isDataChangedOnServer = useSelector(userSelector.isDataChangedOnServer);
 
   useEffect(() => {
     if (localStorage.getItem("token")) {

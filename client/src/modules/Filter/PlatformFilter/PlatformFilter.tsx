@@ -1,4 +1,5 @@
 import { platforms } from "constants/filtersData";
+import { memo } from "react";
 import { Form, Label, Select, Option } from "./styles";
 
 interface IPlatformFilterProps {

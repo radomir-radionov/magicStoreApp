@@ -30,3 +30,14 @@ export const InteractionPanel = styled.div`
   gap: 1rem;
   margin-top: 2rem;
 `;
+
+export const LoginInfo = styled.div`
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  color: ${colors.BLACK};
+`;
+
+export const Button = styled.button`
+  color: ${colors.TEXT_BLUE};
+`;

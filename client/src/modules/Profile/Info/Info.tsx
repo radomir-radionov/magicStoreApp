@@ -1,6 +1,6 @@
 import { DefaultAvatar } from "assets";
 import { useSelector } from "react-redux";
-import { currentUserDataSelector } from "redux/user/selectors";
+import user from "redux/user/selectors";
 import { arrayBufferToBase64 } from "utils/arrayBufferToBase64";
 import {
   Header,
@@ -14,9 +14,7 @@ import {
 } from "./styles";
 
 const Info = () => {
-  const { name, email, description, role, img } = useSelector(
-    currentUserDataSelector
-  );
+  const { name, email, description, role, img } = useSelector(user.data);
 
   const isEmptyImgObj =
     Object.keys(img).length === 0 && img.constructor === Object;

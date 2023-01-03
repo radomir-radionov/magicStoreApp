@@ -4,9 +4,11 @@ enum colors {
   TEXT_GRAY = "#909096",
   TEXT_VIVID_CYAN = "#08fdd8",
   TEXT_YELLOWGREEN = "yellowgreen",
+  TEXT_WHITE = "white",
   TEXT_ORANGE = "orange",
   TEXT_GREEN = "#00B347",
   TEXT_RED = "red",
+  TEXT_BLUE = "#009CB4",
   MAIN_BLUE = "#009CB4",
 
   BORDER_GRAY = "#282828",
@@ -25,7 +27,10 @@ enum colors {
   MODAL_BACKGROUND_OPACITY = "rgba(64, 63, 77, 0.7)",
   BOX_SHADOW_DARK = "rgba(0, 0, 0, 0.6)",
   BOX_SHADOW = "rgba(0, 0, 0, 0.06)",
-  COLOR_WHITE = "white",
+  WHITE = "white",
+  BLACK = "black",
+  YELLOW = "yellow",
+  GRAY = "#909096",
   COLOR_RED = "#FD2155",
 }
 

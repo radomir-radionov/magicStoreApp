@@ -4,14 +4,14 @@ import { ButtonModal } from "components";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "redux/user";
-import { userIdSelector } from "redux/user/selectors";
+import userSelector from "redux/user/selectors";
 import { Form, Img, Input, Label, LabelWrapper, ModalStyled } from "./styles";
 
 const ChangeUserImgModal = () => {
   const dispatch = useDispatch();
   const [fileData, setFileData] = useState("");
   const [avatarURL, setAvatarURL] = useState("");
-  const userId = useSelector(userIdSelector);
+  const userId = useSelector(userSelector.id);
 
   const getFile = (e: any) => {
     setFileData(e.target.files[0]);

@@ -12,12 +12,9 @@ export const FiltersBarStyled = styled.nav`
 
 export const Title = styled.h3`
   padding-left: ${indents.pl_1};
-  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 4rem;
+  border-bottom: 1px solid white;
   ${typography.H3}
   color: ${colors.TEXT_1};
-`;
-
-export const Hr = styled.hr`
-  width: 100%;
-  margin-bottom: 3rem;
 `;

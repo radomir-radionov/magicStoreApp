@@ -18,3 +18,26 @@ export const NavList = styled.ul`
     border-top: 0;
   }
 `;
+
+export const Li = styled.li`
+  display: flex;
+  justify-content: center;
+`;
+
+export const Button = styled.button<any>`
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding-top: 1.5rem;
+
+  svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: ${colors.GRAY};
+    transition: color 0.5s;
+
+    &:hover {
+      color: ${colors.YELLOW};
+    }
+  }
+`;

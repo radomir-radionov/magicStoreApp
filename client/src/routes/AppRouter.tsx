@@ -25,8 +25,8 @@ const AppRouter = () => {
             <Route path={pageRoutes.ADMIN_PANEL} element={<AdminPanel />} />
           </Route>
           <Route path={pageRoutes.PRODUCT} element={<Product />} />
+          <Route path={pageRoutes.ABOUT} element={<About />} />
         </Route>
-        <Route path={pageRoutes.ABOUT} element={<About />} />
         <Route path={pageRoutes.NOT_FOUND} element={<NotFound />} />
       </Route>
     </Routes>
