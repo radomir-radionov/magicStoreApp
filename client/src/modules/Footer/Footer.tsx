@@ -1,11 +1,15 @@
-import { FooterStyled, Text } from "./styles";
+import { SocialLinks } from "components";
+import { FooterStyled, SocialLinksBox, Text } from "./styles";
 
 const Footer = () => {
   const year: number = new Date().getFullYear();
 
   return (
     <FooterStyled>
-      <Text>Copyright &copy; {year} M-store. All rights reserved.</Text>
+      <SocialLinksBox>
+        <SocialLinks />
+      </SocialLinksBox>
+      <Text>Copyright &copy; {year} M-Store. All rights reserved.</Text>
     </FooterStyled>
   );
 };

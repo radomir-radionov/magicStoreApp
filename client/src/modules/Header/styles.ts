@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, indents } from "styles";
+import { colors, device, indents } from "styles";
 
 export const HeaderStyled = styled.header`
   position: fixed;
@@ -11,25 +11,40 @@ export const HeaderStyled = styled.header`
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  width: 13rem;
   height: 100vh;
-  padding: 0;
+  width: 13rem;
+  padding: 2rem 0;
   margin: 0;
-  background-color: ${colors.BACKGROUND_DARK_GRAY};
+  background-color: ${colors.BG_DARK_GRAY};
+  transition: all 0.18s ease-out;
 
-  @media (max-width: 768px) {
-    display: none;
+  @media (max-width: ${device.tablet}) {
+    position: initial;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 10rem;
+    width: 100%;
+    padding: 0 3rem;
   }
 `;
 
-export const LogoIcon = styled.div`
-  padding: ${indents.p_2};
-  background-color: ${colors.BACKGROUND_BLACK};
+export const LogoBox = styled.div`
+  background-color: ${colors.BG_BLACK};
   cursor: pointer;
+
+  @media (max-width: ${device.tablet}) {
+    display: flex;
+    gap: 2rem;
+  }
 `;
 
 export const Logo = styled.img`
   width: 8rem;
+
+  @media (max-width: ${device.tablet}) {
+    width: 6rem;
+  }
 `;
 
 export const Title = styled.h4`
@@ -38,21 +53,14 @@ export const Title = styled.h4`
   text-align: center;
   font-size: 1.6rem;
   color: ${colors.TEXT_GRAY};
+
+  @media (max-width: ${device.tablet}) {
+    font-size: 2rem;
+  }
 `;
 
-export const Social = styled.ul`
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-`;
-
-export const SocialItem = styled.li``;
-
-export const Link = styled.a`
-  margin-right: 1rem;
-  color: ${colors.TEXT_GRAY};
-
-  &:hover {
-    color: ${colors.TEXT_VIVID_CYAN};
+export const Container = styled.div`
+  @media (max-width: ${device.tablet}) {
+    display: none;
   }
 `;

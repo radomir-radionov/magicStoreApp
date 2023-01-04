@@ -4,12 +4,11 @@ import user from "redux/user/selectors";
 import { arrayBufferToBase64 } from "utils/arrayBufferToBase64";
 import {
   Header,
-  InfoStyled,
   Title,
   UserData,
   Description,
   Img,
-  Wrapper,
+  Container,
   Text,
 } from "./styles";
 
@@ -20,29 +19,27 @@ const Info = () => {
     Object.keys(img).length === 0 && img.constructor === Object;
 
   return (
-    <Wrapper>
-      <InfoStyled>
-        <Header>
-          <Title>Profile</Title>
-        </Header>
-        <UserData>
-          <Img
-            src={
-              isEmptyImgObj
-                ? DefaultAvatar
-                : arrayBufferToBase64(img.data?.data, img.contentType)
-            }
-            alt="Avatar"
-          />
-          <Description>
-            <Text>Name: {name}</Text>
-            <Text>Email: {email}</Text>
-            <Text>Description: {description}</Text>
-            <Text>Role: {role}</Text>
-          </Description>
-        </UserData>
-      </InfoStyled>
-    </Wrapper>
+    <Container>
+      <Header>
+        <Title>Profile</Title>
+      </Header>
+      <UserData>
+        <Img
+          src={
+            isEmptyImgObj
+              ? DefaultAvatar
+              : arrayBufferToBase64(img.data?.data, img.contentType)
+          }
+          alt="Avatar"
+        />
+        <Description>
+          <Text>Name: {name}</Text>
+          <Text>Email: {email}</Text>
+          <Text>Description: {description}</Text>
+          <Text>Role: {role}</Text>
+        </Description>
+      </UserData>
+    </Container>
   );
 };
 

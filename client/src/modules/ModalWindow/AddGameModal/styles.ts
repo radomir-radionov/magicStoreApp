@@ -8,7 +8,7 @@ export const ModalStyled = styled.div`
   margin-right: -50%;
   padding: ${indents.p_1};
   border-radius: 16px;
-  background-color: ${colors.BACKGROUND_WHITE};
+  background-color: ${colors.BG_WHITE};
   transform: translate(-50%, -50%);
 `;
 

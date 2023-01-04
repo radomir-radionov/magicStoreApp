@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import userSelector from "redux/user/selectors";
 import { modalActionTypes } from "redux/modal";
 import { userActions } from "redux/user";
-import pageRoutes from "constants/pageRoutes";
 import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
-import { Button, Li, NavList, NavStyled } from "./styles";
 import { NavItem } from "modules";
+import pageRoutes from "constants/pageRoutes";
+import { Button, Li, NavList, NavStyled } from "./styles";
 
 const Navigation = () => {
   const dispatch = useDispatch();

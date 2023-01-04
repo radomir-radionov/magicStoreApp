@@ -1,5 +1,6 @@
 import { Spinner } from "components";
 import { FiltersBar, Pagination, SearchBar } from "modules";
+import { memo } from "react";
 import { useSelector } from "react-redux";
 import { filteredGamesSelector, isLoadingSelector } from "redux/game/selectors";
 import { FilteredGames, ProductStyled, SpanStyled, Title } from "./styles";

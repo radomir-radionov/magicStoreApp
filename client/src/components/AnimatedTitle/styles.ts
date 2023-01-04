@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { colors, typography } from "styles";
+import { colors, device, typography } from "styles";
 
 const RubberBandAnimation = keyframes`
    from {
@@ -32,17 +32,22 @@ const RubberBandAnimation = keyframes`
 `;
 
 export const AnimatedTitleStyled = styled.h1`
-  ${typography.H1}
+  ${typography.H2}
 
-  @media (max-width: 768px) {
+  @media (max-width: ${device.mobileM}) {
     font-size: 4.8rem;
-    line-height: 5rem;
+    line-height: 4.4rem;
   }
 `;
 
 export const Br = styled.br``;
 
-export const SpanStyled = styled.span`
+export const Box = styled.p`
+  display: inline-block;
+  padding-right: 2rem;
+`;
+
+export const Letter = styled.span`
   display: inline-block;
   animation-duration: 1s;
   animation-fill-mode: both;

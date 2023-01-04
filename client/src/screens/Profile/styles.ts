@@ -6,8 +6,8 @@ export const ProfileStyled = styled.div`
   flex: 1;
   justify-content: center;
   width: 100%;
-  padding: 4rem;
-  background-color: ${colors.BACKGROUND_BODY};
+  padding: 6rem 3rem 3rem;
+  background-color: ${colors.BG_BODY};
 `;
 
 export const Container = styled.div`
@@ -16,5 +16,3 @@ export const Container = styled.div`
   align-items: center;
   flex: 1;
 `;
-
-export const Breadcrumbs = styled.div``;

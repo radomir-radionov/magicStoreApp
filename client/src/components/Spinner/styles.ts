@@ -16,7 +16,7 @@ export const Spiner = styled.div`
   text-align: center;
   animation: spin 2s linear infinite;
   background-color: rgba(0, 0, 0, 0.2);
-  color: ${colors.BACKGROUND_BLACK};
+  color: ${colors.BG_BLACK};
 
   @keyframes spin {
     0% {

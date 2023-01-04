@@ -6,12 +6,12 @@ import {
   ButtonStyled,
   Description,
   GameDetails,
-  GameDetailsWrapper,
   Img,
   ImgBox,
   GameItemCartStyled,
   InteractPanel,
   Title,
+  Container,
 } from "./styles";
 import { userActions } from "redux/user";
 
@@ -32,7 +32,7 @@ const GameItemCart = ({ game }: IGameItemCartProps) => {
       <ImgBox>
         <Img src={game.img} alt="Game Icon" />
       </ImgBox>
-      <GameDetailsWrapper>
+      <Container>
         <GameDetails>
           <Title>{game.name}</Title>
           <Description>{game.description}</Description>
@@ -48,7 +48,7 @@ const GameItemCart = ({ game }: IGameItemCartProps) => {
             Remove
           </ButtonStyled>
         </InteractPanel>
-      </GameDetailsWrapper>
+      </Container>
     </GameItemCartStyled>
   );
 };

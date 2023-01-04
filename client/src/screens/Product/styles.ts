@@ -4,7 +4,6 @@ import { colors, typography } from "styles";
 export const ProductStyled = styled.div`
   display: flex;
   flex: 1;
-  align-items: center;
   gap: 8rem;
   width: 100%;
   padding: 5rem;
@@ -38,5 +37,5 @@ export const SpanStyled = styled.span`
   padding: 0 0.6rem;
   text-align: center;
   border-radius: 30%;
-  background-color: ${colors.BACKGROUND_RED};
+  background-color: ${colors.BG_RED};
 `;

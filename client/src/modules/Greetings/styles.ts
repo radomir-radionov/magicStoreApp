@@ -1,4 +1,4 @@
-import { colors } from "styles";
+import { colors, device } from "styles";
 import styled, { keyframes } from "styled-components";
 import { AiOutlineArrowDown } from "react-icons/ai";
 
@@ -16,10 +16,11 @@ export const GreetingsStyled = styled.section`
   gap: 6rem;
   width: 100%;
   height: 100vh;
-  padding: 0 6rem 6rem 6rem;
+  padding: 6rem;
 
-  @media (max-width: 768px) {
-    height: 95vh;
+  @media (max-width: ${device.tablet}) and (max-height: 64rem) {
+    height: 91vh;
+    padding: 5rem;
   }
 `;
 

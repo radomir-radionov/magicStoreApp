@@ -17,23 +17,23 @@ export const ButtonStyled = styled.button<IProps>`
   letter-spacing: 4px;
   color: ${({ $variant }: IProps) =>
     $variant === BUTTON_VARIANTS.ADMIN
-      ? colors.BACKGROUND_ORANGE
-      : colors.BACKGROUND_VIVID_CYAN};
+      ? colors.BG_ORANGE
+      : colors.BG_VIVID_CYAN};
   border: ${({ $variant }: IProps) =>
     $variant === BUTTON_VARIANTS.ADMIN
-      ? `1px solid ${colors.BACKGROUND_ORANGE}`
-      : `1px solid ${colors.BACKGROUND_VIVID_CYAN}`};
+      ? `1px solid ${colors.BG_ORANGE}`
+      : `1px solid ${colors.BG_VIVID_CYAN}`};
   background: ${({ $variant }: IProps) =>
     $variant === BUTTON_VARIANTS.ADMIN
       ? ` linear-gradient(
         to right,
-        ${colors.BACKGROUND_ORANGE} 50%,
-        ${colors.BACKGROUND_BODY} 50%
+        ${colors.BG_ORANGE} 50%,
+        ${colors.BG_BODY} 50%
       );`
       : ` linear-gradient(
         to right,
-        ${colors.BACKGROUND_VIVID_CYAN} 50%,
-        ${colors.BACKGROUND_BODY} 50%
+        ${colors.BG_VIVID_CYAN} 50%,
+        ${colors.BG_BODY} 50%
       )`};
   background-size: 200% 100%;
   background-position: right bottom;
@@ -53,7 +53,7 @@ export const ButtonStyled = styled.button<IProps>`
     height: 3px;
     background-color: ${({ $variant }: IProps) =>
       $variant === BUTTON_VARIANTS.ADMIN
-        ? colors.BACKGROUND_ORANGE
+        ? colors.BG_ORANGE
         : colors.TEXT_VIVID_CYAN};
   }
 
@@ -63,6 +63,6 @@ export const ButtonStyled = styled.button<IProps>`
   }
 
   &:hover:after {
-    background-color: ${colors.BACKGROUND_WHITE};
+    background-color: ${colors.BG_WHITE};
   }
 `;

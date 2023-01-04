@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "styles";
 
 export const ModalStyled = styled.div`
   display: flex;
@@ -7,7 +8,7 @@ export const ModalStyled = styled.div`
   padding-right: 2rem;
   border-right: 1px solid black;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${device.tablet}) {
     border-right: 0;
   }
 `;

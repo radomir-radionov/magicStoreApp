@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { colors } from "styles";
+import { colors, device } from "styles";
 
 export const NavItemStyled = styled.li`
   border-bottom: 1px solid ${colors.BORDER_GRAY};
@@ -9,7 +9,7 @@ export const NavItemStyled = styled.li`
     color: ${colors.YELLOW};
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: ${device.tablet}) {
     display: block;
   }
 `;

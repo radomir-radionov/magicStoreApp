@@ -1,4 +1,4 @@
-import { colors, indents, typography } from "styles";
+import { colors, device, indents, typography } from "styles";
 import styled from "styled-components";
 import { BsCart } from "react-icons/bs";
 
@@ -34,7 +34,7 @@ export const SpanStyled = styled.span`
   padding: 0 0.6rem;
   text-align: center;
   border-radius: 30%;
-  background-color: ${colors.BACKGROUND_RED};
+  background-color: ${colors.BG_RED};
 `;
 
 export const GameListWrapper = styled.div`

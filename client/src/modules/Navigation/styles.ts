@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, typography } from "styles";
+import { colors, device, typography } from "styles";
 
 export const NavStyled = styled.nav`
   display: flex;
@@ -12,7 +12,7 @@ export const NavList = styled.ul`
   color: ${colors.TEXT_GRAY};
   cursor: pointer;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${device.tablet}) {
     display: flex;
     gap: 2rem;
     border-top: 0;

@@ -2,7 +2,9 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from "styles";
 
-export const MenuItemStyled = styled.li``;
+export const MenuItemStyled = styled.li`
+  padding-top: 1rem;
+`;
 
 export const NavLinkStyled = styled(NavLink)`
   display: flex;
