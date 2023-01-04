@@ -5,8 +5,16 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import schema from "./schema";
 import { userActions } from "redux/user";
 import { modalActionTypes } from "redux/modal";
-import { Form, InteractionPanel, ModalStyled, Title } from "./styles";
+import {
+  Button,
+  Form,
+  InteractionPanel,
+  LoginInfo,
+  ModalStyled,
+  Title,
+} from "./styles";
 import { ISignInData } from "redux/user/types";
+import { MODAL_TYPES } from "../modalTypes";
 
 interface ISignInModalProps {
   onClose: () => void;
@@ -31,6 +39,10 @@ const SignInModal = ({ onClose }: ISignInModalProps) => {
   const onSubmitHandler = (data: ISignInData) => {
     dispatch(userActions.login(data));
     dispatch(modalActionTypes.closeModal());
+  };
+
+  const onClickSignUpModal = () => {
+    dispatch(modalActionTypes.openModal({ type: MODAL_TYPES.SIGN_UP_MODAL }));
   };
 
   return (
@@ -62,6 +74,10 @@ const SignInModal = ({ onClose }: ISignInModalProps) => {
           </ButtonModal>
         </InteractionPanel>
       </Form>
+      <LoginInfo>
+        <p>No account?</p>
+        <Button onClick={onClickSignUpModal}>Sign up</Button>
+      </LoginInfo>
     </ModalStyled>
   );
 };

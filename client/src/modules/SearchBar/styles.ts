@@ -32,8 +32,4 @@ export const Input = styled.input`
   ::placeholder {
     color: ${colors.TEXT_BLACK};
   }
-
-  /* @media (max-width: 768px) {
-    width: 280px;
-  } */
 `;

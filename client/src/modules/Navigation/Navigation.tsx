@@ -1,51 +1,72 @@
-import pageRoutes from "constants/pageRoutes";
+import { BiExit } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import { isAuthSelector, userIdSelector } from "redux/user/selectors";
-import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
+import userSelector from "redux/user/selectors";
 import { modalActionTypes } from "redux/modal";
-import { NavItem } from "components";
-import { NavList, NavStyled } from "./styles";
+import { userActions } from "redux/user";
+import { MODAL_TYPES } from "modules/ModalWindow/modalTypes";
+import { NavItem } from "modules";
+import pageRoutes from "constants/pageRoutes";
+import { Button, Li, NavList, NavStyled } from "./styles";
 
 const Navigation = () => {
   const dispatch = useDispatch();
-  const userId = useSelector(userIdSelector);
-  const isAuth = useSelector(isAuthSelector);
+  const userId = useSelector(userSelector.id);
+  const isAuth = useSelector(userSelector.isAuth);
 
   const onClickSignInModal = () => {
     dispatch(modalActionTypes.openModal({ type: MODAL_TYPES.SIGN_IN_MODAL }));
   };
 
+  const onClickLogoutHandler = () => {
+    dispatch(userActions.logout());
+  };
+
+  const NavItemsData = [
+    {
+      id: 0,
+      link: pageRoutes.HOME,
+      isAuth,
+      action: onClickSignInModal,
+      content: "Home",
+    },
+    {
+      id: 1,
+      link: `profile/${userId}`,
+      isAuth,
+      action: onClickSignInModal,
+      content: "Profile",
+    },
+    {
+      id: 2,
+      link: pageRoutes.PRODUCT,
+      isAuth,
+      action: onClickSignInModal,
+      content: "Product",
+    },
+    {
+      id: 3,
+      link: pageRoutes.ABOUT,
+      isAuth,
+      action: onClickSignInModal,
+      content: "About",
+    },
+  ];
+
   return (
     <NavStyled>
       <NavList>
-        <NavItem
-          link={pageRoutes.HOME}
-          isAuth={isAuth}
-          action={onClickSignInModal}
-        >
-          Home
-        </NavItem>
-        <NavItem
-          link={`profile/${userId}`}
-          isAuth={isAuth}
-          action={onClickSignInModal}
-        >
-          Profile
-        </NavItem>
-        <NavItem
-          link={pageRoutes.PRODUCT}
-          isAuth={isAuth}
-          action={onClickSignInModal}
-        >
-          Product
-        </NavItem>
-        <NavItem
-          link={pageRoutes.ABOUT}
-          isAuth={isAuth}
-          action={onClickSignInModal}
-        >
-          About
-        </NavItem>
+        {NavItemsData.map(({ id, link, isAuth, action, content }) => (
+          <NavItem key={id} link={link} isAuth={isAuth} action={action}>
+            {content}
+          </NavItem>
+        ))}
+        {isAuth && (
+          <Li>
+            <Button onClick={onClickLogoutHandler}>
+              <BiExit />
+            </Button>
+          </Li>
+        )}
       </NavList>
     </NavStyled>
   );

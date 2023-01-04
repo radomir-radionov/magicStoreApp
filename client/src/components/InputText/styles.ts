@@ -22,7 +22,7 @@ export const InputWrapper = styled.div`
 `;
 
 export const LabelStyled = styled.label<ILabelStyled>`
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: ${colors.TEXT_BLACK};
 
   ${({ errors }) =>
@@ -43,7 +43,7 @@ export const LabelStyled = styled.label<ILabelStyled>`
 export const InputStyled = styled.input<IInputStyled>`
   padding: 1.2rem 2.4rem;
   margin-top: 0.6rem;
-  border: 1px solid;
+  border: 1px solid ${colors.TEXT_BLACK};
   border-radius: 8px;
 
   &:focus {

@@ -5,5 +5,4 @@ export { default as AnimatedTitle } from "./AnimatedTitle/AnimatedTitle";
 export { default as Textarea } from "./Textarea/Textarea";
 export { default as InputCheckbox } from "./InputCheckbox/InputCheckbox";
 export { default as Spinner } from "./Spinner/Spinner";
-export { default as MenuItem } from "./MenuItem/MenuItem";
-export { default as NavItem } from "./NavItem/NavItem";
+export { default as SocialLinks } from "./SocialLinks/SocialLinks";

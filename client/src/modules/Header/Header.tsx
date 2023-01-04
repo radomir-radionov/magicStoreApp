@@ -1,41 +1,30 @@
 import { useNavigate } from "react-router-dom";
 import pageRoutes from "constants/pageRoutes";
-import { Navigation } from "modules";
+import { HumburgerMenu, Navigation } from "modules";
+import { SocialLinks } from "components";
 import { LetterM } from "assets";
-import { socialData } from "./data";
-import {
-  Link,
-  Logo,
-  LogoIcon,
-  HeaderStyled,
-  SocialItem,
-  Social,
-  Title,
-} from "./styles";
+import { Logo, LogoBox, HeaderStyled, Title, Container } from "./styles";
 
 const Header = () => {
   const navigate = useNavigate();
 
-  const onClickNavigate = () => {
+  const onClickLogo = () => {
     navigate(pageRoutes.HOME);
   };
 
   return (
     <HeaderStyled>
-      <LogoIcon>
-        <Logo onClick={onClickNavigate} src={LetterM} alt="Logo" />
-        <Title>M-store</Title>
-      </LogoIcon>
-      <Navigation />
-      <Social>
-        {socialData.map(({ id, href, icon }) => (
-          <SocialItem key={id}>
-            <Link href={href} target="_blank">
-              {icon}
-            </Link>
-          </SocialItem>
-        ))}
-      </Social>
+      <LogoBox>
+        <Logo onClick={onClickLogo} src={LetterM} alt="Logo" />
+        <Title>M-Store</Title>
+      </LogoBox>
+      <HumburgerMenu />
+      <Container>
+        <Navigation />
+      </Container>
+      <Container>
+        <SocialLinks />
+      </Container>
     </HeaderStyled>
   );
 };

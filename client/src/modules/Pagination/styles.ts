@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import SVG from "react-inlinesvg";
-import { colors } from "styles";
+import { colors, device } from "styles";
 
 interface IPaginationWrapperProps {
   display: number;
@@ -23,14 +23,14 @@ export const RightArrowStyled = styled(SVG)`
   transform: scaleX(-1);
 
   &:hover path {
-    fill: ${colors.BACKGROUND_ORANGE};
+    fill: ${colors.BG_ORANGE};
   }
 `;
 
 export const LeftArrowStyled = styled(SVG)`
   margin-right: 1rem;
   &:hover path {
-    fill: ${colors.BACKGROUND_ORANGE};
+    fill: ${colors.BG_ORANGE};
   }
 `;
 
@@ -73,7 +73,7 @@ export const PaginationStyled = styled.div`
   }
 
   .active {
-    background-color: ${colors.BACKGROUND_RED};
+    background-color: ${colors.BG_RED};
     color: ${colors.TEXT_1};
   }
 
@@ -86,7 +86,7 @@ export const PaginationStyled = styled.div`
   }
 
   .disabled a svg path {
-    fill: ${colors.BACKGROUND_LIGHT_GRAY};
+    fill: ${colors.BG_LIGHT_GRAY};
     cursor: not-allowed;
   }
 
@@ -94,7 +94,7 @@ export const PaginationStyled = styled.div`
     justify-content: center;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: ${device.tablet}) {
     flex-direction: column;
     align-items: center;
     gap: 2rem;

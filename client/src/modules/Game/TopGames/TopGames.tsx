@@ -17,7 +17,7 @@ const TopGames = () => {
 
   return (
     <TopGamesStyled>
-      <Title>Top Games</Title>
+      <Title>Gamer's choise</Title>
       <GameList games={topGames} />
     </TopGamesStyled>
   );

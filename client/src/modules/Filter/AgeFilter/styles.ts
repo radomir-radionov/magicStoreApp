@@ -8,7 +8,7 @@ export const Title = styled.h4`
   padding-bottom: ${indents.pb_0};
   padding-left: ${indents.pl_1};
   color: ${colors.TEXT_1};
-  border-bottom: 1px solid ${colors.BACKGROUND_WHITE};
+  border-bottom: 1px solid ${colors.BG_WHITE};
 `;
 
 export const Label = styled.label`

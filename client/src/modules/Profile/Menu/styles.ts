@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MenuStyled = styled.article`
+export const MenuStyled = styled.nav`
   margin-bottom: 5rem;
 `;
 

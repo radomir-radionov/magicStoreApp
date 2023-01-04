@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import schema from "./schema";
 import { InputText, ButtonModal, Textarea } from "components";
-import { currentUserDataSelector } from "redux/user/selectors";
+import userSelector from "redux/user/selectors";
 import { Form } from "./styles";
 
 interface IFormProps {
@@ -15,7 +15,7 @@ interface IFormProps {
 
 const ChangeUserDataModal = () => {
   const dispatch = useDispatch();
-  const { id } = useSelector(currentUserDataSelector);
+  const id = useSelector(userSelector.id);
 
   const {
     register,

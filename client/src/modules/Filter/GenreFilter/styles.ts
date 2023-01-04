@@ -10,7 +10,7 @@ export const Title = styled.h3`
   padding-left: ${indents.pl_1};
   margin-bottom: 1rem;
   color: ${colors.TEXT_1};
-  border-bottom: 1px solid ${colors.BACKGROUND_WHITE};
+  border-bottom: 1px solid ${colors.BG_WHITE};
 `;
 
 export const Label = styled.label`

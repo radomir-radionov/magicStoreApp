@@ -12,7 +12,7 @@ const GameList = ({ games, kindOfGames }: IGameProps) => {
     <GameListStyled display={games?.length}>
       {kindOfGames
         ? games &&
-          games?.map((game: IGame) => (
+          games.map((game: IGame) => (
             <GameItemCart key={game._id} game={game} />
           ))
         : games &&

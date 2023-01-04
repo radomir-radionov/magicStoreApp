@@ -1,4 +1,4 @@
-import { colors, typography } from "styles";
+import { colors, device, typography } from "styles";
 import styled from "styled-components";
 import { Button } from "components";
 
@@ -8,21 +8,27 @@ export const GameItemCartStyled = styled.article`
   width: fit-content;
   height: 30rem;
   padding: 2rem 0;
-  border-bottom: 1px solid ${colors.BACKGROUND_VIVID_CYAN};
+  border-bottom: 1px solid ${colors.BG_VIVID_CYAN};
+
+  @media (max-width: ${device.mobileL}) {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
 `;
 
-export const GameImgBox = styled.div`
+export const ImgBox = styled.div`
   width: 20rem;
   height: 24rem;
 `;
 
-export const GameImg = styled.img`
+export const Img = styled.img`
   height: 100%;
   width: 100%;
   border-radius: 8px;
 `;
 
-export const GameDetailsWrapper = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -33,6 +39,7 @@ export const GameDetails = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 27rem;
+  text-align: left;
 `;
 
 export const Title = styled.h3`
@@ -51,4 +58,6 @@ export const InputStyled = styled.input`
 
 export const ButtonStyled = styled(Button)``;
 
-export const InteractPanel = styled.div``;
+export const InteractPanel = styled.div`
+  display: flex;
+`;

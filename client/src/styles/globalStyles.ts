@@ -1,6 +1,7 @@
 import { ToastContainer } from "react-toastify";
 import styled, { createGlobalStyle } from "styled-components";
 import colors from "./colors";
+import device from "./device";
 import indents from "./indents";
 import typography from "./typography";
 
@@ -17,7 +18,7 @@ const GlobalStyles = createGlobalStyle`
     font-size: 62.5%;
     font-family: ${typography.FONT_FAMILY_MONTSERRAT};
     color: ${colors.TEXT_1};
-    background-color: ${colors.BACKGROUND_BODY};
+    background-color: ${colors.BG_BODY};
   }
 
   body {
@@ -25,7 +26,7 @@ const GlobalStyles = createGlobalStyle`
     font-size: 2rem;
     overflow-x: hidden;
 
-    @media (max-width: 768px) {
+    @media (max-width: ${device.tablet}) {
     padding: 0;
   }
   }
