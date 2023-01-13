@@ -9,6 +9,8 @@ import {
   Cart,
   Profile,
   Layout,
+  Test,
+  GameInfo,
 } from "screens";
 import { AdminPanel, Info, Settings } from "modules";
 
@@ -25,7 +27,9 @@ const AppRouter = () => {
             <Route path={pageRoutes.ADMIN_PANEL} element={<AdminPanel />} />
           </Route>
           <Route path={pageRoutes.PRODUCT} element={<Product />} />
+          <Route path={pageRoutes.CARD} element={<GameInfo />} />
           <Route path={pageRoutes.ABOUT} element={<About />} />
+          <Route path={pageRoutes.TEST} element={<Test />} />
         </Route>
         <Route path={pageRoutes.NOT_FOUND} element={<NotFound />} />
       </Route>

@@ -4,8 +4,8 @@ import { NavItemStyled, NavLinkStyled } from "./styles";
 
 interface INavItemProps {
   link: pageRoutes | string;
-  isAuth: any;
-  action: any;
+  isAuth?: any;
+  action?: any;
   children: ReactNode;
 }
 

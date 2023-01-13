@@ -12,7 +12,7 @@ export const NavList = styled.ul`
   color: ${colors.TEXT_GRAY};
   cursor: pointer;
 
-  @media (max-width: ${device.tablet}) {
+  @media (max-width: ${device.tabletl}) {
     display: flex;
     gap: 2rem;
     border-top: 0;

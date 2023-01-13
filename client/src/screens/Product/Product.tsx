@@ -1,18 +1,26 @@
 import { Spinner } from "components";
-import { FiltersBar, Pagination, SearchBar } from "modules";
-import { memo } from "react";
+import { Card, FiltersBar, Pagination, SearchBar } from "modules";
 import { useSelector } from "react-redux";
-import { filteredGamesSelector, isLoadingSelector } from "redux/game/selectors";
+import { gamesSelector } from "redux/game";
+import { gamesApiSelector, isLoadingSelector } from "redux/game/selectors";
+import { CardList } from "screens/Test/styles";
 import { FilteredGames, ProductStyled, SpanStyled, Title } from "./styles";
 
 const Product = () => {
-  const filteredGames = useSelector(filteredGamesSelector);
+  const filteredGames = useSelector(gamesSelector);
   const isLoading = useSelector(isLoadingSelector);
+  const games = useSelector(gamesApiSelector);
 
   return (
     <ProductStyled>
-      <FiltersBar />
-      <FilteredGames>
+      {/* <FiltersBar /> */}
+      <CardList>
+        {games.map((game: any) => {
+          const { id } = game;
+          return <Card key={id} data={game} />;
+        })}
+      </CardList>
+      {/* <FilteredGames>
         <SearchBar />
         <Title>
           Searched Games <SpanStyled>{filteredGames.length}</SpanStyled>
@@ -24,7 +32,7 @@ const Product = () => {
         ) : (
           <p>No one game by this name!!!</p>
         )}
-      </FilteredGames>
+      </FilteredGames> */}
     </ProductStyled>
   );
 };

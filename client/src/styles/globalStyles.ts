@@ -26,7 +26,7 @@ const GlobalStyles = createGlobalStyle`
     font-size: 2rem;
     overflow-x: hidden;
 
-    @media (max-width: ${device.tablet}) {
+    @media (max-width: ${device.tabletl}) {
     padding: 0;
   }
   }

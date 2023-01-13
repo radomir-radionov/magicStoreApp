@@ -50,6 +50,13 @@ const Navigation = () => {
       action: onClickSignInModal,
       content: "About",
     },
+    {
+      id: 4,
+      link: pageRoutes.TEST,
+      isAuth,
+      action: onClickSignInModal,
+      content: "Test",
+    },
   ];
 
   return (

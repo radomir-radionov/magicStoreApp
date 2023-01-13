@@ -8,8 +8,9 @@ import {
 } from "types/game";
 
 const initialState: IGameState = {
-  topGames: [],
   games: [],
+  gamesApi: [],
+  topGames: [],
   searchedGames: [],
   filteredGames: [],
   loading: false,
@@ -19,7 +20,11 @@ const gameSlice = createSlice({
   name: "GAMES",
   initialState,
   reducers: {
-    closeAllModals: () => initialState,
+    getGamesApi: () => {},
+    setGamesApi: (state, { payload }: any) => {
+      const { data } = payload;
+      state.gamesApi = data.results;
+    },
     getTopGames: () => {},
     setTopGames: (state, { payload }: PayloadAction<IGame[]>) => {
       state.topGames = payload;

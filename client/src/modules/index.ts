@@ -25,3 +25,4 @@ export { default as Settings } from "./Profile/Settings/Settings";
 export { default as AuthorizationMenu } from "./AuthorizationMenu/AuthorizationMenu";
 export { default as NavItem } from "./Navigation/NavItem/NavItem";
 export { default as MenuItem } from "./Profile/Menu/MenuItem/MenuItem";
+export { default as Card } from "./Game/Card/Card";

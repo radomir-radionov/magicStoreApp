@@ -1,7 +1,20 @@
+const axios = require("axios");
 const GameModel = require("../models/game-model");
 const gameService = require("../service/game-service");
 
 class GameController {
+  async getGamesApi(req, res, next) {
+    try {
+      const resp = await axios.get(
+        `https://api.rawg.io/api/games?key=${process.env.GAME_API_KEY}`
+      );
+
+      return res.send(resp.data);
+    } catch (e) {
+      next(e);
+    }
+  }
+
   async getTopGames(req, res, next) {
     try {
       const gamesData = await GameModel.find();

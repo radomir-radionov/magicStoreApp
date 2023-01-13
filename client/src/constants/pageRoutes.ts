@@ -10,9 +10,12 @@ enum pageRoutes {
   ADMIN_PANEL = "adminPanel",
   CART = "cart",
   PRODUCT = "product",
+  CARD = "product/:id/:name",
   ABOUT = "about",
   ADMIN = "admin",
   NOT_FOUND = "*",
+
+  TEST = "test",
 }
 
 export const userProfileRoutes = [
@@ -36,13 +39,6 @@ export const userProfileRoutes = [
     name: "Cart",
     role: "User",
     Icon: AiOutlineShoppingCart,
-  },
-  {
-    id: 3,
-    path: "adminPanel",
-    name: "Admin panel",
-    role: "Admin",
-    Icon: MdAdminPanelSettings,
   },
 ];
 

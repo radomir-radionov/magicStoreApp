@@ -18,7 +18,7 @@ export const HeaderStyled = styled.header`
   background-color: ${colors.BG_DARK_GRAY};
   transition: all 0.18s ease-out;
 
-  @media (max-width: ${device.tablet}) {
+  @media (max-width: ${device.tabletl}) {
     position: initial;
     display: flex;
     flex-direction: row;
@@ -33,7 +33,7 @@ export const LogoBox = styled.div`
   background-color: ${colors.BG_BLACK};
   cursor: pointer;
 
-  @media (max-width: ${device.tablet}) {
+  @media (max-width: ${device.tabletl}) {
     display: flex;
     gap: 2rem;
   }
@@ -42,7 +42,7 @@ export const LogoBox = styled.div`
 export const Logo = styled.img`
   width: 8rem;
 
-  @media (max-width: ${device.tablet}) {
+  @media (max-width: ${device.tabletl}) {
     width: 6rem;
   }
 `;
@@ -54,13 +54,13 @@ export const Title = styled.h4`
   font-size: 1.6rem;
   color: ${colors.TEXT_GRAY};
 
-  @media (max-width: ${device.tablet}) {
+  @media (max-width: ${device.tabletl}) {
     font-size: 2rem;
   }
 `;
 
 export const Container = styled.div`
-  @media (max-width: ${device.tablet}) {
+  @media (max-width: ${device.tabletl}) {
     display: none;
   }
 `;

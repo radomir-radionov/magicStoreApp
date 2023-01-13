@@ -3,6 +3,11 @@ import { IEditGameData, IFilteredGamesParams, INewGameData } from "types/game";
 import { httpService } from "../http/index";
 
 const gameService = {
+  getGamesApi: async () => {
+    const resp = await httpService.get(serverEndpoints.GAMES_API);
+    const { data, status } = resp;
+    return { data, status };
+  },
   getTopGames: async () => {
     const response = await httpService.get(serverEndpoints.TOP_GAMES);
     return response.data;
