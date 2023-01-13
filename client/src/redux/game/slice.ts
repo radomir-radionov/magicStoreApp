@@ -1,10 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IGameState } from "./types";
-import { IFilteredGamesParams, IGame, INewGameData } from "types/game";
+import {
+  IEditGameData,
+  IFilteredGamesParams,
+  IGame,
+  INewGameData,
+} from "types/game";
 
 const initialState: IGameState = {
-  topGames: [],
   games: [],
+  gamesApi: [],
+  topGames: [],
   searchedGames: [],
   filteredGames: [],
   loading: false,
@@ -14,7 +20,11 @@ const gameSlice = createSlice({
   name: "GAMES",
   initialState,
   reducers: {
-    closeAllModals: () => initialState,
+    getGamesApi: () => {},
+    setGamesApi: (state, { payload }: any) => {
+      const { data } = payload;
+      state.gamesApi = data.results;
+    },
     getTopGames: () => {},
     setTopGames: (state, { payload }: PayloadAction<IGame[]>) => {
       state.topGames = payload;
@@ -31,6 +41,7 @@ const gameSlice = createSlice({
       state.filteredGames = payload;
     },
     addNewGame: (state, { payload }: PayloadAction<INewGameData>) => {},
+    editGame: (state, { payload }: PayloadAction<IEditGameData>) => {},
     setLoading: (state, { payload }: PayloadAction<boolean>) => {
       state.loading = payload;
     },

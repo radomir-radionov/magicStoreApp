@@ -1,9 +1,4 @@
-import {
-  AddGameModal,
-  EditGameModal,
-  SignInModal,
-  SignUpModal,
-} from "./Modals";
+import { AddGameModal, EditGameModal, SignInModal, SignUpModal } from ".";
 
 interface IModalTypes {
   SIGN_IN_MODAL: string;
@@ -29,7 +24,7 @@ export const MODALS_MAPPING = {
 export type TModalType = string;
 
 export interface IModalInfo {
-  [key: string]: string;
+  [key: string]: any;
 }
 
 export interface IModalSelectorData {

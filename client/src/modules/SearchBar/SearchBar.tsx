@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { gameActions } from "redux/game";
 import { SearchIcon } from "assets";
-import { Form, BoxImg, Img, Input } from "./styles";
+import { Form, Img, Input, Wrapper } from "./styles";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
@@ -20,19 +20,19 @@ const SearchBar = () => {
   }, [dispatch, searchText]);
 
   return (
-    <Form>
-      <BoxImg>
+    <Wrapper>
+      <Form>
         <Img src={SearchIcon} alt="Search icon" />
-      </BoxImg>
-      <Input
-        type="search"
-        placeholder="Enter a game name"
-        value={searchText}
-        onChange={(e) => {
-          onSelectedValue("searchText", e.target.value);
-        }}
-      />
-    </Form>
+        <Input
+          type="search"
+          placeholder="Enter a game name"
+          value={searchText}
+          onChange={(e) => {
+            onSelectedValue("searchText", e.target.value);
+          }}
+        />
+      </Form>
+    </Wrapper>
   );
 };
 

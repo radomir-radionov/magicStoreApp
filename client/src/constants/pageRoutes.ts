@@ -1,29 +1,45 @@
-import { CgProfile } from "react-icons/cg";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { AiTwotoneSetting, AiOutlineShoppingCart } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
 
 enum pageRoutes {
   HOME = "/",
   PROFILE = "profile/:id",
-  USER_INFO = "userInfo",
-  EDIT_PANEL = "editPanel",
+  PROFILE_INFO = "profileInfo",
+  SETTINGS = "settings",
   ADMIN_PANEL = "adminPanel",
   CART = "cart",
   PRODUCT = "product",
+  CARD = "product/:id/:name",
   ABOUT = "about",
   ADMIN = "admin",
   NOT_FOUND = "*",
+
+  TEST = "test",
 }
 
 export const userProfileRoutes = [
   {
-    id: 1,
-    path: "adminPanel",
-    name: "Admin panel",
-    Icon: MdAdminPanelSettings,
+    id: 0,
+    path: "",
+    name: "Profile",
+    role: "User",
+    Icon: CgProfile,
   },
-  { id: 2, path: "editPanel", name: "Edit profile", Icon: AiTwotoneSetting },
-  { id: 3, path: "cart", name: "Cart", Icon: AiOutlineShoppingCart },
+  {
+    id: 1,
+    path: "settings",
+    name: "Settings",
+    role: "User",
+    Icon: AiTwotoneSetting,
+  },
+  {
+    id: 2,
+    path: "cart",
+    name: "Cart",
+    role: "User",
+    Icon: AiOutlineShoppingCart,
+  },
 ];
 
 export enum publicRoutes {

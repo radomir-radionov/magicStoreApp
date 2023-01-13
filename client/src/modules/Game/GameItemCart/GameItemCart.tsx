@@ -1,19 +1,19 @@
 import { useDispatch, useSelector } from "react-redux";
-import { currentUserDataSelector } from "redux/user/selectors";
+import userSelector from "redux/user/selectors";
 import { BUTTON_VARIANTS } from "components/Button/types";
 import { IGame } from "types/game";
-import { cartActions } from "redux/cart";
 import {
   ButtonStyled,
   Description,
   GameDetails,
-  GameDetailsWrapper,
-  GameImg,
-  GameImgBox,
+  Img,
+  ImgBox,
   GameItemCartStyled,
   InteractPanel,
   Title,
+  Container,
 } from "./styles";
+import { userActions } from "redux/user";
 
 interface IGameItemCartProps {
   game: IGame;
@@ -21,18 +21,18 @@ interface IGameItemCartProps {
 
 const GameItemCart = ({ game }: IGameItemCartProps) => {
   const dispatch = useDispatch();
-  const { id } = useSelector(currentUserDataSelector);
+  const id = useSelector(userSelector.id);
 
   const onClickRemoveItem = () => {
-    dispatch(cartActions.removeGameInCart({ id, game }));
+    dispatch(userActions.removeGameInCart({ id, game }));
   };
 
   return (
     <GameItemCartStyled>
-      <GameImgBox>
-        <GameImg src={game.img} alt="Game Icon" />
-      </GameImgBox>
-      <GameDetailsWrapper>
+      <ImgBox>
+        <Img src={game.img} alt="Game Icon" />
+      </ImgBox>
+      <Container>
         <GameDetails>
           <Title>{game.name}</Title>
           <Description>{game.description}</Description>
@@ -48,7 +48,7 @@ const GameItemCart = ({ game }: IGameItemCartProps) => {
             Remove
           </ButtonStyled>
         </InteractPanel>
-      </GameDetailsWrapper>
+      </Container>
     </GameItemCartStyled>
   );
 };

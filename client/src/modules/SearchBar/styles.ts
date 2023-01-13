@@ -1,34 +1,35 @@
 import styled from "styled-components";
 import { colors } from "styles";
 
-export const Form = styled.form`
-  position: relative;
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 6.8rem;
 `;
 
-export const BoxImg = styled.span`
-  position: absolute;
-  text-align: center;
-  top: 16px;
-  left: 20px;
+export const Form = styled.form`
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 10px;
+  flex-basis: 400px;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  background-color: white;
 `;
 
 export const Img = styled.img``;
 
 export const Input = styled.input`
-  width: 500px;
-  padding: 1.6rem 4.4rem;
+  width: 100%;
+  height: 3rem;
   outline: none;
   border: none;
   border-radius: 8px;
+  font-size: 1.5rem;
 
   ::placeholder {
     color: ${colors.TEXT_BLACK};
-  }
-
-  @media (max-width: 768px) {
-    width: 280px;
   }
 `;

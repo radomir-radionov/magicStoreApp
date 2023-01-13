@@ -14,8 +14,8 @@ export const FrontSideWrapper = styled.div`
   border-radius: 8px;
   transition: 1s;
   backface-visibility: hidden;
-  background-color: ${colors.BACKGROUND_BLACK};
-  box-shadow: 0px 5px 10px 0px ${colors.BOX_SHADOW};
+  background-color: ${colors.BG_BLACK};
+  box-shadow: 0 5px 16px #b3fcf1;
 
   &:hover {
     transform: rotateY(180deg);
@@ -29,14 +29,16 @@ export const BackSideWrapper = styled.div`
   border-radius: 8px;
   transition: 1s;
   backface-visibility: hidden;
-  background-color: ${colors.BACKGROUND_BLACK};
+  background-color: ${colors.BG_BLACK};
   transform: rotateY(180deg);
-  box-shadow: 0px 5px 10px 0px ${colors.BOX_SHADOW};
+
+  box-shadow: 0 5px 10px #b3fcf1;
 `;
 
 export const GameItemStyled = styled.article`
   position: relative;
   perspective: 50rem;
+
   &:hover ${FrontSideWrapper} {
     transform: rotateY(180deg);
   }

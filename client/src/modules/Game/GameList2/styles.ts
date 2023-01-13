@@ -1,0 +1,16 @@
+import styled from "styled-components";
+
+interface IGameListStyledProps {
+  display: number;
+}
+
+export const GameListStyled = styled.div`
+  display: ${({ display }: IGameListStyledProps) =>
+    display ? "flex" : "none"};
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  width: 100%;
+`;
+
+/// game item

@@ -1,48 +1,65 @@
 import { useSelector } from "react-redux";
-import { userNameSelector } from "redux/user/selectors";
-import { AnimatedTitleStyled, Br, SpanStyled } from "./styles";
+import userSelector from "redux/user/selectors";
+import { AnimatedTitleStyled, Br, Letter, Box } from "./styles";
 
 const AnimatedTitle = () => {
-  const userName = useSelector(userNameSelector);
+  const userName = useSelector(userSelector.name);
 
   return (
     <AnimatedTitleStyled>
-      <SpanStyled>H</SpanStyled>
-      <SpanStyled>i</SpanStyled>
-      <SpanStyled>,</SpanStyled>
+      <Box>
+        <Letter>H</Letter>
+        <Letter>i</Letter>
+        <Letter>,</Letter>
+      </Box>
       <Br />
       {userName?.length ? (
-        <SpanStyled>{userName}</SpanStyled>
+        <Letter>{userName}</Letter>
       ) : (
         <>
-          <SpanStyled>u</SpanStyled>
-          <SpanStyled>s</SpanStyled>
-          <SpanStyled>e</SpanStyled>
-          <SpanStyled>r</SpanStyled>
+          <Box>
+            <Letter>u</Letter>
+            <Letter>s</Letter>
+            <Letter>e</Letter>
+            <Letter>r</Letter>
+          </Box>
         </>
       )}
-      <SpanStyled>,</SpanStyled>
+      <Letter>,</Letter>
       <Br />
-      <SpanStyled>w</SpanStyled>
-      <SpanStyled>e</SpanStyled>
-      <SpanStyled>l</SpanStyled>
-      <SpanStyled>c</SpanStyled>
-      <SpanStyled>o</SpanStyled>
-      <SpanStyled>m</SpanStyled>
-      <SpanStyled>e</SpanStyled> <SpanStyled>t</SpanStyled>
-      <SpanStyled>o</SpanStyled>
+      <Box>
+        <Letter>w</Letter>
+        <Letter>e</Letter>
+        <Letter>l</Letter>
+        <Letter>c</Letter>
+        <Letter>o</Letter>
+        <Letter>m</Letter>
+        <Letter>e </Letter>
+      </Box>
+      <Box>
+        <Letter>t</Letter>
+        <Letter>o</Letter>
+      </Box>
       <Br />
-      <SpanStyled>t</SpanStyled>
-      <SpanStyled>h</SpanStyled>
-      <SpanStyled>e</SpanStyled> <SpanStyled>M</SpanStyled>
-      <SpanStyled>a</SpanStyled>
-      <SpanStyled>g</SpanStyled>
-      <SpanStyled>i</SpanStyled>
-      <SpanStyled>c</SpanStyled> <SpanStyled>s</SpanStyled>
-      <SpanStyled>t</SpanStyled>
-      <SpanStyled>o</SpanStyled>
-      <SpanStyled>r</SpanStyled>
-      <SpanStyled>e</SpanStyled>
+      <Box>
+        <Letter>t</Letter>
+        <Letter>h</Letter>
+        <Letter>e</Letter>
+      </Box>
+      <Box>
+        <Letter>M</Letter>
+        <Letter>a</Letter>
+        <Letter>g</Letter>
+        <Letter>i</Letter>
+        <Letter>c</Letter>
+      </Box>
+      <Box>
+        <Letter>S</Letter>
+        <Letter>t</Letter>
+        <Letter>o</Letter>
+        <Letter>r</Letter>
+        <Letter>e</Letter>
+      </Box>
     </AnimatedTitleStyled>
   );
 };

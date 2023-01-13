@@ -1,8 +1,17 @@
+import { gameActions } from "redux/game";
 import { toast } from "react-toastify";
 import { all, call, put, takeLatest } from "redux-saga/effects";
 import { gameService } from "services";
 import { IGame } from "types/game";
-import { gameActions } from "./slice";
+
+export function* getGamesApi(): any {
+  try {
+    const resp = yield call(() => gameService.getGamesApi());
+    yield put(gameActions.setGamesApi(resp));
+  } catch (e: any) {
+    toast.error(e.response.data.message);
+  }
+}
 
 export function* getTopGamesSaga() {
   try {
@@ -62,12 +71,27 @@ export function* addNewGameSaga({
   }
 }
 
+export function* editGameSaga({
+  payload,
+}: ReturnType<typeof gameActions.editGame>) {
+  try {
+    const { data } = yield call(() => gameService.editGame(payload));
+    const { message } = data;
+    toast.success(message);
+  } catch (e) {
+    // yield put(gameActions.setLoading(false));
+    // console.log(e.response?.data?.message);
+  }
+}
+
 function* gameSaga() {
   yield all([
+    takeLatest(gameActions.getGamesApi, getGamesApi),
     takeLatest(gameActions.getTopGames, getTopGamesSaga),
     takeLatest(gameActions.getSearchedGames, getSearchedGamesSaga),
     takeLatest(gameActions.getFilteredGames, getFilteredGamesSaga),
     takeLatest(gameActions.addNewGame, addNewGameSaga),
+    takeLatest(gameActions.editGame, editGameSaga),
   ]);
 }
 

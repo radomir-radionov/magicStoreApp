@@ -1,7 +1,20 @@
+const axios = require("axios");
 const GameModel = require("../models/game-model");
 const gameService = require("../service/game-service");
 
 class GameController {
+  async getGamesApi(req, res, next) {
+    try {
+      const resp = await axios.get(
+        `https://api.rawg.io/api/games?key=${process.env.GAME_API_KEY}`
+      );
+
+      return res.send(resp.data);
+    } catch (e) {
+      next(e);
+    }
+  }
+
   async getTopGames(req, res, next) {
     try {
       const gamesData = await GameModel.find();
@@ -44,6 +57,17 @@ class GameController {
     try {
       const { newGameData } = req.body;
       await gameService.addGame(newGameData);
+      return res.status(200);
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  async editGame(req, res, next) {
+    try {
+      const { editedGameData } = req.body;
+      await gameService.editGame(editedGameData);
+      return res.status(200).json({ message: "Data has changed!" });
     } catch (e) {
       next(e);
     }
@@ -66,36 +90,6 @@ class GameController {
       next(e);
     }
   }
-
-  // async deleteGame(req, res, next) {
-  //   try {
-  //     const { id } = req.params;
-  //     await gameService.deleteGame(id);
-  //     return res.status(200);
-  //   } catch (e) {
-  //     next(e);
-  //   }
-  // }
-
-  // async editGame(req, res, next) {
-  //   try {
-  //     const { _id, name, genre, description, price, image, platform, age } =
-  //       req.body;
-  //     await gameService.editGame(
-  //       _id,
-  //       name,
-  //       genre,
-  //       description,
-  //       price,
-  //       image,
-  //       platform,
-  //       age
-  //     );
-  //     return res.status(200);
-  //   } catch (e) {
-  //     next(e);
-  //   }
-  // }
 }
 
 module.exports = new GameController();

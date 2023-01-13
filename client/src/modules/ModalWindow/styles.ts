@@ -8,5 +8,7 @@ export const ModalWrapper = styled.div`
   bottom: 0;
   left: 0;
   z-index: 1;
-  background-color: ${colors.MODAL_BACKGROUND_OPACITY};
+  background-color: ${colors.MODAL_BG_OPACITY};
 `;
+
+export const Portal = styled.div``;

@@ -4,11 +4,15 @@ enum serverEndpoints {
   SIGN_IN = "signIn",
   SIGN_UP = "signUp",
   LOGOUT = "logout",
-  SAVE_IMAGE = "setUserImg",
-  UPDATE_USER_DATA = "updateUserData",
 
+  GET_IMG = "getUserImg",
+  UPDATE_USER_DATA = "updateUserData",
+  GET_USER_DATA = "getUserData",
+
+  GAMES_API = "getGamesApi",
   TOP_GAMES = "getTopGames",
   ADD_NEW_GAME = "addNewGame",
+  EDIT_GAME = "editGame",
 }
 
 export default serverEndpoints;

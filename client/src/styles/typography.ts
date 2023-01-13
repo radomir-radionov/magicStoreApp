@@ -3,19 +3,17 @@ import { css } from "styled-components";
 const H1 = css`
   font-weight: 600;
   font-size: 7rem;
-  line-height: 6.6rem;
 `;
 
 const H2 = css`
   font-weight: 600;
-  font-size: 5rem;
-  line-height: 4.6rem;
+  font-size: 6rem;
+  line-height: 5.2rem;
 `;
 
 const H3 = css`
   font-weight: 500;
-  font-size: 3.8rem;
-  line-height: 3.4rem;
+  font-size: 3.4rem;
 `;
 
 const H4 = css`

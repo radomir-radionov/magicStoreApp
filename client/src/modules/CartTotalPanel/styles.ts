@@ -7,10 +7,10 @@ export const CartTotalPanelStyled = styled.div`
   align-items: center;
   gap: 5rem;
   padding-top: 3rem;
-  border-top: 2px solid ${colors.BACKGROUND_RED};
+  border-top: 2px solid ${colors.BG_RED};
 `;
 
-export const PStyled = styled.p``;
+export const Text = styled.p``;
 
 export const ButtonStyled = styled(Button)`
   width: 14rem;

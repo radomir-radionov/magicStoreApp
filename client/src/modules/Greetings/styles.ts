@@ -1,4 +1,4 @@
-import { colors } from "styles";
+import { colors, device } from "styles";
 import styled, { keyframes } from "styled-components";
 import { AiOutlineArrowDown } from "react-icons/ai";
 
@@ -17,13 +17,11 @@ export const GreetingsStyled = styled.section`
   width: 100%;
   height: 100vh;
   padding: 6rem;
-`;
 
-export const GreetingsZone = styled.div``;
-
-export const RegistrationZone = styled.div`
-  display: flex;
-  gap: 40px;
+  @media (max-width: ${device.tablet}) and (max-height: 64rem) {
+    height: 91vh;
+    padding: 5rem;
+  }
 `;
 
 export const ScrollDownRight = styled.div`

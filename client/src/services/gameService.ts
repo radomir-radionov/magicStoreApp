@@ -1,8 +1,13 @@
 import serverEndpoints from "constants/serverEndpoints";
-import { IFilteredGamesParams, INewGameData } from "types/game";
+import { IEditGameData, IFilteredGamesParams, INewGameData } from "types/game";
 import { httpService } from "../http/index";
 
 const gameService = {
+  getGamesApi: async () => {
+    const resp = await httpService.get(serverEndpoints.GAMES_API);
+    const { data, status } = resp;
+    return { data, status };
+  },
   getTopGames: async () => {
     const response = await httpService.get(serverEndpoints.TOP_GAMES);
     return response.data;
@@ -31,6 +36,12 @@ const gameService = {
     const newGameData = payload;
     await httpService.post(serverEndpoints.ADD_NEW_GAME, {
       newGameData,
+    });
+  },
+  editGame: async (payload: IEditGameData) => {
+    const editedGameData = payload;
+    await httpService.put(serverEndpoints.EDIT_GAME, {
+      editedGameData,
     });
   },
 };
