@@ -1,12 +1,10 @@
 import {
   CardStyled,
-  Img,
-  Info,
   Meta,
   Platforms,
   Score,
   NavLinkStyled,
-  Released,
+  Price,
   Heading,
 } from "./styles";
 
@@ -15,23 +13,18 @@ interface ICardProps {
 }
 
 const Card = ({ data }: ICardProps) => {
-  const { id, name, slug, metacritic, released, background_image } = data;
-
-  console.log(data);
+  const { id, name, slug, rating, reviews_text_count, background_image } = data;
 
   return (
-    <CardStyled key={id}>
-      <Img src={background_image} alt={name + "image"} />
-      <Info>
-        <Meta>
-          <Platforms></Platforms>
-          <Score>{metacritic}</Score>
-        </Meta>
-        <Heading>
-          <NavLinkStyled to={`${id}/${slug}`}>{name}</NavLinkStyled>
-          <Released>{released}</Released>
-        </Heading>
-      </Info>
+    <CardStyled key={id} imgUrl={background_image}>
+      <Meta>
+        <Platforms></Platforms>
+        <Score>{rating}</Score>
+      </Meta>
+      <Heading>
+        <NavLinkStyled to={`${id}/${slug}`}>{name}</NavLinkStyled>
+        <Price>{reviews_text_count}$</Price>
+      </Heading>
     </CardStyled>
   );
 };

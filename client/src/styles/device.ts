@@ -3,8 +3,10 @@ enum device {
   mobileM = "375px",
   mobileL = "425px",
   tablet = "624px",
-  tabletl = "768px",
+  tabletM = "768px",
+  tabletL = "876px",
   laptop = "1024px",
+  laptopM = "1224px",
   laptopL = "1440px",
   desktop = "2560px",
 }

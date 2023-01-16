@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, device, indents, typography } from "styles";
+import { device } from "styles";
 
 export const FiltersBarStyled = styled.nav`
   height: fit-content;
@@ -10,11 +10,7 @@ export const FiltersBarStyled = styled.nav`
   }
 `;
 
-export const Title = styled.h3`
-  padding-left: ${indents.pl_1};
-  padding-bottom: 1rem;
-  margin-bottom: 3.1rem;
-  border-bottom: 1px solid white;
-  ${typography.H3}
-  color: ${colors.TEXT_1};
+export const Wrapper = styled.div`
+  display: flex;
+  gap: 3rem;
 `;

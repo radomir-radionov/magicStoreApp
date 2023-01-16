@@ -1,5 +1,5 @@
 import { genres } from "constants/filtersData";
-import { Form, Title, Label, RadioInput } from "./styles";
+import { Form, Label, Option, Select } from "./styles";
 
 interface IGenreFilterProps {
   searchParam: string;
@@ -7,23 +7,25 @@ interface IGenreFilterProps {
 }
 
 const GenreFilter = ({ searchParam, onSelectedParams }: IGenreFilterProps) => {
+  const handleChange = (e: any) => {
+    onSelectedParams("genre", e.target.value);
+  };
+
   return (
     <Form>
-      <Title>Genres</Title>
-      {genres.map(({ id, genre, label }) => (
-        <Label htmlFor={genre} key={id}>
-          <RadioInput
-            type="radio"
-            name="genre"
-            value={genre}
-            onChange={() => {
-              onSelectedParams("genre", genre);
-            }}
-            checked={genre === searchParam}
-          />
-          {label}
-        </Label>
-      ))}
+      <Label>Genre</Label>
+      <Select value={searchParam} onChange={handleChange}>
+        <Option value="" disabled hidden>
+          Choose here
+        </Option>
+        {genres.map(({ id, name, value }) => {
+          return (
+            <Option value={value} key={id}>
+              {name}
+            </Option>
+          );
+        })}
+      </Select>
     </Form>
   );
 };

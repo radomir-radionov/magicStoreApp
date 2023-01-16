@@ -4,10 +4,28 @@ import { all, call, put, takeLatest } from "redux-saga/effects";
 import { gameService } from "services";
 import { IGame } from "types/game";
 
+export interface ResponseGenerator {
+  config?: any;
+  data?: any;
+  headers?: any;
+  request?: any;
+  status?: number;
+  statusText?: string;
+}
+
 export function* getGamesApi(): any {
   try {
     const resp = yield call(() => gameService.getGamesApi());
-    yield put(gameActions.setGamesApi(resp));
+    yield put(gameActions.setGamesApi(resp.results));
+  } catch (e: any) {
+    toast.error(e.response.data.message);
+  }
+}
+
+export function* getGameData(payload: any): any {
+  try {
+    const resp = yield call(() => gameService.getGameData(payload));
+    yield put(gameActions.setGameData(resp));
   } catch (e: any) {
     toast.error(e.response.data.message);
   }
@@ -38,16 +56,14 @@ export function* getSearchedGamesSaga({
   }
 }
 
-export function* getFilteredGamesSaga({
-  payload,
-}: ReturnType<typeof gameActions.getFilteredGames>) {
+export function* getFilteredGamesSaga(payload: any) {
   try {
-    yield put(gameActions.setLoading(true));
-    const response: IGame[] = yield call(() =>
+    // yield put(gameActions.setLoading(true));
+    const resp: ResponseGenerator = yield call(() =>
       gameService.getFilteredGames(payload)
     );
-    yield put(gameActions.setFilteredGames(response));
-    yield put(gameActions.setLoading(false));
+    yield put(gameActions.setFilteredGames(resp.data));
+    // yield put(gameActions.setLoading(false));
   } catch (e: any) {
     yield put(gameActions.setLoading(false));
     toast.error(e.response.data.message);
@@ -87,6 +103,7 @@ export function* editGameSaga({
 function* gameSaga() {
   yield all([
     takeLatest(gameActions.getGamesApi, getGamesApi),
+    takeLatest(gameActions.getGameData, getGameData),
     takeLatest(gameActions.getTopGames, getTopGamesSaga),
     takeLatest(gameActions.getSearchedGames, getSearchedGamesSaga),
     takeLatest(gameActions.getFilteredGames, getFilteredGamesSaga),

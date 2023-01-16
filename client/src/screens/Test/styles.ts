@@ -8,24 +8,6 @@ export const TestStyled = styled.div`
   width: 100%;
   padding: 5rem;
 
-  .card {
-    color: white;
-    float: left;
-    width: calc(25% - 20px);
-    padding: 10px;
-    border-radius: 10px;
-    margin: 10px;
-    height: 200px;
-    background-color: red;
-  }
-  .card p {
-    font-size: 18px;
-  }
-
-  .cardContainer {
-    width: 80%;
-  }
-
   @media screen and (max-width: 600px) {
     .card {
       width: 100%;
@@ -54,4 +36,5 @@ export const CardList = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 80%;
 `;

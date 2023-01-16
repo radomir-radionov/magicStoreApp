@@ -10,6 +10,11 @@ export const gamesApiSelector = createSelector(
   (state) => state.gamesApi
 );
 
+export const gameDataSelector = createSelector(
+  games,
+  (state) => state.gameInfo
+);
+
 export const topGamesSelector = createSelector(
   games,
   (state) => state.topGames

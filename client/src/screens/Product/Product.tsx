@@ -2,24 +2,43 @@ import { Spinner } from "components";
 import { Card, FiltersBar, Pagination, SearchBar } from "modules";
 import { useSelector } from "react-redux";
 import { gamesSelector } from "redux/game";
-import { gamesApiSelector, isLoadingSelector } from "redux/game/selectors";
-import { CardList } from "screens/Test/styles";
-import { FilteredGames, ProductStyled, SpanStyled, Title } from "./styles";
+import {
+  filteredGamesSelector,
+  gamesApiSelector,
+  isLoadingSelector,
+} from "redux/game/selectors";
+import {
+  CardList,
+  FilteredGames,
+  ProductStyled,
+  SpanStyled,
+  Header,
+  Title,
+} from "./styles";
 
 const Product = () => {
-  const filteredGames = useSelector(gamesSelector);
+  const filteredGames = useSelector(filteredGamesSelector);
   const isLoading = useSelector(isLoadingSelector);
-  const games = useSelector(gamesApiSelector);
+
+  console.log(filteredGames);
 
   return (
     <ProductStyled>
-      {/* <FiltersBar /> */}
+      <Header>
+        <Title>All games</Title>
+      </Header>
+      <FiltersBar />
       <CardList>
-        {games.map((game: any) => {
-          const { id } = game;
-          return <Card key={id} data={game} />;
-        })}
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          filteredGames.map((game: any) => {
+            const { id } = game;
+            return <Card key={id} data={game} />;
+          })
+        )}
       </CardList>
+      {/* <FiltersBar /> */}
       {/* <FilteredGames>
         <SearchBar />
         <Title>

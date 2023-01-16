@@ -14,7 +14,6 @@ export { default as PlatformFilter } from "./Filter/PlatformFilter/PlatformFilte
 export { default as Navigation } from "./Navigation/Navigation";
 export { default as CartTotalPanel } from "./CartTotalPanel/CartTotalPanel";
 export { default as Pagination } from "./Pagination/Pagination";
-export { default as FilterController } from "./Filter/FilterController";
 export { default as Header } from "./Header/Header";
 export { default as HumburgerMenu } from "./HumburgerMenu/HumburgerMenu";
 export { default as Footer } from "./Footer/Footer";

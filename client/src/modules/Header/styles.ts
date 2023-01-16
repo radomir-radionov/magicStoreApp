@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, device, indents } from "styles";
+import { colors, device } from "styles";
 
 export const HeaderStyled = styled.header`
   position: fixed;
@@ -11,21 +11,20 @@ export const HeaderStyled = styled.header`
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  height: 100vh;
   width: 13rem;
   padding: 2rem 0;
   margin: 0;
   background-color: ${colors.BG_DARK_GRAY};
   transition: all 0.18s ease-out;
 
-  @media (max-width: ${device.tabletl}) {
+  @media (max-width: ${device.tabletM}) {
     position: initial;
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: 10rem;
+
     width: 100%;
-    padding: 0 3rem;
+    padding: 2rem;
   }
 `;
 
@@ -33,7 +32,7 @@ export const LogoBox = styled.div`
   background-color: ${colors.BG_BLACK};
   cursor: pointer;
 
-  @media (max-width: ${device.tabletl}) {
+  @media (max-width: ${device.tabletM}) {
     display: flex;
     gap: 2rem;
   }
@@ -42,7 +41,7 @@ export const LogoBox = styled.div`
 export const Logo = styled.img`
   width: 8rem;
 
-  @media (max-width: ${device.tabletl}) {
+  @media (max-width: ${device.tabletM}) {
     width: 6rem;
   }
 `;
@@ -54,13 +53,13 @@ export const Title = styled.h4`
   font-size: 1.6rem;
   color: ${colors.TEXT_GRAY};
 
-  @media (max-width: ${device.tabletl}) {
+  @media (max-width: ${device.tabletM}) {
     font-size: 2rem;
   }
 `;
 
 export const Container = styled.div`
-  @media (max-width: ${device.tabletl}) {
+  @media (max-width: ${device.tabletM}) {
     display: none;
   }
 `;

@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
 
   html,
   body {
-    height: 100%;
+    min-height: 100%;
     margin: 0;
     padding: ${indents.p_0};
     font-size: 62.5%;
@@ -26,7 +26,7 @@ const GlobalStyles = createGlobalStyle`
     font-size: 2rem;
     overflow-x: hidden;
 
-    @media (max-width: ${device.tabletl}) {
+    @media (max-width: ${device.tabletM}) {
     padding: 0;
   }
   }

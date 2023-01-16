@@ -1,29 +1,32 @@
 import { ages } from "constants/filtersData";
-import { Form, Label, RadioInput, Title } from "./styles";
+import { Form, Label, Option, Select } from "./styles";
 
 interface IAgeFilterParams {
-  searchParams: string;
+  searchParam: string;
   onSelectedParams: (key: string, searchParam: string) => void;
 }
 
-const AgeFilter = ({ searchParams, onSelectedParams }: IAgeFilterParams) => {
+const AgeFilter = ({ searchParam, onSelectedParams }: IAgeFilterParams) => {
   return (
     <Form>
-      <Title>Age</Title>
-      {ages.map(({ id, value, name }) => (
-        <Label key={id}>
-          <RadioInput
-            type="radio"
-            name="age"
-            value={searchParams}
-            onChange={() => {
-              onSelectedParams("age", value);
-            }}
-            checked={searchParams === value}
-          />
-          {name}
-        </Label>
-      ))}
+      <Label>Age</Label>
+      <Select
+        value={searchParam}
+        onChange={(e) => {
+          onSelectedParams("age", e.target.value);
+        }}
+      >
+        <Option value="" disabled hidden>
+          Choose here
+        </Option>
+        {ages.map(({ id, name, value }) => {
+          return (
+            <Option value={value} key={id}>
+              {name}
+            </Option>
+          );
+        })}
+      </Select>
     </Form>
   );
 };

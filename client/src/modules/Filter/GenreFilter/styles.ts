@@ -1,24 +1,27 @@
 import styled from "styled-components";
-import { colors, indents, typography } from "styles";
+import { colors } from "styles";
 
 export const Form = styled.form`
-  margin-bottom: 1.6rem;
-`;
-
-export const Title = styled.h3`
-  padding-bottom: ${indents.pb_0};
-  padding-left: ${indents.pl_1};
-  margin-bottom: 1rem;
-  color: ${colors.TEXT_1};
-  border-bottom: 1px solid ${colors.BG_WHITE};
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const Label = styled.label`
   display: block;
-  ${typography.BODY2}
   color: ${colors.TEXT_1};
 `;
 
-export const RadioInput = styled.input`
-  margin-right: 1rem;
+export const Select = styled.select`
+  width: 13rem;
+  height: 2rem;
+  margin-left: 2.6rem;
+  outline: 1px solid ${colors.TEXT_1};
+  color: ${colors.TEXT_1};
+  background: transparent;
+  cursor: pointer;
+`;
+
+export const Option = styled.option`
+  color: ${colors.TEXT_BLACK};
+  background: transparent;
 `;

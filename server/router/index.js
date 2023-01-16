@@ -14,9 +14,10 @@ router.put("/updateUserData", userController.updateUserData);
 
 // Games
 router.get("/getGamesApi", gameController.getGamesApi);
+router.get("/getGameData/data", gameController.getGameData);
 router.get("/getTopGames", gameController.getTopGames);
 router.get("/search", gameController.getSearchedGames);
-router.get("/product", gameController.getProduct);
+router.get("/getFilteredGames", gameController.getFilteredGames);
 router.post("/addNewGame", gameController.addNewGame);
 router.put("/putNewDataCart", userController.putNewDataCart);
 router.put("/putGameInCart", userController.putGameInCart);

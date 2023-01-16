@@ -34,51 +34,7 @@ class GameService {
     await currentGame.save();
   }
 
-  async getFilteredGames(platform, criteria, genre, age, searchText) {
-    const allGames = await GameModel.find();
-
-    const games = allGames;
-
-    let gamesPlatform;
-
-    if (platform === "") {
-      gamesPlatform = games;
-    } else {
-      gamesPlatform = games.filter((game) => game.platform.includes(platform));
-    }
-
-    if (criteria) {
-      gamesPlatform = gamesPlatform.sort();
-    }
-
-    if (criteria === "price") {
-      gamesPlatform = gamesPlatform.sort(
-        (game1, game2) => game2.price - game1.price
-      );
-    }
-
-    if (criteria === "rating") {
-      gamesPlatform = gamesPlatform.sort(
-        (game1, game2) => game2.rating - game1.rating
-      );
-    }
-
-    if (genre) {
-      gamesPlatform = gamesPlatform.filter((game) => game.genre === genre);
-    }
-
-    if (age) {
-      gamesPlatform = gamesPlatform.filter((game) => game.age === age);
-    }
-
-    if (searchText) {
-      gamesPlatform = gamesPlatform.filter(({ name }) =>
-        name.toLowerCase().includes(searchText.toLowerCase())
-      );
-    }
-
-    return gamesPlatform;
-  }
+  async getFilteredGames(gamesData) {}
 }
 
 module.exports = new GameService();

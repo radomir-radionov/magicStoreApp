@@ -10,6 +10,7 @@ import {
 const initialState: IGameState = {
   games: [],
   gamesApi: [],
+  gameInfo: {},
   topGames: [],
   searchedGames: [],
   filteredGames: [],
@@ -22,8 +23,11 @@ const gameSlice = createSlice({
   reducers: {
     getGamesApi: () => {},
     setGamesApi: (state, { payload }: any) => {
-      const { data } = payload;
-      state.gamesApi = data.results;
+      state.gamesApi = payload;
+    },
+    getGameData: (state, { payload }: any) => {},
+    setGameData: (state, { payload }: any) => {
+      state.gameInfo = payload;
     },
     getTopGames: () => {},
     setTopGames: (state, { payload }: PayloadAction<IGame[]>) => {
@@ -33,11 +37,8 @@ const gameSlice = createSlice({
     setSearchedGames: (state, { payload }: PayloadAction<IGame[]>) => {
       state.searchedGames = payload;
     },
-    getFilteredGames: (
-      state,
-      { payload }: PayloadAction<IFilteredGamesParams>
-    ) => {},
-    setFilteredGames: (state, { payload }: PayloadAction<IGame[]>) => {
+    getFilteredGames: (state, payload) => {},
+    setFilteredGames: (state, { payload }: any) => {
       state.filteredGames = payload;
     },
     addNewGame: (state, { payload }: PayloadAction<INewGameData>) => {},

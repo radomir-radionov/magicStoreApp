@@ -1,5 +1,5 @@
 import { platforms } from "constants/filtersData";
-import { Form, Label, Select, Option } from "./styles";
+import { Form, Select, Option, Label } from "./styles";
 
 interface IPlatformFilterProps {
   searchParam: string;
