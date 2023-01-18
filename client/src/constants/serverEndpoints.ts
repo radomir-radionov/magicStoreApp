@@ -4,9 +4,13 @@ enum serverEndpoints {
   SIGN_IN = "signIn",
   SIGN_UP = "signUp",
   LOGOUT = "logout",
+
   GET_IMG = "getUserImg",
   UPDATE_USER_DATA = "updateUserData",
   GET_USER_DATA = "getUserData",
+
+  GAMES_API = "getGamesApi",
+  GAME_DATA = "/getGameData/data",
   TOP_GAMES = "getTopGames",
   ADD_NEW_GAME = "addNewGame",
   EDIT_GAME = "editGame",

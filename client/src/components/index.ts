@@ -6,3 +6,4 @@ export { default as Textarea } from "./Textarea/Textarea";
 export { default as InputCheckbox } from "./InputCheckbox/InputCheckbox";
 export { default as Spinner } from "./Spinner/Spinner";
 export { default as SocialLinks } from "./SocialLinks/SocialLinks";
+export { default as Select } from "./Select/Select";

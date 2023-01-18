@@ -5,6 +5,16 @@ const games = (state: RootState) => state.game;
 
 export const gamesSelector = createSelector(games, (state) => state.games);
 
+export const gamesApiSelector = createSelector(
+  games,
+  (state) => state.gamesApi
+);
+
+export const gameDataSelector = createSelector(
+  games,
+  (state) => state.gameInfo
+);
+
 export const topGamesSelector = createSelector(
   games,
   (state) => state.topGames

@@ -3,6 +3,7 @@ import { typography } from "styles";
 
 export const AboutStyled = styled.div`
   flex: 1;
+  min-height: 92vh;
   padding: 5rem;
 `;
 

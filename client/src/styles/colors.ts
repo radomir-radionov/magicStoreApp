@@ -29,7 +29,7 @@ enum colors {
   BOX_SHADOW = "rgba(0, 0, 0, 0.06)",
   WHITE = "white",
   BLACK = "black",
-  YELLOW = "yellow",
+  YELLOW = "#dbad4a",
   GRAY = "#909096",
   COLOR_RED = "#FD2155",
 }

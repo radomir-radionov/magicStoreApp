@@ -1,7 +1,6 @@
 import { useCallback, useEffect } from "react";
 import { StyledComponent } from "styled-components";
 
-// This hook should be used in the end of component
 export const useOnClickOutside = (
   element: StyledComponent<"div", any, {}, never> | any,
   handler: () => void

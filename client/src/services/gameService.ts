@@ -1,31 +1,31 @@
 import serverEndpoints from "constants/serverEndpoints";
-import { IEditGameData, IFilteredGamesParams, INewGameData } from "types/game";
+import { IEditGameData, INewGameData } from "types/game";
 import { httpService } from "../http/index";
 
 const gameService = {
+  getGamesApi: async () => {
+    const resp = await httpService.get(serverEndpoints.GAMES_API);
+    return resp.data;
+  },
+
+  getGameData: async (gameData: any) => {
+    const { gameId, gameName } = gameData.payload;
+    const resp = await httpService.get(
+      `${serverEndpoints.GAME_DATA}?id=${gameId}&name=${gameName}`
+    );
+    return resp.data;
+  },
   getTopGames: async () => {
     const response = await httpService.get(serverEndpoints.TOP_GAMES);
     return response.data;
   },
-  getFilteredGames: async ({
-    age,
-    criteria,
-    genre,
-    platform,
-    searchText,
-  }: IFilteredGamesParams) => {
-    const { data } = await httpService.get(
-      //will be fix soon
-      `${serverEndpoints.API_URL}/product?platform=${platform}&criteria=${criteria}&genre=${genre}&age=${age}&searchText=${searchText}`
+  getFilteredGames: async ({ payload }: any) => {
+    const { platform, criteria, genre, age, searchText } = payload;
+    console.log("getFilteredGames", searchText);
+    const resp = await httpService.get(
+      `${serverEndpoints.API_URL}/getFilteredGames?platform=${platform}&criteria=${criteria}&genre=${genre}&age=${age}&searchText=${searchText}`
     );
-    return data;
-  },
-  getSearchedGames: async (searchText: string) => {
-    const response = await httpService.get(
-      //will be fix soon
-      `${serverEndpoints.API_URL}/search?searchText=${searchText}`
-    );
-    return response.data;
+    return resp;
   },
   addNewGame: async (payload: INewGameData) => {
     const newGameData = payload;

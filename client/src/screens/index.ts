@@ -6,3 +6,6 @@ export { default as NotFound } from "./NotFound/NotFound";
 export { default as About } from "./About/About";
 export { default as Cart } from "./Cart/Cart";
 export { default as Protected } from "./ProtectedScreen/ProtectedScreen";
+export { default as GameInfo } from "./GameInfo/GameInfo";
+
+export { default as Test } from "./Test/Test";

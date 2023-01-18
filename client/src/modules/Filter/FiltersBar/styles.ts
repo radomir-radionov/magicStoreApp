@@ -1,20 +1,44 @@
+import { BsFilterCircle } from "react-icons/bs";
 import styled from "styled-components";
-import { colors, device, indents, typography } from "styles";
+import { colors, device } from "styles";
 
-export const FiltersBarStyled = styled.nav`
-  height: fit-content;
-  border-radius: 8px;
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+`;
 
-  @media (max-width: ${device.tablet}) {
-    display: none;
+export const FiltersBarStyled = styled.nav<any>`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+
+  @media (max-width: ${device.laptopM}) {
+    max-width: 60rem;
+  }
+
+  @media (max-width: ${device.laptop}) {
+    display: ${({ isBarShown }) => (isBarShown ? "flex" : "none")};
   }
 `;
 
-export const Title = styled.h3`
-  padding-left: ${indents.pl_1};
-  padding-bottom: 1rem;
-  margin-bottom: 3.1rem;
-  border-bottom: 1px solid white;
-  ${typography.H3}
-  color: ${colors.TEXT_1};
+export const Btn = styled.button`
+  display: none;
+
+  @media (max-width: ${device.laptop}) {
+    display: initial;
+  }
+`;
+
+export const IconStyled = styled(BsFilterCircle)`
+  width: 25px;
+  height: 25px;
+  color: white;
+  transition: color 0.5s;
+
+  &:hover {
+    color: ${colors.YELLOW};
+  }
 `;

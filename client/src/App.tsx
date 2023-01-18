@@ -6,6 +6,7 @@ import userSelector from "redux/user/selectors";
 import AppRouter from "routes/AppRouter";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainerStyled } from "styles/globalStyles";
+import { gameActions } from "redux/game";
 
 function App() {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ function App() {
   const isDataChangedOnServer = useSelector(userSelector.isDataChangedOnServer);
 
   useEffect(() => {
+    dispatch(gameActions.getGamesApi());
     if (localStorage.getItem("token")) {
       dispatch(userActions.checkAuth());
       id &&

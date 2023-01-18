@@ -4,6 +4,7 @@ export const LayoutStyled = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-height: 100%;
 `;
 
 export const LayoutPageStyled = styled.div`
@@ -14,5 +15,4 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 100vh;
 `;

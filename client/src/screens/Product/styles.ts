@@ -1,34 +1,23 @@
 import styled from "styled-components";
-import { colors, typography } from "styles";
+import { colors, device, typography } from "styles";
 
 export const ProductStyled = styled.div`
   display: flex;
-  flex: 1;
-  gap: 8rem;
-  width: 100%;
-  padding: 5rem;
-`;
-
-export const FilteredGames = styled.div`
-  position: relative;
-  display: flex;
   flex-direction: column;
-  width: 100%;
+  align-items: center;
+  gap: 4rem;
+  padding: 4rem;
+  min-height: 92vh;
 
-  @media (max-width: 600px) {
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
+  @media screen and (max-width: ${device.tablet}) {
+    padding: 1rem;
   }
 `;
 
-export const Title = styled.h3`
-  padding: 1rem;
-  margin-bottom: 4rem;
-  text-align: center;
-  ${typography.H3}
-  color: ${colors.TEXT_1};
-  border-bottom: 1px solid ${colors.TEXT_WHITE};
+export const Header = styled.header``;
+
+export const Title = styled.h2`
+  ${typography.H2}
 `;
 
 export const SpanStyled = styled.span`
@@ -38,4 +27,14 @@ export const SpanStyled = styled.span`
   text-align: center;
   border-radius: 30%;
   background-color: ${colors.BG_RED};
+`;
+
+export const CardList = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+  height: 100%;
 `;

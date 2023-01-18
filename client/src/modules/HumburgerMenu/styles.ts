@@ -47,7 +47,7 @@ export const Icon = styled.span<ComponentClickedProps>`
 export const HumburgerMenuStyled = styled.div`
   display: none;
 
-  @media (max-width: ${device.tablet}) {
+  @media (max-width: ${device.tabletM}) {
     display: initial;
   }
 `;
@@ -58,9 +58,9 @@ export const Wrapper = styled.div<any>`
   left: 0;
   display: none;
 
-  @media (max-width: ${device.tablet}) {
+  @media (max-width: ${device.tabletM}) {
     position: absolute;
-    top: 10rem;
+    top: 9rem;
     right: 0;
     z-index: 6;
     display: flex;

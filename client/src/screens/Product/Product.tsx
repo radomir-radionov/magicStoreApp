@@ -1,9 +1,8 @@
 import { Spinner } from "components";
-import { FiltersBar, Pagination, SearchBar } from "modules";
-import { memo } from "react";
+import { Card, FiltersBar, Pagination, SearchBar } from "modules";
 import { useSelector } from "react-redux";
 import { filteredGamesSelector, isLoadingSelector } from "redux/game/selectors";
-import { FilteredGames, ProductStyled, SpanStyled, Title } from "./styles";
+import { CardList, ProductStyled, SpanStyled, Header, Title } from "./styles";
 
 const Product = () => {
   const filteredGames = useSelector(filteredGamesSelector);
@@ -11,20 +10,23 @@ const Product = () => {
 
   return (
     <ProductStyled>
+      <Header>
+        <Title>All games</Title>
+      </Header>
+      <SearchBar />
       <FiltersBar />
-      <FilteredGames>
-        <SearchBar />
-        <Title>
-          Searched Games <SpanStyled>{filteredGames.length}</SpanStyled>
-        </Title>
+      <CardList>
         {isLoading ? (
           <Spinner />
         ) : filteredGames.length ? (
-          <Pagination games={filteredGames} itemsPerPage={3} />
+          filteredGames.map((game: any) => {
+            const { id } = game;
+            return <Card key={id} data={game} />;
+          })
         ) : (
           <p>No one game by this name!!!</p>
         )}
-      </FilteredGames>
+      </CardList>
     </ProductStyled>
   );
 };

@@ -4,6 +4,7 @@ import { colors, device, indents, typography } from "styles";
 export const FooterStyled = styled.footer`
   display: flex;
   justify-content: space-between;
+  min-height: 8vh;
   padding: ${indents.p_2};
   text-align: end;
   color: ${colors.TEXT_GRAY};
@@ -24,5 +25,7 @@ export const SocialLinksBox = styled.section`
 `;
 
 export const Text = styled.p`
+  display: flex;
+  align-items: center;
   ${typography.BODY2}
 `;
