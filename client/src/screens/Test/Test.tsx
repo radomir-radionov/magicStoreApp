@@ -1,24 +1,21 @@
-import Card from "modules/Game/Card/Card";
-import { useSelector } from "react-redux";
-import { gamesApiSelector } from "redux/game/selectors";
-import { TestStyled, Container, CardList } from "./styles";
+import { TestStyled } from "./styles";
+import { useClampText } from "use-clamp-text";
+
+const longText =
+  "Spicy jalapeno bacon ipsum dolor amet drumstick sirloin chuck shankle. Flank ribeye pancetta andouille ham hock. Turkey cow tenderloin landjaeger filet mignon hamburger. Pig tail strip steak pastrami t-bone venison bresaola biltong corned beef drumstick pork hamburger tri-tip. Tongue ham hock corned beef tri-tip meatball t-bone fatback andouille sirloin chuck jowl biltong pastrami. Ham hock ground round landjaeger tail strip steak. Ham sirloin pork loin salami spare ribs. Jerky cow short ribs ground round. Hamburger porchetta shankle meatloaf shank.";
 
 const Test = () => {
-  const games = useSelector(gamesApiSelector);
-  console.log(games);
+  const [ref, { noClamp, clampedText }] = useClampText({
+    text: longText,
+    ellipsis: "...",
+    expanded: true,
+  });
+  console.log(noClamp, clampedText);
+
   return (
     <TestStyled>
-      <Container>
-        <h1>Responsive column card Example</h1>
-        <h2>Resize the screen to see the below cards resize themselves</h2>
-        {/* <CardList>
-          {games.map((game: any) => {
-            const { id, ...data } = game;
-            console.log("games:", game);
-            return <Card key={id} data={data} />;
-          })}
-        </CardList> */}
-      </Container>
+      <h1>{noClamp ? "Not truncated" : "Truncated"}</h1>
+      <div>{clampedText}</div>
     </TestStyled>
   );
 };

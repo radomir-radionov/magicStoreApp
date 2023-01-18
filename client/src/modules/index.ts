@@ -7,10 +7,6 @@ export { default as GameItem } from "./Game/GameItem/GameItem";
 export { default as GameItemCart } from "./Game/GameItemCart/GameItemCart";
 export { default as GameRating } from "./Game/GameRating/GameRating";
 export { default as FiltersBar } from "./Filter/FiltersBar/FiltersBar";
-export { default as AgeFilter } from "./Filter/AgeFilter/AgeFilter";
-export { default as CriteriaFilter } from "./Filter/CriteriaFilter/CriteriaFilter";
-export { default as GenreFilter } from "./Filter/GenreFilter/GenreFilter";
-export { default as PlatformFilter } from "./Filter/PlatformFilter/PlatformFilter";
 export { default as Navigation } from "./Navigation/Navigation";
 export { default as CartTotalPanel } from "./CartTotalPanel/CartTotalPanel";
 export { default as Pagination } from "./Pagination/Pagination";
@@ -25,3 +21,5 @@ export { default as AuthorizationMenu } from "./AuthorizationMenu/AuthorizationM
 export { default as NavItem } from "./Navigation/NavItem/NavItem";
 export { default as MenuItem } from "./Profile/Menu/MenuItem/MenuItem";
 export { default as Card } from "./Game/Card/Card";
+export { default as Filter } from "./Filter/Filter";
+export { default as ClampledText } from "./ClampedText/ClampledText";

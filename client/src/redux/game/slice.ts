@@ -33,10 +33,6 @@ const gameSlice = createSlice({
     setTopGames: (state, { payload }: PayloadAction<IGame[]>) => {
       state.topGames = payload;
     },
-    getSearchedGames: (state, { payload }: PayloadAction<string>) => {},
-    setSearchedGames: (state, { payload }: PayloadAction<IGame[]>) => {
-      state.searchedGames = payload;
-    },
     getFilteredGames: (state, payload) => {},
     setFilteredGames: (state, { payload }: any) => {
       state.filteredGames = payload;

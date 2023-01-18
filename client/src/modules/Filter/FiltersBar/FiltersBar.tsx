@@ -1,21 +1,22 @@
-import {
-  AgeFilter,
-  CriteriaFilter,
-  GenreFilter,
-  PlatformFilter,
-} from "modules";
-import { useEffect } from "react";
+import { ages, criteries, genres, platforms } from "constants/filtersData";
+import { Filter } from "modules";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { gameActions } from "redux/game";
-import { Wrapper, FiltersBarStyled } from "./styles";
+import { Wrapper, Btn, FiltersBarStyled, IconStyled } from "./styles";
 
 const FiltersBar = () => {
   const dispatch = useDispatch();
+  const [isBarShown, setIsBarShown] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const onHandleClick = () => {
+    setIsBarShown(!isBarShown);
+  };
+
   const platform = searchParams.get("platform") || "all-platforms";
-  const criteria = searchParams.get("criteria") || "";
+  const criteria = searchParams.get("criteria") || "name";
   const genre = searchParams.get("genre") || "all-genres";
   const age = searchParams.get("age") || "everyone";
   const searchText = searchParams.get("searchText") || "";
@@ -31,20 +32,37 @@ const FiltersBar = () => {
   }, [dispatch, platform, criteria, genre, age, searchText]);
 
   return (
-    <FiltersBarStyled>
-      <Wrapper>
-        <PlatformFilter
+    <Wrapper>
+      <Btn onClick={onHandleClick}>
+        <IconStyled />
+      </Btn>
+      <FiltersBarStyled isBarShown={isBarShown}>
+        <Filter
+          param="platform"
+          data={platforms}
           searchParam={platform}
           onSelectedParams={onSelectedValues}
         />
-        <CriteriaFilter
+        <Filter
+          param="criteria"
+          data={criteries}
           searchParam={criteria}
           onSelectedParams={onSelectedValues}
         />
-        <GenreFilter searchParam={genre} onSelectedParams={onSelectedValues} />
-        <AgeFilter searchParam={age} onSelectedParams={onSelectedValues} />
-      </Wrapper>
-    </FiltersBarStyled>
+        <Filter
+          param="genre"
+          data={genres}
+          searchParam={genre}
+          onSelectedParams={onSelectedValues}
+        />
+        <Filter
+          param="age"
+          data={ages}
+          searchParam={age}
+          onSelectedParams={onSelectedValues}
+        />
+      </FiltersBarStyled>
+    </Wrapper>
   );
 };
 

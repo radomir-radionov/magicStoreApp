@@ -24,8 +24,10 @@ export function* getGamesApi(): any {
 
 export function* getGameData(payload: any): any {
   try {
+    yield put(gameActions.setLoading(true));
     const resp = yield call(() => gameService.getGameData(payload));
     yield put(gameActions.setGameData(resp));
+    yield put(gameActions.setLoading(false));
   } catch (e: any) {
     toast.error(e.response.data.message);
   }
@@ -40,30 +42,14 @@ export function* getTopGamesSaga() {
   }
 }
 
-export function* getSearchedGamesSaga({
-  payload,
-}: ReturnType<typeof gameActions.getSearchedGames>) {
-  try {
-    yield put(gameActions.setLoading(true));
-    const response: IGame[] = yield call(() =>
-      gameService.getSearchedGames(payload)
-    );
-    yield put(gameActions.setSearchedGames(response));
-    yield put(gameActions.setLoading(false));
-  } catch (e: any) {
-    yield put(gameActions.setLoading(false));
-    toast.error(e.response.data.message);
-  }
-}
-
 export function* getFilteredGamesSaga(payload: any) {
   try {
-    // yield put(gameActions.setLoading(true));
+    yield put(gameActions.setLoading(true));
     const resp: ResponseGenerator = yield call(() =>
       gameService.getFilteredGames(payload)
     );
     yield put(gameActions.setFilteredGames(resp.data));
-    // yield put(gameActions.setLoading(false));
+    yield put(gameActions.setLoading(false));
   } catch (e: any) {
     yield put(gameActions.setLoading(false));
     toast.error(e.response.data.message);
@@ -74,7 +60,9 @@ export function* addNewGameSaga({
   payload,
 }: ReturnType<typeof gameActions.addNewGame>) {
   try {
+    yield put(gameActions.setLoading(true));
     yield call(() => gameService.addNewGame(payload));
+    yield put(gameActions.setLoading(false));
     // yield put(gameActions.setLoading(true));
     // const response: IGame[] = yield call(() =>
     //   getFilteredGamesRequest(payload)
@@ -105,7 +93,6 @@ function* gameSaga() {
     takeLatest(gameActions.getGamesApi, getGamesApi),
     takeLatest(gameActions.getGameData, getGameData),
     takeLatest(gameActions.getTopGames, getTopGamesSaga),
-    takeLatest(gameActions.getSearchedGames, getSearchedGamesSaga),
     takeLatest(gameActions.getFilteredGames, getFilteredGamesSaga),
     takeLatest(gameActions.addNewGame, addNewGameSaga),
     takeLatest(gameActions.editGame, editGameSaga),

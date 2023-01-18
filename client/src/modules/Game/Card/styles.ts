@@ -8,7 +8,6 @@ export const CardStyled = styled.article<any>`
   justify-content: space-between;
   width: 25vw;
   height: 25vh;
-  margin: 1rem;
   border-radius: 15px;
   background-color: #262634;
   background: ${(props) => `url(${props.imgUrl})`};
@@ -32,7 +31,7 @@ export const CardStyled = styled.article<any>`
   }
 `;
 
-export const Meta = styled.div`
+export const Meta = styled.section`
   display: flex;
   justify-content: space-between;
   padding: 10px;

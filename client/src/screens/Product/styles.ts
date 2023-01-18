@@ -5,26 +5,12 @@ export const ProductStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  width: 100%;
+  gap: 4rem;
   padding: 4rem;
   min-height: 92vh;
 
   @media screen and (max-width: ${device.tablet}) {
     padding: 1rem;
-  }
-`;
-
-export const FilteredGames = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-
-  @media (max-width: 600px) {
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
   }
 `;
 
@@ -47,5 +33,8 @@ export const CardList = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  gap: 4rem;
   width: 100%;
+  height: 100%;
 `;

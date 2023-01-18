@@ -14,7 +14,6 @@ interface IGameProps {
 }
 
 const GameList = ({ games, kindOfGames }: any) => {
-  console.log(games);
   return (
     <GameListStyled display={games?.length}>
       {games.map((game: any) => {

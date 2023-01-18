@@ -21,17 +21,11 @@ const gameService = {
   },
   getFilteredGames: async ({ payload }: any) => {
     const { platform, criteria, genre, age, searchText } = payload;
+    console.log("getFilteredGames", searchText);
     const resp = await httpService.get(
       `${serverEndpoints.API_URL}/getFilteredGames?platform=${platform}&criteria=${criteria}&genre=${genre}&age=${age}&searchText=${searchText}`
     );
     return resp;
-  },
-  getSearchedGames: async (searchText: string) => {
-    const response = await httpService.get(
-      //will be fix soon
-      `${serverEndpoints.API_URL}/search?searchText=${searchText}`
-    );
-    return response.data;
   },
   addNewGame: async (payload: INewGameData) => {
     const newGameData = payload;

@@ -60,7 +60,7 @@ export const Wrapper = styled.div<any>`
 
   @media (max-width: ${device.tabletM}) {
     position: absolute;
-    top: 10rem;
+    top: 9rem;
     right: 0;
     z-index: 6;
     display: flex;
