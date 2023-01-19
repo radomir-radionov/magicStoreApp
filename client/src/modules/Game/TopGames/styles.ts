@@ -5,6 +5,7 @@ export const TopGamesStyled = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 3rem;
   margin-bottom: 10rem;
 `;
 
@@ -17,4 +18,11 @@ export const Title = styled.h2`
     font-size: 3.8rem;
     line-height: 3rem;
   }
+`;
+
+export const List = styled.ul`
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  flex-wrap: wrap;
 `;

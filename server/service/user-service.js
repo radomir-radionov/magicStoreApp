@@ -84,22 +84,6 @@ class UserService {
     });
   }
 
-  async putNewDataCart(id) {
-    await User.findByIdAndUpdate(id, {
-      cart: [],
-    });
-    return true;
-  }
-
-  async putGameInCart(id, game) {
-    const { cart } = await User.findById(id);
-    cart.push(game);
-    await User.findByIdAndUpdate(id, {
-      cart: cart,
-    });
-    return true;
-  }
-
   async deleteGameInCart(id, gameId) {
     const { cart } = await User.findById(id);
     const cartFiltered = cart.filter((game) => game._id.valueOf() !== gameId);

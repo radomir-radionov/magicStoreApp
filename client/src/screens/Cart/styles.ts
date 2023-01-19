@@ -38,5 +38,7 @@ export const SpanStyled = styled.span`
 `;
 
 export const GameListWrapper = styled.div`
-  min-height: 40rem;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
 `;

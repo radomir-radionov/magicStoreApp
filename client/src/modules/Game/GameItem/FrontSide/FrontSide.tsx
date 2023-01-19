@@ -24,7 +24,7 @@ const FrontSide = ({ game }: IFrontSideProps) => {
 
   const { _id, img, name, price, rating } = game;
 
-  const isInCart = cart?.find((cart) => cart._id === _id);
+  const isInCart = cart?.find((cart: any) => cart._id === _id);
 
   const dataPlatforms = game.platform.map((itemPlatform: any) => ({
     name: itemPlatform,

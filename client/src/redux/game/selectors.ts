@@ -15,9 +15,9 @@ export const gameDataSelector = createSelector(
   (state) => state.gameInfo
 );
 
-export const topGamesSelector = createSelector(
+export const topGamesApiSelector = createSelector(
   games,
-  (state) => state.topGames
+  (state) => state.topGamesApi
 );
 
 export const searchedGamesSelector = createSelector(

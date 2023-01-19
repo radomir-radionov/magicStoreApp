@@ -22,7 +22,9 @@ export function* getGamesApi(): any {
   }
 }
 
-export function* getGameData(payload: any): any {
+export function* getGameData(
+  payload: ReturnType<typeof gameActions.getGameData>
+): any {
   try {
     yield put(gameActions.setLoading(true));
     const resp = yield call(() => gameService.getGameData(payload));
@@ -33,16 +35,20 @@ export function* getGameData(payload: any): any {
   }
 }
 
-export function* getTopGamesSaga() {
+export function* getTopGamesApiSaga() {
   try {
-    const response: IGame[] = yield call(() => gameService.getTopGames());
-    yield put(gameActions.setTopGames(response));
+    const res: ResponseGenerator = yield call(() =>
+      gameService.getTopGamesApi()
+    );
+    yield put(gameActions.setTopGamesApi(res));
   } catch (e: any) {
     toast.error(e.response.data.message);
   }
 }
 
-export function* getFilteredGamesSaga(payload: any) {
+export function* getFilteredGamesSaga(
+  payload: ReturnType<typeof gameActions.getFilteredGames>
+) {
   try {
     yield put(gameActions.setLoading(true));
     const resp: ResponseGenerator = yield call(() =>
@@ -92,7 +98,7 @@ function* gameSaga() {
   yield all([
     takeLatest(gameActions.getGamesApi, getGamesApi),
     takeLatest(gameActions.getGameData, getGameData),
-    takeLatest(gameActions.getTopGames, getTopGamesSaga),
+    takeLatest(gameActions.getTopGamesApi, getTopGamesApiSaga),
     takeLatest(gameActions.getFilteredGames, getFilteredGamesSaga),
     takeLatest(gameActions.addNewGame, addNewGameSaga),
     takeLatest(gameActions.editGame, editGameSaga),

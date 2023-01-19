@@ -1,12 +1,21 @@
-import { all, call, put, takeLatest } from "redux-saga/effects";
+import {
+  all,
+  call,
+  put,
+  select,
+  StrictEffect,
+  takeLatest,
+} from "redux-saga/effects";
 import { userActions } from "./slice";
 import { IUser } from "types/user";
 import { userService } from "services";
 import { toast } from "react-toastify";
+import { ResponseGenerator } from "redux/game/saga";
+import user from "./selectors";
 
-export function* checkAuthSaga(): any {
+export function* checkAuthSaga() {
   try {
-    const { data }: any = yield call(() => userService.isAuth());
+    const { data } = yield call(() => userService.isAuth());
     const { accessToken, userData } = data;
     localStorage.setItem("token", accessToken);
     yield put(userActions.setUserId(userData.id));
@@ -20,7 +29,7 @@ export function* registrationSaga({
   payload,
 }: ReturnType<typeof userActions.registration>): any {
   try {
-    const { data }: any = yield call(() => userService.signUp(payload));
+    const { data } = yield call(() => userService.signUp(payload));
     const { userData, message } = data;
     localStorage.setItem("token", userData.accessToken);
     const resp = yield call(() =>
@@ -64,9 +73,9 @@ export function* logoutSaga() {
 
 export function* updateUserDataSaga({
   payload,
-}: ReturnType<typeof userActions.changeUserData>): any {
+}: ReturnType<typeof userActions.changeUserData>) {
   try {
-    const { data }: any = yield call(() => userService.updateUserData(payload));
+    const { data } = yield call(() => userService.updateUserData(payload));
     const { message } = data;
     yield put(userActions.isDataChangedOnServer(true));
     toast.success(message);
@@ -77,7 +86,7 @@ export function* updateUserDataSaga({
 
 export function* getUserDataSaga({
   payload,
-}: ReturnType<typeof userActions.getUserData>): any {
+}: ReturnType<typeof userActions.getUserData>) {
   try {
     const { data } = yield call(() => userService.getUserData(payload));
     yield put(userActions.setUser(data));
@@ -86,12 +95,27 @@ export function* getUserDataSaga({
   }
 }
 
-export function* setGameInCartSaga({
-  payload,
-}: ReturnType<typeof userActions.setGameInCart>) {
+export function* getUserCartSaga() {
   try {
-    const { data } = yield call(() => userService.putGameInCart(payload));
-    const { isDataChanged, message } = data;
+    const userId: string = yield select(user.id);
+    const { data } = yield call(() => userService.getUserCart(userId));
+    yield put(userActions.setGamesToCart(data));
+    // toast.success(message);
+  } catch (e: any) {
+    // toast.error(e.response.data.message);
+  }
+}
+
+export function* setGameToCartSaga({
+  payload,
+}: ReturnType<typeof userActions.setGameToCart>) {
+  try {
+    const userId: string = yield select(user.id);
+    const gameId = payload;
+    const data = { userId, gameId };
+    const { isDataChanged, message } = yield call(() =>
+      userService.setGameInCart(data)
+    );
     yield put(userActions.isDataChangedOnServer(isDataChanged));
     toast.success(message);
   } catch (e: any) {
@@ -116,10 +140,10 @@ export function* buyCartGamesSaga({
   payload,
 }: ReturnType<typeof userActions.buyCartGames>) {
   try {
-    const { data } = yield call(() => userService.putNewDataCart(payload));
-    const { isCartDataChanged, message } = data;
-    yield put(userActions.isDataChangedOnServer(isCartDataChanged));
-    toast.success(message);
+    // const { data } = yield call(() => userService.putNewDataCart(payload));
+    // const { isCartDataChanged, message } = data;
+    // yield put(userActions.isDataChangedOnServer(isCartDataChanged));
+    // toast.success(message);
   } catch (e: any) {
     toast.error(e.response.data.message);
   }
@@ -133,8 +157,9 @@ export default function* userSaga() {
     takeLatest(userActions.checkAuth, checkAuthSaga),
     takeLatest(userActions.getUserData, getUserDataSaga),
     takeLatest(userActions.changeUserData, updateUserDataSaga),
+    takeLatest(userActions.getUserCart, getUserCartSaga),
     takeLatest(userActions.removeGameInCart, removeGameInCartSaga),
-    takeLatest(userActions.setGameInCart, setGameInCartSaga),
+    takeLatest(userActions.setGameToCart, setGameToCartSaga),
     takeLatest(userActions.buyCartGames, buyCartGamesSaga),
   ]);
 }

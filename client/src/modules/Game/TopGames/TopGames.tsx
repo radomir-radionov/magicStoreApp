@@ -1,24 +1,20 @@
-import { useEffect } from "react";
-import { GameList } from "modules";
-import { useDispatch, useSelector } from "react-redux";
-import { gameActions } from "redux/game";
-import { topGamesSelector } from "redux/game/selectors";
-import { Title, TopGamesStyled } from "./styles";
+import { Card } from "modules";
+import { useSelector } from "react-redux";
+import { topGamesApiSelector } from "redux/game/selectors";
+import { List, Title, TopGamesStyled } from "./styles";
 
 const TopGames = () => {
-  const dispatch = useDispatch();
-  const topGames = useSelector(topGamesSelector);
-
-  useEffect(() => {
-    if (!topGames.length) {
-      dispatch(gameActions.getTopGames());
-    }
-  }, [dispatch, topGames]);
+  const topGames = useSelector(topGamesApiSelector);
 
   return (
     <TopGamesStyled>
       <Title>Gamer's choise</Title>
-      <GameList games={topGames} />
+      <List>
+        {topGames.map((game: any) => {
+          const { id } = game;
+          return <Card key={id} data={game} />;
+        })}
+      </List>
     </TopGamesStyled>
   );
 };

@@ -37,7 +37,6 @@ class GameService {
 
   async getFilteredGames(queryParams) {
     const { platform, criteria, genre, age, searchText } = queryParams;
-    console.log("searchText:", searchText);
     try {
       const resp = await axios.get(
         `https://api.rawg.io/api/games?key=${process.env.GAME_API_KEY}`

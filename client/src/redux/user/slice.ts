@@ -44,10 +44,11 @@ export const userSlice = createSlice({
       state.isDataChangedOnServer = payload;
     },
     uploadImg: (state, { payload }) => {},
-    setGameInCart: (
-      state,
-      { payload }: PayloadAction<IPutGameInCartData>
-    ) => {},
+    getUserCart: () => {},
+    setGameToCart: (state, payload) => {},
+    setGamesToCart: (state, { payload }: any) => {
+      state.userData.cart = payload;
+    },
     removeGameInCart: (
       state,
       { payload }: PayloadAction<IDeleteGameCartData>

@@ -3,8 +3,6 @@ import serverEndpoints from "constants/serverEndpoints";
 import {
   IChangeUserData,
   IDeleteGameCartData,
-  INewCartData,
-  IPutGameInCartData,
   ISignInData,
 } from "redux/user/types";
 import { IAuthResponse, ISignUpData } from "types/auth";
@@ -54,20 +52,13 @@ const userService = {
     );
     return resp;
   },
-  putGameInCart: async ({ id, game }: IPutGameInCartData) => {
-    const response = await httpService.put("/putGameInCart", {
-      id,
-      game,
-    });
-
-    return response;
+  getUserCart: async (id: any) => {
+    const res = await httpService.get(`/${id}/getUserCart`);
+    return res;
   },
-  putNewDataCart: async ({ id, cartGames }: INewCartData) => {
-    const response = await httpService.put("/putNewDataCart", {
-      id,
-      cartGames,
-    });
-    return response;
+  setGameInCart: async (payload: any) => {
+    const res = await httpService.post("/setGameInCart", payload);
+    return res.data;
   },
   deleteGameCart: async ({ id, game }: IDeleteGameCartData) => {
     const response = await httpService.delete(

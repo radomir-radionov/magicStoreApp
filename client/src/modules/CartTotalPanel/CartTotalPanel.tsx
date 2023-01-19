@@ -8,8 +8,11 @@ const CartTotalPanel = () => {
   const id = useSelector(userSelector.id);
   const cartGames = useSelector(userSelector.cart);
 
-  const arrayOfGamePrices = cartGames?.map((game) => +game.price);
-  const totalCost = arrayOfGamePrices?.reduce((sum, game) => sum + game, 0);
+  const arrayOfGamePrices = cartGames?.map((game: any) => +game.price);
+  const totalCost = arrayOfGamePrices?.reduce(
+    (sum: any, game: any) => sum + game,
+    0
+  );
 
   const onClickBuyGames = () => {
     dispatch(userActions.buyCartGames({ id, cartGames }));
