@@ -2,6 +2,8 @@
 
 ## "M-store" is a store presents an unbelievable experience by Radomir.
 
+***Don't forget about star***
+
 SPA app with client-server architecture.
 1. Has developed Authorization/Registration, JWT.
 2. User's personal account(name, description, profile image, role) with the ability to edit.
@@ -33,5 +35,4 @@ cd ..
 npm run dev
 ```
 
-***Don't forget about star***
 
