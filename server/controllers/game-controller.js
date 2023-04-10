@@ -28,42 +28,21 @@ class GameController {
     }
   }
 
-  async getTopGames(req, res, next) {
+  async getTopGamesApi(req, res, next) {
     try {
-      const gamesData = await GameModel.find();
-      const filteredDataGames = gamesData
+      const resp = await axios.get(
+        `https://api.rawg.io/api/games?key=${process.env.GAME_API_KEY}`
+      );
+
+      const gamesDataApi = resp.data.results;
+      const filteredGames = gamesDataApi
         .sort((game1, game2) => game2.rating - game1.rating)
         .slice(0, 3);
-      res.status(200).json(filteredDataGames);
+
+      return res.send(filteredGames);
     } catch (e) {
       next(e);
     }
-  }
-
-  async getSearchedGames(req, res, next) {
-    const { searchText } = req.query;
-    const gamesData = await GameModel.find();
-
-    if (!searchText) {
-      return res.status(200).send([]);
-    }
-
-    if (searchText !== "") {
-      if (
-        gamesData.find(
-          (game) =>
-            game.name.toLowerCase().indexOf(searchText.toLowerCase()) > -1
-        )
-      ) {
-        const filteredGames = gamesData.filter(({ name }) =>
-          name.toLowerCase().includes(searchText.toLowerCase())
-        );
-        return res.status(200).send(filteredGames);
-      }
-      return res.status(201).end();
-    }
-
-    return res.status(200);
   }
 
   async addNewGame(req, res, next) {

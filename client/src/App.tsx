@@ -15,6 +15,7 @@ function App() {
 
   useEffect(() => {
     dispatch(gameActions.getGamesApi());
+    dispatch(gameActions.getTopGamesApi());
     if (localStorage.getItem("token")) {
       dispatch(userActions.checkAuth());
       id &&

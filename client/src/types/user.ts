@@ -7,7 +7,7 @@ export interface IUser {
   name: string;
   description: string;
   avatar: any;
-  cart: IGame[];
+  cart: any;
   img: any;
 }
 

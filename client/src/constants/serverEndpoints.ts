@@ -11,7 +11,7 @@ enum serverEndpoints {
 
   GAMES_API = "getGamesApi",
   GAME_DATA = "/getGameData/data",
-  TOP_GAMES = "getTopGames",
+  TOP_GAMES_API = "getTopGamesApi",
   ADD_NEW_GAME = "addNewGame",
   EDIT_GAME = "editGame",
 }

@@ -19,7 +19,7 @@ const BackSide = ({ game }: IBackSideProps) => {
   const { description, age } = game;
 
   const onClickAddGameInCart = () => {
-    dispatch(userActions.setGameInCart({ id, game }));
+    dispatch(userActions.setGameToCart({ id, game }));
   };
 
   const onClickEditGame = () => {
@@ -31,7 +31,7 @@ const BackSide = ({ game }: IBackSideProps) => {
     );
   };
 
-  const isEven = cart?.some((cartGame) => cartGame._id === game._id);
+  const isEven = cart?.some((cartGame: any) => cartGame._id === game._id);
 
   return (
     <>

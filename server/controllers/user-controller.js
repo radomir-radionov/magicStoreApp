@@ -1,3 +1,4 @@
+const axios = require("axios");
 const userService = require("../service/user-service");
 const { validationResult } = require("express-validator");
 const ApiError = require("../exceptions/api-error");
@@ -127,13 +128,41 @@ class UserController {
     }
   }
 
-  async putGameInCart(req, res, next) {
+  async getUserCart(req, res, next) {
     try {
-      const { id, game } = req.body;
-      const isDataChanged = await userService.putGameInCart(id, game);
-      return res
-        .status(200)
-        .send({ isDataChanged, message: "Game saved in your cart!" });
+      const { id } = req.params;
+      const { cart } = await userModel.findById(id);
+
+      const cartGames = await Promise.all(
+        cart.map(async ({ data }) => {
+          const res = await axios.get(
+            `https://api.rawg.io/api/games/${data}?key=${process.env.GAME_API_KEY}`
+          );
+          return res.data;
+        })
+      );
+      console.log(cartGames);
+      return res.send(cartGames);
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  async setGameInCart(req, res, next) {
+    try {
+      const { userId, gameId } = req.body;
+      const { cart } = await userModel.findById(userId);
+      const gameData = { data: gameId };
+      cart.push(gameData);
+
+      await userModel.findByIdAndUpdate(userId, {
+        cart: cart,
+      });
+
+      // res.send({
+      //   isDataChanged: true,
+      //   message: "The game has been added to cart",
+      // });
     } catch (e) {
       next(e);
     }
@@ -146,19 +175,6 @@ class UserController {
       return res
         .status(200)
         .send({ isDataChanged, message: "The game has been removed" });
-    } catch (e) {
-      next(e);
-    }
-  }
-
-  async putNewDataCart(req, res, next) {
-    try {
-      const { id } = req.body;
-      const isCartDataChanged = await userService.putNewDataCart(id);
-      return res.status(200).send({
-        isCartDataChanged,
-        message: "Congratulations on purchasing!",
-      });
     } catch (e) {
       next(e);
     }

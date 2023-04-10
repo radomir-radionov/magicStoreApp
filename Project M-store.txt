@@ -1,0 +1,129 @@
+do animation for text 
+make a differnets build for  project
+Filters " not corrrect when genres and age
+if game in cart and  we changed a game data then we have to different datas for one game
+
+
+DESCRIPTION
+
+cartpage!!!!
+
+in the app component i have useEffect where make a response to the server for get cart data to current user  
+on the product page i have a lot of games and if i click btn "add to cart" on any game i will dispathc action  
+"setGameInCart" on this action  i have a saga where i send a request on the server and add this game in db there  
+and in this saga i have dispathched  action "setDataChangedOnServer" and if "isSetDataChangedOnServer" equals true  
+then i make a request on the server in the app compoennt when i click btn remove on the GameItemCart i have  dispatched 
+action removeGameInCart and   send request on the serveer and change field:"isSetDataChangedOnServer" in user state so i have  
+request from app compoennt searchParams.set(key, searchParam);
+ 
+
+filters!!!!
+
+i have a state for my params i define and change this state by useSearchParams method from react-router-dom
+```  const [searchParams, setSearchParams] = useSearchParams(); ```
+then i get param that i need for example  
+```  const platform = searchParams.get("platform") || ""; ```
+but i also need set param in state and for this i use next function 
+```
+ const onSelectedValues = (key: string, newParamValue: string) => {
+    searchParams.set(key, newParamValue);
+    setSearchParams(searchParams);
+  };
+```
+
+then i create a component with will use this param and change it  
+for example i have PlatformFilter component which gets 2 props are    
+searchParam(current value of param that need change in  
+this component) and onSelectedParams(onSelectedValues function that need to change a state)  
+as a value of input field i use searchParam and change it with help    
+onSelectedParams( where i set a key(name of parametr in the state that  
+i will change) and current value)
+
+every time when one of this param have been changed  i send a request thet i  put in useEffect hook
+
+```
+  useEffect(() => {
+    const requestData = { age, criteria, genre, platform, searchText };
+    dispatch(gameActions.getFilteredGames(requestData));
+  }, [dispatch, age, criteria, genre, platform, searchText]);
+```
+
+
+userService
+ example1: async () => {
+    const { data } = await httpService.get(userEndpoint);
+    return data;
+  },
+
+
+!!!know how modal work!!!
+
+I have MODAL_TYPES in modalTypes.ts where I have a list of names for every modal these name use as type  
+also I have MODALS_MAPPING  it is an object where  for every key as a value I use a component 
+
+as a result when I  want to use any modal for example  in Greeting.tsx  I have a button and handler for this button  
+when a button clicked I make dispatch
+```
+const onClickSignInModal = () => {
+    dispatch(
+      modalActionTypes.openModal({ modalType: MODAL_TYPES.SIGN_IN_MODAL })
+    );
+  };
+
+```
+and indicate type of modal wich I will use when I did it in my store I save a type of modal and  in Modal.tsx I am getting this type  
+and use it
+```
+const Modal = () => {
+  const dispatch = useDispatch();
+  const modalType: string = useSelector(modalTypeSelector);
+  const ModalComponent = MODALS_MAPPING[modalType];
+
+  const closeModal = () => {
+    dispatch(modalActionTypes.closeModal());
+  };
+
+  return (
+    <>
+      {modalType && (
+        <ModalWrapper>
+          <ModalComponent onClose={closeModal} />
+        </ModalWrapper>
+      )}
+    </>
+  );
+};
+
+export default Modal;
+```
+
+`````````````````````````````````````````````````````````````````
+import { useCallback, useEffect } from "react";
+import { StyledComponent } from "styled-components";
+
+// This hook should be used in the end of component
+export const useOnClickOutside = (
+  element: StyledComponent<"div", any, {}, never>,
+  handler: () => void
+) => {
+  const clickAwayListener = useCallback(
+    (event: globalThis.MouseEvent) => {
+      const target = event.target as HTMLElement;
+
+      if (!target.closest(element)) {
+        handler();
+      }
+    },
+    [element, handler]
+  );
+
+  useEffect(() => {
+    document.addEventListener("click", clickAwayListener);
+
+    return () => {
+      document.removeEventListener("click", clickAwayListener);
+    };
+  }, [clickAwayListener]);
+};
+`````````````````````````````````````````````````````````````````
+

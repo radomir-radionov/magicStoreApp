@@ -4,24 +4,23 @@ import { httpService } from "../http/index";
 
 const gameService = {
   getGamesApi: async () => {
-    const resp = await httpService.get(serverEndpoints.GAMES_API);
-    return resp.data;
+    const res = await httpService.get(serverEndpoints.GAMES_API);
+    return res.data;
   },
 
   getGameData: async (gameData: any) => {
     const { gameId, gameName } = gameData.payload;
-    const resp = await httpService.get(
+    const res = await httpService.get(
       `${serverEndpoints.GAME_DATA}?id=${gameId}&name=${gameName}`
     );
-    return resp.data;
+    return res.data;
   },
-  getTopGames: async () => {
-    const response = await httpService.get(serverEndpoints.TOP_GAMES);
-    return response.data;
+  getTopGamesApi: async () => {
+    const res = await httpService.get(serverEndpoints.TOP_GAMES_API);
+    return res.data;
   },
   getFilteredGames: async ({ payload }: any) => {
     const { platform, criteria, genre, age, searchText } = payload;
-    console.log("getFilteredGames", searchText);
     const resp = await httpService.get(
       `${serverEndpoints.API_URL}/getFilteredGames?platform=${platform}&criteria=${criteria}&genre=${genre}&age=${age}&searchText=${searchText}`
     );

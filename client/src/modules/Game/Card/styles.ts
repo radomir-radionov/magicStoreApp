@@ -6,8 +6,10 @@ export const CardStyled = styled.article<any>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 25vw;
-  height: 25vh;
+  width: 26vw;
+  height: 26vh;
+  max-width: 46rem;
+  max-height: 25vh;
   border-radius: 15px;
   background-color: #262634;
   background: ${(props) => `url(${props.imgUrl})`};
@@ -37,15 +39,19 @@ export const Meta = styled.section`
   padding: 10px;
 `;
 
-export const Heading = styled.div`
-  z-index: 0;
+export const Description = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 35%;
+  justify-content: space-between;
+  min-height: 12rem;
   padding: 10px;
   border-radius: 0 0 15px 15px;
   background-color: rgba(0, 0, 0, 0.7);
+`;
+
+export const Snippet = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const Platforms = styled.div``;
@@ -59,17 +65,30 @@ export const Score = styled.div`
 `;
 
 export const Price = styled.p`
-  z-index: 1;
-  font-size: 1.5rem;
+  font-size: 2rem;
 `;
 
 export const NavLinkStyled = styled(NavLink)`
-  z-index: 1;
   font-size: 2.2rem;
   font-weight: 700;
   transition: all 0.2s ease-out;
 
   @media (max-width: ${device.laptop}) {
     font-size: 3rem;
+  }
+`;
+
+export const PurchaseAction = styled.div``;
+
+export const Btn = styled.button`
+  width: 9.4rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  border: 1px solid white;
+
+  &:hover {
+    color: #08fdd8;
+    border: 1px solid #08fdd8;
+    transition: color 1s;
   }
 `;

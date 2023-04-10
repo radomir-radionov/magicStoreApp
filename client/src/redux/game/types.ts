@@ -4,7 +4,7 @@ export interface IGameState {
   games: IGame[];
   gamesApi: any;
   gameInfo: any;
-  topGames: IGame[];
+  topGamesApi: any;
   searchedGames: IGame[];
   filteredGames: IGame[];
   loading: boolean;

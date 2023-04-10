@@ -1,6 +1,9 @@
-import { CartTotalPanel, Pagination } from "modules";
+import { Card, CartTotalPanel, Pagination } from "modules";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import userSelector from "redux/user/selectors";
+import { userActions } from "redux/user";
+import { userCartSelector } from "redux/user/selectors";
 import {
   CartStyled,
   Title,
@@ -10,7 +13,13 @@ import {
 } from "./styles";
 
 const Cart = () => {
-  const cartGames = useSelector(userSelector.cart);
+  const dispatch = useDispatch();
+  const cartGames = useSelector(userCartSelector);
+  console.log("cartGames:", cartGames);
+
+  useEffect(() => {
+    dispatch(userActions.getUserCart());
+  }, [dispatch]);
 
   return (
     <CartStyled>
@@ -20,11 +29,13 @@ const Cart = () => {
         <SpanStyled>{cartGames?.length || 0}</SpanStyled>
       </Title>
       <GameListWrapper>
-        <Pagination
+        {cartGames?.map((game: any) => (
+          <Card key={Math.random()} data={game} />
+        ))}
+        {/* <Pagination
           itemsPerPage={4}
           games={cartGames}
-          kindOfGames="cartGames"
-        />
+        /> */}
       </GameListWrapper>
       <CartTotalPanel />
     </CartStyled>

@@ -11,7 +11,7 @@ const initialState: IGameState = {
   games: [],
   gamesApi: [],
   gameInfo: {},
-  topGames: [],
+  topGamesApi: [],
   searchedGames: [],
   filteredGames: [],
   loading: false,
@@ -29,9 +29,9 @@ const gameSlice = createSlice({
     setGameData: (state, { payload }: any) => {
       state.gameInfo = payload;
     },
-    getTopGames: () => {},
-    setTopGames: (state, { payload }: PayloadAction<IGame[]>) => {
-      state.topGames = payload;
+    getTopGamesApi: () => {},
+    setTopGamesApi: (state, { payload }: any) => {
+      state.topGamesApi = payload;
     },
     getFilteredGames: (state, payload) => {},
     setFilteredGames: (state, { payload }: any) => {
