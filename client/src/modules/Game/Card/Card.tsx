@@ -27,7 +27,7 @@ const Card = ({ data }: ICardProps) => {
     dispatch(userActions.setGameToCart(id));
   };
 
-  const isGameInCart = cartGames.some((game: any) => game.data === id);
+  const isGameInCart = cartGames?.some((game: any) => game.data === id);
 
   return (
     <CardStyled key={id} imgUrl={background_image}>
